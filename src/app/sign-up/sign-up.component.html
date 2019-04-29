@@ -1,0 +1,205 @@
+
+<app-header></app-header>
+
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Register</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#.">Home</a> / <span>Register</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<div class="listpgWraper">
+  <div class="container">
+    <div class="row">
+      <div class="login-signup-page">
+        <div class="userccount">
+          <div class="login-form-1-header">
+            <h3>Create Your Dhaar Account</h3>
+            <ul class="logic-from-1-sl">
+                <li><a href="">
+                    <!-- <i class="fab fa-facebook-f"></i> -->
+                    <img src="../../assets/images/icon-facebook.png">
+                  </a></li>
+                  <li><a href="">
+                    <!-- <i class="fab fa-twitter"></i> -->
+                    <img src="../../assets/images/icon_twitter.png">
+                  </a></li>
+                  <li><a href="">
+                    <!-- <i class="fab fa-google-plus-g"></i> -->
+                    <img src="../../assets/images/icon-Google.png">
+                  </a></li>
+            </ul>
+          </div>
+
+          <!--<div class="alert alert-success" role="alert"><strong>Well done!</strong> Your account successfully created.</div>-->
+          <!--<div class="alert alert-warning" role="alert"><strong>Warning!</strong> Better check yourself, you're not looking too good.</div>-->
+          <!--<div class="alert alert-danger" role="alert"><strong>Oh snap!</strong> Change a few things up and try submitting again.</div>-->
+          <!--<div class="userbtns">-->
+            <!--<ul class="nav nav-tabs">-->
+              <!--<li class="active"><a data-toggle="tab" href="#wsell">I want to sell</a></li>-->
+              <!--<li><a data-toggle="tab" href="#wbuy">I want to buy</a></li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          <div class="tab-content">
+            <div *ngIf="registration_ok==true" class="alert alert-success">
+              <strong>Success!</strong> Account created <a [routerLink]="['/login']">  click here to login.</a>
+            </div>
+            <div *ngIf="registration_error==true" class="alert alert-danger">
+              <strong>Error!</strong> Account creation failed please try again.
+            </div>
+            <div *ngIf="EmailPosterror==true" class="alert alert-danger">
+              <strong>Error!</strong> Invalid email format.
+            </div>
+            <div id="wsell" class="formpanel tab-pane fade in active">
+              <form role="form" class="login-form" (ngSubmit)="f.form.valid && captcha && register()" #f="ngForm" novalidate>
+
+                
+                  <div class="formrow label-overlay">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !FName.valid }">
+                        <div *ngIf="f.submitted && !FName.valid" class="help-block">First Name is required</div>
+                        <input type="text" class="form-control" name="FName" placeholder="First Name" [(ngModel)]="model.FName" #FName="ngModel" required>
+                      </div><!-- End .form-group -->
+                </div>
+                <div class="formrow label-overlay">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LName.valid }">
+                      <div *ngIf="f.submitted && !LName.valid" class="help-block">Last Name is required</div>
+                      <input type="text" class="form-control" name="LName" placeholder="Last Name" [(ngModel)]="model.LName" #LName="ngModel" required>
+                    </div><!-- End .form-group -->
+                  </div>
+                  <div class="formrow label-overlay">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Mobile.valid }">
+                        <div *ngIf="f.submitted && !Mobile.valid" class="help-block">Mobile is required</div>
+                        <input type="text" class="form-control" name="Mobile" placeholder="Mobile Number" [textMask]="{mask: mask}" [(ngModel)]="model.Mobile" #Mobile="ngModel" required>
+                      </div><!-- End .form-group -->
+                      <!--[textMask]="{mask: mask}"-->
+                    </div>
+                <div class="formrow label-overlay form-group has-feedback">
+
+                  <div class="formrow" [ngClass]="{ 'has-error': f.submitted && !Username.valid }">
+                    <div *ngIf="f.submitted && !Username.valid" class="help-block">Username is required</div>
+
+
+                    <input type="text" class="form-control" name="Username" placeholder="Username" [(ngModel)]="model.Username" (focusout)="onChange(Username.value)" #Username="ngModel" required>
+
+                    <span *ngIf="Userloading == true && UserTyping == true" style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate form-control-feedback"></span>
+                    <span *ngIf="UserError == true && UserTyping == true && Userloading == false" style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+
+                    <span *ngIf="UserError == false && UserTyping == true && Userloading == false" style="color: red"  class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
+
+                  </div><!-- End .form-group -->
+                </div>
+
+                <!--<div class="form-group has-feedback">-->
+                  <!--<label class="control-label" for="inputSuccess4"></label>-->
+                  <!--<input  type="text" class="form-control" id="inputSuccess4">-->
+                  <!--<span *ngIf="UserError == true && UserTyping == true" style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>-->
+
+                  <!--<span *ngIf="UserError == false && UserTyping == true" style="color: red"  class="glyphicon glyphicon-remove-sign form-control-feedback"></span>-->
+                <!--</div>-->
+
+
+
+                <div class="formrow label-overlay form-group has-feedback"  tabindex="-1" >
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
+                    <div *ngIf="f.submitted && !Email.valid" class="help-block">Email is required</div>
+
+                    <input type="email" class="form-control" name="Email" placeholder="Email" [(ngModel)]="model.Email"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)" #Email="ngModel" required>
+                    <span *ngIf="Emailok == true " style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+                    <div *ngIf=" EmailExist == true "  class="help-block"  style="color: red" >Email already exists. <a [routerLink]="['/login']" style="color: blue !important;">Click Here</a> to login</div>
+                    <!--<div *ngIf="f.submitted && !username.valid" class="help-block">Email is required</div>-->
+
+                  </div><!-- End .form-group -->
+                </div>
+
+                <div class="formrow label-overlay">
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }">
+                    <div *ngIf="f.submitted && !Password.valid" class="help-block">Please enter Password.</div>
+                    <input type="Password" class="form-control" minlength="5" (ngModelChange)="OnPassReset()" name="Password" placeholder="Password" [(ngModel)]="model.Password" #Password="ngModel" required>
+                  </div><!-- End .form-group -->
+                </div>
+
+                <div class="formrow label-overlay">
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RePassword.valid}">
+                    <div *ngIf="f.submitted && !Password.valid" class="help-block">Please re-enter Password.</div>
+
+                    <input type="Password" class="form-control" (ngModelChange)="OnPassReset()" name="RePassword" (blur)="checkPassowed(RePassword.value, Password.value)" placeholder="Confirm Password" [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel" required>
+
+                    <div *ngIf=" PassMatch == false "  class="help-block"  style="color: red" >Password Not Matched.</div>
+                  </div><!-- End .form-group -->
+                </div>
+
+              <div class="formrow label-overlay">
+
+                <input type="checkbox" name="Agree" [(ngModel)]="model.Agree" #Agree="ngModel"> I have read and agree to the <a [routerLink]="['/terms-use']"> Terms of Use</a><!-- End .form-group -->
+                <!--[textMask]="{mask: mask}"-->
+              </div>
+
+              <!--<div class="formrow">-->
+
+                  <!--<input type="checkbox" class="form-control" name="Agree" [(ngModel)]="model.Agree" #Agree="ngModel" required>-->
+
+                <!--I have read and agree to the <a href="#" style="color: red"> Terms and Conditions</a>-->
+              <!--</div>-->
+                <div class="form-group" >
+                    <app-recapcha></app-recapcha>
+                <!-- <re-captcha  (resolved)="resolved($event)" siteKey="6LcMeE4UAAAAAORPbOfwjGczzxsz843f24BA92IN" required></re-captcha> -->
+                <!-- <div *ngIf="f.submitted && !captcha" class="help-block">Recaptcha is required</div> -->
+                <!-- [ngClass]="{ 'has-error': f.submitted && !captcha}" -->
+                </div>
+                <div *ngIf="Waitcall" class="alert alert-info">
+                  <p>
+                    <span style="color: blue" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                    <span>&nbsp;Loading ...</span>
+                  </p>
+                </div>
+                <input type="submit" class="btn" value="Register">
+              </form>
+            </div>
+            <!--<div id="wbuy" class="formpanel tab-pane fade in">-->
+              <!--<div class="formrow">-->
+                <!--<input type="text" name="cname" class="form-control" placeholder="Full Name">-->
+              <!--</div>-->
+              <!--<div class="formrow">-->
+                <!--<input type="text" name="cusername" class="form-control" placeholder="Username">-->
+              <!--</div>-->
+              <!--<div class="formrow">-->
+                <!--<input type="text" name="cemail" class="form-control" placeholder="Email">-->
+              <!--</div>-->
+              <!--<div class="formrow">-->
+                <!--<input type="text" name="cpass" class="form-control" placeholder="Password">-->
+              <!--</div>-->
+              <!--<div class="formrow">-->
+                <!--<input type="text" name="cpass" class="form-control" placeholder="Confirm Password">-->
+              <!--</div>-->
+              <!--<div class="formrow">-->
+                <!--<input type="checkbox" value="agree text c" name="cagree" />-->
+                <!--There are many variations of passages of Lorem Ipsum available</div>-->
+              <!--<input type="submit" class="btn" value="Register">-->
+            <!--</div>-->
+          </div>
+          <div class="newuser">Already a Member? <a [routerLink]="['/login']" href="#.">Login Here</a></div>
+
+
+          <!--<div class="socialLogin">-->
+            <!--<h5>Login Or Register with Social</h5>-->
+            <!--<a href="#." class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#." class="gp"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="#." class="tw"><i class="fa fa-twitter" aria-hidden="true"></i></a> </div>-->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<app-footer></app-footer>-->

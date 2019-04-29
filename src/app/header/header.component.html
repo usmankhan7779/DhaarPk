@@ -1,0 +1,1177 @@
+<!-- Header -->
+<header id="header" style="padding-bottom: 80px">
+  <nav class="navbar-fixed-top">
+    <div class="header-container">
+      <!--<div class="header-top">-->
+      <!--<div class="container">-->
+      <!--<div class="row">-->
+      <!--<div class="col-md-5 col-sm-5 col-xs-6 hidden-xs">-->
+      <!--<div class="slider-items-products">-->
+      <!--<div id="offer-slider" class="product-flexslider hidden-buttons">-->
+      <!--<div class="slider-items slider-width-col4">-->
+      <!--<div class="offer-content-text">-->
+      <!--<p><i class="pe-7s-like2"></i> Only the <span>Best Quality</span> and brands</p>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; top links &ndash;&gt;-->
+      <!--<div class="headerlinkmenu col-md-7 col-sm-7 col-xs-12">-->
+      <!--&lt;!&ndash; Default Welcome Message &ndash;&gt;-->
+      <!--<div *ngIf="ValueRec == true" class="welcome-msg hidden-xs">Welcome {{ GetUSerDOne['Fname']}},</div>-->
+      <!--<div *ngIf="ValueRec == true" class="welcome-msg hidden-xs"><a [routerLink]="['/select-category']">Post On Dhaar</a></div>-->
+      <!--<div *ngIf="ValueRec == true" class="welcome-msg hidden-xs" ><a (click)="gotodashboard()" style="color: #f23534 !important; cursor: pointer" ><i class="fa fa-user header-icons-setting"></i>My Account </a></div>-->
+      <!--&lt;!&ndash;<div class="welcome-msg hidden-xs">Welcome to msg! </div>&ndash;&gt;-->
+      <!--<ul class="links">-->
+      <!--<li *ngIf="ValueRec == true"><a [routerLink]="['/checkout2']"><i class="fa fa-check-square-o header-icons-setting"></i>Checkout</a></li>-->
+      <!--<li *ngIf="ValueRec == false"><a  [routerLink]="['/sign-up']"><i class="fa fa-lock header-icons-setting"></i>Sign Up</a></li>-->
+      <!--<li *ngIf="ValueRec == false"><a  [routerLink]="['/login']"><i class="fa fa-500px header-icons-setting"></i>Log In</a></li>-->
+      <!--<li *ngIf="ValueRec == true" ><a  (click)="ValueReset()" [routerLink]="['/login']" ><i class="fa fa-sign-out header-icons-setting"></i>Logout</a></li>-->
+
+      <!--</ul>-->
+      <!--<div class="language-currency-wrapper pull-right">-->
+      <!--<div class="inner-cl">-->
+      <!--&lt;!&ndash;<div class="block block-language form-language">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="lg-cur"> <span> <span class="lg-fr">English</span> <i class="fa fa-angle-down"></i> </span> </div>&ndash;&gt;-->
+      <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li> <a href="#"><span>German</span> </a> </li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li> <a href="#"><span>Brazil</span> </a> </li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li> <a href="#"><span>Chile</span> </a> </li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<li> <a href="#"><span>Spain</span> </a> </li>&ndash;&gt;-->
+      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="block block-currency">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="item-cur"> <span>Rs </span> </div>&ndash;&gt;-->
+
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <div class="container-fluid">
+
+        <!-- Header Logo -->
+        <div class="logo-box float-left">
+          <div class="logo">
+
+            <a [routerLink]="['/']" title="Dhaar">
+              <img src="../../assets/images/Check-Resolution.png" alt="dhaar3">
+            </a>
+          </div>
+        </div>
+        <div class="search-box float-left">
+          <!-- Search -->
+          <!--top-search-->
+          <div id="search" style="text-align: center">
+            <button type="button" data-toggle="modal" data-target="#myModal1">Search<i
+                class="fa fa-search header-icons-leftsetting"></i></button>
+          </div>
+
+          <!--(keydown)="navigate($event, search.value, 1 )"-->
+          <!--<div *ngIf="opSearch === 1" class="search-outer">-->
+          <!--<div class="container">-->
+          <!--<div class="search-holder">-->
+          <!--<input autofocus type="search" name=querysearch [(ngModel)]="query" #querysearch="ngModel" (keyup)=navigate(query)-->
+          <!--placeholder="Search in Dhaar" id="textsearch1" (keydown)="closeSearch1($event)">-->
+          <!--<i class="fa fa-close" id="iconClose" (click)="closeSearch()"></i>-->
+          <!--</div>-->
+
+          <!--<div class="search-results" *ngIf="Searchres">-->
+          <!--<div class="head" *ngIf="Searchres">-->
+          <!--<p *ngIf="Trend.totalItems==0" class="results-found"> No results found. Please use keywords.</p>-->
+          <!--<p *ngIf="Trend.totalItems==1" class="results-found"> {{ Trend.totalItems }} result found.</p>-->
+          <!--<p *ngIf="Trend.totalItems>1" class="results-found"> {{ Trend.totalItems}} results found.</p>-->
+          <!--</div>-->
+          <!--<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 economy languages history" *ngFor="let phoneProducts of Trend.results">-->
+          <!--<div class="product-list__item">-->
+          <!--<div class="product-item">-->
+          <!--<div class="item-inner">-->
+          <!--<div class="product-thumbnail">-->
+          <!--&lt;!&ndash;<div class="icon-sale-label sale-left">Sale</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="box-hover">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="btn-quickview"> <a href="#" data-toggle="modal" data-target="#modal-quickview"><i class="fa fa-search-plus" aria-hidden="true"></i> Quick View</a> </div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="add-to-links" data-role="add-to-links"> <a href="#" class="action add-to-wishlist" title="Add to Wishlist"></a> <a href="#" class="action add-to-compare" title="Add to Compare"></a> </div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--<div class="slider-items-products">-->
+          <!--<div id="pro2-slider" class="product-flexslider hidden-buttons">-->
+          <!--<div class="slider-items slider-width-col6">-->
+          <!--<a  [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }"  class="product-item-photo" (click)="closeSearch()">-->
+          <!--<img class="product-image-photo" height="225" src="{{ phoneProducts.Pic }}" alt="{{phoneProducts.Pic }}">-->
+          <!--</a>-->
+
+          <!--&lt;!&ndash;<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img20.jpg" alt=""></a> &ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img19.jpg" alt=""></a> &ndash;&gt;-->
+
+          <!--&lt;!&ndash;<div *ngIf="phoneProducts.Auction == true" class="jtv-box-timer">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="countbox_1 jtv-timer-grid"></div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="pro-box-info">-->
+          <!--<div class="item-info">-->
+          <!--<div class="info-inner">-->
+          <!--<div class="item-title">-->
+          <!--<h4> <a title="Product Title Here" style="color: black" [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" (click)="closeSearch()">{{ phoneProducts.P_Title }}  </a></h4>-->
+          <!--</div>-->
+          <!--<div class="item-content">-->
+          <!--<div class="rating">-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<i class="fa fa-star"></i>-->
+          <!--<i class="fa fa-star-o"></i>-->
+          <!--<i class="fa fa-star-o"></i>-->
+          <!--<i class="fa fa-star-o"></i>-->
+          <!--</div>-->
+          <!--<div *ngIf="phoneProducts.Auction == true" class="item-price">-->
+
+          <!--<div  class="price-box"> <span class="regular-price"> <span class="price">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0' }}</span> </span> </div>-->
+
+          <!--</div>-->
+          <!--<div *ngIf="phoneProducts.Auction == false" class="item-price">-->
+          <!--<div class="price-box"> <span class="regular-price"> <span class="price">Rs {{ phoneProducts.FixedPrice | number:'.0-0' }}</span> </span> </div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="box-hover">-->
+          <!--<div class="product-item-actions">-->
+          <!--<div *ngIf="phoneProducts.Auction == true" class="pro-actions">-->
+          <!--<a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" (click)="closeSearch()">   <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Bid Now</span> </button> </a>-->
+          <!--</div>-->
+          <!--<div *ngIf="phoneProducts.Auction == false" class="pro-actions">-->
+          <!--<a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" (click)="closeSearch()">    <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Buy Now</span> </button> </a>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="product-list__content">-->
+
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!-- End Search -->
+        </div>
+        <div class="menu-box float-left">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a [routerLink]="['/select-category']"><i
+                    class="far fa-money-bill-alt header-icons-rightsetting"></i>Sell</a></li>
+              <li class="dropdown">
+                <a (click)="ProductNav()" style="cursor: pointer"><i
+                    class="fa fa-list header-icons-rightsetting"></i>Categories<b class="caret"></b></a>
+                <ul class="dropdown-menu display-on-lg-screen">
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Phones & Tablets' }"><i
+                        class="fa fa-tablet header-icons-rightsettingnew"></i>Phones
+                      & Tablets</a></li>
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Women\'s Fashion' }"><i
+                        class="fa fa-shopping-bag header-icons-rightsettingnew"></i>Women's
+                      Fashion</a></li>
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Men\'s Fashion' }"><i
+                        class="fa fa-black-tie header-icons-rightsettingnew"></i>Men's
+                      Fashion</a></li>
+                  <!--<li class="divider"></li>-->
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'TV, Audio & Video' }"><i
+                        class="fa fa-music header-icons-rightsettingnew"></i>TV,
+                      Audio & Video</a></li>
+                  <!--<li class="divider"></li>-->
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Computing & Laptops' }"><i
+                        class="fa fa-laptop header-icons-rightsettingnew"></i>Computing & Laptops</a></li>
+                  <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Home Appliances' }"><i
+                        class="fa fa-home header-icons-rightsettingnew"></i>Home
+                      Appliances</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a style="cursor: pointer"><i class="fa fa-question-circle header-icons-rightsetting"></i>Why Dhaar<b
+                    class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a [routerLink]="['/about-us']">What is Dhaar?</a></li>
+                  <li><a [routerLink]="['/dhaar']">How It Works</a></li>
+                  <li><a [routerLink]="['/contact-us']">Establish Contact</a></li>
+                  <li><a [routerLink]="['/contact-us']">FAQs</a></li>
+                </ul>
+              </li>
+              <li class="shop-cart"><a title="Watchlist" (click)="watchlist()"> <i class="fas fa-heart"></i>
+                  <sup>{{totallist}}</sup></a></li>
+              <li class="shop-cart"><a (click)="notgocart()" title="Shopping Cart"> <i class="fas fa-cart-plus"></i>
+                  <sup>{{total}}</sup></a></li>
+              <li *ngIf="loginCheck()"><a (click)="gotodashboard()" class="myDhaar" title="{{fname}}"><i
+                    class="fa fa-user header-icons-rightsetting"></i>My
+                  Dhaar </a></li>
+              <li *ngIf="!loginCheck()"><a [routerLink]="['/login']"><i
+                    class="fas fa-fingerprint header-icons-rightsetting"></i>Sign
+                  In</a></li>
+              <li *ngIf="!loginCheck()"><a [routerLink]="['/sign-up']" style="border-left: 1px solid black;"><i
+                    class="fas fa-user-plus header-icons-rightsetting"></i>Sign
+                  up</a></li>
+              <li *ngIf="loginCheck()"><a (click)="ValueReset()" [routerLink]="['/login']"><i
+                    class="fa fa-sign-out header-icons-rightsetting"></i>Logout</a></li>
+
+              <!-- <li class="shop-cart"><a [routerLink]="['/checkout2']" title="Shopping Cart"> <span class="glyphicon glyphicon-shopping-cart"></span> <span>{{total}}</span></a></li> -->
+            </ul>
+          </div>
+
+          <!--<ul class="menu-registration-links">-->
+
+          <!--<li><a [routerLink]="['/select-category']"><i class="fa fa-camera header-icons-rightsetting"></i>Sell</a></li>-->
+          <!--<li><a (click)="ProductNav()" style="cursor: pointer"><i class="fa fa-list header-icons-rightsetting"></i>Categories</a></li>-->
+          <!--<li><a (click)="ProductNav()" style="cursor: pointer"><i class="fa fa-list header-icons-rightsetting"></i>Why Dhaar?</a></li>-->
+          <!--<li *ngIf="ValueRec == true"><a (click)="gotodashboard()" style="color: #f23534 !important; cursor: pointer" title="{{fname}}"><i class="fa fa-user header-icons-rightsetting"></i>My Dhaar </a></li>-->
+          <!--&lt;!&ndash;<li *ngIf="ValueRec == true" class="welcome-msg hidden-xs">{{ GetUSerDOne['Fname']}}</li>&ndash;&gt;-->
+          <!--<li *ngIf="ValueRec == false"><a  [routerLink]="['/login']" class="login-header"><i class="fa fa-sign-in header-icons-rightsetting"></i>Log In</a></li>-->
+          <!--<li *ngIf="ValueRec == false" class="last-child-link" ><a  [routerLink]="['/sign-up']"><i class="fa fa-lock header-icons-rightsetting"></i>Sign up</a></li>-->
+          <!--<li *ngIf="ValueRec == true" ><a  (click)="ValueReset()" [routerLink]="['/login']" ><i class="fa fa-sign-out header-icons-rightsetting"></i>Logout</a></li>-->
+          <!--</ul>-->
+          <!--<div *ngIf="ValueRec == true"><a [routerLink]="['/checkout2']"><i class="fa fa-check-square-o header-icons-setting"></i>Checkout</a></div>-->
+
+          <!--<div *ngIf="ValueRec == true" ><a  (click)="ValueReset()" [routerLink]="['/login']" ><i class="fa fa-sign-out header-icons-setting"></i>Logout</a></div>-->
+
+
+          <!-- Begin shopping cart trigger  -->
+          <!--<div id="shopping-cart-trigger"> <a [routerLink]="['/checkout2']" class="cart-icon" title="Shopping Cart" > <i class="fa fa-shopping-bag"></i> <span class="cart-num">{{ItemInCart}}</span></a> </div>-->
+          <!-- End shopping cart trigger -->
+        </div>
+      </div>
+    </div>
+    <!-- End Header Logo -->
+
+    <!-- Start Menu Area -->
+    <div *ngIf="ProNav" class="display-on-small-screen">
+      <div class="menu-area" style="background: #ffffff">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="main-menu">
+                <!--<div class="mm-toggle-wrap hidden-lg hidden-md hidden-sm">-->
+                <!--<div class="mm-toggle"> <i class="fa fa-align-justify"></i><span class="mm-label">Menu</span> </div>-->
+                <!--</div>-->
+                <ul class="hidden-xs">
+                  <!--<li  class="active custom-menu"><a [routerLink]="['/home']">Home</a>-->
+
+                  <!--</li>-->
+                  <li class="megamenu"><a (click)="Phone()"><i
+                        class="fas fa-mobile-alt header-icons-rightsettingnew"></i>Phones
+                      & Tablets</a>
+                    <!--class="fa fa-mobile-phone header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block-1">
+                          <ul>
+                            <li>
+
+                              <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Phones & Tablets','Phones']">Phones<span
+                                  class="menu-item-tag menu-item-tag-hot">hot</span></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Smartphones']"><i
+                                  class="	fa fa-angle-double-right">Smartphones</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Featured Phones']"><i
+                                  class="	fa fa-angle-double-right">Featured Phones</i> </a></li>
+                          </ul>
+                          <!-- [queryParams]="{ ProID:  phoneProducts.ProductID, -->
+                          <!-- <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">   <button  class="action add-to-cart" type="button" title="Add to Cart"> Bid Now</button> </a> -->
+
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Phones & Tablets','Mobile Accessories']">Mobile
+                                Accessories<span class="menu-item-tag menu-item-tag-hot">Sale</span></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Screen Protector']"><i
+                                  class="	fa fa-angle-double-right">Screen Protector</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Power Banks']"><i
+                                  class="	fa fa-angle-double-right">Power
+                                  Banks</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Memory Cards']"><i
+                                  class="	fa fa-angle-double-right"><span>Memory Cards</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Mobile Covers']"><i
+                                  class="	fa fa-angle-double-right"><span>Mobile Covers</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Ear Phones']"><i
+                                  class="	fa fa-angle-double-right">Ear
+                                  Phones </i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Selfie Sticks']"><i
+                                  class="	fa fa-angle-double-right">Selfie Sticks</i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Phones & Tablets','Tablets']">Tablets</a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Phones & Tablets','Below 7']"><i
+                                  class="	fa fa-angle-double-right">Below
+                                  7</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Phones & Tablets','Above 7']"><i
+                                  class="	fa fa-angle-double-right">Above
+                                  7</i></a> </li>
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Phones & Tablets','Tablets Accessories']">Tablets
+                                Accessories</a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Phones & Tablets','Tablet Cases & Covers']"><i
+                                  class="	fa fa-angle-double-right">Tablet Cases & Covers</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Phones & Tablets','Tablet Chargers']"><i
+                                  class="	fa fa-angle-double-right">Tablet Chargers</i></a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Phones & Tablets','	iPad Cables & Adapters']"><i
+                                  class="	fa fa-angle-double-right"> iPad Cables & Adapters</i></a></li>
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Phones & Tablets','Landlines']">Landlines
+                              </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Phones & Tablets','Corded']"><i
+                                  class="	fa fa-angle-double-right">Corded</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Phones & Tablets','Cordless']"><i
+                                  class="	fa fa-angle-double-right">Cordless
+                                </i></a> </li>
+
+                          </ul>
+
+                        </div>
+                        <div class="menu-block-3 hidden-sm">
+                          <div class="mega-menu-img"> <a [routerLink]="['/category-detail']"
+                              [queryParams]="{ CatName:  'Phones & Tablets' }"><img src="assets/images/mobilegif.gif"
+                                height="310" alt="Bannar 1"></a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Women()"><i
+                        class="fa fa-shopping-bag header-icons-rightsettingnew"></i>Women's
+                      Fashion</a>
+                    <!--class="fa fa-female header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block-1">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Women\'s Fashion','Clothing']">Clothing
+                                <span class="menu-item-tag menu-item-tag-hot">hot</span></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Casual shirt']"><i
+                                  class="	fa fa-angle-double-right">Casual shirt</i></a></li>
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Women\'s Fashion','Kurta & Shalwar Kameez']"><i
+                                  class="	fa fa-angle-double-right">Kurta & Shalwar Kameez</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Unstitched Fabric']"><i
+                                  class="	fa fa-angle-double-right">Unstitched Fabric</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Jeans']"><i
+                                  class="	fa fa-angle-double-right">Jeans</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Sundresses']"><i
+                                  class="	fa fa-angle-double-right">Sundresses</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Formal Wear']"><i
+                                  class="	fa fa-angle-double-right">Formal Wear</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Women\'s Tops']"><i
+                                  class="	fa fa-angle-double-right">Women's Tops</i></a></li>
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Women\'s Fashion','Dupattas Ccarves & Stoles']"><i
+                                  class="	fa fa-angle-double-right">Dupattas Ccarves & Stoles</i></a></li>
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Women\'s Fashion','Jewellery']">Jewellery
+                                <span class="menu-item-tag menu-item-tag-hot">Sale</span></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Gold']"><i
+                                  class="	fa fa-angle-double-right">Gold</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Platinum']"><i
+                                  class="	fa fa-angle-double-right">Platinum</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Rings']"><i
+                                  class="	fa fa-angle-double-right">Rings</i>
+                              </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Neckwear']"><i
+                                  class="	fa fa-angle-double-right">Neckwear
+                                </i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Women\'s Fashion','Shoes']">Shoes
+                              </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Heels']"><i
+                                  class="	fa fa-angle-double-right">Heels</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Flats & Sandals']"><i
+                                  class="	fa fa-angle-double-right">Flats & Sandals</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Sports & Outdoor']"><i
+                                  class="	fa fa-angle-double-right">Sports & Outdoor</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Mocassins']"><i
+                                  class="	fa fa-angle-double-right">Mocassins</i></a>
+                            </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Sneakers']"><i
+                                  class="	fa fa-angle-double-right">Sneakers</i>
+                              </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Formal Shoes']"><i
+                                  class="	fa fa-angle-double-right">Formal Shoes </i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Women\'s Fashion','Accessories']">Accessories
+                              </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Handbags']"><i
+                                  class="	fa fa-angle-double-right">Handbags</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Sunglasses']"><i
+                                  class="	fa fa-angle-double-right">Sunglasses</i></a>
+                            </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Clutches']"><i
+                                  class="	fa fa-angle-double-right">Clutches
+                                </i></a> </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Watches']"><i
+                                  class="	fa fa-angle-double-right">Watches
+                                </i></a> </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Women\'s Fashion','Backpacks']"><i
+                                  class="	fa fa-angle-double-right">Backpacks
+                                </i></a> </li>
+                          </ul>
+
+
+
+
+                        </div>
+                        <div class="menu-block-3 hidden-sm">
+                          <div class="mega-menu-img"> <a [routerLink]="['/category-detail']"
+                              [queryParams]="{ CatName:  'Women\'s Fashion' }"><img src="assets/images/womenfashion.jpg"
+                                height="310" alt="Bannar 1"></a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a [routerLink]="['/category-detail']"
+                      [queryParams]="{ CatName:  'Men\'s Fashion' }"><i
+                        class="fab fa-black-tie header-icons-rightsettingnew"></i>Men's Fashion</a>
+                    <!--class="fa fa-male header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block-1">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Men\'s Fashion','Men\'s Clothing']">Men's
+                                Clothing <span class="menu-item-tag menu-item-tag-hot">hot</span></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Shirts']"><i
+                                  class="	fa fa-angle-double-right">Men's Shirts</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s T-Shirts']"><i
+                                  class="	fa fa-angle-double-right">Men's T-Shirts</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Polo Shirts']"><i
+                                  class="	fa fa-angle-double-right">Men's Polo Shirts</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Jeans']"><i
+                                  class="	fa fa-angle-double-right">Men's
+                                  Jeans</i></a></li>
+
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Kurtas & Shalwar Kameez']"><i
+                                  class="	fa fa-angle-double-right">Men's Kurtas & Shalwar Kameez</i></a></li>
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Shorts & Cargos']"><i
+                                  class="	fa fa-angle-double-right">Men's Shorts & Cargos</i></a></li>
+
+                          </ul>
+
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Men\'s Fashion','Men\'s Shoes']">Men's
+                                Shoes </a></li>
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Sandals & Slippers']"><i
+                                  class="	fa fa-angle-double-right">Men's Sandals & Slippers</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Boots']"><i
+                                  class="	fa fa-angle-double-right">Men's
+                                  Boots</i></a></li>
+                            <li> <a
+                                [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Sports & Outdoor']"><i
+                                  class="	fa fa-angle-double-right">Men's Sports & Outdoor</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Mocassins']"><i
+                                  class="	fa fa-angle-double-right">Men's Mocassins</i></a> </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Sneakers']"><i
+                                  class="	fa fa-angle-double-right">Men's Sneakers</i> </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Formal Shoes']"><i
+                                  class="	fa fa-angle-double-right">Men's Formal Shoes </i></a></li>
+                          </ul>
+                          <ul>
+
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Men\'s Fashion','Men\'s Accessories']">Men's
+                                Accessories </a></li>
+
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Eyewear']"><i
+                                  class="	fa fa-angle-double-right">Men's Eyewear</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Bags']"><i
+                                  class="	fa fa-angle-double-right">Men's
+                                  Bags</i></a> </li>
+                            <li> <a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Belts']"><i
+                                  class="	fa fa-angle-double-right">Men's
+                                  Belts</i></a> </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Watches']"><i
+                                  class="	fa fa-angle-double-right">Men's Watches</i> </a> </li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Men\'s Fashion','Men\'s Ties & Cufflinks']"><i
+                                  class="	fa fa-angle-double-right">Men's Ties & Cufflinks </i></a> </li>
+                          </ul>
+                        </div>
+                        <div class="menu-block-3 hidden-sm">
+                          <div class="mega-menu-img"> <a [routerLink]="['/category-detail']"
+                              [queryParams]="{ CatName:  'Women\'s Fashion' }"><img src="assets/images/mens.png"
+                                height="310" alt="Bannar 1"></a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a [routerLink]="['/category-detail']"
+                      [queryParams]="{ CatName:  'TV, Audio & Video' }"><i
+                        class="fa fa-music header-icons-rightsettingnew"></i>TV, Audio & Video</a>
+                    <!--class="fa fa-headphones header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block-1">
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="assets/images/e-img1.jpg"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','TV, Audio & Video','Television']">Television
+                              </a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','LED Tv\'s']"><i
+                                  class="	fa fa-angle-double-right">LED
+                                  Tv's</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Smart Tv\'s']"><i
+                                  class="	fa fa-angle-double-right">Smart Tv's</i></a></li>
+
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="assets/images/e-img2.jpg"
+                                  alt="menu-banner"></a></li>
+                            <!--<span class="menu-item-tag menu-item-tag-hot">Sale</span>-->
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','TV, Audio & Video','Musical Instruments']">Musical
+                                Instruments</a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','TV, Audio & Video','Drums & Percussion']"><i
+                                  class="	fa fa-angle-double-right">Drums & Percussion</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Guitars']"><i
+                                  class="	fa fa-angle-double-right"><span>Guitars</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Keyboard & Piano']"><i
+                                  class="	fa fa-angle-double-right"><span>Keyboard & Piano</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Live & Studio']"><i
+                                  class="	fa fa-angle-double-right">Live & Studio</i></a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','TV, Audio & Video','Instrument Accessories']"><i
+                                  class="	fa fa-angle-double-right">Instrument Accessories</i></a></li>
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="assets/images/e-img3.jpg"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','TV, Audio & Video','Cameras']">
+                                Cameras </a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Canon']"><i
+                                  class="	fa fa-angle-double-right">Canon</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Nikon']"><i
+                                  class="	fa fa-angle-double-right">Nikon</i></a>
+                            </li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Lens']"><i
+                                  class="	fa fa-angle-double-right">Lens</i></a></li>
+
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="assets/images/e-img4.jpg"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','TV, Audio & Video','Headphone']">Headphone</a>
+                            </li>
+                            <li> <a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Backpacks']"><i
+                                  class="	fa fa-angle-double-right">Backpacks</i></a>
+                            </li>
+                            <li><a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Ray-Ban']"><i
+                                  class="	fa fa-angle-double-right">Ray-Ban</i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Opium']"><i
+                                  class="	fa fa-angle-double-right">Opium
+                                </i></a></li>
+                            <li> <a [routerLink]="['/subsub-category-detail','TV, Audio & Video','Joe Black']"><i
+                                  class="	fa fa-angle-double-right">Joe
+                                  Black </i></a> </li>
+                          </ul>
+                        </div>
+                        <div class="menu-block-3 hidden-sm">
+                          <div class="mega-menu-img"> <a href="shop_grid.html"><img src="assets/images/menu-img4.jpg"
+                                alt="Bannar 1"></a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Computing()"><i
+                        class="fa fa-laptop header-icons-rightsettingnew"></i>Computing
+                      & Laptops</a>
+                    <!--class="fa fa-laptop header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Computing & Laptops','Laptops']">Laptops</a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Computing & Laptops','Refurbished Laptops']"><i
+                                  class="	fa fa-angle-double-right">Refurbished Laptops</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Notebooks']"><i
+                                  class="	fa fa-angle-double-right">Notebooks</i></a></li>
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Computing & Laptops','Printers & Scanners']">Printers
+                                & Scanners </a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Computing & Laptops','All in One Printers']"><i
+                                  class="	fa fa-angle-double-right"><span>All in One Printers</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Laser Printers']"><i
+                                  class="	fa fa-angle-double-right">Laser Printers</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Scanners']"><i
+                                  class="	fa fa-angle-double-right"><span>Scanners</span></i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Computing & Laptops','Storage']">Storage
+                              </a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Computing & Laptops','All in One Printers']"><i
+                                  class="	fa fa-angle-double-right"><span>External Hard Drives</span></i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','USB']"><i
+                                  class="	fa fa-angle-double-right">USB</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','SSD']"><i
+                                  class="	fa fa-angle-double-right"><span>SSD</span></i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Computing & Laptops','Components & Parts']">Components
+                                & Parts</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Webcams']"><i
+                                  class="	fa fa-angle-double-right">Webcams</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Laptop Bags ']"><i
+                                  class="	fa fa-angle-double-right">Laptop Bags</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Laptop Battery']"><i
+                                  class="	fa fa-angle-double-right">Laptop Battery</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Computing & Laptops','Graphic Cards']"><i
+                                  class="	fa fa-angle-double-right">Graphic Cards</i></a></li>
+                          </ul>
+                          <div class="mega-menu-img-box"><a href="#"><img src="assets/images/Laptop1.png"
+                                alt="Bannar 1"></a>
+                          </div>
+                          <div class="mega-menu-img-box1"><a href="#"><img src="assets/images/menu-img3.jpg"
+                                alt="Bannar 3"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Home()"><i class="fa fa-home header-icons-rightsettingnew"></i>Home
+                      Appliances</a>
+                    <!--class="fa fa-home header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Small Appliances']">Small
+                                Appliances</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Cooking']"><i
+                                  class="	fa fa-angle-double-right">Cooking</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Floorcare']"><i
+                                  class="	fa fa-angle-double-right">Floorcare</i></a></li>
+
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Small Appliances']">Small
+                                Appliances</a></li>
+
+                            <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Mixing & Blending']"><i
+                                  class="	fa fa-angle-double-right">Mixing & Blending</i></a></li>
+
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Home Appliances','Other Small Appliances']"><i
+                                  class="	fa fa-angle-double-right">Other Small Appliances</i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Large Appliances']">Large
+                                Appliances</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Washers & Dryers']"><i
+                                  class="	fa fa-angle-double-right">Washers & Dryers</i></a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Home Appliances','Refrigerators & Freezers']"><i
+                                  class="	fa fa-angle-double-right">Refrigerators & Freezers</i></a></li>
+
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Large Appliances']">Large
+                                Appliances</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Cooling & Heating']"><i
+                                  class="	fa fa-angle-double-right">Cooling & Heating</i></a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Home Appliances','Other Large Appliances']"><i
+                                  class="	fa fa-angle-double-right">Other Large Appliances</i></a></li>
+                          </ul>
+                          <div class="mega-menu-img-box"><a href="#"><img src="assets/images/banner31-1000x300.jpg"
+                                alt="Bannar 1"></a>
+                          </div>
+                          <div class="mega-menu-img-box1"><a href="#"><img src="assets/images/homeApplianceNav.png"
+                                alt="Bannar 3"></a>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Sports()"><i
+                        class="fas fa-futbol header-icons-rightsettingnew"></i>Sports
+                      Goods</a>
+                    <!--class="fa fa-home header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Sports Goods','Team Sports']">Team
+                                Sports</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Cricket']"><i
+                                  class="	fa fa-angle-double-right">Cricket</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Football']"><i
+                                  class="	fa fa-angle-double-right">Football</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Hockey']"><i
+                                  class="	fa fa-angle-double-right">Hockey</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Basketball']"><i
+                                  class="	fa fa-angle-double-right">Basketball</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Volleyball']"><i
+                                  class="	fa fa-angle-double-right">Volleyball</i></a></li>
+
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Sports Goods','Fitness & Excercise']">Fitness
+                                & Excercise</a></li>
+
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Gym Accessories']"><i
+                                  class="	fa fa-angle-double-right">Gym
+                                  Accessories</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Supplements & Proteins']"><i
+                                  class="	fa fa-angle-double-right">Supplements & Proteins</i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Racket Sports']">Racket
+                                Sports</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Table Tennis']"><i
+                                  class="	fa fa-angle-double-right">Table
+                                  Tennis</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Tennis']"><i
+                                  class="	fa fa-angle-double-right">Tennis</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Badminton']"><i
+                                  class="	fa fa-angle-double-right">Badminton</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Squash']"><i
+                                  class="	fa fa-angle-double-right">Squash</i></a></li>
+
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Sports Goods','Sports Accessories']">Sports
+                                Accessories</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Swimming Accessories']"><i
+                                  class="	fa fa-angle-double-right">Swimming Accessories</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Men Sports']"><i
+                                  class="	fa fa-angle-double-right">Men
+                                  Sports</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Sports Goods','Women Sports']"><i
+                                  class="	fa fa-angle-double-right">Women
+                                  Sports</i></a></li>
+                          </ul>
+                          <div class="mega-menu-img-box" style="width:40%!important;float: right!important;"><a
+                              href="#"><img src="../../assets/images/Sporting-Goods-image.jpg" alt="Bannar 1"></a>
+                          </div>
+                          <div class="mega-menu-img-box1"><a href="#"><img src="../../assets/images/Sports.png"
+                                alt="Bannar 3" height="230"></a> </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Baby()"><i class="fa fa-child header-icons-rightsettingnew"></i>Baby
+                      & Kids</a>
+                    <!--class="fa fa-home header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul style="width:20%">
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Baby & Kids/Baby-Boy.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Baby & Kids','Baby Boy']">Baby
+                                Boy</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Boy Fashion']"><i
+                                  class="	fa fa-angle-double-right">Boy
+                                  Fashion</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Boy Accessories']"><i
+                                  class="	fa fa-angle-double-right">Boy
+                                  Accessories</i></a></li>
+
+
+                          </ul>
+                          <ul style="width:20%">
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Baby & Kids/Baby-Girl.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Baby & Kids','Baby Girl']">Baby
+                                Girl</a></li>
+
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Girl Fashion']"><i
+                                  class="	fa fa-angle-double-right">Girl
+                                  Fashion</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Girl Accessories']"><i
+                                  class="	fa fa-angle-double-right">Girl
+                                  Accessories</i></a></li>
+                          </ul>
+                          <ul style="width:20%">
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Baby & Kids/Toys.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Baby & Kids','Toys']">Toys</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Electronic Toys']"><i
+                                  class="	fa fa-angle-double-right">Electronic
+                                  Toys</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Kids Books']"><i
+                                  class="	fa fa-angle-double-right">Kids
+                                  Books</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Sports Toys']"><i
+                                  class="	fa fa-angle-double-right">Sports
+                                  Toys</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Arts & Crafts Toys']"><i
+                                  class="	fa fa-angle-double-right">Arts & Crafts Toys</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Other Toys']"><i
+                                  class="	fa fa-angle-double-right">Other
+                                  Toys</i></a></li>
+
+
+                          </ul>
+                          <ul style="width:20%">
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Baby & Kids/Baby-Food.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Baby Food']">Baby
+                                Food</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Baby Milk']"><i
+                                  class="	fa fa-angle-double-right">Baby
+                                  Milk</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Baby Cereals']"><i
+                                  class="	fa fa-angle-double-right">Baby
+                                  Cereals</i></a></li>
+                          </ul>
+                          <ul style="width:20%">
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Home Appliances','Baby Accessories']">Baby
+                                Accessories</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Pacifiers & Accessories']"><i
+                                  class="	fa fa-angle-double-right">Pacifiers & Accessories</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Strollers']"><i
+                                  class="	fa fa-angle-double-right">Strollers</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Diapers & Wipes']"><i
+                                  class="	fa fa-angle-double-right">Diapers
+                                  & Wipes</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Baby & Kids','Other Accessories']"><i
+                                  class="	fa fa-angle-double-right">Other Accessories</i></a></li>
+                          </ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Health()"><i
+                        class="fas fa-heart header-icons-rightsettingnew"></i>Health
+                      & Beauty</a>
+                    <!--class="fa fa-home header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img
+                                  src="../../assets/images/Health & Beauty/Cosmetics.png" alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Health & Beauty','Cosmetics']">Cosmetics</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Skin Care']"><i
+                                  class="	fa fa-angle-double-right">Skin
+                                  Care</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Lips']"><i
+                                  class="	fa fa-angle-double-right">Lips</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Eye Care']"><i
+                                  class="	fa fa-angle-double-right">Eye
+                                  Care</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Face Masks & Scrubs']"><i
+                                  class="	fa fa-angle-double-right">Face Masks & Scrubs</i></a></li>
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img
+                                  src="../../assets/images/Health & Beauty/Hair-Care.png" alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Health & Beauty','Hair Care']">Hair
+                                Care</a></li>
+
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Health & Beauty','Shampoo & Conditioners']"><i
+                                  class="	fa fa-angle-double-right">Shampoo & Conditioners</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Hair Gel & Spray']"><i
+                                  class="	fa fa-angle-double-right">Hair Gel & Spray</i></a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Health & Beauty','Hair Styling & Color']"><i
+                                  class="	fa fa-angle-double-right">Hair Styling & Color</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Shaving & Grooming']"><i
+                                  class="	fa fa-angle-double-right">Shaving & Grooming</i></a></li>
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img
+                                  src="../../assets/images/Health & Beauty/Fragrances.png" alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Health & Beauty','Fragrances']">Fragrances</a>
+                            </li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Men Fragrance']"><i
+                                  class="	fa fa-angle-double-right">Men Fragrance</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Women Fragrance']"><i
+                                  class="	fa fa-angle-double-right">Women Fragrance</i></a></li>
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Health & Beauty','Health Care']">Health
+                                Care</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Medical Equipments']"><i
+                                  class="	fa fa-angle-double-right">Medical Equipments</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Vitamins']"><i
+                                  class="	fa fa-angle-double-right">Vitamins</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Health & Beauty','Medicines']"><i
+                                  class="	fa fa-angle-double-right">Medicines</i></a></li>
+                          </ul>
+                          <!--<div class="mega-menu-img-box"><a href="#"><img src="assets/images/banner31-1000x300.jpg" alt="Bannar 1"></a> </div>-->
+                          <!--<div class="mega-menu-img-box1"><a href="#"><img src="assets/images/homeApplianceNav.png" alt="Bannar 3"></a> </div>-->
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu"><a (click)="Vehicles()"><i
+                        class="fa fa-car header-icons-rightsettingnew"></i>Vehicles
+                      & GPS</a>
+                    <!--class="fa fa-home header-icons-setting"-->
+                    <div class="mega-menu">
+                      <div class="menu-block menu-block-center">
+                        <div class="menu-block">
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Vehicles & GPS','Vehicles']">Vehicles</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Cars']"><i
+                                  class="	fa fa-angle-double-right">Cars</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Motorcycles']"><i
+                                  class="	fa fa-angle-double-right">Motorcycles</i></a></li>
+
+
+                          </ul>
+                          <ul>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Vehicles & GPS','Tools & Equipments']">Tools
+                                & Equipments</a></li>
+
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Batteries']"><i
+                                  class="	fa fa-angle-double-right">Batteries</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Hardware Tools']"><i
+                                  class="	fa fa-angle-double-right">Hardware Tools</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Blowers']"><i
+                                  class="	fa fa-angle-double-right">Blowers</i></a></li>
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Vehicles & GPS/GPS.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Vehicles & GPS','GPS']">GPS</a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Car GPS']"><i
+                                  class="	fa fa-angle-double-right">Car
+                                  GPS</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','GPS Mounts']"><i
+                                  class="	fa fa-angle-double-right">GPS
+                                  Mounts</i></a></li>
+                          </ul>
+                          <ul>
+                            <li class="menu-banner"><a href="#"><img src="../../assets/images/Vehicles & GPS/Cars.png"
+                                  alt="menu-banner"></a></li>
+                            <li> <a class="mega-title"
+                                [routerLink]="['/sub-category-detail','Vehicles & GPS','Vehicles Accessories']">
+                                Vehicles Accessories</a></li>
+                            <li><a
+                                [routerLink]="['/subsub-category-detail','Vehicles & GPS','Car Covers & Stickers']"><i
+                                  class="	fa fa-angle-double-right">Car Covers & Stickers</i></a></li>
+                            <li><a [routerLink]="['/subsub-category-detail','Vehicles & GPS','Seat Covers']"><i
+                                  class="	fa fa-angle-double-right">Seat
+                                  Covers</i></a></li>
+                          </ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <!--<li class="megamenu"><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Online Services' }">Online Services</a>-->
+                  <!--<div class="mega-menu">-->
+                  <!--<div class="menu-block menu-block-center">-->
+                  <!--<div class="menu-block">-->
+                  <!--<ul>-->
+                  <!--<li> <a class="mega-title" href="#">Laptops<span class="menu-item-tag menu-item-tag-hot">hot</span></a></li>-->
+                  <!--<li><a href="#">Refurbished Laptops</a></li>-->
+                  <!--<li><a href="#">Notebooks</a></li>-->
+                  <!--</ul>-->
+                  <!--<ul>-->
+                  <!--<li> <a class="mega-title" href="#">Printers & Scanners </a></li>-->
+                  <!--<li><a href="#"><span>All in One Printers</span></a></li>-->
+                  <!--<li><a href="#">Laser Printers</a></li>-->
+                  <!--<li><a href="#"><span>Scanners<span class="tip">New</span></span></a></li>-->
+                  <!--</ul>-->
+                  <!--<ul>-->
+                  <!--<li> <a class="mega-title" href="#">Storage </a></li>-->
+                  <!--<li><a href="#"><span>External Hard Drives<span class="tip hot">Hot</span></span></a></li>-->
+                  <!--<li><a href="#">USB</a></li>-->
+                  <!--<li><a href="#"><span>SSD<span class="tip hot">Hot</span></span></a></li>-->
+                  <!--</ul>-->
+                  <!--<ul>-->
+                  <!--<li> <a class="mega-title" href="#">Components & Parts</a></li>-->
+                  <!--<li><a href="#">Laptop Battery</a></li>-->
+                  <!--<li><a href="#">Graphic Cards</a></li>-->
+                  <!--</ul>-->
+                  <!--<div class="mega-menu-img-box"><a href="#"><img src="assets/images/Laptop1.png" alt="Bannar 1"></a> </div>-->
+                  <!--<div class="mega-menu-img-box1"><a href="#"><img src="assets/images/menu-img3.jpg" alt="Bannar 3"></a> </div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</li>-->
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- end header -->
+
+
+
+<div class="modal fade" id="myModal1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="search-outer">
+        <div class="search-holder">
+          <input autofocus type="search" name=querysearch [(ngModel)]="query" #querysearch="ngModel"
+            (keyup)=navigate(query) placeholder="Search Dhaar" autofocus id="textsearch1">
+          <i class="fa fa-times close" data-dismiss="modal" aria-label="Close" id="iconClose"></i>
+        </div>
+
+        <div class="search-results" *ngIf="Searchres">
+          <div class="head" *ngIf="Searchres">
+            <p *ngIf="Trend.totalItems==0" class="results-found"> No results found. Please use keywords.</p>
+            <p *ngIf="Trend.totalItems==1" class="results-found"> {{ Trend.totalItems }} result found.</p>
+            <p *ngIf="Trend.totalItems>1" class="results-found"> {{ Trend.totalItems}} results found.</p>
+          </div>
+          <ng-container *ngFor="let TvVideoaudio88 of Trend.results">
+            <ng-container *ngIf="TvVideoaudio88.Active">
+              <div class="product-item home-productss col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="item-inner">
+                  <div class="product-thumbnail">
+                    <!--<a [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }"-->
+                    <!--class="product-item-photo"> <img class="product-image-photo" height="225"-->
+                    <!--src="{{TvVideoaudio88.Pic }}"-->
+                    <!--alt="{{TvVideoaudio88.Pic }}"></a>-->
+                    <div class="hovereffect">
+                      <img class="img-responsive" src="{{TvVideoaudio88.Pic }}" alt="{{TvVideoaudio88.Pic }}">
+                      <div class="overlay">
+                        <h2>{{TvVideoaudio88.Cat_Name}}</h2>
+                        <a class="info" [routerLink]="['/single-product']"
+                          [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }">Product
+                          Detail</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pro-box-info">
+                    <div class="item-info">
+                      <div class="info-inner">
+                        <div class="item-title">
+                          <h4><a title="Product Title Here" [routerLink]="['/single-product']"
+                              [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }">{{
+                              TvVideoaudio88.P_Title }} </a></h4>
+                        </div>
+                        <div class="item-content">
+                          <div class="rating">
+
+                            <p> Seller: <a [routerLink]="['/store',TvVideoaudio88.StoreName]">
+                                {{TvVideoaudio88.StoreName}}</a></p>
+
+                          </div>
+
+
+                          <div *ngIf="TvVideoaudio88.Auction == true" class="item-price">
+
+                            <div class="price-box"><span class="regular-price"> <span class="price">Rs {{
+                                  TvVideoaudio88.SrartingPrice | number:'.0-0' }}</span> </span>
+                            </div>
+
+
+                          </div>
+                          <div *ngIf="TvVideoaudio88.Auction == false" class="item-price">
+                            <div class="price-box"><span class="regular-price"> <span class="price">Rs {{
+                                  TvVideoaudio88.FixedPrice | number:'.0-0' }}</span> </span>
+                            </div>
+                          </div>
+
+
+                        </div>
+
+
+                      </div>
+                    </div>
+                    <div class="box-hover">
+                      <div class="product-item-actions">
+                        <div *ngIf="TvVideoaudio88.Auction == true" class="pro-actions">
+                          <a [routerLink]="['/single-product']"
+                            [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }">
+                            <button class="action add-to-cart" type="button" title="Add to Cart">
+                              <span>Bid Now</span></button>
+                          </a>
+                        </div>
+                        <div *ngIf="TvVideoaudio88.Auction == false" class="pro-actions">
+                          <a [routerLink]="['/single-product']"
+                            [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }">
+                            <button [routerLink]="['/single-product']"
+                              [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name }"
+                              class="action add-to-cart" type="button" title="Add to Cart"><span>Buy Now</span></button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

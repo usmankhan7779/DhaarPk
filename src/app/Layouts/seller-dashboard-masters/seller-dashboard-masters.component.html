@@ -1,0 +1,155 @@
+<app-header></app-header>
+
+<div class="inner-page overfliw-h">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="sidenav" id="mySidenav">
+          <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <ng-container *ngIf="GetUSerDOne !== null">
+          <div class="user-detail">
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] !== ''">
+              <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" onerror="this.src='../../assets/images/Image.png'">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+              <!-- <img src="../../../assets/images/Image.png"> -->
+              <!-- <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*"> -->
+              <!-- <i class="fa fa-camera upload-cam-img"></i> -->
+            </div>
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] === ''">
+
+              <img alt="User Pic" src="assets/images/Image.jpg" onerror="this.src='../../assets/images/Image.png'">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+              <!-- <img src="../../../assets/images/Image.png"> -->
+              <!-- <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*"> -->
+              <!-- <i class="fa fa-camera upload-cam-img"></i> -->
+            </div>
+            <p class="user-name">
+              <!-- Anas Tahir  -->
+              {{GetUSerDOne['Fname'] +' '+ GetUSerDOne['Lname'] }}
+            </p>
+            <!-- <p class="user-address">
+              <i class="fas fa-flag"></i>
+              {{GetUSerDOne['Address'] +' '+ GetUSerDOne['City'] +' '+ GetUSerDOne['State'] +' '+
+              GetUSerDOne['Country']}} -->
+              <!-- 103-C Madina Town, Faisalabad Pakistan -->
+            <!-- </p> -->
+          </div>
+        </ng-container>
+        <!-- <ng-container *ngIf="GetUSerDOne !== null">
+                  <div *ngIf="GetUSerDOne['Pic'] !== ''" class="col-md-4 col-lg-4 upload-img-wrapper" align="center">
+                    <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" width="200" height="200"  class="img-circle img-responsive">
+                    <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+                    <i class="fa fa-camera upload-cam-img"></i>
+                  </div>
+                  <div *ngIf="GetUSerDOne['Pic'] === ''" class="col-md-4 col-lg-4 upload-img-wrapper" align="center">
+                    <img alt="User Pic" src="assets/images/defaultprofile.jpg" width="200" height="200"  class="img-circle img-responsive">
+                    <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+                    <i class="fa fa-camera upload-cam-img"></i>
+                  </div>
+
+                  <div class=" col-md-8 col-lg-8 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                      <tr>
+                        <td><i class="fas fa-user"></i></td>
+                        <td>{{GetUSerDOne['Fname'] +' '+ GetUSerDOne['Lname'] }}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-mobile-alt"></i></td>
+                        <td>{{GetUSerDOne['Mobile']}}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-address-card"></i></td>
+                        <td>{{GetUSerDOne['Address']}}</td>
+                      </tr>
+
+                      <tr>
+                      <tr>
+                        <td><i class="fas fa-city"></i></td>
+                        <td>{{ GetUSerDOne['City'] +' ' +GetUSerDOne['Zip'] }}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-university"></i></td>
+                        <td>{{GetUSerDOne['State'] }} </td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-flag"></i></td>
+                        <td>{{GetUSerDOne['Country'] }}</td>
+                      </tr>
+
+
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                </ng-container> -->
+
+
+
+
+
+
+
+        <ul class="usernavdash side-nav-ul">
+          <li><a [routerLink]="['/dashboard']" routerLinkActive="active"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller
+              Dashboard</a></li>
+          <!-- store-all-details -->
+          <!-- <li><a [routerLink]="['/store-view']" routerLinkActive="active"><i class="fas fa-shopping-bag" aria-hidden="true"></i>
+              Visit my All
+              Stores</a></li> -->
+          <!-- <li ><a [routerLink]="['/store', storename]"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my Store</a></li> -->
+          <li><a [routerLink]="['/select-category']" routerLinkActive="active"><i class="fas fa-plus-square"
+                aria-hidden="true"></i>Add New
+              Product</a></li>
+          <!-- class="active" -->
+          <li><a [routerLink]="['/seller-product-setting-store']" routerLinkActive="active"><i class="fa fa-cog"
+                aria-hidden="true"></i>Seller
+              Store Setting</a></li>
+          <li><a [routerLink]="['/pending-ad']" routerLinkActive="active"><i class="fa fa-check" aria-hidden="true"></i>
+              My Pending Ads</a></li>
+          <li><a [routerLink]="['/user-shipment']" routerLinkActive="active"><i class="fas fa-address-book"></i> My
+              Address Book</a></li>
+          <li><a [routerLink]="['/active-ad']" routerLinkActive="active"><i class="fa fa-check-square" aria-hidden="true"></i>
+              My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']" routerLinkActive="active"><i class="fas fa-gavel"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']" routerLinkActive="active"><i class="fas fa-certificate"></i> My
+              Offers</a></li>
+          <li><a [routerLink]="['/seller-purchasing']" routerLinkActive="active"><i class="fas fa-shopping-cart"></i>
+              My
+              Purchases</a></li>
+              <li><a [routerLink]="['/seller-order-receive']" routerLinkActive="active"><i class="fas fa-shopping-cart"></i>
+                Order Recieve from Buyer</a></li>
+          <li><a [routerLink]="['/watch-Product-seller']" routerLinkActive="active"><i class="fa fa-list" aria-hidden="true"></i>
+              My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']" routerLinkActive="active"><i class="far fa-calendar-plus"></i>
+              Add New
+              Store Dhaar.pk</a></li>
+          <!-- <li><a [routerLink]="['/manage-coupons']" routerLinkActive="active"><i class="far fa-money-bill-alt"></i>
+              Manage
+              Coupons</a></li> -->
+          <li><a [routerLink]="['/seller-user-detail']" routerLinkActive="active"><i class="fas fa-info-circle"></i> My
+              Details</a></li>
+          <li><a [routerLink]="['/seller-setting']" routerLinkActive="active"><i class="fas fa-cogs"></i> Account
+              Setting</a></li>
+          <li><a [routerLink]="['/login']" routerLinkActive="active" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i
+                class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+        </ul>
+        <!-- <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad">
+          </a> </div> -->
+      </div>
+      <div class="right-nav">
+          <span class="open-btn" (click)="openNav()">&#9776;</span>
+      <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

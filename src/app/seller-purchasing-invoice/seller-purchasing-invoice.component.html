@@ -1,0 +1,157 @@
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Purchasing Invoice</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span>My Purchasing</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+            <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+          <li><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+         
+          <li ><a [routerLink]="['/seller-product-setting-store']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+
+          <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+          <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+          <li class="active"><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+          <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+          <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+
+      <br/><br/><br/>
+      <div class="col-md-9 col-sm-8">
+
+
+        <div class="col-lg-offset-3 pull-right" style=" border-bottom: 1px solid #AAAAAA;">
+
+
+          <button class=" button" style="font-size: 20px !important;"><i class="fa fa-print"></i>&nbsp; <span>Print</span></button>
+          <button class="button" style="font-size: 20px !important;"><i class="fa fa-download"></i>&nbsp; <span>Download</span></button>
+        </div>
+
+        <br/> <br/> <br/> <br/> <br/>
+        <div id="content" #content>
+        <header class="clearfix">
+          <div id="logo">
+            <img src="../../assets/images/Check-Resolution.png">
+          </div>
+          <div id="company">
+            <h2 class="name">Dhaar.pk</h2>
+            <div>455 Foggy Heights, AZ 85004, US</div>
+            <div>(602) 519-0450</div>
+            <div><a href="mailto:company@example.com">info@dhaar.pk</a></div>
+          </div>
+        </header>
+        <main>
+          <!-- <ng-container *ngFor="let Invoiceship of GetAllproducts.invoice_detail"> -->
+            <div id="details" class="clearfix">
+              <div id="client">
+                <p class="to">SHIP TO:</p>
+
+                <h2 >{{ GetAllproducts.invoice_detail?.first_name }} {{ GetAllproducts.invoice_detail?.last_name}}</h2>
+                <h6 >Tel: {{ GetAllproducts.invoice_detail?.tel }} </h6>
+                <p>{{ GetAllproducts.invoice_detail?.address}}
+                <p>{{ GetAllproducts.invoice_detail?.city}} </p>
+                <p>{{ GetAllproducts.invoice_detail?.State}} , {{ GetAllproducts.invoice_detail?.country }} </p>
+                <p>Fax: {{ GetAllproducts.invoice_detail?.tel }} </p>
+                <p><a href="mailto:{{ GetAllproducts.invoice_detail?.email}}">{{ GetAllproducts.invoice_detail?.email}}</a></p>
+              </div>
+
+              <div id="invoice">
+                <h1>ORDER ID</h1>
+                <h3>{{ GetAllproducts.invoice_detail?.inoviceno}}</h3>
+                <div class="date">Date of Order: {{ GetAllproducts.invoice_detail?.date.substr(0,10)}}</div>
+
+              </div>
+            </div>
+          <!-- </ng-container> -->
+          <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr>
+              <th class="no">#</th>
+              <th class="desc">DESCRIPTION</th>
+              <th class="unit">UNIT PRICE</th>
+              <th class="qty">QUANTITY</th>
+              <th class="total">TOTAL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--<ng-container *ngFor="let fetchedproducts of Allproducts.products">-->
+            <!-- <ng-container> -->
+              <tr  *ngFor="let abc of GetAllproducts.product_detail; let i = index">
+                <td class="no">{{ i+1 }}</td>
+                <td class="desc"><h3>{{ abc.pro_title }}</h3>{{ abc.product_desc | slice:0:130 }}....</td>
+                <td class="unit">Rs: {{ abc.unit_price | number:'.0-0'}}</td>
+                <td class="qty">{{abc.product_quantity}}</td>
+                <!--{{ abc.Qty}}-->
+                <td class="total">Rs: {{ abc.unit_price * abc.product_quantity | number:'.0-0' }}</td>
+              </tr>
+            <!-- </ng-container> -->
+
+            </tbody>
+            <tfoot>
+            <!-- <ng-container > -->
+              <tr>
+                <td colspan="2"></td>
+                <td colspan="2">SUBTOTAL</td>
+                <td>Rs {{GetAllproducts.TotalAmount | number:'.0-0'}}</td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td colspan="2">TAX 0%</td>
+                <td>Rs: 00.00</td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td colspan="2">GRAND TOTAL</td>
+                <td>Rs: {{GetAllproducts.TotalAmount | number:'.0-0' }}</td>
+              </tr>
+            <!-- </ng-container> -->
+            </tfoot>
+          </table>
+          <div id="thanks">Thank you!</div>
+          <!--<div id="notices">-->
+          <!--<div>NOTICE:</div>-->
+          <!--<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>-->
+          <!--</div>-->
+        </main>
+        <div style="text-align: center">
+          Order was created on a computer and is valid without the signature and seal.
+        </div>
+        </div>
+
+
+
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->

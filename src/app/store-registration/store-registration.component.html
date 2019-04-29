@@ -1,0 +1,489 @@
+<!-- <app-header></app-header> -->
+
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Store Registration</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span> My Purchasing</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+        <ng-container *ngIf="seller === false">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+          <li ><a [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+          <li><a [routerLink]="['/my-bidds']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li class="active" ><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with Dharr.pk</a></li>
+          <li><a [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+        </ul>
+
+      </div>
+        </ng-container> -->
+        <!-- <li ><a [routerLink]="['/store', SessionstoreName]"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my Store</a></li> -->
+
+ 
+      <!-- <ng-container *ngIf="seller === true">
+        <div class="col-md-3 col-sm-4">
+          <ul class="usernavdash">
+           
+            <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add New Product</a></li>
+            <li ><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+            <li><a [routerLink]="['/seller-product-setting']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+            <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+            <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+            <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+            <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+            <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+            <li class="active"><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+            <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+            <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+            <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+            <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+            <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+          </ul>
+          <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+        </div>
+      </ng-container> -->
+
+      <form role="form" class="login-form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+
+        <div class="col-md-12 col-sm-12">
+          <div class="userccount">
+
+            <div class="userbtns">
+              <ul class="nav nav-tabs">
+                <li  *ngIf="step1==true" class="active"style="width: 200px;"><a [ngClass]="{disabled : !step2Button}" (click)="step2=false;step3=false;step4=false"   data-toggle="tab"  class="btn"  >Store Information </a></li>
+                <li  *ngIf="step1==false" style="width: 200px;" ><a [ngClass]="{disabled : !step2Button}" (click)="step2=false;step3=false;step4=false"   data-toggle="tab"  class="btn"  >Store Information </a></li>
+
+                <li *ngIf="step2==true" class="active" ><a    (click)="step1=false;step3=false;step4=false"  data-toggle="tab" class="btn" href="#step2"  >Legal Details </a></li>
+                <li *ngIf="step2==false" >                  <a data-toggle="tab" [ngClass]="{disabled : !step2Button}"(click)="step1=false;step3=false;step4=false" href="#step2" class="btn">Legal Details </a>
+                </li>
+
+                <!--<li *ngIf="step3==true" class="active"><a  (click)="step2=false;step1=false;step4=false"  data-toggle="tab" href="#step3">Categories</a></li>-->
+                <!--<li *ngIf="step3==false"><a  (click)="step2=false;step1=false;step4=false" data-toggle="tab" href="#step3">Categories</a></li>-->
+
+                <li *ngIf="step4==true" class="active"><a [ngClass]="{disabled : !step2Button}" (click)="step2=false;step1=false;step3=false"  data-toggle="tab"  class="btn"   >Bank Details</a></li>
+                <li *ngIf="step4==false"><a data-toggle="tab" [ngClass]="{disabled : !step2Button}"(click)="step1=false;step3=false;step4=false" href="#step2" class="btn">Bank Details</a></li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div id="step1" class="tab-pane fade in active">
+
+                <div class="row from-setting">
+                    <div class="col-sm-4 ">
+                      <div class="form-group form-group has-feedback" [ngClass]="{ 'has-error': f.submitted && !storename.valid }">
+                        <label  for="Store _name" class="required">Store URL <span class="span-lab">*</span></label>
+                        <div style="color:#C00;" *ngIf="model.storename!=null && storename.touched && !storename.valid" class="help-block">Store Name required or invalid
+                        </div>
+                        <input type="text" [(ngModel)]="model.storename"
+                               pattern="^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$"
+                               placeholder="mystore"
+                               (keyup)=checkButtonStep1()
+                               (ngModelChange)="onChangestore(storename.value)"
+                               #storename="ngModel" name="storename" class="input form-control"
+                               id="Store _name"
+                               required>
+                               <!-- (ngModelChange)="onChangeuser($event)" -->
+                        <span  *ngIf="Userloading == true && UserTyping == true" style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate form-control-feedback"></span>
+                        <span  *ngIf="UserError == true && UserTyping == true && Userloading == false && storename.valid" style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+
+                        <span *ngIf="UserError == false && UserTyping == true && Userloading == false" style="color: red"  class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
+
+                      </div>
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ownername.valid }">
+
+
+                        <label  for="company_name" class="required">Owner Name<span class="span-lab">*</span></label>
+                        <div style="color:red" *ngIf=" model.ownername!=null && !ownername.valid" class="help-block">Owner name required or invalid
+                        </div>
+
+                        <input type="text" [(ngModel)]="model.ownername"
+                               pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
+                               #ownername="ngModel" name="ownername"
+                               (keyup)=checkButtonStep1()
+                               required class="input form-control"
+                               placeholder="Your Name"
+                               id="company_name">
+
+                      </div>
+
+                    </div>
+                    <div class="col-sm-4">
+
+
+
+                      <div class="form-group  form-group has-feedback" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+
+                        <label  for="email_address" class="required">Business Email<span class="span-lab">*</span></label>
+                        <div  style="color:red" *ngIf=" (!email.valid && email.touched  ) " class="help-block">Email required in proper format</div>
+
+                        <input type="text" class="input form-control"
+                               pattern="^(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+                               required
+                               (keyup)=checkButtonStep1()
+                               (ngModelChange)="OnEmailChangeEvent()"
+                               
+                               placeholder="Your Email Address"
+                               [(ngModel)]="model.email" #email="ngModel" name="email"
+                               id="email_address">
+                               <!-- (focusout)="onChangeuser(email.value)" -->
+                        <span *ngIf="Emailok == true" style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+                        <div *ngIf=" EmailExist == true "  class="help-block"  style="color: red" >Email is Already Exist for Store</div>
+
+
+                      </div><!--/ [col] -->
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !zipcode.valid }">
+
+                        <label  for="postal_code" class="required">Zip/Postal Code</label>
+                        <div  style="color:red" *ngIf=" model.zipcode!=null  && !zipcode.valid" class="help-block">Zip code required</div>
+
+                        <input class="input form-control" type="text"
+                               pattern="([0-9])+$"
+                               (keyup)=checkButtonStep1()
+                               placeholder="Zip Code"
+                               maxlength="10"
+                                [(ngModel)]="model.zipcode" #zipcode="ngModel" name="zipcode" id="postal_code">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !city.valid }">
+
+                        <label  for="city" class="required">City<span class="span-lab">*</span></label>
+                        <div  style="color:red" *ngIf=" model.city!=null && !city.valid" class="help-block">City invalid/required</div>
+
+                        <input class="input form-control"
+                               (keyup)=checkButtonStep1()
+                            placeholder="Your City"
+                               pattern="^([A-Za-z])+$"
+                               type="text" required [(ngModel)]="model.city" #city="ngModel" name="city" id="city">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !personal.valid }">
+
+                        <label  for="telephone" class="required">Owner Contact Number<span class="span-lab">*</span></label>
+                        <div  style="color:red" *ngIf=" model.personal!=null  && !personal.valid" class="help-block">Contact number required in proper format
+                        </div>
+
+                        <input class="input form-control"
+
+                               [textMask]="{mask: mask}"
+                               (keyup)=checkButtonStep1()
+                               placeholder="Your Mobile Number"
+                               type="text" required [(ngModel)]="model.personal" #personal="ngModel" name="personal"
+                               id="telephone">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business.valid }">
+
+                        <div class="form-group">
+
+                          <label  for="telephone" class="required">Business Contact Number</label>
+                          <div  style="color:red" *ngIf=" model.business!=null && !business.valid && business.touched" class="help-block">Contact number required in proper format</div>
+
+                          <input class="input form-control"
+                                 pattern="([0-9])+$"
+                                 placeholder="Second contact Number"
+                                 maxlength="11"
+
+                                 (keyup)=checkButtonStep1()
+                                 type="text" [(ngModel)]="model.business" #business="ngModel" name="business"
+                                 id="telepone">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !storename.valid }">
+
+                        <label  for="address" class="required">Address<span class="span-lab">*</span></label>
+                        <div  style="color:red" *ngIf=" model.address!=null && !address.valid" class="help-block">Address required</div>
+
+                        <input type="text" class="input form-control" required
+                               placeholder="Shop #, Street# etc"
+                               (keyup)=checkButtonStep1()
+                               [(ngModel)]="model.address"
+                               #address="ngModel" name="address" id="address">
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+
+                      <!-- <div class="form-group"> -->
+
+                          <label for="telephone" class="required">Upload Your Profile Picture</label>
+
+
+                          <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="handleFileInput($event.target.files)"  multiple accept="image/*">
+
+
+                        <!-- </div> -->
+                    <!-- <label for="telephone" class="required">Upload Your Profile Picture</label> -->
+
+
+                    <!-- <input class="file" (change)="onChange($event)" type="file" data-preview-file-type="text" id="file1" name="file" #Picture multiple ng-files="getTheFiles($files)" /> -->
+                    <!-- <input id="pic" type='file' (change)="onChange($event)" (change)="readUrl($event)" name="pic" [(ngModel)]="model.pic" accept="image/*" multiple> -->
+                    <!-- <img [src]="url" class="image-box" > -->
+                    <!-- <input type="file" #Picture id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*"> -->
+
+
+                    </div>
+                </div>
+                <p style="color:red">Please review your information before submission</p>
+
+                <div class="marginbt10 nav nav-tabs">
+                  <a data-toggle="tab" [ngClass]="{disabled : !step1button}"  (click)="step1=false; step2=true;step3=false;step4=false;  " href="#step2" class="btn-black" value="Save and Continue">Save and Continue</a>
+                </div>
+              </div>
+
+              <div id="step2" class="tab-pane fade in">
+                <h4>Unregistered / Registered on FBR</h4>
+                <div class="from-setting">
+                    <label>
+                      <input type="checkbox" [checked]="model.fbrunregister"
+                             (change)="closeregister()"
+
+                       [(ngModel)]="model.fbrunregister" #fbrunregister="ngModel"
+                             name="fbrunregister" value="unregister">
+                      Unregistered</label>
+
+                  <label><input type="checkbox" [checked]="model.fbrregister"
+                                    (change)="closecheck()"
+
+                                    [(ngModel)]="model.fbrregister"
+                                    #fbrregister="ngModel" name="fbrregister"
+                  > Registered</label>
+                  </div>
+              
+
+                <div>
+                <ul *ngIf="model.fbrregister== true" >
+
+
+
+                  <li class="row">
+                    <div class="col-sm-12">
+
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !storename.valid }">
+                        <div  style="color:red" *ngIf=" model.fbrname!=null && !fbrname.valid" class="help-block">Legal Name required</div>
+
+                        <label for="Store _name" class="required">Legal Name As per FBR</label>
+
+
+                        <input type="text" class="input form-control" required
+                               placeholder="Your Name"
+                               pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
+                               [(ngModel)]="model.fbrname"
+                               #fbrname="ngModel" name="fbrname" id="legal_name">
+                      </div>
+
+                    </div><!--/ [col] -->
+
+                  </li><!--/ .row -->
+                  <li class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !storename.valid }">
+                        <div  style="color:red" *ngIf=" model.cnic!=null && !cnic.valid" class="help-block">CNIC/NTN is required</div>
+
+                        <label for="company_name">NTN / CNIC ( NTN is prefered )</label>
+
+
+
+                        <input type="text" maxlength="13" minlength="13" class="input form-control" required
+                               placeholder="NTN Number"
+                               pattern="([0-9])+$"
+                               [(ngModel)]="model.cnic"
+                               #cnic="ngModel" name="cnic" id="cnic">
+                      </div>
+
+                    </div><!--/ [col] -->
+                    <div class="col-sm-12">
+
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !storename.valid }">
+                        <div  style="color:red" *ngIf=" model.strn!=null && !strn.valid" class="help-block">STRN is required</div>
+
+
+                        <label for="STRN" class="required">STRN ( Sales Tax Registration Number )</label>
+<br>
+                        <input type="text" class="input form-control" required
+                               placeholder="STRN Number"
+                               pattern="([0-9])+$"
+                               (keyup)="checkButtonStep2()"
+                               [(ngModel)]="model.strn"
+                               #strn="ngModel" name="strn" id="strn">
+                      </div>
+
+
+                    </div><!--/ [col] -->
+                  </li><!--/ .row -->
+
+                </ul>
+                </div>
+
+                <div class="nav nav-tabs marginbt10">
+                  <a data-toggle="tab" [ngClass]="{disabled : !step2button}" (click)="step1=false; step2=false;step3=false;step4=true " href="#step4" class="btn-black" value="Save and Continue">Save and Continue</a>
+                </div>
+              </div>
+
+              <div id="step3" class="formpanel tab-pane fade in">
+                <h5>Main Categories Interested to Sell</h5>
+                <ul>
+                  <li><label><input type="checkbox" name="radio1">Phones & Tablets</label></li>
+                  <li><label><input type="checkbox" name="radio1">Appliances</label></li>
+                  <li><label><input type="checkbox" name="radio1">TV, Audio and Video</label></li>
+                  <li><label><input type="checkbox" name="radio1">Laptops and Computing</label></li>
+                  <li><label><input type="checkbox" name="radio1">Video Games and Consoles</label></li>
+                  <li><label><input type="checkbox" name="radio1">Camera and Accessories</label></li>
+                  <li><label><input type="checkbox" name="radio1">Fashion</label></li>
+                  <li><label><input type="checkbox" name="radio1">Baby, Kids and Toys</label></li>
+                  <li><label><input type="checkbox" name="radio1">Cosmetics and Perfumes</label></li>
+                  <li><label><input type="checkbox" name="radio1">Sports and Fitness</label></li>
+
+
+                  <li class="row" style="margin-top: 10px;">
+                    <div class="col-sm-12">
+                      <label for="company_name">Brands </label>
+                      <input type="text" name="" class="input form-control" id="brands">
+                    </div><!--/ [col] -->
+                  </li><!--/ .row -->
+
+
+                </ul>
+                <br>
+
+
+                <div class="nav nav-tabs">
+                  <a data-toggle="tab" (click)="step1=false; step2=false;step3=false;step4=true; " href="#step4" class="btn" value="Save and Continue">Save and Continue</a>
+                </div>
+              </div>
+
+              <div id="step4" class="tab-pane fade in">
+                <h4>As per NTN / CNIC given above</h4>
+                <div class="row from-setting">
+                    <div class="col-sm-6">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !acount_title.valid }">
+                        <div  style="color:red" *ngIf=" model.acount_title!=null && !acount_title.valid" class="help-block">Account title is  required</div>
+
+
+                        <label  for="Store _name" class="required">Bank Account Title</label>
+                      <input  type="text" class="input form-control" required
+                             placeholder="Bank Account Title"
+                             pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
+                             [(ngModel)]="model.acount_title"
+                             #acount_title="ngModel" name="acount_title" id="acount_title">
+                      </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !acount_number.valid }">
+                        <div  style="color:red" *ngIf=" model.acount_number!=null && !acount_number.valid" class="help-block">Account number is  required</div>
+
+
+                        <label  for="company_name">Bank Account Number </label>
+                        <input type="text" class="input form-control" required
+                               placeholder="Bank Account Number"
+
+                               pattern="([0-9])+$"
+                               [(ngModel)]="model.acount_number"
+                               #acount_number="ngModel" name="acount_number" id="acount_number">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Bank_name.valid }">
+                        <div  style="color:red" *ngIf=" model.Bank_name!=null && !Bank_name.valid" class="help-block">Bank name is  required</div>
+
+
+                        <label  for="company_name">Bank Name </label>
+                        <input type="text" class="input form-control" required
+                               placeholder="Bank Name"
+                               pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
+                               [(ngModel)]="model.Bank_name"
+                               #Bank_name="ngModel" name="Bank_name" id="bank">
+                      </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Branch_name.valid }">
+                        <div  style="color:red" *ngIf=" model.Branch_name!=null && !Branch_name.valid" class="help-block">Bank name is  required</div>
+
+
+                        <label  for="company_name">Branch Name </label>
+                        <input type="text" class="input form-control" required
+                               placeholder="Branch Name"
+                               pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
+                               [(ngModel)]="model.Branch_name"
+                               #Branch_name="ngModel" name="Branch_name" id="Branch_name">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Branch_code.valid }">
+                        <div  style="color:red" *ngIf=" model.Branch_code!=null && !Branch_code.valid" class="help-block">Bank name is  required</div>
+
+
+                        <label  for="company_name">Branch Code </label>
+                        <input type="text" class="input form-control" required
+                               placeholder="Branch Code"
+                               pattern="([0-9])+$"
+                               [(ngModel)]="model.Branch_code"
+                               #Branch_code="ngModel" name="Branch_code" id="Branch_code">
+                      </div>
+                    </div>
+                  <div class="formrow">
+                    <input type="checkbox" [checked]="model.terms"
+                           (change)="closecheck()"
+
+                           [(ngModel)]="model.terms"
+                           #terms="ngModel" name="terms"
+                    />
+                    I agree to the Terms and Conditions laid out in the COMMISSION AGENT AGREEMENT
+                  </div>
+
+                </div>
+                <div *ngIf="!Waitcall" class="alert  alert-info">
+                  <p class="">
+                    <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
+
+                  </p>
+                </div>
+
+                <input type="submit" class="btn-black" value="Submit">
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </form>
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->
+

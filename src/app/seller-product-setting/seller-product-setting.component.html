@@ -1,0 +1,414 @@
+<!-- <app-header></app-header> -->
+
+
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+            <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+          <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+          <li class="active"><a [routerLink]="['/seller-product-setting']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+          <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+          <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+          <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+          <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+          <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+
+      <div class="col-md-9 col-sm-8">
+          <div class="userccount">
+            <div class="userbtns">
+              <ul class="nav nav-tabs">
+                  <li class="active">
+                      <a data-toggle="tab" href="#home1">All Products</a></li>
+                <li >
+                  <a data-toggle="tab" href="#home">Active Products</a></li>
+                <li><a data-toggle="tab" href="#menu1">InActive Products</a></li>
+              </ul>
+            </div> 
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <div class="text-center">
+                  <h3>My Products {{SessionstoreName}} </h3>
+                  <ul class="searchList">
+                    <!-- ad start -->
+                    <ng-container *ngFor="let phoneProducts of ActiveProduct.Results">
+                      <li>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-4">
+                            <div class=""><img src="{{ phoneProducts.Pic.split(',')[0]   }}" alt="Ad Name"></div>
+                          </div>
+                          <div class="col-md-10 col-sm-8">
+                            <div class="jobinfo">
+                              <div class="row">
+                                <div class="col-md-8 col-sm-7">
+                                  <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name }}</a> <i class="fa fa-angle-double-right"
+                                      aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right"
+                                      aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name }}</a> </div>
+                                  <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name,SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id }">{{
+                                      phoneProducts.P_Title }}</a></h3>
+                                  <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                  <div class="clearfix"></div>
+                                  <p class="label label-warning">{{phoneProducts.P_Des}}</p>
+                                  <!-- {{ phoneProducts.FixedPrice}} -->
+                                </div>
+                                <div class="col-md-4 col-sm-5 text-right">
+                                  <div *ngIf="phoneProducts.Auction ==  true " class="adprice">Rs {{ phoneProducts.MaxBidPrice |
+                                    number:'.0-0'}}</div>
+                                  <div *ngIf="phoneProducts.Auction == false " class="adprice">Rs {{ phoneProducts.FixedPrice |
+                                    number:'.0-0'}}</div>
+                                  <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                                  <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name,SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id }"
+                                      title="View this product"><i class="fas fa-eye"></i></a></div>
+                                  <div class="listbtn"><a (click)="SaveProduct(phoneProducts, item)" data-toggle="modal"
+                                      data-target="#myModal" title="Edit this product"><i class="fa fa-edit"></i></a></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ng-container>
+          
+                    
+                    <!-- ad end -->
+          
+          
+                    <!-- ad end -->
+                  </ul>
+                </div>
+              </div>
+              <div id="home1" class="tab-pane fade">
+                  <h3>All Products</h3>
+              
+                  <div class="text-center">
+                    <h3>My Products {{SessionstoreName}} </h3>
+                    <ul class="searchList">
+                      <!-- ad start -->
+                      <ng-container *ngFor="let phoneProducts of Allproducts.Results ; let item = index">
+                        <li>
+                          <div class="row">
+                            <div class="col-md-2 col-sm-4">
+                              <div class=""><img src="{{ phoneProducts.Pic.split(',')[0]   }}" alt="Ad Name"></div>
+                            </div>
+                            <div class="col-md-10 col-sm-8">
+                              <div class="jobinfo">
+                                <div class="row">
+                                  <div class="col-md-8 col-sm-7">
+                                    <div class="cateName">
+                                      <a href="#.">{{ phoneProducts.Cat_Name }}</a> 
+                                      <i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name}}</a> </div>
+                                    <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name, SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id }">{{
+                                        phoneProducts.P_Title }}</a></h3>
+                                    <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                    <div class="clearfix"></div>
+                                    <p class="label label-warning">{{phoneProducts.P_Des}}</p>
+                                  </div>
+                                  <div class="col-md-4 col-sm-5 text-right">
+                                    <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice |
+                                      number:'.0-0'}}</div>
+                                    <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice |
+                                      number:'.0-0'}}</div>
+                                    <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                                    <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name_id,SubCatName:phoneProducts.Sub_Sub_Cat_Name_id, id:phoneProducts.id }"
+                                      
+                                        title="View this product"><i class="fas fa-2x fa-eye"></i></a></div>
+                                        <!-- [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name, SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id }"> -->
+                                    <div class="listbtn"><a (click)="SaveProduct(phoneProducts, item)" data-toggle="modal"
+                                        data-target="#myModal" title="Edit this product"><i class="fa fa-2x fa-edit"></i></a></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ng-container>
+            
+                   
+                      <!-- ad end -->
+            
+            
+                      <!-- ad end -->
+                    </ul>
+                  </div>
+                </div>
+              <div id="menu1" class="tab-pane fade">
+              
+                <div class="text-center">
+                  <h3>My Products {{SessionstoreName}} </h3>
+                  <ul class="searchList">
+                    <!-- ad start -->
+                    <ng-container *ngFor="let phoneProducts of DeactiveProducts.Results; let item = index">
+                      <li>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-4">
+                            <div class=""><img src="{{ phoneProducts.Pic.split(',')[0]   }}" alt="Ad Name"></div>
+                          </div>
+                          <div class="col-md-10 col-sm-8">
+                            <div class="jobinfo">
+                              <div class="row">
+                                <div class="col-md-8 col-sm-7">
+                                  <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name_id }}</a> <i class="fa fa-angle-double-right"
+                                      aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name_id }}</a> <i class="fa fa-angle-double-right"
+                                      aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name_id }}</a> </div>
+                                  <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name_id, SubCatName:phoneProducts.Sub_Sub_Cat_Name_id, id:phoneProducts.id }">{{
+                                      phoneProducts.P_Title }}</a></h3>
+                                  <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                  <div class="clearfix"></div>
+                                  <p class="label label-warning">{{phoneProducts.P_Des}}</p>
+                                </div>
+                                <div class="col-md-4 col-sm-5 text-right">
+                                  <div *ngIf="phoneProducts.Auction ===  true  " class="adprice">Rs {{ phoneProducts.MaxBidPrice |
+                                    number:'.0-0'}}</div>
+                                  <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice |
+                                    number:'.0-0'}}</div>
+                                  <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                                  <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name_id,SubCatName:phoneProducts.Sub_Sub_Cat_Name_id, id:phoneProducts.id }"
+                                    
+                                      title="View this product"><i class="fas fa-2x fa-eye"></i></a></div>
+                                      <!-- [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name, SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id }"> -->
+                                  <div class="listbtn"><a (click)="SaveProduct(phoneProducts, item)" data-toggle="modal"
+                                      data-target="#myModal" title="Edit this product"><i class="fa fa-2x fa-edit"></i></a></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ng-container>
+          
+                    
+                    <!-- ad end -->
+          
+          
+                    <!-- ad end -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <!-- </div>
+          </div>
+        </div> -->
+        
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="model-heading" id="myModalLabel">Edit Product</h4>
+              </div>
+              <div class="modal-body">
+                <div class="">
+        
+                  <div class="">
+                    <label class="help-block">Category:</label>
+                    <select [(ngModel)]="model.Cat_Name" name="cat" (click)="MainCatSel(model.Cat_Name)" required>
+                      <ng-container *ngFor="let cat of GetallCat">
+                        <option value="{{cat.Cat_Name}}">{{cat.Cat_Name}}</option>
+                      </ng-container>
+                    </select>
+                  </div>
+                  <div class="">
+                    <label class="help-block" >Sub-Category:</label>
+                    <select [(ngModel)]="model.Sub_Cat_Name" name="Subcat" (click)="SubCatSel(model.Sub_Cat_Name)" required>
+                      <ng-container *ngFor="let cat of GetAllSubCat">
+                        <option value="{{cat.Sub_Cat_Name}}">{{cat.Sub_Cat_Name}}</option>
+                      </ng-container>
+                    </select>
+                    <div class="">
+                    </div>
+                    <label class="help-block" >Sub-Sub-Category:</label>
+                    <select [(ngModel)]="model.Sub_Sub_Cat_Name" name="SubSubcat" required>
+                      <ng-container *ngFor="let cat of GetAllSubSubCat">
+                        <option value="{{cat.Sub_Sub_Cat_Name}}">{{cat.Sub_Sub_Cat_Name}}</option>
+                      </ng-container>
+                    </select>
+                  </div>
+                  <div class="formrow">
+                    <label class="help-block" >Title:</label>
+                    <input type="text" class="form-control" name="Title" [(ngModel)]="model.P_Title" required>
+                  </div>
+                  <div class="formrow">
+                    <label class="help-block" >Product Condition:</label>
+                    <input type="text" class="form-control" name="Condition" [(ngModel)]="model.P_Condition" required>
+                  </div>
+                  <div class="formrow">
+                    <label class="help-block" >Product Description:</label>
+                    <textarea type="text" class="form-control" name="Description" [(ngModel)]="model.P_Des"></textarea>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="formrow">
+                      <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
+                      <!--</image-upload>-->
+                      <div class="uploadphotobx"> <i class="fa fa-upload" aria-hidden="true"></i>
+                        <h4>Upload Product photos</h4>
+                        <p>It must be a head-shot photo</p>
+                        <label class="uploadBox">Click to Upload Cover Photos
+                          <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
+                        </label>
+                      </div>
+    
+                    </div>
+                  </div>
+                  <div class="formrow">
+                    <label class="help-block" >Pic:</label>
+                    <input type="text" class="form-control" name="Title" [(ngModel)]="model.Pic" required>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="formrow uploadimg">
+                      <ng-container *ngFor="let img of url; let i=index">
+                        <div class="img-box">
+                          <i class="fa fa-times" (click)="removepic(i)" style="cursor: pointer"></i>
+                          <img [src]="img">
+                        </div>
+                        <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
+                      </ng-container>
+                    </div>
+                  </div>
+                  
+                  <ng-container *ngIf="model.Auction">
+                    <div class="col-md-12">
+                      <div class="userbtns">
+                        <ul class="nav nav-tabs">
+                          <li (click)="EnableAuction(true)" class="active"><a data-toggle="tab" href="#wsell">Auction</a></li>
+                          <li (click)="EnableFixd(false)"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+                        </ul>
+                      </div>
+                      <div class="tab-content">
+                        <div id="wsell" class="formpanel tab-pane fade in active">
+                          <div class="formrow">
+                            <input type="number" name="StartingPrice" class="form-control" [(ngModel)]="model.SrartingPrice">
+                          </div>
+                          <div class="formrow">
+                            <input type="date" name="Starting Bid Date" class="form-control"   [(ngModel)]="model.StartbidTime">
+                          </div>
+                          <div class="formrow">
+                            <input type="date" name="Ending Bid Date" class="form-control"   [(ngModel)]="model.EndbidTime">
+                          </div>
+                          <!--<div *ngIf="Buyitnow == true" class="formrow">-->
+                          <!--<input type="number" name="BuyitNow" class="form-control" [(ngModel)]="model.Buyitnow">-->
+                          <!--</div>-->
+        
+                          <div class="formrow">
+                            <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+                            Add a Reserve Price
+                          </div>
+                          
+                          <div *ngIf="ReservePrice == true" class="formrow">
+                            <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control">
+                          </div>
+                          <div class="formrow">
+                            <input type="checkbox" name="namead" [(ngModel)]="model.product_ad_active" (change)="checked3($event,i)"
+                              placeholder="product_ad_active">
+                            If you want active ad about this Product
+                          </div>
+                          <div class="formrow">
+                            <label style="color: black" class="help-block">Select Your Listing</label>
+                            <select [(ngModel)]="model.AuctionListing" class="col-md-push-6" name="listing" style="height: 45px; font-size: 20px; color:#555555; line-height: 20px; border: 2px #f1f1f1 solid !important;">
+                              <option value="10" selected>10 Days</option>
+                              <option value="7">7 Days</option>
+                              <option value="5">5 Days</option>
+                              <option value="3">3 Days</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="wbuy" class="formpanel tab-pane fade in">
+                          <div class="formrow">
+                            <input type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice" class="form-control">
+                          </div>
+                          <div class="formrow">
+                            <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+                            Accept Offers?
+                          </div>
+                          <div class="formrow">
+                            <input type="number" [(ngModel)]="model.Quantity" name="Quantity" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="!model.Auction">
+                    <div class="col-md-12">
+                      <div class="userbtns">
+                        <ul class="nav nav-tabs">
+                          <li (click)="EnableAuction(true)"><a data-toggle="tab" href="#wsell">Auction</a></li>
+                          <li (click)="EnableFixd(false)" class="active"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+                        </ul>
+                      </div>
+                      <div class="tab-content">
+                        <div id="wbuy" class="formpanel tab-pane fade in active">
+                          <div class="formrow">
+                            <input type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice" class="form-control">
+                          </div>
+                          <div class="formrow">
+                            <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+                            Accept Offers?
+                          </div>
+                          <div class="formrow">   
+                            <input type="number" [(ngModel)]="model.Quantity" name="Quantity" class="form-control">
+                          </div>
+                        </div>
+                        <div id="wsell" class="formpanel tab-pane fade in">
+                          <div class="formrow">
+                            <input type="number" name="StartingPrice" class="form-control" [(ngModel)]="model.SrartingPrice">
+                          </div>
+                          <div *ngIf="Buyitnow == true" class="formrow">
+                            <input type="number" name="BuyitNow" class="form-control" [(ngModel)]="model.Buyitnow">
+                          </div>
+        
+                          <div class="formrow">
+                            <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+                            Add a Reserve Price
+                          </div>
+                          <div *ngIf="ReservePrice == true" class="formrow">
+                            <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control">
+                          </div>
+                          <div class="formrow">
+                            <input type="checkbox" name="namead" [(ngModel)]="model.product_ad_active" (change)="checked3($event,i)"
+                              placeholder="product_ad_active">
+                            If you want active ad about this Product
+                          </div>
+                          <div class="formrow">
+                            <label style="color: black" class="help-block">Select Your Listing</label>
+                            <select [(ngModel)]="model.AuctionListing" class="col-md-push-6" name="listing" style="height: 45px; font-size: 20px; color:#555555; line-height: 20px; border: 2px #f1f1f1 solid !important;">
+                              <option value="10" selected>10 Days</option>
+                              <option value="7">7 Days</option>
+                              <option value="5">5 Days</option>
+                              <option value="3">3 Days</option>
+                            </select>
+                          </div>
+                        </div>
+        
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-black" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-black" data-dismiss="modal" (click)="EditProduct()">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>

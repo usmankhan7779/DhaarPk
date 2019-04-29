@@ -1,0 +1,378 @@
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Seller Dashboard</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+
+
+        <!--<div class="breadCrumb ">-->
+          <!--<ng-container *ngIf="GetUSerDOne !== null">-->
+            <!--<a [routerLink]="['/seller-user-detail']">-->
+            <!--<img *ngIf="GetUSerDOne['Pic'] !== ''"  class="breadimg" src="{{PicServrUrl + GetUSerDOne['Pic']}}" alt=""  width="70px" height="70px"> <br/>-->
+            <!--<img *ngIf="GetUSerDOne['Pic'] === ''" class="breadimg" src="assets/images/defaultprofile.jpg" alt=""  width="70px" height="70px"> <br/>-->
+            <!--<span *ngIf="ValueRec == true">Welcome {{ GetUSerDOne['Fname']}}</span>-->
+            <!--</a>-->      
+          <!--</ng-container>-->
+
+
+        <!--</div>-->
+
+
+
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<!-- <div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+           
+           <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+         
+          <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li class="active"><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+          <li><a [routerLink]="['/seller-product-setting-store']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+          <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+          <li><a [routerLink]="['/user-shipment']"><i class="fa fa-user" aria-hidden="true"></i> My Address Book</a></li>
+          <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+          <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+          <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+          <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+
+      <div class="col-md-12 col-sm-12 panel-size">
+        <div *ngIf="NewPostcheck == true" class="alert alert-success">
+          Your product has been successfully listed.
+          <a [routerLink]="['/single-product']" [queryParams]="{ ProID: ProductID, CatName: CatName }">Preview Your Item</a>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0  toppad" >
+
+
+          <div class="panel panel-info panel-info2">
+            <div class="panel-heading panel-heading2">
+              <h3 class="panel-title">My Details</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <ng-container *ngIf="GetUSerDOne !== null">
+                  <div *ngIf="GetUSerDOne['Pic'] !== ''" class="col-md-4 col-lg-4 upload-img-wrapper" align="center">
+                    <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" width="200" height="200"  class=" img-responsive">
+                    <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+                    <i class="fa fa-camera upload-cam-img"></i>
+                  </div>
+                  <div *ngIf="GetUSerDOne['Pic'] === ''" class="col-md-4 col-lg-4 col-sm-4 col-xs-12 upload-img-wrapper" align="center">
+                    <img alt="User Pic" src="assets/images/defaultprofile.jpg" width="200" height="200"  class="img-circle img-responsive">
+                    <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+                    <i class="fa fa-camera upload-cam-img"></i>
+                  </div>
+
+                  <div class=" col-md-8 col-lg-8 col-sm-8 col-xs-12">
+                    <table class="table table-user-information">
+                      <tbody>
+                      <tr>
+                        <td><i class="fas fa-user"></i></td>
+                        <td>{{GetUSerDOne['Fname'] +' '+ GetUSerDOne['Lname'] }}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-mobile-alt"></i></td>
+                        <td>{{GetUSerDOne['Mobile']}}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-address-card"></i></td>
+                        <td>{{GetUSerDOne['Address']}}</td>
+                      </tr>
+
+                      <tr>
+                      <tr>
+                        <td><i class="fas fa-city"></i></td>
+                        <td>{{ GetUSerDOne['City'] +' ' +GetUSerDOne['Zip'] }}</td>
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-university"></i></td>
+                        <td>{{GetUSerDOne['State'] }} </td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-flag"></i></td>
+                        <td>{{GetUSerDOne['Country'] }}</td>
+                      </tr>
+
+
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <a [routerLink]="['/seller-user-detail']" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-red"><i class="glyphicon glyphicon-edit"></i></a>
+              <!--<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>-->
+              <span class="pull-right">
+                         </span>
+            </div>
+
+          </div>
+        </div>
+        <ul class="profilestat width100 pull-left">
+          <!--<li class="col-md-2 col-sm-4 col-xs-6">-->
+          <!--<div class="inbox"> <i class="fa fa-eye" aria-hidden="true"></i>-->
+          <!--<h6>0</h6>-->
+          <!--<strong>Ad Views</strong> </div>-->
+          <!--</li>-->
+          <!--<li class="col-md-2 col-sm-4 col-xs-6">-->
+          <!--<div class="inbox"> <i class="fa fa-tachometer" aria-hidden="true"></i>-->
+          <!--<h6>0 <span>hr</span></h6>-->
+          <!--<strong>Respond Time</strong> </div>-->
+          <!--</li>-->
+          <!--<li class="col-md-2 col-sm-4 col-xs-6">-->
+          <!--<div class="inbox"> <i class="fa fa-clock-o" aria-hidden="true"></i>-->
+          <!--<h6>0</h6>-->
+          <!--<strong>Ad Expire</strong> </div>-->
+          <!--</li>-->
+
+          <!-- <li class="pull-left"> -->
+            <!-- <div class="inbox"> <i class="fa fa-bullhorn" aria-hidden="true"></i> -->
+              <!-- <ng-container *ngIf="!this.GetUSerOffer"> -->
+              <!-- <h6>0</h6> -->
+              <!-- </ng-container> -->
+              <!--<ng-container *ngIf="this.GetUSerOffer.length">-->
+              <!--<h6>{{GetUSerOffer['results'].length}}</h6>-->
+              <!--</ng-container>-->
+              <!-- <strong>Best Offers</strong> -->
+
+            <!-- </div> -->
+          <!-- </li> -->
+          <!--<li class="col-md-2 col-sm-4 col-xs-6">-->
+          <!--<div class="inbox"> <i class="fa fa-envelope-o" aria-hidden="true"></i>-->
+          <!--<h6>0</h6>-->
+          <!--<strong>Messages</strong> </div>-->
+          <!--</li>-->
+        </ul>
+            <div class="col-md-12 col-sm-12">
+              <div class="myads">
+                <h3>Offers Dashboard</h3>
+                <div class="tab-info">
+                  <div class="nav home-nav-tabs home-product-tabs">
+                    <h3 class="new-product-title pull-left"><a href="#pendingoffers" data-toggle="tab" aria-expanded="false">Pending Offers</a></h3>
+                    <h3 class="new-product-title pull-left"><a href="#acceptedoffers" data-toggle="tab" aria-expanded="false">Accepted Offers</a></h3>
+                    <h3 class="new-product-title pull-left"><a href="#rejectedoffers" data-toggle="tab" aria-expanded="false">Rejected Offers</a></h3>
+                    <h3 class="new-product-title pull-left"><a href="#mycounteroffer" data-toggle="tab" aria-expanded="false">My Counter Offer</a></h3>
+                    <h3 class="new-product-title pull-left"><a href="#buyercounteroffer" data-toggle="tab" aria-expanded="false">Buyer Counter Offer</a></h3>
+                  </div>
+                </div>
+                <ul class="searchList">
+                  <!-- ad start -->
+                  <div id="productTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="pendingoffers">
+                      <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                        <div *ngIf="phoneProducts.Status && !phoneProducts.CounterStatus && !phoneProducts.Accept">
+                          <li>
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12">
+                                <div class="jobinfo">
+                                  <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                                      <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                                      <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                      <div class="clearfix"></div>
+                                      <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                                      <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                                      <div class="listbtn offer-btn">
+                                        <a (click)="AcceptOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Aceept Offer</a>
+                                        <a (click)="RejectOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Reject Offer</a>
+                                        <a data-toggle="modal" (click)="CounterOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" data-target="#myModal" style="cursor: pointer">Counter Offer</a>
+                                        <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane fade" id="mycounteroffer">
+                      <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                        <div *ngIf="phoneProducts.Status && phoneProducts.CounterStatus && !phoneProducts.Accept">
+                          <li>
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12">
+                                <div class="jobinfo">
+                                  <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                                      <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                                      <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                      <div class="clearfix">My Counter Offers</div>
+                                      <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                                      <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                                      <div class="listbtn offer-btn">
+                                        <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">You Have made a counter Offer</p>
+                                        <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane fade" id="buyercounteroffer">
+                      <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                        <div *ngIf="phoneProducts.Status && phoneProducts.CounterStatus && phoneProducts.Accept">
+                          <li>
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12">
+                                <div class="jobinfo">
+                                  <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                                      <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                                      <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                      <div class="clearfix">Buyer Has made a Counter Offer</div>
+                                      <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                                      <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                                      <div class="listbtn offer-btn">
+                                        <a (click)="AcceptOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Aceept Offer</a>
+                                        <a (click)="RejectOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Reject Offer</a>
+                                        <a data-toggle="modal" (click)="CounterOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" data-target="#myModal" style="cursor: pointer">Counter Offer</a>
+                                        <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane fade" id="rejectedoffers">
+                      <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                        <div *ngIf="!phoneProducts.Status && !phoneProducts.CounterStatus && !phoneProducts.Accept">
+                          <li>
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12">
+                                <div class="jobinfo">
+                                  <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                                      <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                                      <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                      <div class="clearfix"></div>
+                                      <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                                      <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                                      <div class="listbtn offer-btn">
+                                        <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">This Offer has been Rejected</p>
+                                        <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane fade" id="acceptedoffers">
+                      <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                        <div *ngIf="phoneProducts.Status && !phoneProducts.CounterStatus && phoneProducts.Accept">
+                          <li>
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12">
+                                <div class="jobinfo">
+                                  <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                                      <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                                      <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                      <div class="clearfix"></div>
+                                      <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                                      <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                                      <div class="listbtn offer-btn">
+                                        <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">This Offer has been Accepted</p>
+                                        <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <!-- ad end -->
+
+
+                  <!-- ad end -->
+
+                </ul>
+              </div>
+            </div>
+
+
+
+
+
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Counter Offer</h4>
+      </div>
+      <div class="modal-body">
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="QuantityProduct" [(ngModel)]="model.QuantityProduct" placeholder="Enter Quantity Of Product" required>
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="OfferAmount" [(ngModel)]="model.OfferAmount" placeholder="Your Offer Amount per Product" required>
+
+        <textarea type="text" class="form-control" style="margin-bottom: 15px;"  name="SellerMessage" [(ngModel)]="model.message" placeholder="Message for Seller" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="UpdateCounterOffer()">Submit Counter Offer</button>
+      </div>
+    </div>
+  </div>
+</div>

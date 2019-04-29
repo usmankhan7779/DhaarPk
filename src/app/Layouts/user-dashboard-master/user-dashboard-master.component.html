@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-md-6 col-sm-6">-->
+<!--<h1 class="page-heading">Dashboard</h1>-->
+<!--</div>-->
+<!--<div class="col-md-6 col-sm-6">-->
+
+
+<!--<div class="breadCrumb ">-->
+<!--<ng-container *ngIf="GetUSerDOne !== null">-->
+<!--<a [routerLink]="['/user-detail']">-->
+<!--<img *ngIf="GetUSerDOne['Pic'] === ''" class="breadimg" src="assets/images/defaultprofile.jpg" alt=""  width="70px" height="70px">-->
+<!--<img *ngIf="GetUSerDOne['Pic'] !== ''"  class="breadimg" src="{{PicServrUrl + GetUSerDOne['Pic']}}" alt=""  width="70px" height="70px">-->
+<!--<br/>-->
+<!--<span *ngIf="ValueRec == true">Welcome {{ GetUSerDOne['Fname']}}</span>-->
+<!--</a>-->
+<!--</ng-container>-->
+
+
+<!--</div>-->
+
+
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="sidenav" id="mySidenav">
+          <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <ng-container *ngIf="GetUSerDOne !== null">
+          <div class="user-detail">
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] !== ''">
+              <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" onerror="this.src='../../assets/images/Image.png'">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+              <!-- <img src="../../../assets/images/Image.png"> -->
+              <!-- <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*"> -->
+              <!-- <i class="fa fa-camera upload-cam-img"></i> -->
+            </div>
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] === ''">
+
+              <img alt="User Pic" src="assets/images/Image.jpg" onerror="this.src='../../assets/images/Image.png'">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+              <!-- <img src="../../../assets/images/Image.png"> -->
+              <!-- <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*"> -->
+              <!-- <i class="fa fa-camera upload-cam-img"></i> -->
+            </div>
+            <p class="user-name">
+              <!-- Anas Tahir  -->
+              {{GetUSerDOne['Fname'] +' '+ GetUSerDOne['Lname'] }}
+            </p>
+            <p class="user-address">
+              <i class="fas fa-flag"></i>
+              {{GetUSerDOne['Address'] +' '+ GetUSerDOne['City'] +' '+ GetUSerDOne['State'] +' '+
+              GetUSerDOne['Country']}}
+              <!-- 103-C Madina Town, Faisalabad Pakistan -->
+            </p>
+          </div>
+        </ng-container>
+        <ul class="usernavdash">
+          <li><a routerLinkActive="active" [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/my-bids-buyer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/buyer-offer']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Offers</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/buyer-store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with Dhaar.pk</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <!-- user-shipment -->
+          <li><a routerLinkActive="active" [routerLink]="['/buyer-user-shipment']"><i class="fa fa-user" aria-hidden="true"></i> My Address Book</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+          <li><a routerLinkActive="active" [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+        </ul>
+        <!--<div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>-->
+      </div>
+
+      <div class="right-nav">
+          <span class="open-btn" (click)="openNav()">&#9776;</span>
+      <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

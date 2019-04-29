@@ -1,0 +1,93 @@
+<app-header></app-header>
+<!-- Demo Section Start -->
+<section class="file-section section">
+  <!-- Container Starts -->
+  <div class="container">
+    <div class="row">
+
+      <div class="workorder-form">
+        <form [formGroup]="invoiceForm"  class="workorder-form">
+          <div formArrayName="itemRows">
+            <!--<div *ngFor="let itemrow of invoiceForm['controls'].itemRows['controls']; let i=index"  [formGroupName]="i">-->
+              <!--<h4 style="float:left">File # {{ i + 1 }}</h4>-->
+
+              <!--<div style="float:right; margin-bottom: 10px;">-->
+                <!--<button (click)="addNewRow()" class="w3-button w3-xlarge w3-circle w3-red w3-card-4">+</button>-->
+                <!--<button  *ngIf="invoiceForm['controls'].itemRows['controls'].length > 1" (click)="deleteRow(i)" class="w3-button w3-xlarge w3-circle w3-black w3-card-4">-</button>-->
+              <!--</div>-->
+              <!---->
+
+              <select class="w3-select" name="option">
+                <option value="" disabled selected>File Type</option>
+                <option value="1">JSON</option>
+                <option value="2">CSV</option>
+              </select>
+              <label class="col-md-4 col-sm-6">
+                <input type="checkbox" name="vehicle" value="Customer_id">
+                <input type="text" name="orderNumber" value="Customer_id" />
+              </label>
+
+
+              <label  class="col-md-4 col-sm-12">
+                <input type="checkbox" name="vehicle" value="Seller_id">
+                <input type="text" name="orderNumber" value="Seller_id" />
+              </label>
+
+              <label  class="col-md-4 col-sm-6">
+                <input type="checkbox" name="vehicle" value="Item_id">
+                <input type="text" name="orderNumber" value="Item_id" />
+              </label>
+
+
+              <label  class="col-md-4">
+                <input type="checkbox" name="vehicle" value="Brand_id">
+                <input type="text" name="orderNumber" value="Brand_id" />
+              </label>
+
+              <label class="col-md-4">
+                <input type="checkbox" name="vehicle" value="Category_id">
+                <input type="text" name="orderNumber" value="Category_id" />
+              </label>
+
+
+              <label class="col-md-4">
+                <input type="checkbox" name="vehicle" value="TimeStamp">
+                <input type="text" name="orderNumber" value="TimeStamp" />
+              </label>
+
+              <label class="col-md-4">
+                <input type="checkbox" name="vehicle" value="Age">
+                <input type="text" name="orderNumber" value="Age" />
+              </label>
+
+
+              <label class="col-md-4">
+                <input type="checkbox" name="vehicle" value="Gender">
+                <input type="text" name="orderNumber" value="Gender" />
+              </label>
+
+              <label class="col-md-4">
+                <input  type="checkbox" name="vehicle" value="Auction Type">
+                <input type="text"   name="orderNumber" value="Auction Type" />
+              </label>
+
+
+              <div class="form-group files">
+                <!--<div *ngIf="currentUpload">-->
+                  <!--<div class="progress">-->
+                    <!--<div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>-->
+                  <!--</div>-->
+                  <!--Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete-->
+                <!--</div>-->
+                <input type="file" #fileImportInput  id="txtFileUpload" class="form-control" (change)="handleFileInput($event.target.files)" accept="image/*" multiple="multiple">
+              </div>
+
+            <!--</div>-->
+          </div>
+
+          <button class="btn btn-lg btn-common" (click)="uploadItemsToActivity()" style="z-index:0; width:100%; font-size:22px;">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

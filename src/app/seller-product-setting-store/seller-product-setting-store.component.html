@@ -1,0 +1,364 @@
+<!-- <app-header></app-header> -->
+
+<!-- 
+<div class="inner-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4">
+          <ul class="usernavdash">
+              <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+            <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+            <li><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+
+            <li><a [routerLink]="['/seller-product-setting-store']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+
+            <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+            <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+            <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+            <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+            <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+            <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+            <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+            <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+            <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+            <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+  
+  
+            <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+  
+  
+  
+          </ul>
+          <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+        </div> -->
+
+<div class="col-md-12 col-sm-12">
+  <div class="myads">
+    <h3>My Store Setting</h3>
+    <!-- <ul class="searchList"> -->
+    <!-- ad start -->
+<div class="row" *ngFor="let data of GetALLBuyNowProductss">
+  <div class="product-item col-lg-4 col-md-6 col-sm-6" *ngFor="let TvVideoaudio88 of data.StoreInfo">
+    <div *ngFor="let Tv of data.BankInfo">
+      <div class="item-inner" *ngIf="TvVideoaudio88.StoreName===Tv.StoreID_id">
+
+        <h2 class="product-heading" *ngIf="TvVideoaudio88.StoreName===Tv.StoreID_id">{{TvVideoaudio88?.StoreName}}</h2>
+        <div class="product-thumbnail" *ngIf="TvVideoaudio88.StoreName ===Tv.StoreID_id">
+          <div class="hovereffect" *ngIf="TvVideoaudio88.StoreName===Tv.StoreID_id">
+            <img class="img-responsive" src="{{TvVideoaudio88.userimage}}" onerror="this.src='https://storage.dhaar.pk/logostores/0519764032018162721/91JA5-hAnoL._SL1500_-min.jpg'">
+            <!-- <div  class="overlay">
+                        <h2 >Computing &amp; Laptops</h2> -->
+            <!-- <a  class="info" ng-reflect-query-params="[object Object]" ng-reflect-router-link="/single-product" href="/single-product?ProID=0519764032018162721&amp;CatName=Computing%20%26%20Laptops">Product Detail</a>
+                      </div> -->
+          </div>
+        </div>
+
+        <div class="pro-box-info" *ngIf="TvVideoaudio88.StoreName===Tv.StoreID_id">
+          <div class="item-info">
+            <div class="info-inner">
+              <div class="item-title">
+                <!-- <h4 ><a  title="Product Title Here" ng-reflect-query-params="[object Object]" ng-reflect-router-link="/single-product" href="/single-product?ProID=0519764032018162721&amp;CatName=Computing%20%26%20Laptops"></a></h4> -->
+              </div>
+              <div class="item-content">
+                <div class="seller-name">
+                  <p> Seller Name: {{TvVideoaudio88.StoreName}}
+                    <!-- <a  ng-reflect-router-link="/store,logostores" href="/store/logostores"> -->
+                    <!-- logostores</a> -->
+                  </p>
+
+                </div>
+
+                <!-- <div class="item-price">
+                  <div class="price-box"><span class="regular-price">
+                      <span  class="price">Rs 15,600</span>
+                    </span>
+                  </div>
+                </div> -->
+
+
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="box-hover">
+            <div class="product-item-actions">
+              <div class="pro-actions">
+                <a [routerLink]="['/seller-product-setting']" [queryParams]="{ storename:  TvVideoaudio88.StoreName }"
+                  class="action add-to-cart">View Store</a>
+              </div>
+              <div class="pro-actions">
+                <!-- <a [routerLink]="['/seller-product-setting']" [queryParams]="{ storename:  TvVideoaudio88.StoreName }">
+                  view store
+                </a> -->
+                <!-- [routerLink]="['/seller-store-setting']" [queryParams]="{ StoreId:  TvVideoaudio88.id }"  -->
+                <a (click)="Getallbuynowproductsdetail (TvVideoaudio88.id,TvVideoaudio88.StoreName,TvVideoaudio88.OwnerName
+                ,TvVideoaudio88.BusinessEmail,TvVideoaudio88.Zip
+                ,TvVideoaudio88.City,TvVideoaudio88.OwnerContactNum
+                ,TvVideoaudio88.BusinessPhone,TvVideoaudio88.Address
+                ,TvVideoaudio88.FbrRegister,TvVideoaudio88.LegalName
+                ,TvVideoaudio88.NTN,TvVideoaudio88.STRN
+                ,TvVideoaudio88.activestore,Tv.id,Tv.StoreID_id,Tv.AccountTitle,
+                Tv.AccountNumber,Tv.BankName,Tv.BranchName,Tv.BranchCode,TvVideoaudio88.pic);step1=false;"
+                  class="action add-to-cart" data-toggle="modal" data-target="#myModal">
+                  Edit Your Store
+                </a>
+                <!-- <button  class="action add-to-cart"(click)="Getallbuynowproductsdetail  (TvVideoaudio88.id,TvVideoaudio88.StoreName,TvVideoaudio88.OwnerName
+                              ,TvVideoaudio88.BusinessEmail,TvVideoaudio88.Zip
+                              ,TvVideoaudio88.City,TvVideoaudio88.OwnerContactNum
+                              ,TvVideoaudio88.BusinessPhone,TvVideoaudio88.Address
+                              ,TvVideoaudio88.FbrRegister,TvVideoaudio88.LegalName
+                              ,TvVideoaudio88.NTN,TvVideoaudio88.STRN
+                              ,TvVideoaudio88.activestore)"  
+                              data-toggle="modal" data-target="#myModal"title="Add to Cart" type="button"><span >Edit your store information</span></button> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ad end -->
+
+
+        <!-- ad end -->
+        <!-- </ul> -->
+      </div>
+    </div>
+    <!-- </ng-container> -->
+  </div>
+  <div class="col-md-4 product-item btn-plus">
+    <a [routerLink]="['/store-registration']">
+        
+      <i class="fas fa-7x fa-plus-square"></i>
+    </a>
+  </div>
+
+</div>
+  
+    
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-box" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title model-heading" id="myModalLabel">Edit Product</h4>
+      </div>
+      <div class="modal-body">
+          <div class="tab-content">
+            <!-- <ng-container *ngIf="GetUSerdetails"> -->
+            <div id="step1" class="tab-pane fade in active">
+              <div class="col-sm-3" hidden="true">
+
+                <label for="id" class="required">ID(*)</label>
+                <input type="text" ng-Model="model.id" #id name="id" required class="input form-control" placeholder="Store Name"
+                  id="id" value="{{stroeid}}">
+
+
+
+              </div>
+              <div class="row from-setting">
+                  <div class="col-sm-4">
+
+                    <label for="SName" class="required">Store Name(*)</label>
+                    <input type="text" ng-Model="model.SName" #SName name="SName" required class="input form-control"
+                      placeholder="Store Name" id="SName" value="{{storename}}">
+
+
+
+                  </div>
+                  <div class="col-sm-4">
+                    <!-- [textMask]="{mask: mask}" -->
+                    <label for="telephone" class="required">Owner Name(*)</label>
+
+
+                    <input class="input form-control" placeholder="OwnerName" type="text" required ng-Model="model.OName"
+                      #OName name="OName" id="telephone" value="{{OwnerName}}">
+                  </div>
+                  <div class="col-sm-4">
+                    <!-- [textMask]="{mask: mask}" -->
+                    <label for="Email" class="required">Business Email(*)</label>
+
+
+                    <input class="input form-control" placeholder="your contact number" type="text" required ng-Model="model.Email"
+                      #Email name="Email" id="Email" value="{{BusinessEmail}}">
+                  </div>
+                  <div class="col-sm-4">
+
+
+
+
+                    <label for="Zip" class="required">Zip(*)</label>
+                    <input type="text" ng-Model="model.Zipcode" #Zipcode name="Zipcode" required class="input form-control"
+                      placeholder="Zipcode" id="Zip" value="{{Zip}}">
+
+
+
+                    <!-- </div> -->
+
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="city" class="required">Your City(*)</label>
+
+                    <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.city"
+                      #City name="City" value="{{city}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label class="required">OwnerContactNum(*)</label>
+
+                    <input class="input form-control" placeholder="Your Owner Contact" type="text" required ng-Model="model.OwnerContactNum"
+                      #ownercontactnum name="OwnerContactNum" value="{{ownerContactNum}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label class="required">BusinessPhone(*)</label>
+
+                    <input class="input form-control" placeholder="Your Owner Contact" type="text" required ng-Model="model.BusinessPhone"
+                      #Businessphone name="BusinessPhone" value="{{businessPhone}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="address" class="required">Address(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="shop #, street# etc" ng-Model="model.Address"
+                      #Address name="Address" id="address" value="{{address}}">
+                  </div>
+                  <div class="col-sm-4 min-height">
+
+                    <label for="fbrRegister" class="required">FbrRegister(*)</label>
+
+                    <input type="checkbox" class="checkbox-size" required placeholder="FbrRegister" ng-Model="model.FbrRegister"
+                      #fbrregister name="FbrRegister" id="fbrRegister" (change)="checked3($event,i)">
+                  </div>
+                  <!-- <div class="formrow">
+                    <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+                    Accept Offers?
+                  </div> -->
+                  <div class="col-sm-4">
+
+                    <label for="legalName" class="required">LegalName(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="LegalName" ng-Model="model.LegalName"
+                      #Legalname name="LegalName" id="LegalName" value="{{legalName}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="nTN" class="required">NTN(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="NTN" ng-Model="model.NTN" #ntn
+                      name="NTN" id="nTN" value="{{nTN}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="sTRN" class="required">STRN(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="STRN" ng-Model="model.STRN"
+                      #strn name="STRN" id="STRN" value="{{sTRN}}">
+                  </div>
+                  <!-- <div class="col-xs-4">
+
+                    <label for="as" class="required">activestore(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #StoreStatus name="activestore" id="activestore" value="{{storestatus}}">
+                  </div> -->
+
+                  <div class="col-sm-4" hidden="true">
+
+                    <label for="BankId" class="required">Bank User Id(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="Bank User ID" ng-Model="model.activestore"
+                      #BankId name="bankid" id="bankid" value="{{bankid}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="Sid" class="required" >Store iD(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #Sid name="storeid" id="storeid" value="{{storeid}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="title" class="required">Acount Title(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #atitle name="accounttitle" id="accounttitle" value="{{accounttitle}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="as" class="required">Account Number(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #accountnum name="activestore" id="activestore" value="{{accountnumber}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="as" class="required">Bank Name(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #banknam name="activestore" id="activestore" value="{{bankname}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="as" class="required">BranchName(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #branchnam name="activestore" id="activestore" value="{{branchname}}">
+                  </div>
+                  <div class="col-sm-4">
+
+                    <label for="as" class="required">BranchCode(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #branchcod name="activestore" id="activestore" value="{{branchcode}}">
+                  </div>
+                  <div class="col-sm-4" hidden="true">
+
+                    <label for="as" class="required">User Image(*)</label>
+
+                    <input type="text" class="input form-control" required placeholder="activestore" ng-Model="model.activestore"
+                      #pic name="activestore" id="activestore" value="{{image}}">
+                  </div>
+                </div>
+
+
+
+              <div class="nav nav-tabs">
+                <div *ngIf="Error" class="alert alert-danger">
+                  <strong>Error </strong> While updating record.
+                </div>
+
+                <div *ngIf="Right" class="alert alert-success">
+                  <strong>Profile Updated! <a style="color: red !important;" [routerLink]="['/buyer-dashboard']">Go to
+                      Dashboard Section</a></strong>
+                </div>
+                <div *ngIf="Waitcall" class="alert  alert-info">
+                  <p class="">
+                    <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>
+                      &nbsp; Loading ...</span>
+
+                  </p>
+                </div>
+                <input type="submit" (click)="save(id.value,SName.value,OName.value,Email.value,Zipcode.value,City.value,ownercontactnum.value,Businessphone.value,Address.value,fbrregister.value,Legalname.value,ntn.value,strn.value,atitle.value,accountnum.value,banknam.value,branchnam.value,branchcod.value,pic.value)"
+                  class="btn-black" value="Update">
+              </div>
+            </div>
+            <!-- </ng-container> -->
+
+          </div>
+      </div>
+      <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal"(click)="EditProduct()">Submit</button>
+        </div> -->
+    </div>
+  </div>
+</div>

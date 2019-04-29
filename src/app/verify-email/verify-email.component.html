@@ -1,0 +1,52 @@
+
+<app-header></app-header>
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Forgot Password</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Home</a> / <span>Forgot Password</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<div class="listpgWraper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="userccount">
+          <h5 style="color:#ed2424; ">Verify Your Account</h5>
+
+          <div *ngIf="is_send==true" class="alert alert-success">
+
+            <strong>Success!</strong> Activation code has been to your email.
+          </div>
+          <div *ngIf="is_match_error==true" class="alert alert-danger">
+            <strong>Error!</strong> Error with your email.
+          </div>
+          <div *ngIf="is_set==true" class="alert alert-danger">
+            <strong>Error!</strong> Invalid Code.
+          </div>
+          <!-- form -->
+          <div *ngIf="Waitcall" class="alert  alert-info">
+            <p class="">
+              <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
+
+            </p>
+          </div>
+          <p>Please check your Inbox for Account Verification. Click on Account Confirmation button to continue the Dhaar Signup Process.</p>
+          <p>Didn't get a verification Email ? <span style="cursor:pointer !important; color: red;" (click)="resedcode()">Re-send Email </span></p>
+          <!-- form  end-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<app-footer></app-footer>-->

@@ -1,0 +1,387 @@
+#clockdiv {
+    font-family: sans-serif;
+    float: left;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 15px
+}
+
+#clockdiv>div {
+    padding: 7px;
+    border-radius: 5px;
+    background: #000;
+    display: inline-block
+}
+
+#clockdiv div>span {
+    padding: 7px 16px;
+    border-radius: 3px;
+    background: #fff;
+    display: inline-block;
+    color: red
+}
+
+.smalltext {
+    padding-top: 10px;
+    font-size: 16px;
+    color: #fff
+}
+
+fieldset,
+label {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    margin: 20px
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 10px
+}
+
+.ratingv {
+    border: none;
+    float: left
+}
+
+.ratingv>input {
+    display: none
+}
+
+.ratingv>label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005"
+}
+
+.ratingv>.half:before {
+    content: "\f089";
+    position: absolute
+}
+
+.ratingv>label {
+    color: #ddd;
+    float: right
+}
+
+.ratingv:not(:checked)>label:hover,
+.ratingv:not(:checked)>label:hover~label,
+.ratingv>input:checked~label {
+    color: #ffb000
+}
+
+.ratingv>input:checked+label:hover,
+.ratingv>input:checked~label:hover,
+.ratingv>input:checked~label:hover~label,
+.ratingv>label:hover~input:checked~label {
+    color: #ffb000
+}
+
+.ratingq {
+    border: none;
+    float: left
+}
+
+.ratingq>input {
+    display: none
+}
+
+.ratingq>label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005"
+}
+
+.ratingq>.half:before {
+    content: "\f089";
+    position: absolute
+}
+
+.ratingq>label {
+    color: #ddd;
+    float: right
+}
+
+.ratingq:not(:checked)>label:hover,
+.ratingq:not(:checked)>label:hover~label,
+.ratingq>input:checked~label {
+    color: red
+}
+
+.ratingq>input:checked+label:hover,
+.ratingq>input:checked~label:hover,
+.ratingq>input:checked~label:hover~label,
+.ratingq>label:hover~input:checked~label {
+    color: red
+}
+
+.ratingp {
+    border: none;
+    float: left
+}
+
+.ratingp>input {
+    display: none
+}
+
+.ratingp>label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005"
+}
+
+.ratingp>.half:before {
+    content: "\f089";
+    position: absolute
+}
+
+.ratingp>label {
+    color: #ddd;
+    float: right
+}
+
+.ratingp:not(:checked)>label:hover,
+.ratingp:not(:checked)>label:hover~label,
+.ratingp>input:checked~label {
+    color: red
+}
+
+.ratingp>input:checked+label:hover,
+.ratingp>input:checked~label:hover,
+.ratingp>input:checked~label:hover~label,
+.ratingp>label:hover~input:checked~label {
+    color: red
+}
+
+#carousel img {
+    opacity: 1
+}
+
+.product-slider #thumbcarousel {
+    margin: 12px 0 0;
+    padding: 0 45px
+}
+
+.product-slider #thumbcarousel .item {
+    text-align: center
+}
+
+.product-slider #thumbcarousel .item .thumb {
+    border: 4px solid #cecece;
+    width: 20%;
+    margin: 0 2%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    max-width: 98px
+}
+
+.product-slider #thumbcarousel .item .thumb:hover {
+    border-color: #1089c0
+}
+
+.product-slider #thumbcarousel1 {
+    margin: 12px 0 0;
+    padding: 0 45px
+}
+
+.product-slider #thumbcarousel1 .item {
+    text-align: center
+}
+
+.product-slider #thumbcarousel1 .item .thumb {
+    border: 4px solid #cecece;
+    width: 20%;
+    margin: 0 2%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    max-width: 98px
+}
+
+.product-slider #thumbcarousel1 .item .thumb:hover {
+    border-color: #1089c0
+}
+
+.product-slider .item img {
+    width: 100%;
+    height: auto
+}
+
+.glyphicon {
+    margin-right: 5px
+}
+
+.rating-num {
+    margin-top: 0;
+    font-size: 54px
+}
+
+.rating .glyphicon {
+    font-size: 22px
+}
+
+.progress {
+    margin-bottom: 5px;
+    height: 25px !important;
+    background: #fff !important
+}
+
+.progress-bar {
+    text-align: left
+}
+
+.rating-desc {
+    font-size: 20px
+}
+
+.rating-desc .col-md-3 {
+    padding-right: 0
+}
+
+.sr-only {
+    margin-left: 5px;
+    margin-top: 3px;
+    overflow: visible;
+    clip: auto;
+    color: #000;
+    font-size: 18px
+}
+
+.progress .progress-bar:after {
+    display: none
+}
+
+.textarea-review {
+    resize: none;
+    border-color: #ccc !important;
+    font-size: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700
+}
+
+#contact {
+    width: 100%;
+    color: #fff
+}
+
+.input-button {
+    height: 50px;
+    width: 50%;
+    margin: 5px 0;
+    box-shadow: 1px 1px 7px 1px #ccc;
+    font-size: 23px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    background-color: #000;
+    color: #fff;
+    border-color: #000 !important;
+    border-radius: 50px
+}
+
+.content-header {
+    color: #000;
+    font-size: 45px
+}
+
+.section-content {
+    text-align: center;
+    color: #000
+}
+
+.contact-section {
+    padding: 0 15px 15px;
+}
+
+.form-line {
+    border-right: 1px solid #b29999
+}
+
+.form-group {
+    margin-top: 10px
+}
+
+textarea.form-control {
+    height: 240px
+}
+
+.submit {
+    font-size: 25px;
+    float: right;
+    background-color: #f80000;
+    color: #fff;
+    border: none;
+    height: 55px;
+    padding: 0 10px;
+    font-weight: 900;
+    margin-bottom: 15px
+}
+
+#contact-map {
+    margin-top: 50px
+}
+
+.label-review {
+    color: #000;
+    font-weight: 700;
+    font-size: 22px
+}
+
+.star-icon {
+    color: #ddd;
+    font-size: 2em;
+    position: relative
+}
+
+.star-icon.full:before {
+    text-shadow: 0 0 2px rgba(0, 0, 0, .7);
+    color: #ee3b2b;
+    content: '\2605';
+    position: absolute;
+    left: 0
+}
+
+.star-icon.half {
+    width: 20%
+}
+
+.star-icon.half:before {
+    text-shadow: 0 0 2px rgba(0, 0, 0, .7);
+    color: #ee3b2b;
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    width: inherit;
+    overflow: hidden
+}
+
+@-moz-document url-prefix() {
+    .star-icon {
+        font-size: 50px;
+        line-height: 34px
+    }
+}
+
+.contact-section form {
+    display: block;
+}
+
+.img-container{
+    z-index: 2;
+    margin: 0 auto;
+    display: block;
+    /* max-width: 100%; */
+    /* max-height: 100%; */
+    width: 80%;
+
+}

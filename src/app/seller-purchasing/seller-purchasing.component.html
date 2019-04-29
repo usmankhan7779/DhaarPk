@@ -1,0 +1,99 @@
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Purchasing Invoice</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span>My Purchasing</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+            <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+          <li ><a [routerLink]="['/store', SessionstoreName]"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my Store</a></li>
+          <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+           <li ><a [routerLink]="['/seller-product-setting-store']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+
+          <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+          <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+          <li class="active"><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+          <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+          <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+
+      <div class="col-md-12 col-sm-12">
+        <div class="myads">
+          <h3>My Orders</h3>
+          <br/>
+          <br/>
+          <ul class="searchList">
+            <!-- ad start -->
+            <ng-container *ngFor="let phoneProducts of ActiveProduct">
+              <li>
+                <div class="row">
+                  <div class="col-md-2 col-sm-4">
+                    <div class="adimg"><img src="assets/images/invoice.png" alt="Ad Name"></div>
+                  </div>
+                  <div class="col-md-10 col-sm-8">
+                    <div class="jobinfo">
+                      <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                          <h3><a [routerLink]="['/seller-purchasing-invoice']" [queryParams]="{ InvoicesID:  phoneProducts.id}" > ORDER ID : {{ phoneProducts.id }}</a></h3>
+                          <div   class="cateName">
+                            <div *ngIf="phoneProducts.InvoicesPayment === true ">Paid Online</div>
+                            <div *ngIf="phoneProducts.InvoicesPayment === false ">Payment at home</div>
+                          </div>
+                          <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                          <div class="clearfix"></div>
+
+                          <div class="listbtn"><a [routerLink]="['/seller-purchasing-invoice']" [queryParams]="{ InvoicesID:  phoneProducts.id}" >View Details</a></div>
+                        </div>
+                        <div class="col-md-4 col-sm-5 text-right">
+                          <div class="adprice">Rs {{ phoneProducts.InvoicesBalance | number:'.0-0'}}</div>
+                          <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ng-container>
+            <!-- ad end -->
+
+
+            <!-- ad end -->
+          </ul>
+        </div>
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->

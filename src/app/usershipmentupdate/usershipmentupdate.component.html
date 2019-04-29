@@ -1,0 +1,217 @@
+<app-header></app-header>
+
+
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+          <li class="active"><a [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>
+              Dashboard</a></li>
+          <li><a [routerLink]="['/my-bids-buyer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/buyer-offer']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Offers</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with
+              Dhaar.pk</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <!-- user-shipment -->
+          <li><a [routerLink]="['/user-shipment']"><i class="fa fa-user" aria-hidden="true"></i> My Address Book</a></li>
+          <li><a [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+          <li><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out"
+                aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <!--<div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>-->
+      </div>
+
+      <!-- *ngIf="ReservePriceaaa == true" -->
+      <form role="form" class="login-form">
+
+        <div class="col-md-9 col-sm-8">
+
+          <div *ngIf="Inc" class="alert alert-info">
+            <strong>Incomplete Account Data!</strong>
+          </div>
+
+
+          <div class="userccount">
+            <h5>Edit My Address</h5>
+
+
+            <div class="tab-content">
+              <!-- <ng-container *ngIf="GetUSerAddress"> -->
+              <div id="step1" class="formpanel tab-pane fade in active">
+
+                <ul>
+
+                  <li class="row">
+                    <div class="col-sm-12">
+
+                      <label for="fullname" class="required">Full Name(*)</label>
+                      <input type="text" ng-Model="model.fullname" #fullname name="fullname" required class="input form-control"
+                        placeholder="First Name" id="fullname" value="{{GetUSerAddress.fullname}}">
+
+
+                    </div>
+                    </li>
+                    <!--/ [col] -->
+
+                  <br>
+                    <li class="row">
+                 
+                    <div class="col-sm-6">
+
+                        <label for="telephone" class="required">Owner Contact Number(*)</label>
+  
+  
+                        <input class="input form-control" [textMask]="{mask: mask}" placeholder="your contact number"
+                          type="text" required ng-Model="model.phone_no" #phone_no name="phone_no" id="telephone" value="{{GetUSerAddress.phone_no}}">
+                      </div>
+                      
+                      
+                      <div class="col-sm-6">
+
+                          <label class="required">Province (*)</label>
+    
+                          <input class="input form-control" placeholder="Your province" type="text" required ng-Model="model.province"
+                            #province name="province" value="{{GetUSerAddress.province}}">
+                        </div>
+
+                  </li>
+                  <!--/ .row -->
+
+                  <br>
+                  <!-- <li class="row">
+
+                    <div class="col-sm-6">
+
+                      <label class="required">Select Your Country(*) </label>
+                      <select class="form-control" ng-Model="model.Country" #Country name="Country" style="color: black; line-height: 20px; border: 2px #f1f1f1 solid !important;">
+                        <option value="Pakistan" selected>Pakistan</option>
+
+                      </select>
+
+                    </div>
+
+
+
+
+                    <div class="col-sm-6">
+
+                      <label class="required">Select Your State/Province(*)</label>
+                      <select class="form-control" ng-Model="model.State" #State name="State" style="color: black; line-height: 20px; border: 2px #f1f1f1 solid !important;">
+                        <option value="Punjab" selected>Punjab</option>
+
+                        <option value="Sindh">Sindh</option>
+                        <option value="Balochistan">Balochistan</option>
+                        <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+
+
+                      </select>
+
+                    </div>
+
+
+
+                  </li> -->
+
+                  <!-- <br> -->
+                  <li class="row">
+
+                    <div class="col-sm-6">
+
+                      <label class="required">Your City(*)</label>
+
+                      <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.city"
+                        #city name="city" value="{{GetUSerAddress.city}}">
+                    </div>
+                     
+                    <div class="col-sm-6">
+
+                        <label class="required">Your Area(*)</label>
+  
+                        <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.area"
+                          #area name="area" value="{{GetUSerAddress.area}}">
+                      </div>
+                      <div class="col-sm-6">
+
+                          <label class="required">Default shipment address(*)</label>
+    
+                          <input class="input form-control" placeholder="Defualt shipment addres" type="text" required ng-Model="model.default_shipment_address"
+                            #default_shipment_address name="default_shipment_address" value="{{GetUSerAddress.default_shipment_address}}">
+                        </div>
+                    <!-- <div class="col-sm-6">
+
+                      <label for="postal_code" class="required">Zip/Postal Code(*)</label>
+                      
+                      <input class="input form-control" type="text" pattern="([0-9])+$" placeholder="55560" required
+                        ng-Model="model.zipcode" #zipcode name="zipcode" id="postal_code" value="{{GetUSerAddress.Zip}}">
+                    </div> -->
+
+
+                  </li>
+
+                  <br>
+                  
+                  <!--/ .row -->
+
+                  <br>
+                  <li class="row">
+                    <div class="col-xs-12">
+
+                      <label for="address" class="required">Address(*)</label>
+
+                      <input type="text" class="input form-control" required placeholder="shop #, street# etc" ng-Model="model.address"
+                        #address name="address" id="address" value="{{GetUSerAddress.address}}">
+                    </div>
+                    <!--/ [col] -->
+                  </li><!-- / .row -->
+
+
+                </ul>
+
+
+
+                <br>
+
+
+                <div class="nav nav-tabs">
+                  <div *ngIf="Error" class="alert alert-danger">
+                    <strong>Error </strong> While updating record.
+                  </div>
+
+                  <div *ngIf="Right" class="alert alert-success">
+                    <strong>Profile Updated! <a style="color: red !important;" [routerLink]="['/buyer-dashboard']">Go
+                        to Dashboard Section</a></strong>
+                  </div>
+                  <div *ngIf="Waitcall" class="alert  alert-info">
+                    <p class="">
+                      <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>
+                        &nbsp; Loading ...</span>
+
+                    </p>
+                  </div>
+                   <!-- save(fullname.value,phone_no.value,province.value,city.value,area.value,default_shipment_address.value,address.value) -->
+                  <input (click)="save(fullname.value,phone_no.value,province.value,city.value,area.value,default_shipment_address.value,address.value)"
+                    type="button" class="btn" value="Update">
+                </div>
+              </div>
+              <!-- </ng-container> -->
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </form>
+     
+    </div>
+  </div>
+</div>
+

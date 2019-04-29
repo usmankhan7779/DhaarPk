@@ -1,0 +1,125 @@
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">My Watchlist</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span>My Watchlist</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<!-- <div class="inner-page">
+  <div class="container">
+    <div class="row"> -->
+      <!-- <ng-container *ngIf="seller === false">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+          <li><a [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+          <li><a [routerLink]="['/my-bids-buyer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li ><a [routerLink]="['/buyer-offer']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Offers</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with Dhaar.pk</a></li>
+          <li class="active"><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div>
+      </ng-container> -->
+      <!-- <ng-container *ngIf="seller === true">
+        <div class="col-md-3 col-sm-4">
+          <ul class="usernavdash">
+             <li ><a [routerLink]="['/store', SessionstoreName]"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my Store</a></li> 
+            <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add New Product</a></li>
+            <li ><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+            <li><a [routerLink]="['/seller-product-setting']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+            <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+            <li><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+            <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+            <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+            <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+            <li class="active"><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+           
+            <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+            <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+            <li><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+            <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+          </ul>
+          <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+        </div>
+      </ng-container> -->
+      <div class="col-md-12 col-sm-12">
+        <div class="Watchlist-box">
+          <h3>My Watch Products</h3>
+
+          <ul class="searchList">
+            <!-- ad start -->
+            <ng-container *ngIf="!errormessage">
+              <ng-container *ngFor="let phoneProducts of ActiveProduct ">
+                <li>
+                  <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                      <div class=""><img src="{{phoneProducts.ProductID.Pic.split(',')[0]  }}" alt="Ad Name"></div>
+                    </div>
+                    <div class="col-md-10 col-sm-8">
+                      <div class="jobinfo">
+                        <div class="row">
+                          <div class="col-md-8 col-sm-7">
+                            <h2><a [routerLink]="['/single-product']" [queryParams]="{ProID:  phoneProducts.ProductID.ProductID, CatName: phoneProducts.ProductID.Cat_Name, SubCatName:phoneProducts.ProductID.Sub_Cat_Name, id:phoneProducts.ProductID.id }" >{{ phoneProducts.ProductID.P_Title }}</a></h2>
+                            <div class="cateName"> <a href="#.">{{ phoneProducts.ProductID.Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.ProductID.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.ProductID.Sub_Sub_Cat_Name }}</a> </div>
+                            <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                            <div class="clearfix"></div>
+
+
+                            <!-- <p>{{phoneProducts.ProductID.P_Des}}</p> -->
+
+
+                            <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID.ProductID, CatName: phoneProducts.ProductID.Cat_Name, SubCatName:phoneProducts.ProductID.Sub_Cat_Name, id:phoneProducts.ProductID.id }">View Details</a></div>
+                                                     <!-- <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name, SubCatName:TvVideoaudio88.Sub_Sub_Cat_Name, id:TvVideoaudio88.id }"> -->
+
+                          </div>
+                          <div class="col-md-4 col-sm-5 text-right">
+                              <a (click)="TrashcartElement(phoneProducts.ProductID.id)">{{phoneProducts.ProductID.id}} <i class="fa fa-trash"></i></a>
+                            <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
+                            <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>
+                            </ng-container>
+                            <ng-container *ngIf="phoneProducts.ProductID.Auction === false">
+                              <div class="adprice">Rs {{ phoneProducts.ProductID.FixedPrice | number:'.0-0'}}</div>
+                            </ng-container>
+                            <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="errormessage">
+              <div class="alert alert-danger">
+                <h3 align="center">Found No Product in Watchlist</h3>
+              </div>
+            </ng-container>
+            <!-- ad end -->
+
+         
+            <!-- ad end -->
+          </ul>
+        </div>
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->

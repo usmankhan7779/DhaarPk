@@ -1,0 +1,149 @@
+
+<app-header></app-header>
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">My Invoices</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span>My Invoices</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+          <li ><a [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+          <li><a [routerLink]="['/my-bids-buyer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li class="active"><a [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li ><a [routerLink]="['/buyer-offer']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Offers</a></li>
+          <li  ><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with Dhaar.pk</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/user-shipment']"><i class="fa fa-user" aria-hidden="true"></i> My Address Book</a></li>
+          <li><a [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div>
+      <br/><br/><br/>
+      <div class="col-md-9 col-sm-8">
+
+
+        <div class="col-lg-offset-3 pull-right" style=" border-bottom: 1px solid #AAAAAA;">
+
+
+          <button class=" button" style="font-size: 20px !important;"><i class="fa fa-print"></i>&nbsp; <span>Print</span></button>
+          <button class="button" style="font-size: 20px !important;"><i class="fa fa-download"></i>&nbsp; <span>Download</span></button>
+        </div>
+
+        <br/> <br/> <br/> <br/> <br/>
+        <div id="content" #content>
+          <header class="clearfix">
+            <div id="logo">
+              <img src="../../assets/images/Check-Resolution.png">
+            </div>
+            <div id="company">
+              <h2 class="name">Dhaar.pk</h2>
+              <div>455 Foggy Heights, AZ 85004, US</div>
+              <div>(602) 519-0450</div>
+              <div><a href="mailto:company@example.com">info@dhaar.pk</a></div>
+            </div>
+          </header>
+          <main>
+            <ng-container *ngFor="let Invoiceship of ShipingInvoice">
+              <div id="details" class="clearfix">
+                <div id="client">
+                  <p class="to">SHIP TO:</p>
+
+                  <h2 >{{ Invoiceship.First_Name }} {{ Invoiceship.Last_Name}}</h2>
+                  <h6 >Tel: {{ Invoiceship.Telephon }} </h6>
+                  <p>{{ Invoiceship.Address}}
+                  <p>{{ Invoiceship.City}} ,{{ Invoiceship.Zip}} </p>
+                  <p>{{ Invoiceship.State}} , {{ Invoiceship.Country }} </p>
+                  <p>Fax: {{ Invoiceship.Fax }} </p>
+                  <p><a href="mailto:{{ Invoiceship.Email}}">{{ Invoiceship.Email}}</a></p>
+                </div>
+
+                <div id="invoice">
+                  <h1>ORDER ID</h1>
+                  <h3>{{ InvoicesID}}</h3>
+                  <div class="date">Date of Order: {{ Invoiceship.CreatedDate.substr(0,10)}}</div>
+
+                </div>
+              </div>
+            </ng-container>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <thead>
+              <tr>
+                <th class="no">#</th>
+                <th class="desc">DESCRIPTION</th>
+                <th class="unit">UNIT PRICE</th>
+                <th class="qty">QUANTITY</th>
+                <th class="total">TOTAL</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!--<ng-container *ngFor="let fetchedproducts of Allproducts.products">-->
+              <ng-container>
+                <tr  *ngFor="let abc of GetAllproducts; let i = index">
+                  <td class="no">{{ i+1 }}</td>
+                  <td class="desc"><h3>{{ abc.P_Title }}</h3>{{ abc.P_Des }}</td>
+                  <td class="unit">Rs: {{ abc.FixedPrice | number:'.0-0'}}</td>
+                  <td class="qty">{{ abc.Qty }}</td>
+                  <!--{{ abc.Qty}}-->
+                  <td class="total">Rs: {{ abc.FixedPrice * abc.Qty | number:'.0-0' }}</td>
+                </tr>
+              </ng-container>
+
+              </tbody>
+              <tfoot>
+              <ng-container *ngFor="let invdata of InvoiceData">
+                <tr>
+                  <td colspan="2"></td>
+                  <td colspan="2">SUBTOTAL</td>
+                  <td>Rs {{invdata.InvoicesBalance | number:'.0-0'}}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"></td>
+                  <td colspan="2">TAX 0%</td>
+                  <td>Rs: 00.00</td>
+                </tr>
+                <tr>
+                  <td colspan="2"></td>
+                  <td colspan="2">GRAND TOTAL</td>
+                  <td>Rs: {{invdata.InvoicesBalance | number:'.0-0' }}</td>
+                </tr>
+              </ng-container>
+              </tfoot>
+            </table>
+            <div id="thanks">Thank you!</div>
+            <!--<div id="notices">-->
+            <!--<div>NOTICE:</div>-->
+            <!--<div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>-->
+            <!--</div>-->
+          </main>
+          <div style="text-align: center">
+            Order was created on a computer and is valid without the signature and seal.
+          </div>
+        </div>
+
+
+
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--<app-footer></app-footer>-->
+

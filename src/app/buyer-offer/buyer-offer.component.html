@@ -1,0 +1,258 @@
+
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">My Offers</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span> My Offers</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--dadas-->
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+          <li ><a [routerLink]="['/buyer-dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+          <li><a [routerLink]="['/my-bids-buyer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/buyer-orders']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li class="active"><a [routerLink]="['/buyer-offer']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Offers</a></li>
+          <li  ><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sell with Dhaar.pk</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/user-shipment']"><i class="fa fa-user" aria-hidden="true"></i> My Address Book</a></li>
+          <li><a [routerLink]="['/user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li><a [routerLink]="['/account-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+      <div class="col-md-12 col-sm-12">
+        <div class="myads">
+          <h3>My Offers</h3>
+          <br/>
+          <br/>
+          <div class="tab-info">
+            <div class="nav home-nav-tabs home-product-tabs">
+              <h3 class="new-product-title pull-left" style="font-size: 12px"><a href="#pendingoffers" data-toggle="tab" aria-expanded="false">Pending Offers</a></h3>
+              <h3 class="new-product-title pull-left" style="font-size: 12px"><a href="#acceptedoffers" data-toggle="tab" aria-expanded="false">Accepted Offers</a></h3>
+              <h3 class="new-product-title pull-left" style="font-size: 12px"><a href="#rejectedoffers" data-toggle="tab" aria-expanded="false">Rejected Offers</a></h3>
+              <h3 class="new-product-title pull-left" style="font-size: 12px"><a href="#mycounteroffer" data-toggle="tab" aria-expanded="false">My Counter Offer</a></h3>
+              <h3 class="new-product-title pull-left" style="font-size: 12px"><a href="#sellercounteroffer" data-toggle="tab" aria-expanded="false">Seller Counter Offer</a></h3>
+
+            </div>
+          </div>
+          <ul class="searchList">
+            <!-- ad start -->
+            <div id="productTabContent" class="tab-content">
+              <div class="tab-pane fade" id="acceptedoffers">
+              <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                <div *ngIf="phoneProducts.Status && !phoneProducts.CounterStatus && phoneProducts.Accept">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                              <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix"></div>
+                              <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                              <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                              <div class="listbtn offer-btn">
+                                <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">This Offer has been Accepted</p>
+                                <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ng-container>
+              </div>
+              <div class="tab-pane fade" id="sellercounteroffer">
+              <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                <div *ngIf="phoneProducts.Status && phoneProducts.CounterStatus && !phoneProducts.Accept">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                              <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix">Seller has provided you Counter Offer</div>
+                              <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                              <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                              <div class="listbtn offer-btn">
+                                <a (click)="AcceptOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Aceept Offer</a>
+                                <a (click)="RejectOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Reject Offer</a>
+                                <a data-toggle="modal" (click)="CounterOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" data-target="#myModal" style="cursor: pointer">Counter Offer</a>
+                                <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ng-container>
+              </div>
+              <div class="tab-pane fade" id="mycounteroffer">
+              <ng-container *ngFor="let phoneProducts of ProductOffer">
+                <div *ngIf="phoneProducts.Status && phoneProducts.CounterStatus && phoneProducts.Accept">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                              <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix">My Counter Offers.</div>
+                              <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                              <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                              <div class="listbtn offer-btn">
+                                <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">You Have made a counter Offer</p>
+                                <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ng-container>
+              </div>
+              <div class="tab-pane fade" id="rejectedoffers">
+              <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                <div *ngIf="!phoneProducts.Status && !phoneProducts.CounterStatus && !phoneProducts.Accept">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                              <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix"></div>
+                              <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                              <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                              <div class="listbtn offer-btn">
+                                <p style="font-weight: bolder; color: red; float: left; font-size: 30px; margin-right: 3px; margin-top: 6px">This Offer has been Rejected</p>
+                                <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ng-container>
+              </div>
+              <div class="tab-pane active in" id="pendingoffers">
+                <ng-container *ngFor="let phoneProducts of ProductOffer ">
+                <div *ngIf="phoneProducts.Status && !phoneProducts.CounterStatus && !phoneProducts.Accept">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }" >{{phoneProducts.P_Title}}</a></h3>
+                              <div class="cateName"> <a [routerLink]="['/category-detail']" [queryParams]="{CatName: phoneProducts.Cat_Name}">{{ phoneProducts.Cat_Name }}</a></div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix"></div>
+                              <div class="">Offered Quantity: {{ phoneProducts.Quantity}}</div>
+                              <div class="">Offered Price/Quantity: {{ phoneProducts.PricePerQuantity}}</div>
+
+                              <div class="listbtn offer-btn">
+                                <a data-toggle="modal" (click)="CounterOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" data-target="#myModal1" style="cursor: pointer">Change Offer</a>
+                                <a (click)="DeleteOffer(phoneProducts.User_ID,phoneProducts.Product_ID)" style="cursor: pointer">Delete Offer</a>
+                                <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.Product_ID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </div>
+              </ng-container>
+              </div>
+            </div>
+            <!-- ad end -->
+
+
+            <!-- ad end -->
+          </ul>
+        </div>
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+<!--<app-footer></app-footer>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Counter Offer</h4>
+      </div>
+      <div class="modal-body">
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="QuantityProduct" [(ngModel)]="model.QuantityProduct" placeholder="Enter Quantity Of Product" required>
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="OfferAmount" [(ngModel)]="model.OfferAmount" placeholder="Your Offer Amount per Product" required>
+
+        <textarea type="text" class="form-control" style="margin-bottom: 15px;"  name="SellerMessage" [(ngModel)]="model.message" placeholder="Message for Seller" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="UpdateCounterOffer()">Submit Counter Offer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModal1Label">Counter Offer</h4>
+      </div>
+      <div class="modal-body">
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="QuantityProduct" [(ngModel)]="model.QuantityProduct" placeholder="Enter Quantity Of Product" required>
+        <input type="number" class="form-control" style="margin-bottom: 15px; padding-right: 30px;  "  name="OfferAmount" [(ngModel)]="model.OfferAmount" placeholder="Your Offer Amount per Product" required>
+
+        <textarea type="text" class="form-control" style="margin-bottom: 15px;"  name="SellerMessage" [(ngModel)]="model.message" placeholder="Message for Seller" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="UpdateOffer()">Update Offer</button>
+      </div>
+    </div>
+  </div>
+</div>

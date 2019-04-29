@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div  class="container">
+    <div  class="row">
+      <!-- <div  id="ribbon">
+        <span  id="content" style="font-weight: bolder">Dhaar Hot Deals</span>
+      </div> -->
+      <h1 class="text-center margin-top-10">Stores</h1>
+      <div  class="hotslider" style="margin-top: 0px !important;">
+
+        
+<!-- <ng-container *ngFor="let TvVideoaudio88 of GetALLBuyNowProductss.results"> -->
+    <div  class="product-item col-md-3 col-sm-6" *ngFor="let TvVideoaudio88 of GetALLBuyNowProductss.StoreInfo">
+      <div  class="item-inner">
+          <h2 class="product-heading">{{TvVideoaudio88.StoreName}}</h2>
+        <div  class="product-thumbnail">
+          <div  class="hovereffect">
+            <img  class="img-responsive" src="https://storage.dhaar.pk/logostores/0519764032018162721/91JA5-hAnoL._SL1500_-min.jpg" alt="https://storage.dhaar.pk/logostores/0519764032018162721/91JA5-hAnoL._SL1500_-min.jpg">
+            <!-- <div  class="overlay">
+              <h2 >Computing &amp; Laptops</h2> -->
+             <!-- <a  class="info" ng-reflect-query-params="[object Object]" ng-reflect-router-link="/single-product" href="/single-product?ProID=0519764032018162721&amp;CatName=Computing%20%26%20Laptops">Product Detail</a>
+            </div> -->
+          </div>
+        </div>
+
+        <div  class="pro-box-info">
+          <div  class="item-info">
+            <div  class="info-inner">
+              <div  class="item-title">
+                <!-- <h4 ><a  title="Product Title Here" ng-reflect-query-params="[object Object]" ng-reflect-router-link="/single-product" href="/single-product?ProID=0519764032018162721&amp;CatName=Computing%20%26%20Laptops"></a></h4> -->
+              </div>
+              <div  class="item-content">
+                <div  class="rating">
+                  <p > Seller:{{TvVideoaudio88.StoreName}} 
+                    <!-- <a  ng-reflect-router-link="/store,logostores" href="/store/logostores"> -->
+                    <!-- logostores</a> -->
+                  </p>
+
+                </div>
+
+  <div  class="item-price">
+                  <div  class="price-box"><span  class="regular-price">
+                     <!-- <span  class="price">Rs 15,600</span> -->
+                     </span>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+            </div>
+          </div>
+          <div  class="box-hover">
+            <div  class="product-item-actions">
+   <div  class="pro-actions">
+                <a  [routerLink]="['/store', TvVideoaudio88.StoreName] ">
+                  view store
+                  <button  class="action add-to-cart" title="Add to Cart" type="button"><span >View Store</span></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </ng-container> -->
+
+
+    </div>
+      </div>
+    </div>

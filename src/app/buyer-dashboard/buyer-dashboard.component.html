@@ -1,0 +1,236 @@
+<!-- <app-header></app-header> -->
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-md-6 col-sm-6">-->
+<!--<h1 class="page-heading">Dashboard</h1>-->
+<!--</div>-->
+<!--<div class="col-md-6 col-sm-6">-->
+
+
+<!--<div class="breadCrumb ">-->
+<!--<ng-container *ngIf="GetUSerDOne !== null">-->
+<!--<a [routerLink]="['/user-detail']">-->
+<!--<img *ngIf="GetUSerDOne['Pic'] === ''" class="breadimg" src="assets/images/defaultprofile.jpg" alt=""  width="70px" height="70px">-->
+<!--<img *ngIf="GetUSerDOne['Pic'] !== ''"  class="breadimg" src="{{PicServrUrl + GetUSerDOne['Pic']}}" alt=""  width="70px" height="70px">-->
+<!--<br/>-->
+<!--<span *ngIf="ValueRec == true">Welcome {{ GetUSerDOne['Fname']}}</span>-->
+<!--</a>-->
+<!--</ng-container>-->
+
+
+<!--</div>-->
+
+
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+<!-- 
+<div class="inner-page">
+  <div class="container">
+    <div class="row"> -->
+
+
+<div class="col-md-12 col-sm-12">
+  <ng-container *ngIf="GetUSerDOne !== null">
+    <div *ngIf="GetUSerDOne['Complete'] === false" class="alert alert-info">
+      Profile Incomplete Spend 2 minutes to complete. <a style="color: red !important;" [routerLink]="['/user-detail']">Go
+        to Porfile Section</a>
+    </div>
+  </ng-container>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 toppad">
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">My details</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <ng-container *ngIf="GetUSerDOne !== null">
+            <div *ngIf="GetUSerDOne['Pic'] === ''" class="col-md-4 col-lg-4 col-sm-4 col-xs-12 upload-img-wrapper" align="center">
+              <img alt="User Pic" src="assets/images/defaultprofile.jpg" width="200" height="200" class="img-circle img-responsive">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+            </div>
+            <div *ngIf="GetUSerDOne['Pic'] !== ''" class="col-md-4 col-lg-4 col-sm-4 col-xs-12 upload-img-wrapper" align="center">
+              <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" width="200" height="200" class="img-circle img-responsive">
+              <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
+              <i class="fa fa-camera upload-cam-img"></i>
+            </div>
+            <!--<form (ngSubmit)="save()">-->
+            <!--<div class="form-group">-->
+            <!--&lt;!&ndash;<input class="file" (change)="onChange($event)" type="file" placeholder="Upload image" data-preview-file-type="text" id="file1" name="file" #Picture ng-files="getTheFiles($files)" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<label for="file1">Upload image</label>&ndash;&gt;-->
+            <!--<input id="f02" type="file" placeholder="Upload Image" (change)="onChange($event)"/>-->
+            <!--<label for="f02">Upload Image</label>-->
+            <!--<input type="submit">-->
+            <!--</div>-->
+            <!--</form>-->
+            <div class=" col-md-8 col-lg-8 col-sm-8 col-xs-12">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td><i class="fas fa-user"></i></td>
+                    <td>{{GetUSerDOne['Fname'] +' '+ GetUSerDOne['Lname'] }}</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fas fa-mobile-alt"></i></td>
+                    <td>{{GetUSerDOne['Mobile']}}</td>
+                  </tr>
+                  <tr>
+                    <td><i class="far fa-address-card"></i></td>
+                    <td>{{GetUSerDOne['Address']}}</td>
+                  </tr>
+                  <tr>
+                  <tr>
+                    <td><i class="fas fa-city"></i></td>
+                    <td>{{ GetUSerDOne['City'] +' ' +GetUSerDOne['Zip'] }}</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fas fa-university"></i></td>
+                    <td>{{GetUSerDOne['State'] }} </td>
+                  </tr>
+                  <tr>
+                    <td><i class="far fa-flag"></i></td>
+                    <td>{{GetUSerDOne['Country'] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <a [routerLink]="['/user-detail']" data-original-title="Edit this user" data-toggle="tooltip" type="button"
+          class="btn btn-sm btn-red"><i class="glyphicon glyphicon-edit"></i></a>
+        <!--<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>-->
+        <span class="pull-right">
+        </span>
+      </div>
+
+    </div>
+  </div>
+  <!-- *ngFor="let GetUser of GetUSerAddress.Results" -->
+</div>
+
+<div class="col-md-12 col-sm-12">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 toppad ">
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">My address</h3>
+      </div>
+      <div class="panel-body" *ngFor="let GetUser of GetUSerAddress">
+        <div class="row">
+          <ng-container *ngIf="GetUSerAddress !== null && GetUser.default_shipment_address == true">
+
+
+            <div class=" col-md-12 col-lg-12 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Name:</td>
+                    <td>{{GetUser.fullname }}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile:</td>
+                    <td>{{GetUser.phone_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Area:</td>
+                    <td>{{GetUser.area}}</td>
+                  </tr>
+
+                  <tr>
+                  <tr>
+                    <td>City:</td>
+                    <!-- +' ' +GetUser['Zip']/ -->
+                    <td>{{ GetUser.city }}</td>
+                  </tr>
+
+                  <tr>
+                    <td>State</td>
+                    <td>{{GetUser.province }} </td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{GetUser.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>Default Address:</td>
+                    <td>{{GetUser.default_shipment_address}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <a [routerLink]="['/user-detail']" data-original-title="Edit this user" data-toggle="tooltip" type="button"
+          class="btn btn-sm btn-red"><i class="glyphicon glyphicon-edit"></i></a>
+        <span class="pull-right">
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!--  -->
+
+<!--<div class="myads">-->
+<!--<h3>Incomplete Ads </h3>-->
+<!--<p>No ads Found </p>-->
+<!--<ul class="searchList">-->
+<!--&lt;!&ndash; ad start &ndash;&gt;-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-md-2 col-sm-4">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="adimg"><img src="assets/assets2/images/ads/01.jpg" alt="Ad Name"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-md-10 col-sm-8">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="jobinfo">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-md-8 col-sm-7">&ndash;&gt;-->
+<!--&lt;!&ndash;<h3><a href="#.">Nikon Camera DSLR</a></h3>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="cateName"> <a href="#.">Cars</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">Toyota</a> </div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce venenatis arcu est. Phasellus vel dignissim tellus...</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="listbtn"><a href="#.">View Details</a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-md-4 col-sm-5 text-right">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="adprice">$456.00</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash; ad end &ndash;&gt;-->
+
+<!--&lt;!&ndash; ad start &ndash;&gt;-->
+
+<!--&lt;!&ndash; ad end &ndash;&gt;-->
+<!--</ul>-->
+<!--</div>-->
+
+<!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->
