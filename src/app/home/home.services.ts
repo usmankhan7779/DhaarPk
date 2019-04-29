@@ -139,25 +139,33 @@ export class HomeService {
     return this._http.get(this.ServerUrl + 'GetAuctionProductPriceById/' + proId).map(response => response.json());
     // console.log(this.CateDeatils)
   }
-  //   premiseIdData(page: number) {
-  //     if (page < 1 || page > this.pager.totalPages) {
-  //         return;
-  //     }
-  //     let headers = new Headers();
-  //     headers.append('Content-Type', 'application/json');
-  //     //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-  //     this.http.get(Config.api + 'dashboard/' + '?page=' + page, { headers: headers }).subscribe(Res => {
-  //         console.log(Res);
-  //         this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+  GetProductsfromAllCatPageNumber(page: any) {
+  
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
+ 
+    // // console.log('pofile', localStorage.getItem('Authorization'));
+    // return this._http.get(this.ServerUrl + 'getProductsfromAllCat' +'?page=' + page,).map(response => response.json());
+    if (localStorage.getItem('Authorization') !== null) {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      // headers.append('Authorization', 'Token ' +  this.authentication);
+      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      console.log('pofile', localStorage.getItem('Authorization'));
+      return this._http.get(this.ServerUrl + 'getProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response =>
 
-  //         this.data = Res.json()['Results'];
+        // getProductsfromAllCat
+        response.json()
+
+      );
 
 
+    }
+    else  {
+      return this._http.get(this.ServerUrl + 'getProductsfromAllCat'+'?page=' + page).map(response => response.json());
 
-
-  //     });
-  //     // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  // }
+    }
+}
   GetProductsfromAllCat() {
     // page: number
     if (localStorage.getItem('Authorization') !== null) {
@@ -182,21 +190,33 @@ export class HomeService {
 
   }
   Getlikeforyou() {
-    // if (localStorage.getItem('Authorization') !== null) {
+  
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', 'Token ' +  this.authentication);
-      // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+   
       console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getFunProductsHome/', { headers: headers }).map(response => response.json());
-      // console.log(this.CateDeatils)
-      // getalljustfunproducts
-    // }getFunProductsHome
-    // else {
-    //   return this._http.get(this.ServerUrl + 'getAuctionProductsfromAllCat').map(response => response.json());
-    //   // console.log(this.CateDeatils)
-    // }
+     
   }
+  GetlikeforyouPageNumber(page: any) {
+  
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+ 
+    // console.log('pofile', localStorage.getItem('Authorization'));
+    return this._http.get(this.ServerUrl + 'getalljustfunproducts' +'?page=' + page,).map(response => response.json());
+   
+}
+// GetlikeforyouPageNumber(page: any) {
+  
+//   let headers = new Headers();
+//   headers.append('Content-Type', 'application/json');
+
+//   // console.log('pofile', localStorage.getItem('Authorization'));
+//   return this._http.get(this.ServerUrl + 'getalljustfunproducts' +'?page=' + page,).map(response => response.json());
+ 
+// }
+  // getalljustfunproducts
   GetAuctionProductsfromAllCat() {
     if (localStorage.getItem('Authorization') !== null) {
       let headers = new Headers();
@@ -888,7 +908,7 @@ export class HomeService {
         'User_Id': User_Id,
         'Product_Id': Product_ID,
         'Price': Price,
-        'win': false
+      
       }).map((res: Response) => {
         if (res) {
           // console.log('abc');

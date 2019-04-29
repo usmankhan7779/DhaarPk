@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   //     link:'BestBuy'
   //   },
   // ];
-  
+
   GetallCat: any = [];
   ServrUrl: string = 'assets/assets2/images/category/';
   public GetallPhoneProduct: any = [];
@@ -61,7 +61,8 @@ export class HomeComponent implements OnInit {
   ViewedProducts: any = { "products": [] };
   WatchedProducts: any = [];
   Tmp_ProID_Array: any = [];
-  imageurls = 'https://storage.dhaar.pk/Category/SliderImages/';
+  // imageurls = 'https://storage.dhaar.pk/Category/SliderImages/';
+  imageurls = 'https://storage.dhaar.pk/final/';
   usercheck = false;
   Tmp_ProID_Array2: {
     ProID: any;
@@ -133,7 +134,7 @@ export class HomeComponent implements OnInit {
       this.GetAllBuyNowproduct();
       this.GetAcutionProduct();
       this.GetFreateuredProducts();
-      this.Getjustlikeforyou();
+      this.Getjustlikeforyou(1);
       this.PhoneandTablet();
       this.CategorySlider();
       // this.HotDealSlider();
@@ -142,25 +143,62 @@ export class HomeComponent implements OnInit {
       if (localStorage.getItem('UserID')) {
         this.usercheck = true;
         if (this.viewlogin !== null) {
-        this.WatchedItemSlider();
+          this.WatchedItemSlider();
         }
       }
     }
   }
+  // GetProductsfromAllCatPageNumber
+
+  GetProductsfromAllCatPageNumber(page: number) {
+
+    if (this.viewlogin !== null) {
+
+      this.GetProducts.GetProductsfromAllCatPageNumber(page).subscribe(resSlidersData => {
+
+        let demoprods;
+        demoprods = resSlidersData.Results;
+
+        for (let prods of demoprods) {
+          this.GetALLProductss.push(prods.product);
+          this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+        }
+      });
+    }
+    else if (this.viewlogin == null) {
+
+      this.GetProducts.GetProductsfromAllCatPageNumber(page).subscribe(resSlidersData => {
+
+
+        let demoprods;
+        demoprods = resSlidersData.Results;
+
+        for (let prods of demoprods) {
+          this.GetALLProductss.push(prods.product);
+          this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+        }
+
+
+
+      });
+
+    }
+
+  }
   ProductsAllCat() {
-    // page: number
+
     if (this.viewlogin !== null) {
 
       this.GetProducts.GetProductsfromAllCat().subscribe(resSlidersData => {
 
         let demoprods;
         demoprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demoprods)
+
         for (let prods of demoprods) {
           this.GetALLProductss.push(prods.product);
+          // this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
         }
-        // console.log(this.GetALLProductss);
+
 
 
 
@@ -170,18 +208,15 @@ export class HomeComponent implements OnInit {
 
       this.GetProducts.GetProductsfromAllCat().subscribe(resSlidersData => {
 
-        // this.GetALLProductss = resSlidersData.Results;
-        // .product
+
         let demoprods;
         demoprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demoprods)
+
         for (let prods of demoprods) {
           this.GetALLProductss.push(prods.product);
+          // this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
         }
-        // console.log(this.GetALLProductss);
 
-        // console.log(this.GetALLProductss, 'response')
 
 
       });
@@ -191,57 +226,49 @@ export class HomeComponent implements OnInit {
   }
 
   GetAllBuyNowproduct() {
-    // (localStorage.getItem('UserID') !== null)
+
     if (this.viewlogin !== null) {
       this.GetProducts.GetBuyNowProductsfromAllCat().subscribe(resSlidersDatass => {
 
-        
+
         let demobuyprods;
         demobuyprods = resSlidersDatass.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demobuyprods)
+
         for (let prods of demobuyprods) {
           this.GetALLBuyNowProductss.push(prods.product);
         }
-        // console.log(this.GetALLProductss);
+
 
       });
     }
     else if (this.viewlogin == null) {
       this.GetProducts.GetBuyNowProductsfromAllCat().subscribe(resSlidersDatass => {
 
-        // this.GetALLBuyNowProductss = resSlidersDatass.Results;
-        // alert(this.GetALLAuctionProductss)
+
         let demobuyprods;
         demobuyprods = resSlidersDatass.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demobuyprods)
+
         for (let prods of demobuyprods) {
           this.GetALLBuyNowProductss.push(prods.product);
         }
-        // console.log(this.GetALLProductss);
+
 
       });
     }
   }
   GetAcutionProduct() {
     if (this.viewlogin !== null) {
-      // if (page < 1 || page > this.pager.totalPages) {
-      //   return;
-      // }
-      // alert(localStorage.getItem('Authorization'))
-      // this.GetALLProductss=undefined;
+
       this.GetProducts.GetAuctionProductsfromAllCat().subscribe(resSlidersData => {
 
-        // this.GetALLAuctionProductss = resSlidersData.Results;
+
         let demoactuprods;
         demoactuprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demoactuprods)
+
         for (let prods of demoactuprods) {
           this.GetALLAuctionProductss.push(prods.product);
         }
-        // console.log(this.GetALLAuctionProductss);
+
 
 
       });
@@ -249,11 +276,10 @@ export class HomeComponent implements OnInit {
     else if (this.viewlogin == null) {
       this.GetProducts.GetAuctionProductsfromAllCat().subscribe(resSlidersData => {
 
-        // this.GetALLAuctionProductss = resSlidersData.Results;
+
         let demoactuprods;
         demoactuprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demoactuprods)
+
         for (let prods of demoactuprods) {
           this.GetALLAuctionProductss.push(prods.product);
         }
@@ -261,40 +287,50 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  Getjustlikeforyou() {
+  Getjustlikeforyou(page: number) {
 
     this.GetProducts.Getlikeforyou().subscribe(resSlidersData => {
 
-      // this.GetALLLikeforyou = resSlidersData.Results;
       let demoactuprods;
-        demoactuprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demoactuprods)
-        for (let prods of demoactuprods) {
-          this.GetALLLikeforyou.push(prods.product);
-        }
+      demoactuprods = resSlidersData.Results;
+      //this.GetALLProductss= resSlidersData.Results;
+      // console.log(demoactuprods)
+      for (let prods of demoactuprods) {
+        this.GetALLLikeforyou.push(prods.product);
+        // }
+        this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+      }
+
+    });
+  }
+  GetjustlikeforyouPageNumber(page: number) {
+
+    this.GetProducts.GetlikeforyouPageNumber(page).subscribe(resSlidersData => {
+
+      let demoactuprods;
+      demoactuprods = resSlidersData.Results;
+      //this.GetALLProductss= resSlidersData.Results;
+      // console.log(demoactuprods)
+      for (let prods of demoactuprods) {
+        this.GetALLLikeforyou.push(prods.product);
+        // }
+        this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+      }
 
     });
   }
 
-  GetFreateuredProducts() {
-    // this.GetProducts.GetAllFeaturedProducts().subscribe(resSlidersData => {
 
-    //   this.GetALLFeaturedProductss = resSlidersData;
-    // });
+  GetFreateuredProducts() {
+
     if (this.viewlogin !== null) {
-      // if (page < 1 || page > this.pager.totalPages) {
-      //   return;
-      // }
-      // alert(localStorage.getItem('Authorization'))
-      // this.GetALLProductss=undefined;
+
       this.GetProducts.GetAllFeaturedProducts().subscribe(resSlidersData => {
 
         // this.GetALLAuctionProductss = resSlidersData.Results;
         let demofreprods;
         demofreprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demofreprods)
+
         for (let prods of demofreprods) {
           this.GetALLFeaturedProductss.push(prods.product);
         }
@@ -306,11 +342,9 @@ export class HomeComponent implements OnInit {
     else if (this.viewlogin == null) {
       this.GetProducts.GetAllFeaturedProducts().subscribe(resSlidersData => {
 
-        // this.GetALLFeaturedProductss = resSlidersData.Results;
         let demofreprods;
         demofreprods = resSlidersData.Results;
-        //this.GetALLProductss= resSlidersData.Results;
-        // console.log(demofreprods)
+
         for (let prods of demofreprods) {
           this.GetALLFeaturedProductss.push(prods.product);
         }
@@ -321,18 +355,17 @@ export class HomeComponent implements OnInit {
   PhoneandTablet() {
 
     this.GetProducts.PhoneandTablet("Phones & Tablets").subscribe(resSlidersDatasss => {
-      // console.log(resSlidersDatasss)
+
       this.GetallPhoneProduct = resSlidersDatasss.Results;
     });
   }
   menfashion() {
     this.GetProducts.MenFashion("Men's Fashion").subscribe(resSlidersData => {
 
-      // this.MenFashionProducts = resSlidersData.Results;
+
       let demomenprods;
       demomenprods = resSlidersData.Results;
-      //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demomenprods)
+
       for (let prods of demomenprods) {
         this.MenFashionProducts.push(prods.product);
       }
@@ -341,11 +374,9 @@ export class HomeComponent implements OnInit {
   tv() {
     this.GetProducts.TV("TV, Audio & Video").subscribe(resSlidersData => {
 
-      // this.getTvAudioVideoProduct = resSlidersData.Results;
       let demotvprods;
       demotvprods = resSlidersData.Results;
-      //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demotvprods)
+
       for (let prods of demotvprods) {
         this.getTvAudioVideoProduct.push(prods.product);
       }
@@ -355,11 +386,10 @@ export class HomeComponent implements OnInit {
   computer() {
     this.GetProducts.Computer("Computing & Laptops").subscribe(resSlidersData => {
 
-      // this.getcomputinglaptopsproduct = resSlidersData.Results;
+
       let democompprods;
       democompprods = resSlidersData.Results;
-      //this.GetALLProductss= resSlidersData.Results;
-      // console.log(democompprods)
+
       for (let prods of democompprods) {
         this.getcomputinglaptopsproduct.push(prods.product);
       }
@@ -369,11 +399,10 @@ export class HomeComponent implements OnInit {
   home() {
     this.GetProducts.Home("Home Appliances").subscribe(resSlidersData => {
 
-      // this.gethomeappliancesproduct = resSlidersData.Results;
+
       let demohomwprods;
       demohomwprods = resSlidersData.Results;
-      //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demohomwprods)
+
       for (let prods of demohomwprods) {
         this.gethomeappliancesproduct.push(prods.product);
       }
@@ -385,12 +414,10 @@ export class HomeComponent implements OnInit {
   womenFashion() {
 
     this.GetProducts.womenFashion("Women's Fashion").subscribe(resSlidersData => {
-      // console.log(resSlidersData)
-      // this.WomenFashionProducts = resSlidersData.Results;
+
       let demowomprods;
       demowomprods = resSlidersData.Results;
-      //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demowomprods)
+
       for (let prods of demowomprods) {
         this.WomenFashionProducts.push(prods.product);
       }
@@ -398,36 +425,11 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // onSuccess(resSlidersData) {
-  //   console.log(resSlidersData);
-  //   if (resSlidersData != null) {
-  //     resSlidersData.forEach(item => {
-  //       this.myPhotosList.push(new PhotosObj(item));
-  //     });
-  //   }
-  // }
-  // onScroll()
-  // {
-  //   console.log("Scrolled");
-  //   this.page = this.page + 1;
-  //   this.getPhotos(1);
-  // }
-  // nextClick() {
-  //   console.log(this.model);
-  //   if (this.model.pageno < this.model.totalpages) {
-  //     this.model.pageno = this.model.pageno + 1; // (parseInt(this.model.pageno, 10) + 1).toString();
-  //     this.newService.fetchJobByAdvanceSearch(this.model).subscribe(data => {
-  //       for (let i = 0; i < data.jobs.length; i++) {
-  //         this.jobsList.push(data.jobs[i]);
-  //       }
-  //     });
-  //   }
-  // }
   CategorySlider() {
     this.GetCat.GetAllCategories().subscribe(data => {
       this.GetallCat = data;
       console.log('Categories Are:', this.GetallCat);
-     
+
       $('.homeSlider').fadeOut(0);
       if (this.GetallCat) {
         setTimeout(function () {
@@ -436,8 +438,9 @@ export class HomeComponent implements OnInit {
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
-            prevArrow: '<button class="leftRs">&lt;</button>',
-            nextArrow: '<button class="rightRs">&lt;</button>',
+            prevArrow: '<button class="leftRs" style="left: 30px;"><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button class="rightRs" style="right: 30px;"><i class="fa fa-angle-right"></i></button>',
+
             responsive: [
               {
                 breakpoint: 1199,
@@ -468,95 +471,51 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // HotDealSlider() {
-  //   this.GetProducts.getcomputinglaptopsproduct8().subscribe(resSlidersData => {
-  //     this.HotDealProducts = resSlidersData;
-  //     $('.hotslider').fadeOut(0);
-  //     if (this.HotDealProducts.length >= 5) {
-  //       setTimeout(function () {
-  //         $('.hotslider').slick({
-  //           infinite: true,
-  //           slidesToShow: 5,
-  //           slidesToScroll: 1,
-  //           autoplay: true,
-  //           prevArrow: '<button class="leftRsBanner">&lt;</button>',
-  //           nextArrow: '<button class="rightRsBanner">&lt;</button>',
-  //           responsive: [
-  //             {
-  //               breakpoint: 1199,
-  //               settings: {
-  //                 slidesToShow: 3,
-  //                 infinite: true
-  //               }
-  //             },
-  //             {
-  //               breakpoint: 767,
-  //               settings: {
-  //                 slidesToShow: 2,
-  //               }
-  //             },
-  //             {
-  //               breakpoint: 639,
-  //               settings: {
-  //                 slidesToShow: 1,
-  //                 slidesToScroll: 1
-  //               }
-  //             }
-
-  //           ]
-  //         });
-  //       }, 0);
-  //     }
-  //     $('.hotslider').fadeIn(500).delay(200);
-  //   });
-  // }
   RecommendedSlider() {
     if (this.viewlogin !== null) {
-    this.Category.getRecommended().subscribe(resSlidersData => {
-      this.RecommendedProducts = resSlidersData.Results;
-      $('.recommendedslider').fadeOut(0);
-      if (this.RecommendedProducts) {
-        setTimeout(function () {
-          $('.recommendedslider').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            autoplay: true,
-            prevArrow: '<button class="leftRsBanner">&lt;</button>',
-            nextArrow: '<button class="rightRsBanner">&lt;</button>',
-            responsive: [
-              {
-                breakpoint: 1199,
-                settings: {
-                  slidesToShow: 3,
-                  infinite: true
+      this.Category.getRecommended().subscribe(resSlidersData => {
+        this.RecommendedProducts = resSlidersData.Results;
+        $('.recommendedslider').fadeOut(0);
+        if (this.RecommendedProducts) {
+          setTimeout(function () {
+            $('.recommendedslider').slick({
+              infinite: true,
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              autoplay: true,
+              prevArrow: '<button class="leftRs" style="left: 30px;"><i class="fa fa-angle-left"></i></button>',
+              nextArrow: '<button class="rightRs" style="right: 30px;"><i class="fa fa-angle-right"></i></button>',
+              responsive: [
+                {
+                  breakpoint: 1199,
+                  settings: {
+                    slidesToShow: 3,
+                    infinite: true
+                  }
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                    slidesToShow: 2,
+                  }
+                },
+                {
+                  breakpoint: 639,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
                 }
-              },
-              {
-                breakpoint: 767,
-                settings: {
-                  slidesToShow: 2,
-                }
-              },
-              {
-                breakpoint: 639,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-                }
-              }
 
-            ]
-          });
-        }, 0);
-      }
-      $('.recommendedslider').fadeIn(500).delay(200);
-    });
+              ]
+            });
+          }, 0);
+        }
+        $('.recommendedslider').fadeIn(500).delay(200);
+      });
+    }
+
   }
-  // else if (this.viewlogin == null) {
-
-  // }
-}
 
 
   ViewedItemSlider() {
@@ -576,8 +535,8 @@ export class HomeComponent implements OnInit {
             slidesToShow: 4,
             slidesToScroll: 1,
             autoplay: true,
-            prevArrow: '<button class="leftRsBanner">&lt;</button>',
-            nextArrow: '<button class="rightRsBanner">&lt;</button>',
+            prevArrow: '<button class="leftRs" ><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button class="rightRs" ><i class="fa fa-angle-right"></i></button>',
             responsive: [
               {
                 breakpoint: 1199,
@@ -608,50 +567,50 @@ export class HomeComponent implements OnInit {
       // });
     }
   }
-   
+
   WatchedItemSlider() {
     if (this.viewlogin !== null) {
-    this.httpService.getwatchproducts().subscribe(resSlidersData => {
-      this.WatchedProducts = resSlidersData.Results;
-      $('.watchslider').fadeOut(0);
-      if (this.WatchedProducts.totalItems >= 5) {
-        setTimeout(function () {
-          $('.watchslider').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            autoplay: true,
-            prevArrow: '<button class="leftRsBanner">&lt;</button>',
-            nextArrow: '<button class="rightRsBanner">&lt;</button>',
-            responsive: [
-              {
-                breakpoint: 1199,
-                settings: {
-                  slidesToShow: 3,
-                  infinite: true
+      this.httpService.getwatchproducts().subscribe(resSlidersData => {
+        this.WatchedProducts = resSlidersData.Results;
+        $('.watchslider').fadeOut(0);
+        if (this.WatchedProducts.totalItems >= 5) {
+          setTimeout(function () {
+            $('.watchslider').slick({
+              infinite: true,
+              slidesToShow: 5,
+              slidesToScroll: 1,
+              autoplay: true,
+              prevArrow: '<button class="leftRsBanner">&lt;</button>',
+              nextArrow: '<button class="rightRsBanner">&lt;</button>',
+              responsive: [
+                {
+                  breakpoint: 1199,
+                  settings: {
+                    slidesToShow: 3,
+                    infinite: true
+                  }
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                    slidesToShow: 2,
+                  }
+                },
+                {
+                  breakpoint: 639,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
                 }
-              },
-              {
-                breakpoint: 767,
-                settings: {
-                  slidesToShow: 2,
-                }
-              },
-              {
-                breakpoint: 639,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-                }
-              }
 
-            ]
-          });
-        }, 0);
-      }
-      $('.watchslider').fadeIn(500).delay(200);
-    });
-  }
+              ]
+            });
+          }, 0);
+        }
+        $('.watchslider').fadeIn(500).delay(200);
+      });
+    }
   }
 
   timer(end_date: string) {
