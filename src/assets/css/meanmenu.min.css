@@ -22,10 +22,10 @@ a.meanmenu-reveal{display:none}
 .mean-remove{display:none}
 .menu-area-2{background:none;}
 .main-menu ul{text-align:right;margin:auto;display:inline-block;float:left;}
-.main-menu ul li{display:inline-block;float:left;border-right:1px #e5e5e5 solid;}
+.main-menu ul li{display:inline-block;float:left}
 .main-menu ul li ul li{border-right:0px #e5e5e5 solid;}
 .main-menu ul li.custom-menu{position:relative;}
-.main-menu ul li a{color:#333333;display:inline-block;font-size:14px;line-height:23px;font-weight:700;cursor:pointer;padding:12px 4px;transition:all 0.3s ease 0s;position:relative;font-family:Roboto, "Helvetica Neue", sans-serif;}
+.main-menu ul li a{color:#333333;display:inline-block;font-size:12px;line-height:23px;font-weight:700;cursor:pointer;padding:12px 4px;transition:all 0.3s ease 0s;position:relative;font-family:Roboto, "Helvetica Neue", sans-serif;border-radius: 2px;}
 .main-menu ul li .mega-menu li a{color:#333;display:inline-block;font-size:17px;font-weight:500;letter-spacing:0.5px;padding:0px;text-transform:capitalize;transition:all 0.3s ease 0s;}
 .main-menu ul li .mega-menu:hover li a{background-color:inherit;}
 .main-menu nav > ul > li:last-child > a::before{display:none;}

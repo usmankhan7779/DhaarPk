@@ -2548,7 +2548,7 @@ a.wit-btn {
     text-transform: capitalize;
     color: #444;
     display: block;
-    font-size: 16px;
+    font-size: 15px;
     background: #fff;
     cursor: pointer
 }
@@ -2844,7 +2844,7 @@ a.wit-btn {
 
 .formpanel .formrow,
 .formrow {
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     font-size: 14px;
     position:relative
 }
@@ -2864,10 +2864,17 @@ a.wit-btn {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid #000;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: none;
     padding-bottom: 0
 }
+
+.formsetup{
+    width: 50%;
+    float: left
+}
+
+
 
 .formpanel select.form-control {
     padding: 13px 12px;
@@ -3057,11 +3064,16 @@ a.wit-btn {
 }
 
 .userccount h5 {
-    font-size: 28px;
-    color: #000;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center
+    font-size: 26px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: black;
+    padding: 8px;
+    margin-top: -45px;
+    border-radius: 5px;
+    
 }
 
 .socialLogin {
@@ -4573,12 +4585,13 @@ select {
   }
   .password-heading{
       text-align: center;
+      font-size: 22px
   }
   .field-icon{
     font-weight: 900;
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 19px;
     color: #c00;
 
   }
