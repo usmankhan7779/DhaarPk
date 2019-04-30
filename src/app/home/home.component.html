@@ -78,8 +78,6 @@
 
   <!--</div>-->
   <!--</div>-->
-
-
   <div class="container ">
     <div class="homeSlider">
         <div class="item"  *ngFor="let category of GetallCat">
@@ -94,9 +92,7 @@
                   category.Cat_Name }}</a>
               </h4>
             </div>
-          
-        
-        </div>s
+        </div>
     </div>
     
    
@@ -125,23 +121,7 @@
           <li style="text-align: center" role="presentation"><a href="#featured" aria-controls="messages" role="tab"
               data-toggle="tab">Featured</a></li>
         </ul>
-        <!--<div class="tab-info">-->
-        <!--<div class="nav home-nav-tabs home-product-tabs">-->
-        <!--<h3 class="new-product-title pull-left"><a href="#all2" data-toggle="tab"-->
-        <!--aria-expanded="false">Latest</a></h3>-->
-        <!--<h3 class="new-product-title pull-left" style="margin-left: 5%"><a href="#buynow" data-toggle="tab"-->
-        <!--aria-expanded="false">Buy Now</a>-->
-        <!--</h3>-->
-        <!--<h3 class="new-product-title pull-left" style="margin-left: 5%"><a href="#auction" data-toggle="tab"-->
-        <!--aria-expanded="false">Auction</a>-->
-        <!--</h3>-->
-        <!--<h3 class="new-product-title pull-left" style="margin-left: 5%"><a href="#featured" data-toggle="tab"-->
-        <!--aria-expanded="false">Featured</a>-->
-        <!--</h3>-->
-
-        <!--</div>-->
-        <!--&lt;!&ndash; /.nav-tabs &ndash;&gt;-->
-        <!--</div>-->
+      
 
         <div class="tab-content">
           <div id="productTabContent2" class="tab-pane fade in active">
@@ -232,6 +212,14 @@
 
             </div>
             <!-- </ng-container> -->
+            <div class="col-md-5"></div>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+               
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="GetProductsfromAllCatPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+              </li>
+              
+            </ul>
           </div>
           <div class="tab-pane fade" id="buynow">
 
@@ -1294,6 +1282,26 @@
             </a>
           </div>
         </div>
+        <div class="col-md-5"></div>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+              <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
+                <a (click)="showallproducts(1)" class="btn btn-fill">First</a>
+              </li> -->
+              <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
+                <a (click)="showallproducts(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+              </li> -->
+              <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="showallproducts(page)" class="btn btn-fill">{{page}}</a>
+              </li> -->
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="GetjustlikeforyouPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+              </li>
+              <!-- <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="showallproducts(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+              </li> -->
+            </ul>
+            
+
       </div>
     </div>
     <!-- </ng-container> -->

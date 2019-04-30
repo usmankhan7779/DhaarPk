@@ -9358,8 +9358,7 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     line-height: normal
 }
 
-.owl-carousel.owl-option-02 .owl-next,
-.rightRs {
+.owl-carousel.owl-option-02 .owl-next {
     position: absolute;
     display: block;
     top: 50%;
@@ -9377,8 +9376,8 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     background: 0 0
 }
 
-.owl-carousel.owl-option-02 .owl-next::before,
-.rightRs:before {
+.owl-carousel.owl-option-02 .owl-next::before
+{
     font-family: FontAwesome;
     content: '\f105';
     font-size: 20px;
@@ -9390,7 +9389,7 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     transition: .5s all
 }
 
-.leftRs,
+
 .owl-carousel.owl-option-02 .owl-prev {
     position: absolute;
     display: block;
@@ -9409,7 +9408,6 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     background: 0 0
 }
 
-.leftRs::before,
 .owl-carousel.owl-option-02 .owl-prev::before {
     font-family: FontAwesome;
     content: '\f104';
@@ -10191,3 +10189,29 @@ body{
 .paypal { background-position: 0 66.666667%; background-size: 100%; }
 .visa { background-position: 0 100%; background-size: 100%; }
 
+.leftRs {
+    left: 0;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transition: .5s all;
+}
+.leftRs, .rightRs {
+    position: absolute;
+    top: 50%;
+    background: rgba(0,0,0,.58)!important;
+    z-index: 9;
+}
+.leftRs, .leftRs1, .rightRs, .rightRs1 {
+    width: 40px;
+    height: 40px;
+    margin-top: -22px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+}
+.leftRs, .leftRs1, .rightRs, .rightRs1, .search-bg__btn {
+    font-size: 20px;
+    cursor: pointer;
+}
+.leftRs i,.rightRs i{
+    color: #fff;
+}
