@@ -352,7 +352,7 @@
               <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">Rs: {{Total | number:'.0-0' }}</span> </p>
             </div>
             <div class="cart-checkout">
-                <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span>Checkout</span></button>
+                <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span  class="checkouts">Checkout</span></button>
             </div>
             </ng-container>
             <p *ngIf="Cart" class="amount">There are <a href="">0 items</a> in your cart.</p>
