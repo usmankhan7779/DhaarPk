@@ -21,8 +21,8 @@ export class HomeService {
   // http://192.168.30.225:9000
   // https://apis.dhaar.pk
   
-  ServerUrl = 'https://apis.dhaar.pk/products/';
   // ServerUrl = 'https://apis.dhaar.pk/products/';
+  ServerUrl = 'http://192.168.29.187:8000/products/';
   
   // serverurladdtocart=''
 
@@ -497,6 +497,65 @@ export class HomeService {
 
     }
   }
+  PhoneandTabletwithPage(category_name2,page:any) {
+    if (localStorage.getItem('Authorization') !== null) {
+      const headers = new Headers();
+      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      console.log('pofile', localStorage.getItem('Authorization'));
+      headers.append('Content-Type', 'application/json');
+      if (isPlatformBrowser(this.platformId)) {
+        // this.ServerUrl +
+        return this._http.post( this.ServerUrl +'Category_Products/'+'?page=' + page,
+          {
+            'category_name1': category_name2,
+            // 'Cat_Name': CatName ,
+            // 'User_ID': User_ID,
+          }, { headers: headers }).map((res: Response) => {
+            if (res) {
+
+              if (res.status === 200) {
+                const responce_data = res.json();
+                return responce_data;
+              }
+            }
+          }).catch((error: any) => {
+            console.log(error.toString());
+            return Observable.throw(new Error(error.status));
+          });
+
+
+      }
+    }
+    else {
+      const headers = new Headers();
+      // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
+      headers.append('Content-Type', 'application/json');
+      if (isPlatformBrowser(this.platformId)) {
+
+        return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
+          {
+            'category_name1': category_name2,
+            // 'Cat_Name': CatName ,
+            // 'User_ID': User_ID,
+          }, { headers: headers }).map((res: Response) => {
+            if (res) {
+
+              if (res.status === 200) {
+                const responce_data = res.json();
+                return responce_data;
+              }
+            }
+          }).catch((error: any) => {
+            console.log(error.toString());
+            return Observable.throw(new Error(error.status));
+          });
+
+
+      }
+
+    }
+  }
   MenFashion(category_name3) {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
@@ -733,7 +792,7 @@ export class HomeService {
 
     }
   }
-  subsubcatmenu(category_name) {
+  subsubcatmenu(Cat_Name,SubCat,page:any) {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -741,9 +800,10 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
-        return this._http.post(this.ServerUrl + 'Getbuynow_auction_products/',
+        return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
           {
-            'category_name': category_name,
+            'category_name1':Cat_Name,
+            'Subcat': SubCat
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {
@@ -769,9 +829,10 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
-        return this._http.post(this.ServerUrl + 'Getbuynow_auction_products/',
+        return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
           {
-            'category_name': category_name,
+            'category_name1':Cat_Name,
+            'Subcat': SubCat
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {

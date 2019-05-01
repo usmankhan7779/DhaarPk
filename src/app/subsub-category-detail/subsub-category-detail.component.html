@@ -1,8 +1,10 @@
+<!-- <preloader-full></preloader-full> -->
+
 <app-header></app-header>
 
 
 <!-- Main Container -->
-<div class="main-container col2-left-layout">
+<div class="main-container col2-left-layout" style="overflow:hidden ">
   <div class="container">
 
     <div class="row">
@@ -20,36 +22,41 @@
 
           </div>
           <div class="page-title">
-            <h3>{{Subcat}} </h3>
+            <h2>{{Subcat}}  </h2>
           </div>
           <div class="toolbar">
             <!--<div class="view-mode">-->
-            <!--<ul>-->
-            <!--<li class="active"> <a href="shop_grid.html"> <i class="fa fa-th-large"></i> </a> </li>-->
-            <!--<li> <a href="shop_list.html"> <i class="fa fa-th-list"></i> </a> </li>-->
-            <!--</ul>-->
+              <!--<ul>-->
+                <!--<li class="active"> <a href="shop_grid.html"> <i class="fa fa-th-large"></i> </a> </li>-->
+                <!--<li> <a href="shop_list.html"> <i class="fa fa-th-list"></i> </a> </li>-->
+              <!--</ul>-->
             <!--</div>-->
             <div class="sorter">
-              <div class="col-lg-8">
+              <!-- <div class="col-lg-8"> -->
 
                 <!--<span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>-->
 
-                <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
-                <span *ngIf="!AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >All Listings</span>
+                 <!-- <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
+                 <span *ngIf="!AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >All Listings</span>
 
-                <span *ngIf="BuyItNow" (click)="BuyItNowFuc(false)" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Buy It Now</span>
-                <span *ngIf="!BuyItNow" (click)="BuyItNowFuc(false)" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Buy It Now</span>
+                <span *ngIf="BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Buy It Now</span>
+                <span *ngIf="!BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Buy It Now</span>
 
-                <span *ngIf="thisAuction" (click)="thisAuctionFuc(true)" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Auction</span>
-                <span *ngIf="!thisAuction" (click)="thisAuctionFuc(true)" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span>
+                <span *ngIf="thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Auction</span>
+                <span *ngIf="!thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span> -->
 
-                <label>&nbsp;</label>
+
+                <!--<span *ngIf="AcceptOffer" (click)="AcceptOfferFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Accept Offers</span>-->
+                <!--<span *ngIf="!AcceptOffer" (click)="AcceptOfferFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555;font-family: Hind,sans-serif;"   >Accept Offers</span>-->
+
+
+                <!-- <label>&nbsp;</label> -->
                 <!--<select>-->
                 <!--<option selected="selected">Grid<span class="fa fa-list" ></span></option>-->
                 <!--<option>List <span class="fa fa-list" aria-hidden="true"></span> </option>-->
 
                 <!--</select>-->
-              </div>
+              <!-- </div> -->
               <div class="short-by page">
                 <label>View:</label>
 
@@ -61,44 +68,14 @@
                 <span *ngIf="View" (click)="GridView()" onmouseleave="this.style='font-size: 20px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555"   >Grid - <span class="fa fa-th" ></span></span>
                 <label>&nbsp;</label>
                 <!--<select>-->
-                <!--<option selected="selected">Grid<span class="fa fa-list" ></span></option>-->
-                <!--<option>List <span class="fa fa-list" aria-hidden="true"></span> </option>-->
+                  <!--<option selected="selected">Grid<span class="fa fa-list" ></span></option>-->
+                  <!--<option>List <span class="fa fa-list" aria-hidden="true"></span> </option>-->
 
                 <!--</select>-->
               </div>
             </div>
           </div>
-          <!--<div class="page-title">-->
-            <!--<h2>{{CatName}}</h2>-->
-          <!--</div>-->
-          <!--<div class="toolbar">-->
-          <!--&lt;!&ndash;<div class="view-mode">&ndash;&gt;-->
-          <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li class="active"> <a href="shop_grid.html"> <i class="fa fa-th-large"></i> </a> </li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li> <a href="shop_list.html"> <i class="fa fa-th-list"></i> </a> </li>&ndash;&gt;-->
-          <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--<div class="sorter">-->
-          <!--<div class="short-by">-->
-          <!--<label>Sort By:</label>-->
-          <!--<select>-->
-          <!--<option selected="selected">Position</option>-->
-          <!--<option>Name</option>-->
-          <!--<option>Price</option>-->
-          <!--<option>Size</option>-->
-          <!--</select>-->
-          <!--</div>-->
-          <!--<div class="short-by page">-->
-          <!--<label>Show:</label>-->
-          <!--<select>-->
-          <!--<option selected="selected">18</option>-->
-          <!--<option>20</option>-->
-          <!--<option>25</option>-->
-          <!--<option>30</option>-->
-          <!--</select>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
+
           <div *ngIf="Waitcall" class="alert  alert-info">
             <p class="">
               <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
@@ -106,169 +83,170 @@
             </p>
           </div>
           <ng-container *ngIf="!errormessage" >
-            <div *ngIf="!View" class="product-grid-area">
-              <ul class="products-grid">
-                <ng-container *ngFor="let phoneProducts of Trend">
-                  <ng-container *ngIf="phoneProducts.Active">
-                    <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                      <div class="product-item">
-                        <div class="item-inner">
-                          <div class="product-thumbnail">
-                            <!--<div class="icon-sale-label sale-left">Sale</div>-->
-                            <!--<div class="box-hover">-->
-                            <!--<div class="btn-quickview"> <a href="#" data-toggle="modal" data-target="#modal-quickview"><i class="fa fa-search-plus" aria-hidden="true"></i> Quick View</a> </div>-->
-                            <!--<div class="add-to-links" data-role="add-to-links"> <a href="#" class="action add-to-wishlist" title="Add to Wishlist"></a> <a href="#" class="action add-to-compare" title="Add to Compare"></a> </div>-->
+          <div *ngIf="!View" class="product-grid-area">
+            <ul class="products-grid">
+              <ng-container *ngFor="let phoneProducts of Trend">
+              <!-- <ng-container *ngIf="phoneProducts.Active"> -->
+                <li class="item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="item-inner">
+                    <div class="product-thumbnail">
+                      <!--<div class="icon-sale-label sale-left">Sale</div>-->
+                      <!--<div class="box-hover">-->
+                      <!--<div class="btn-quickview"> <a href="#" data-toggle="modal" data-target="#modal-quickview"><i class="fa fa-search-plus" aria-hidden="true"></i> Quick View</a> </div>-->
+                      <!--<div class="add-to-links" data-role="add-to-links"> <a href="#" class="action add-to-wishlist" title="Add to Wishlist"></a> <a href="#" class="action add-to-compare" title="Add to Compare"></a> </div>-->
+                      <!--</div>-->
+                      <div class="slider-items-products">
+                        <div id="pro2-slider" class="product-flexslider hidden-buttons">
+                          <div class="slider-items slider-width-col6">
+                               <a  [routerLink]="['/single-product']"  [queryParams]="{ ProID:  phoneProducts?.ProductID, CatName: phoneProducts?.Cat_Name, SubCatName:phoneProducts?.Sub_Sub_Cat_Name, id:phoneProducts?.id  }"  class="product-item-photo">
+                                  <img class="product-image-photo" height="225" src="{{ phoneProducts.Pic }}" onerror="this.src='../../assets/images/Check-Resolution.png'"  alt="{{ phoneProducts.Pic }}">  
+                                </a> 
+                              <!--<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img20.jpg" alt=""></a> -->
+                              <!--<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img19.jpg" alt=""></a> -->
+
+                            <!--<div *ngIf="phoneProducts.Auction == true" class="jtv-box-timer">-->
+                              <!--<div class="countbox_1 jtv-timer-grid"></div>-->
                             <!--</div>-->
-                            <div class="slider-items-products">
-                              <div id="pro2-slider" class="product-flexslider hidden-buttons">
-                                <div class="slider-items slider-width-col6">
-                                  <a  [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }"  class="product-item-photo"> <img class="product-image-photo" height="225" src="{{phoneProducts.Pic }}" alt="{{ phoneProducts.Pic }}"></a>
-
-                                  <!--<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img20.jpg" alt=""></a> -->
-                                  <!--<a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" src="assets/images/products/img19.jpg" alt=""></a> -->
-
-                                  <!--<div *ngIf="phoneProducts.Auction == true" class="jtv-box-timer">-->
-                                  <!--<div class="countbox_1 jtv-timer-grid"></div>-->
-                                  <!--</div>-->
-                                </div>
-                              </div>
-                            </div>
                           </div>
-                          <div class="pro-box-info">
-                            <div class="item-info">
-                              <div class="info-inner">
-                                <div class="item-title">
-                                  <h4> <a title="Product Title Here" [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">{{ phoneProducts.P_Title }}  </a></h4>
-                                </div>
-                                <div class="item-content">
-                                  <div class="rating">
-                                    <p> Seller: <a [routerLink]="['/store', phoneProducts.StoreName]"> {{phoneProducts.StoreName}}</a></p>
-                                  </div>
-                                  <div *ngIf="phoneProducts.Auction == true" class="item-price">
-
-                                    <div  class="price-box"> <span class="regular-price"> <span class="price">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0' }}</span> </span> </div>
-
-                                  </div>
-                                  <div *ngIf="phoneProducts.Auction == false" class="item-price">
-                                    <div class="price-box"> <span class="regular-price"> <span class="price">Rs {{ phoneProducts.FixedPrice | number:'.0-0' }}</span> </span> </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pro-box-info">
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title">
+                            <h4> <a  [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts?.ProductID, CatName: phoneProducts?.Cat_Name, SubCatName:phoneProducts?.Sub_Sub_Cat_Name, id:phoneProducts?.id  }">{{ phoneProducts?.P_Title }}  </a></h4>
+                            <!-- <a class="info" [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.product.ProductID, CatName: TvVideoaudio88.product.Cat_Name, SubCatName:TvVideoaudio88.product.Sub_Sub_Cat_Name, id:TvVideoaudio88.product.id }">Product
+                              Detail</a> -->
+                          </div>
+                          <div class="item-content">
+                            <div class="rating">
+                              <!-- <p> Seller: <a [routerLink]="['/store', phoneProducts.StoreName]"> {{phoneProducts.StoreName}}</a></p> -->
                             </div>
-                            <div class="box-hover">
-                              <div class="product-item-actions">
-                                <div *ngIf="phoneProducts.Auction == true" class="pro-actions">
-                                  <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">   <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Bid Now</span> </button> </a>
-                                </div>
-                                <div *ngIf="phoneProducts.Auction == false" class="pro-actions">
-                                  <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" >    <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Buy Now</span> </button> </a>
-                                </div>
-                              </div>
+                            <div *ngIf="phoneProducts.Auction == true" class="item-price">
+
+                              <div  class="price-box"> <span class="regular-price">
+                                 <span class="price">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0' }}</span> </span> </div>
+
+                            </div>
+                            <div *ngIf="phoneProducts.Auction == false" class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">Rs {{ phoneProducts.FixedPrice | number:'.0-0' }}</span> </span> </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </li>
-                  </ng-container>
-
-                </ng-container>
-
-              </ul>
-
-
-            </div>
-
-            <div *ngIf="View" class="product-grid-area">
-              <div class="myads">
-                <!--<h3>My Active Ads</h3>-->
-                <ul class="searchList">
-                  <!-- ad start -->
-
-
-                  <ng-container *ngFor="let phoneProducts of Trend">
-                    <ng-container *ngIf="phoneProducts.Active">
-                      <li>
-                        <div class="row">
-                          <div class="col-md-2 col-sm-4">
-                            <div class="adimg"><img src="{{phoneProducts.Pic  }}" alt="Ad Name"></div>
+                      <div class="box-hover">
+                        <div class="product-item-actions">
+                          <div *ngIf="phoneProducts.Auction == true" class="pro-actions">
+                            <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name, SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id  }">   <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Bid Now</span> </button> </a>
                           </div>
-                          <div class="col-md-10 col-sm-8">
-                            <div class="jobinfo">
-                              <div class="row">
-                                <div class="col-md-8 col-sm-7">
-                                  <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" >{{ phoneProducts.P_Title }}</a></h3>
-                                  <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name }}</a>   </div>
-                                  <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
-                                  <div class="clearfix"></div>
-                                  <p>
-                                    <span> Auction: <span style="color: red !important;"  *ngIf="phoneProducts.Auction === true">Yes </span><span style="color: red !important;" *ngIf="phoneProducts.Auction === false">No</span> </span>
-                                  </p>
+                          <div *ngIf="phoneProducts.Auction == false" class="pro-actions">
+                            <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name, SubCatName:phoneProducts.Sub_Sub_Cat_Name, id:phoneProducts.id  }" >    <button  class="action add-to-cart" type="button" title="Add to Cart"> <span>Buy Now</span> </button> </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- </ng-container> -->
+              </ng-container>
+
+            </ul>
+           
 
 
-                                  <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
-                                </div>
-                                <div class="col-md-4 col-sm-5 text-right">
-                                  <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
-                                  <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div>
-                                  <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
-                                </div>
-                              </div>
+          </div>
+ 
+
+          <div *ngIf="View" class="product-grid-area">
+            <div class="myads">
+              <!--<h3>My Active Ads</h3>-->
+              <ul class="searchList">
+                <!-- ad start -->
+
+
+                <ng-container *ngFor="let phoneProducts of Trend">
+                <!-- <ng-container *ngIf="phoneProducts.Active"> -->
+                  <li>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-4">
+                        <div class=""><img src="{{phoneProducts.Pic  }}" onerror="this.src='../../assets/images/Check-Resolution.png'"  alt="Ad Name"></div>
+                      </div>
+                      <div class="col-md-10 col-sm-8">
+                        <div class="jobinfo">
+                          <div class="row">
+                            <div class="col-md-8 col-sm-7">
+                              <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" >{{ phoneProducts.P_Title }}</a></h3>
+                              <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name }}</a>   </div>
+                              <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                              <div class="clearfix"></div>
+                              <p>
+                                <span> Auction: <span style="color: red !important;"  *ngIf="phoneProducts.Auction === true">Yes </span><span style="color: red !important;" *ngIf="phoneProducts.Auction === false">No</span> </span>
+                              </p>
+
+
+                              <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                            </div>
+                            <div class="col-md-4 col-sm-5 text-right">
+                              <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
+                              <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div>
+                              <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
                             </div>
                           </div>
                         </div>
-                      </li>
-                    </ng-container>
-                  </ng-container>
+                      </div>
+                    </div>
+                  </li>
+                <!-- </ng-container> -->
+                </ng-container>
+ 
 
-                   
 
-
-                  <!-- ad end -->
-                </ul>
-              </div>
+                <!-- ad end -->
+              </ul>
             </div>
+            
+          </div>
+          
 
 
-             
-
+         
+          
           </ng-container>
-          <ng-container *ngIf="errormessage"  >
-
+          <ng-container *ngIf="errormessage" >
             <div class="alert alert-danger">
               <h3 align="center">No Product Found</h3>
             </div>
-            <div>{{message()}}</div>
           </ng-container>
-
-
+     
         </div>
 
       </div>
       <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+
         <div class="block shop-by-side">
           <div class="sidebar-bar-title">
-            <h3>Shop By</h3>
+            <h3>Product Type</h3>
           </div>
           <div class="block-content">
-            <p class="block-subtitle">Shopping Options</p>
+
             <br/>
             <div class="layered-Category">
-                <div class="sidebar-bar-title">
-                    <h3>Product Type</h3>
-                  </div>
-              <!-- <h2 class="saider-bar-title">Product Type</h2> -->
               <div class="layered-content">
                 <ul class="check-box-list">
                   <li>
-                    <input (click)="ProductType(true)" type="radio" id="jtv1" name="jtvc">
+                    <input (click)="acution_check('true')" type="radio" id="jtv1"  name="jtvc">
                     <label for="jtv1"> <span class="button"></span> Auction Products </label>
                   </li>
                   <li>
-                    <input (click)="ProductType(false)" type="radio" id="jtv2" name="jtvc">
+                    <input (click)="fixed_check('false')" type="radio" id="jtv2" name="jtvc">
                     <label for="jtv2"> <span class="button"></span> Fixed Products </label>
                   </li>
                   <li>
-                    <input (click)="BothAbove()" type="radio" id="jtv3" name="jtvc">
+                    <input (click)="above_check()" type="radio" id="jtv3" name="jtvc">
                     <label for="jtv3"> <span class="button"></span> Both Above</label>
                   </li>
                   <li>
@@ -276,7 +254,7 @@
                 </ul>
               </div>
             </div>
-
+           
           </div>
         </div>
         <div class="block product-price-range ">
@@ -296,7 +274,7 @@
                   <input (click)="ProductPrice(1001,5000)" type="radio" id="p2" name="cc" />
                   <label for="p2"> <span class="button"></span> Rs 1,001 - Rs 5,000  </label>
                 </li>
-                <li>
+                               <li>
                   <input (click)="ProductPrice(5001,10000)" type="radio" id="p3" name="cc" />
                   <label for="p3"> <span class="button"></span> Rs 5,001 - Rs 10,000  </label>
                 </li>
@@ -337,43 +315,50 @@
                   <label for="p14"> <span class="button"></span> Rs 4,00,001 - Rs 5,00,000  </label>
                 </li>
                 <li>
-                  <input (click)="ProductPrice(500001,999999999)" type="radio" id="p15" name="cc" />
+                  <input (click)="ProductPrice(500001,999999)" type="radio" id="p15" name="cc" />
                   <label for="p15"> <span class="button"></span> Rs 5,00,001 < ... </label>
                 </li>
+                <!-- <li>
+                  <input (click)="ProductPrice(All,All)" type="radio" id="p16" name="cc" />
+                  <label for="p16"> <span class="button"></span> All Prices</label>
+                </li> -->
 
               </ul>
             </div>
           </div>
         </div>
+        <!-- <div *ngIf="View" class="product-grid-area"></div> -->
+        <ng-container *ngIf="Vendor "  >
         <div class="block sidebar-cart">
           <div class="sidebar-bar-title">
             <h3>My Cart</h3>
           </div>
           <div class="block-content">
             <ng-container *ngIf="!Cart" >
-              <p class="amount">There are <a href="">{{ CartedProduct.products.length }} items</a> in your cart.</p>
-              <ul>
-                <ng-container *ngFor="let abc of CartedProduct.products">
-                  <li class="item"> <a  title="Sample Product" class="product-image"><img src="{{ abc.Pic }}" alt="Sample Product "></a>
-                    <div class="product-details">
-                      <div class="access"> <a (click)="TrashcartElement(abc.ProductID)" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a></div>
-                      <p class="product-name"> <a href="shopping_cart.html">{{ abc.P_Title }}{{ abc.P_Title }}</a> </p>
-                      <strong>{{  abc.itemsqty }}</strong> x <span class="price">Rs: {{ abc.FixedPrice | number:'.0-0' }}</span> </div>
-                  </li>
+            <p class="amount">There are <a href="">{{ CartedProduct.Results?.length }} items</a> in your cart.</p>
+            <ul>
+              <ng-container *ngFor="let abc of CartedProduct.Results ">
+              <li class="item"> <a  title="Sample Product" class="product-image"><img src="{{abc.product.Pic }}" onerror="this.src='../../assets/images/Check-Resolution.png'" alt="Sample Product "></a>
+                <div class="product-details">
+                  <div class="access"> <a (click)="TrashcartElement(abc.ProductID)" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a></div>
+                  <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
+                  <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
+                  <strong>{{  abc.Quantity }}</strong> x <span class="price">Rs: {{ abc.product.FixedPrice | number:'.0-0' }}</span> </div>
+              </li>
 
-                </ng-container>
-              </ul>
-              <div class="summary">
-                <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">Rs: {{Total | number:'.0-0' }}</span> </p>
-              </div>
-              <div class="cart-checkout">
-                <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span>Checkout</span></button>
-              </div>
+              </ng-container>
+            </ul>
+            <div class="summary">
+              <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">Rs: {{Total | number:'.0-0' }}</span> </p>
+            </div>
+            <div class="cart-checkout">
+                <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span  class="checkouts">Checkout</span></button>
+            </div>
             </ng-container>
             <p *ngIf="Cart" class="amount">There are <a href="">0 items</a> in your cart.</p>
           </div>
         </div>
-
+      </ng-container>
 
         <div class="single-img-add sidebar-add-slider ">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -407,7 +392,8 @@
             </div>
 
             <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> 
+          </div>
         </div>
 
         <div class="block popular-tags-area ">
@@ -433,13 +419,34 @@
       </aside>
     </div>
   </div>
+  <div class="col-md-6"></div>
+  <!-- <div class="col-md-6"></div> -->
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+    <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
+      <a (click)="showallproducts(1)" class="btn btn-fill">First</a>
+    </li> -->
+    <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
+      <a (click)="showallproducts(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
+    </li> -->
+    <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="showallproducts(page)" class="btn btn-fill">{{page}}</a>
+    </li> -->
+    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+      <a (click)="viewsubsubcat(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+    </li>
+    <!-- <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+      <a (click)="showallproducts(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
+    </li> -->
+  </ul>
+  <div class="col-md-3"></div>
+
 </div>
 <!-- Main Container End -->
 <div class="container">
   <!-- service section -->
-  <div class="jtv-service-area">
+  <!-- <div class="jtv-service-area">
     <div class="row">
-      <div class="col col-md-4 col-sm-4 col-xs-12 no-padding">
+      <div class="col col-md-4 col-sm-4 col-xs-12 padding-l-r-10">
         <div class="block-wrapper ship">
           <div class="text-des"> <i class="icon-rocket"></i>
             <h3>FREE SHIPPING & RETURN</h3>
@@ -447,7 +454,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-4 col-sm-4 col-xs-12 no-padding">
+      <div class="col col-md-4 col-sm-4 col-xs-12 padding-l-r-10">
         <div class="block-wrapper return">
           <div class="text-des"> <i class="fa fa-dollar"></i>
             <h3>MONEY BACK GUARANTEE</h3>
@@ -455,7 +462,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-md-4 col-sm-4 col-xs-12 no-padding">
+      <div class="col col-md-4 col-sm-4 col-xs-12 padding-l-r-10">
         <div class="block-wrapper support">
           <div class="text-des"> <i class="fa fa-headphones"></i>
             <h3>ONLINE SUPPORT 24/7</h3>
@@ -464,7 +471,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 <!-- our clients Slider -->
 

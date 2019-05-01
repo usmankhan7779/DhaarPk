@@ -119,7 +119,7 @@ getBuyNowAuctionproducts(category_name,fillter) {
 
   }
 }
-getAllPhoneAndTabletProductWithPrice(Cat_Name,auction,maxvalue,minvalue) {
+getAllPhoneAndTabletProductWithPrice(Cat_Name,auction,maxvalue,minvalue,Sub_Catname) {
    
     const headers = new Headers();
     // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -132,6 +132,7 @@ getAllPhoneAndTabletProductWithPrice(Cat_Name,auction,maxvalue,minvalue) {
           // 'category_name': category_name,
           // "filter_type":fillter
           'Cat_Name': Cat_Name,
+          'Subcat':Sub_Catname,
           'auction':auction,
           'maxvalue':maxvalue,
           'minvalue':minvalue
