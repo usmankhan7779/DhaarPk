@@ -872,7 +872,8 @@ input:focus {
     color: #fff;
     transition: .5s all ease;
     border-radius: 25px;
-    padding: 8px 20px
+    padding: 8px 20px;
+    /* margin-left: -100px */
 }
 
 #search h2 {
@@ -1019,7 +1020,7 @@ select {
 }
 
 .logo img {
-    width: 100%
+    width: 92%
 }
 
 .top-cart-contain .top-cart-content {
@@ -2906,6 +2907,12 @@ ul#cart-sidebar {
         font-size: 25px;
         top: 54px;
     } 
+    .sidebar {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 30px;
+        margin-left: -5px;
+    }
     }
 @media all and (min-width:768px) {
     .carousel-showmanymoveone .carousel-inner>.active.left,
@@ -3578,7 +3585,8 @@ article.jtv-entry {
     position: relative;
     margin-bottom: 30px;
     overflow: hidden;
-    text-align: center
+    text-align: center;
+    margin-top: 10px
 }
 
 .jtv-banner-box.banner-inner .jtv-content-text {
@@ -9022,6 +9030,9 @@ label[for=rememberme] {
         padding-top: 70px;
         margin: 0 auto
     }
+    .search button {
+        margin-left: -px
+    }
 }
 
 .carousel-showmanymoveone .carousel-control {
@@ -9832,7 +9843,7 @@ hr.invis {
 }
 
 .logo-box {
-    width: 25%;
+    width: 18%;
     float: left
 }
 
@@ -9842,7 +9853,7 @@ hr.invis {
     float: left;
     position: absolute;
     left: 50%;
-    margin-left: -180px
+    margin-left: -210px
 }
 
 .menu-box {
@@ -9922,8 +9933,11 @@ ngx-image-viewer .img-container {
 
 @media (max-width:1153px) {
     .navbar-nav>li>a {
-        font-size: 18px!important
+        font-size: 18px!important   
     }
+    /* #search button {
+        margin-left: -55px
+    } */
 }
 
 @media (max-width:1024px) {
@@ -9950,12 +9964,22 @@ ngx-image-viewer .img-container {
         width: 30px;
         line-height: 30px;
     }
-
+    .sidebar {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 30px;
+        margin-left: -5px
+    }
+    #search button{
+        margin-left: -92px
+    }
+   
 }
 
 @media (max-width:991px) {
     .navbar-nav {
-        width: 149px
+        width: 752px;
+        padding: 20px 0 0 20px
     }
     .search-box {
         width: 50%
@@ -9977,7 +10001,7 @@ ngx-image-viewer .img-container {
         float: none
     }
     .navbar-nav>li {
-        float: none
+        /* float: none */
     }
     .nav.navbar-nav li a {
         border: none!important
@@ -10201,6 +10225,9 @@ body{
     background: rgba(0,0,0,.58)!important;
     z-index: 9;
 }
+.seller-dashboard{
+    padding: 0 10px
+}
 .leftRs, .leftRs1, .rightRs, .rightRs1 {
     width: 40px;
     height: 40px;
@@ -10215,3 +10242,38 @@ body{
 .leftRs i,.rightRs i{
     color: #fff;
 }
+
+
+@media (max-width:1280px){
+
+    .panel-info2[_ngcontent-universal-demo-v5-c4] {
+        margin-top: -8px!important;
+        width: 93%!important;
+        height: auto
+    }
+}
+    /* .user-detail {
+        margin-top: -8px!important;
+        padding: 77px 0 0px!important;
+        margin-left: 35px!important;
+    }
+
+    .usernavdash {
+        margin-bottom: 30px!important;
+        margin-left: 37px!important;
+    } */
+
+    /* .sidenav {
+        
+        margin-left: -84px!important;
+        margin-top: -30px!important;
+    } */
+    /* .sidenav{
+        margin-left: -53px;
+    } */
+/* }
+@media(min-width:1280px) and (max-width:1365px){
+    .sidenav{
+        margin-left: -53px!important
+    } */
+
