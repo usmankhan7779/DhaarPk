@@ -2988,9 +2988,10 @@ a.wit-btn {
 
 .img-box i {
     position: absolute;
-    right: 0;
+    right: 20px;
     font-size: 20px;
-    cursor: pointer
+    cursor: pointer;
+    color: red
 }
 
 .uploadimg img {

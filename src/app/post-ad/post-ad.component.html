@@ -26,7 +26,7 @@
             <form role="form" class="login-form" (ngSubmit)="f.form.valid && save('fsd','sfs')"  #f="ngForm" novalidate>
 
             <div class="">
-              <label class="control-label label-set">Product Type: </label> <span style="color: #CC0000; font-size: 16px;font-weight: bold"> <u>{{ CatName }}</u>  </span> <a class="label-set" [routerLink]="['/select-category']">Change</a>
+              <label class="control-label label-set">Product Type: </label> <span style="color: #CC0000; font-size: 16px;font-weight: bold"> <u style="cursor: pointer;">{{ CatName }}</u>  </span> <a class="label-set" [routerLink]="['/select-category']">Change</a>
             </div>
             <!-- Ad Information -->
 
