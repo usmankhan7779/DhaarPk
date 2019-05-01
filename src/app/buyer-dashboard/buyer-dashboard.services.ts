@@ -211,7 +211,7 @@ proceesedtocheckout(bill,list:any,ShipmentID){
     console.log('pofile', localStorage.getItem('Authorization'));
     // http://192.168.30.189:7000/sale/OrderEmail/
     // this.saleServerUrl +this.saleServerUrl +
-    return this._http.post( 'http://192.168.30.187:8000/sale/addcustominvoice/', {
+    return this._http.post( this.saleServerUrl+'addcustominvoice/', {
       "InvoicesBalance":bill,
       "list":list,
 // "list": [{"ProductID": "123","UserID":"338","Qty":"1","sellerid":"hassan"}, {"ProductID": "321","UserID":"338","Qty":"2","sellerid":"hassan"}],

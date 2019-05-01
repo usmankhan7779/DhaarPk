@@ -221,6 +221,7 @@
               
             </ul>
           </div>
+          <!-- GetAuctionProductsfromAllCatPageNumber -->
           <div class="tab-pane fade" id="buynow">
 
             <ng-container *ngFor="let BuyNow of GetALLBuyNowProductss">
@@ -304,7 +305,14 @@
               </div>
             </ng-container>
 
-
+            <div class="col-md-5"></div>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+               
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="GetBuyNowProductsfromAllCatPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+              </li>
+              
+            </ul>
           </div>
           <div class="tab-pane fade" id="auction">
 
@@ -392,7 +400,14 @@
               </div>
             </ng-container>
 
-
+            <div class="col-md-5"></div>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+               
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="GetAuctionProductsfromAllCatPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+              </li>
+              
+            </ul>
           </div>
           <div class="tab-pane fade" id="featured">
 
@@ -480,7 +495,14 @@
                 </a>
               </div>
             </ng-container>
-
+            <div class="col-md-5"></div>
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+               
+              <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                <a (click)="GetAllFeaturedProductsPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
+              </li>
+              
+            </ul>
 
           </div>
         </div>

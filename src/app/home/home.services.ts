@@ -217,6 +217,21 @@ export class HomeService {
  
 // }
   // getalljustfunproducts
+  GetAuctionProductsfromAllCatPageNumber(page: any) {
+    if (localStorage.getItem('Authorization') !== null) {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+    
+      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      console.log('pofile', localStorage.getItem('Authorization'));
+      return this._http.get(this.ServerUrl + 'getAuctionProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response => response.json());
+     
+    }
+    else {
+      return this._http.get(this.ServerUrl + 'getAuctionProductsfromAllCat'+'?page=' + page).map(response => response.json());
+      
+    }
+  }
   GetAuctionProductsfromAllCat() {
     if (localStorage.getItem('Authorization') !== null) {
       let headers = new Headers();
@@ -247,6 +262,21 @@ export class HomeService {
       return this._http.get(this.ServerUrl + 'getBuyNowProductsfromAllCAtHome/').map(response => response.json());
     }
   }
+  GetBuyNowProductsfromAllCatPageNumber(page: any) {
+    if (localStorage.getItem('Authorization') !== null) {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+    
+      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      console.log('pofile', localStorage.getItem('Authorization'));
+      return this._http.get(this.ServerUrl + 'getBuyNowProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response => response.json());
+     
+    }
+    else {
+      return this._http.get(this.ServerUrl + 'getBuyNowProductsfromAllCat'+'?page=' + page).map(response => response.json());
+      
+    }
+  }
   GetAllFeaturedProducts() {
     if (localStorage.getItem('Authorization') !== null) {
       let headers = new Headers();
@@ -262,6 +292,21 @@ export class HomeService {
       return this._http.get(this.ServerUrl + 'getFeaturedProductHome/').map(response => response.json());
       // console.log(this.CateDeatils)
 
+    }
+  }
+  GetAllFeaturedProductsPageNumber(page: any) {
+    if (localStorage.getItem('Authorization') !== null) {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+    
+      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      console.log('pofile', localStorage.getItem('Authorization'));
+      return this._http.get(this.ServerUrl + 'getallfeaturedProducts'+'?page=' + page, { headers: headers }).map(response => response.json());
+     
+    }
+    else {
+      return this._http.get(this.ServerUrl + 'getallfeaturedProducts'+'?page=' + page).map(response => response.json());
+      
     }
   }
 
