@@ -217,7 +217,7 @@
               <li *ngIf="!loginCheck()"><a [routerLink]="['/login']"><i
                     class="fas fa-fingerprint header-icons-rightsetting"></i>Sign
                   In</a></li>
-              <li *ngIf="!loginCheck()"><a [routerLink]="['/sign-up']" style="border-left: 1px solid black;"><i
+              <li *ngIf="!loginCheck()"><a [routerLink]="['/sign-up']" ><i
                     class="fas fa-user-plus header-icons-rightsetting"></i>Sign
                   up</a></li>
               <li *ngIf="loginCheck()"><a (click)="ValueReset()" [routerLink]="['/login']"><i

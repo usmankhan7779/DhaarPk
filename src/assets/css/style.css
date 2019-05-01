@@ -728,7 +728,7 @@ input:focus {
 
 .headerlinkmenu ul.links {
     display: inline-block;
-    float: right;
+    /* float: right; */
     padding: 0;
     margin: auto
 }
@@ -913,7 +913,7 @@ input:focus {
 }
 
 .cate-dropdown {
-    float: left;
+    /* float: left; */
     width: 140px;
     height: 45px;
     border: none;
@@ -999,7 +999,7 @@ select {
     -webkit-transition: all .2s ease-in;
     padding: 11px 0 0;
     margin: 0 0 0 16px;
-    float: right
+    /* float: right */
 }
 
 .top-compare {
@@ -1550,10 +1550,10 @@ ul#cart-sidebar {
     border-right: 1px solid #e0e0e0;
     color: #ccc;
     display: inline;
-    height: 20px;
+    /* height: 20px; */
     margin-left: 0;
     margin-right: 0;
-    width: 1px
+    /* width: 1px */
 }
 
 .home-tab {
@@ -3042,19 +3042,19 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     font-family: Hind, sans-serif;
     font-style: normal;
     font-weight: 400;
-    speak: none;
+    speak-as: none;
     -webkit-font-smoothing: antialiased;
     content: "\f105";
     text-transform: none;
     font-size: 18px;
-    line-height: 22px
+    line-height: 22px;
 }
 
 .slider-items-products .owl-buttons .owl-prev a:before {
     font-family: Hind, sans-serif;
     font-style: normal;
     font-weight: 400;
-    speak: none;
+    speak-as: none;
     -webkit-font-smoothing: antialiased;
     content: "\f104";
     text-transform: none;
@@ -3341,7 +3341,7 @@ article.jtv-entry {
 }
 
 .latest-post .jtv-post-inner .feature-post {
-    float: left;
+    /* float: left; */
     margin-right: 18px;
     width: 45%;
     display: inline-block
@@ -4264,7 +4264,7 @@ img.secondary-img {
 .jtv-service-area .block-wrapper .text-des i {
     font-size: 40px;
     display: inline-block;
-    float: left;
+    /* float: left; */
     margin: 2px 14px 14px 0
 }
 
@@ -5597,7 +5597,7 @@ button.button-checkout {
     padding: 0;
     margin: 0;
     line-height: normal;
-    float: left;
+    /* float: left; */
     padding: 5px
 }
 
@@ -6120,7 +6120,7 @@ ul.products-list .sale-left {
 }
 
 .regular-price .price {
-    font-size: 14px;
+    font-size: 15px;
     color: #000;
     font-weight: 600
 }
@@ -6421,7 +6421,7 @@ ul.products-list .sale-left {
 .product-color-size-area .color-area {
     display: inline-block;
     width: 40%;
-    float: left;
+    /* float: left; */
     margin-right: 18px
 }
 
@@ -6619,7 +6619,7 @@ ul.products-list .sale-left {
 
 .cart-plus-minus {
     display: inline-block;
-    float: left;
+    /* float: left; */
     margin-right: 18px
 }
 
@@ -7112,8 +7112,8 @@ textarea {
 .page-order ul.step li {
     display: inline;
     line-height: 30px;
-    width: 19%;
-    float: left;
+    /* width:19%; */
+    /* float: left; */
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 0;
@@ -8421,7 +8421,7 @@ label[for=rememberme] {
 }
 
 .faq-page .box-icon i:before {
-    speak: none;
+    speak-as: none;
     font-size: 40px;
     line-height: 90px;
     font-style: normal;
@@ -8784,9 +8784,6 @@ label[for=rememberme] {
     margin-bottom: 0
 }
 
-.container {
-    /* width: 1200px */
-}
 
 .banner4 .product-flexslider {
     margin: 0;
@@ -9155,8 +9152,8 @@ all and (min-width:992px) and (-webkit-transform-3d) {
 
 .header-icons-rightsettingnew {
     margin-right: 3px;
-    color: #c00;
-    font-size: 16px
+    color: red;
+    font-size: 19px;
 }
 
 .header-icons-rightsettingnew:hover {
@@ -9366,7 +9363,8 @@ all and (min-width:992px) and (-webkit-transform-3d) {
     top: 45px;
     z-index: 9;
     text-shadow: 3px 3px 4px #000;
-    line-height: normal
+    line-height: normal;
+    margin-top: 5px
 }
 
 .owl-carousel.owl-option-02 .owl-next {
@@ -10000,9 +9998,7 @@ ngx-image-viewer .img-container {
     .navbar-header {
         float: none
     }
-    .navbar-nav>li {
-        /* float: none */
-    }
+    
     .nav.navbar-nav li a {
         border: none!important
     }
