@@ -145,7 +145,7 @@ export class BuyerDashboardServices {
     console.log('pofile', localStorage.getItem('Authorization'));
     if (isPlatformBrowser(this.platformId)){
       // this.posturl+
-      return this._http.post('http://192.168.30.187:8000/sale/payementpost/',
+      return this._http.post(this.saleServerUrl+'payementpost/',
         {
 
 

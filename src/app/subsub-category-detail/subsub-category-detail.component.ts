@@ -6,6 +6,9 @@ import { CategoryServices } from '../category-detail/category-detail.services';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 import { HomeService } from '../home/home.services';
+import { PagerService } from '../pager.service';
+import { SharedData } from '../shared-service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,10 +17,12 @@ import { HomeService } from '../home/home.services';
   styleUrls: ['./subsub-category-detail.component.css']
 })
 export class SubsubCategoryDetailComponent implements OnInit {
-
+  Vendor;
   r: any;
   pageno: any;
   sub: any;
+  PriceStatus = false;
+  pager: any = {};
   modelNo: any;
   Trend: any = [];
   Trendee: any = [];
@@ -31,16 +36,22 @@ export class SubsubCategoryDetailComponent implements OnInit {
   errormessage = false;
   Waitcall = false;
   View = false;
-
+  bothabove;
+  fixeds;
   BuyItNow = false;
   AllListing = true;
   Auction = false;
   thisAuction = false;
   AcceptOffer = false;
-
+  total: any;
+  Price1: string;
+  Price2: string;
+  Auctions ;
   constructor( @Inject(PLATFORM_ID) private platformId: Object,
                private _nav: Router,
                private route: ActivatedRoute,
+               public _shareData: SharedData,
+               private pagerService: PagerService,
                private GetProducts: HomeService,
                private httpService: CategoryServices) { }
 
@@ -60,6 +71,7 @@ export class SubsubCategoryDetailComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
         this.CatName = params['CatName'];
         this.Subcat = params['SubsubCat'];
+        alert(this.Subcat)
 
 
         if (this.CatName === 'Phones & Tablets') {
@@ -86,40 +98,29 @@ export class SubsubCategoryDetailComponent implements OnInit {
           this.CoverPix = 'VG';
         }
 
-
-        // alert(this.CatName);
-          //  console.log('Phones & Tablets')
-          // this.httpService.getAllSubSubPhoneAndTabletProduct(1, this.Subcat).subscribe(
-          //   data => {
-          //     this.Trendee = data;
-          //     if (this.Trendee['results'].length === 0) {
-          //       this.errormessage = true;
-          //     }
-          //   });
-            // this.Subcat = params['SubCat'];
-        this.GetProducts.subsubcatmenu(this.Subcat).subscribe(resSlidersData => {
-              console.log(resSlidersData)
-              this.Trend = resSlidersData.Results;
-              if (this.Trend['Total Result'] === 0) {
-                this.errormessage = true;
-              }
-            });
+        this.viewsubsubcat(1)
+     
+       
       });
-      if (this.CatName === '0') {
+      if (this.CatName === '0' || this.Subcat === '0') {
         this._nav.navigate(['/404']);
       }
+      this.vendors();
+      if (localStorage.getItem('UserName') != null) {
+        this.viewaddtocart();
+      }
 
 
-      this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
-      if (this.CartedProduct === null) {
-        this.Cart = true;
-      }
-      this.Total = 0;
-      if (this.CartedProduct !== null) {
-      for (const tmp of this.CartedProduct['products']) {
-        this.Total = this.Total + (tmp.FixedPrice * tmp.itemsqty);
-      }
-      }
+      // this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
+      // if (this.CartedProduct === null) {
+      //   this.Cart = true;
+      // }
+      // this.Total = 0;
+      // if (this.CartedProduct !== null) {
+      // for (const tmp of this.CartedProduct['products']) {
+      //   this.Total = this.Total + (tmp.FixedPrice * tmp.itemsqty);
+      // }
+      // }
 
 
 
@@ -129,11 +130,86 @@ export class SubsubCategoryDetailComponent implements OnInit {
       // });
     }
   }
+  acution_check(val) {
+    // alert(val)
+    this.Auctions = true;
+    // this.ProductPrice(this.Price1, this.Price2)
 
+
+
+
+  }
+  fixed_check(val2) {
+    // alert(val2)
+    this.fixeds = false;
+    // this.ProductPrice(this.Price1, this.Price2)
+
+  }
+  above_check() {
+    this.bothabove = "ALL";
+    // alert(this.bothabove)
+    // this.ProductPrice(this.Price1, this.Price2)
+
+  }
+
+  viewaddtocart() {
+    this.GetProducts.GetAllProductcart().subscribe(resSlidersData => {
+
+      this.CartedProduct = resSlidersData;
+
+      console.log(this.CartedProduct.Results, 'cart')
+      this.total = this.CartedProduct['Total Result']
+      this._shareData.watchtotal(this.total);
+
+
+      console.log('Carted products are:', this.CartedProduct);
+      if (this.CartedProduct.Results === null) {
+        this.Cart = true;
+      }
+      this.Total = 0;
+
+      if (this.CartedProduct !== null) {
+        for (const tmp of this.CartedProduct.Results) {
+
+          this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
+          console.log(tmp.product.FixedPrice, 'total')
+        }
+        console.log(this.Total)
+      }
+    });
+  }
+viewsubsubcat(page:number){
+  this.GetProducts.subsubcatmenu(this.CatName,this.Subcat,page).subscribe(resSlidersData => {
+    console.log(resSlidersData)
+    // this.Trend = resSlidersData.Results;
+    let demoprods;
+      demoprods = resSlidersData.Results;
+      //this.GetALLProductss= resSlidersData.Results;
+      console.log(demoprods)
+      for (let prods of demoprods) {
+        this.Trend.push(prods.product);
+      }
+    if (this.Trend['Total Result'] === 0) {
+      this.errormessage = true;
+    }
+    this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+  });
+}
   message() {
     this.errormessage = !this.errormessage;
   }
+  vendors() {
+    if (localStorage.getItem('Vendor') == 'true') {
+      this.Vendor = true;
+    }
+    else if (localStorage.getItem('Vendor') == 'false') {
+      this.Vendor = true;
+    }
+    else if (localStorage.getItem('Vendor') == null) {
+      this.Vendor = false;
+    }
 
+  }
   listView() {
     this.View = true;
   }
@@ -225,35 +301,136 @@ export class SubsubCategoryDetailComponent implements OnInit {
 
   }
 
+  // TrashcartElement(Abc: any) {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     for (const tmp of this.CartedProduct['products']) {
+  //       if (tmp.ProductID === Abc) {
+
+  //         this.CartedProduct['products'].splice(this.CartedProduct['products'].indexOf(tmp), 1);
+  //         localStorage.setItem('Cartdata', JSON.stringify(this.CartedProduct));
+
+
+  //       }
+
+  //     }
+  //     this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
+  //     if (this.CartedProduct === null) {
+  //       this.Cart = true;
+  //     }
+  //     this.Total = 0;
+  //     for (const tmp of this.CartedProduct['products']) {
+  //       this.Total = this.Total + (tmp.FixedPrice * tmp.itemsqty);
+  //     }
+  //   }
+
+  // }
+  
   TrashcartElement(Abc: any) {
+
     if (isPlatformBrowser(this.platformId)) {
-      for (const tmp of this.CartedProduct['products']) {
-        if (tmp.ProductID === Abc) {
 
-          this.CartedProduct['products'].splice(this.CartedProduct['products'].indexOf(tmp), 1);
-          localStorage.setItem('Cartdata', JSON.stringify(this.CartedProduct));
+      for (const tmp of this.CartedProduct.Results) {
+        if (tmp.id === Abc) {
+          console.log(tmp.id);
+          this.GetProducts.DeleteTodoList(tmp.id).subscribe(data => {
+            // alert(tmp.product.id)
+            this.total = this.CartedProduct['Total Result']
+            // this._shareData.watchtotal(this.total);
+            this._shareData.watchtotal(this.total);
+            // alert(this._shareData.watchtotal(this.total))
+            // this._shareData.currentMessagetotal.subscribe(message => this.total = message)
+            Swal.fire('Your offer has been Deleted.', '', 'success');
+            this.GetProducts.GetAllProductcart().subscribe(resSlidersData => {
 
+              this.CartedProduct = resSlidersData;
+              this.total = this.CartedProduct['Total Result']
+              this._shareData.watchtotal(this.total);
+              // alert(this._shareData.watchtotal(this.total))
 
+              this._shareData.currentMessagetotal.subscribe(message => this.total = message)
+              console.log(this.CartedProduct.Results, 'cart')
+            });
+
+          });
+          //  this.CartedProduct['products'].splice(this.CartedProduct['products'].indexOf(tmp), 1 );
+          //localStorage.setItem('Cartdata', JSON.stringify(this.CartedProduct));
         }
-
-      }
-      this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
-      if (this.CartedProduct === null) {
-        this.Cart = true;
-      }
-      this.Total = 0;
-      for (const tmp of this.CartedProduct['products']) {
-        this.Total = this.Total + (tmp.FixedPrice * tmp.itemsqty);
       }
     }
-
   }
   ProductPrice(pk1: any, pk2: any) {
+    console.log('I am In Product Price');
 
+
+    this.PriceStatus = true;
+    this.Price1 = pk1;
+    this.Price2 = pk2;
+    this.errormessage = false;
+    this.Waitcall = true;
+    // alert(Auction)
+    // alert(fixeds)
+    if (this.Auctions === true) {
       //  console.log('Phones & Tablets')
-      this.httpService.getAllSubSubPhoneAndTabletProductPrice(1, this.Subcat, pk1, pk2).subscribe(
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,this.Subcat, this.Auctions, pk2, pk1).subscribe(
+        // Cat_Name,auction,maxvalue,minvalue
         data => {
-          this.Trend = data;
+          // this.Trend = data.Results;
+          // product
+          let ProductPriceprods;
+          ProductPriceprods = data.Results;
+          this.Trend = []
+          for (let prods of ProductPriceprods) {
+            this.Trend.push(prods.product);
+            console.log(this.Trend.push(prods.product))
+          }
+
+          if (this.Trend['totalItems'] === 0) {
+            this.errormessage = true;
+          }
+          console.log()
         });
+    } else if (this.fixeds === false) {
+      //  console.log('Phones & Tablets')
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,this.Subcat, this.fixeds, pk2, pk1).subscribe(
+        data => {
+          // this.Trend = data.Results;
+          let ProductPriceprods;
+          ProductPriceprods = data.Results;
+          this.Trend = [];
+          for (let prods of ProductPriceprods) {
+            this.Trend.push(prods.product);
+            console.log(this.Trend.push(prods.product))
+          }
+          if (this.Trend['totalItems'] === 0) {
+            this.errormessage = true;
+          }
+        });
+    }
+    else if (this.bothabove === "ALL") {
+      //  console.log('Phones & Tablets')
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,this.Subcat, this.bothabove, pk2, pk1).subscribe(
+        data => {
+          // this.Trend = data.Results;
+          let ProductPriceprods;
+          ProductPriceprods = data.Results;
+          this.Trend = [];
+          for (let prods of ProductPriceprods) {
+            this.Trend.push(prods.product);
+            console.log(this.Trend.push(prods.product))
+          }
+          if (this.Trend['totalItems'] === 0) {
+            this.errormessage = true;
+          }
+        });
+    }
+    this.Waitcall = false;
   }
+  // ProductPrice(pk1: any, pk2: any) {
+
+  //     //  console.log('Phones & Tablets')
+  //     this.httpService.getAllSubSubPhoneAndTabletProductPrice(1, this.Subcat, pk1, pk2).subscribe(
+  //       data => {
+  //         this.Trend = data;
+  //       });
+  // }
 }

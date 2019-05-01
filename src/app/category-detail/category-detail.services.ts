@@ -20,6 +20,7 @@ export class  CategoryServices {
   public login: any;
   returnUrl: string;
   ServerUrl = 'https://apis.dhaar.pk/products/';
+  // ServerUrl = ' http://192.168.30.187:8000/products/';
   ServerUrlLocal = 'http://127.0.0.1:8000/products/';
 
 
@@ -119,7 +120,8 @@ getBuyNowAuctionproducts(category_name,fillter) {
 
   }
 }
-getAllPhoneAndTabletProductWithPrice(Cat_Name,auction,maxvalue,minvalue) {
+// this.CatName,'','', this.Auctions, pk2, pk1
+getAllPhoneAndTabletProductWithPrice(Cat_Name,subsub_name,auction,maxvalue,minvalue) {
    
     const headers = new Headers();
     // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -132,6 +134,8 @@ getAllPhoneAndTabletProductWithPrice(Cat_Name,auction,maxvalue,minvalue) {
           // 'category_name': category_name,
           // "filter_type":fillter
           'Cat_Name': Cat_Name,
+          // 'Subcat':Sub_Catname,
+          'SubSubcat':subsub_name,
           'auction':auction,
           'maxvalue':maxvalue,
           'minvalue':minvalue

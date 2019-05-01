@@ -25,7 +25,7 @@ export class CategoryDetailComponent implements OnInit {
   pager: any = {};
   modelNo: any;
   Trendee: any = [];
-  Trend :any =[];
+  Trend: any = [];
   GetPhotos: any = [];
   Cart = false;
   View = false;
@@ -48,7 +48,7 @@ export class CategoryDetailComponent implements OnInit {
   BothCheck = false;
   total: any;
   userlogin = false;
-  Auctions =true;
+  Auctions ;
   bothabove;
   fixeds;
   Subcat: any;
@@ -75,73 +75,54 @@ export class CategoryDetailComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.Waitcall = true;
-    this.errormessage = false;
-    this.sub = this.route
-      .queryParams
-      .subscribe(params => {
-
-        this.CatName = params['CatName'] || '0';
-        this.Subcat = params['SubCat'] || '0';
-
-        if (this.CatName === 'Phones & Tablets') {
-          this.CoverPix = 'PT';
-        } else if (this.CatName === 'Women\'s Fashion') {
-          this.CoverPix = 'WF';
-        } else if (this.CatName === 'Men\'s Fashion') {
-          this.CoverPix = 'MF';
-        } else if (this.CatName === 'TV, Audio & Video') {
-          this.CoverPix = 'TAV';
-        } else if (this.CatName === 'Computing & Laptops') {
-          this.CoverPix = 'CL';
-        } else if (this.CatName === 'Home Appliances') {
-          this.CoverPix = 'HA';
-        } else if (this.CatName === 'Sports Goods') {
-          this.CoverPix = 'SG';
-        } else if (this.CatName === 'Baby & Kids') {
-          this.CoverPix = 'BK';
-        } else if (this.CatName === 'Health & Beauty') {
-          this.CoverPix = 'HB';
-        } else if (this.CatName === 'Vehicles & GPS') {
-          this.CoverPix = 'VG';
-        }
-
-        // this.showallproducts(1);
-
-
-        this.Waitcall = false;
-      });
-    if (this.CatName === '0') {
-      this._nav.navigate(['/404']);
-    }
-
     if (isPlatformBrowser(this.platformId)) {
+      this.Waitcall = true;
+      this.errormessage = false;
+      this.sub = this.route
+        .queryParams
+        .subscribe(params => {
+
+          this.CatName = params['CatName'] || '0';
+          this.Subcat = params['SubCat'] || '0';
+
+          if (this.CatName === 'Phones & Tablets') {
+            this.CoverPix = 'PT';
+          } else if (this.CatName === 'Women\'s Fashion') {
+            this.CoverPix = 'WF';
+          } else if (this.CatName === 'Men\'s Fashion') {
+            this.CoverPix = 'MF';
+          } else if (this.CatName === 'TV, Audio & Video') {
+            this.CoverPix = 'TAV';
+          } else if (this.CatName === 'Computing & Laptops') {
+            this.CoverPix = 'CL';
+          } else if (this.CatName === 'Home Appliances') {
+            this.CoverPix = 'HA';
+          } else if (this.CatName === 'Sports Goods') {
+            this.CoverPix = 'SG';
+          } else if (this.CatName === 'Baby & Kids') {
+            this.CoverPix = 'BK';
+          } else if (this.CatName === 'Health & Beauty') {
+            this.CoverPix = 'HB';
+          } else if (this.CatName === 'Vehicles & GPS') {
+            this.CoverPix = 'VG';
+          }
+
+          this.showallproducts(1);
+
+
+          this.Waitcall = false;
+        });
+      if (this.CatName === '0') {
+        this._nav.navigate(['/404']);
+      }
+
+
 
       this.vendors();
-      this.GetAdd.GetAllProductcart().subscribe(resSlidersData => {
+      if (localStorage.getItem('UserName') != null) {
+        this.viewaddtocart();
+      }
 
-        this.CartedProduct = resSlidersData;
-
-        console.log(this.CartedProduct.Results, 'cart')
-        this.total = this.CartedProduct['Total Result']
-        this._shareData.watchtotal(this.total);
-
-
-        console.log('Carted products are:', this.CartedProduct);
-        if (this.CartedProduct.Results === null) {
-          this.Cart = true;
-        }
-        this.Total = 0;
-
-        if (this.CartedProduct !== null) {
-          for (const tmp of this.CartedProduct.Results) {
-
-            this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
-            console.log(tmp.product.FixedPrice, 'total')
-          }
-          console.log(this.Total)
-        }
-      });
     }
 
 
@@ -149,9 +130,36 @@ export class CategoryDetailComponent implements OnInit {
 
 
   }
+  viewaddtocart() {
+    this.GetAdd.GetAllProductcart().subscribe(resSlidersData => {
+
+      this.CartedProduct = resSlidersData;
+
+      console.log(this.CartedProduct.Results, 'cart')
+      this.total = this.CartedProduct['Total Result']
+      this._shareData.watchtotal(this.total);
+
+
+      console.log('Carted products are:', this.CartedProduct);
+      if (this.CartedProduct.Results === null) {
+        this.Cart = true;
+      }
+      this.Total = 0;
+
+      if (this.CartedProduct !== null) {
+        for (const tmp of this.CartedProduct.Results) {
+
+          this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
+          console.log(tmp.product.FixedPrice, 'total')
+        }
+        console.log(this.Total)
+      }
+    });
+  }
 
   showallproducts(page: number) {
-    this.GetProducts.PhoneandTablet(this.CatName).subscribe(resSlidersData => {
+    // category_name23,Sub_Cat_Name,pag
+    this.GetProducts.PhoneandTabletwithPage(this.CatName,'',page).subscribe(resSlidersData => {
       console.log(resSlidersData)
       // this.Trend = resSlidersData.Results;
 
@@ -262,7 +270,7 @@ export class CategoryDetailComponent implements OnInit {
   }
 
 
-  
+
 
   TrashcartElement(Abc: any) {
 
@@ -302,32 +310,32 @@ export class CategoryDetailComponent implements OnInit {
     this._nav.navigate(['/checkout2']);
   }
 
-  BothAbove() {
-    console.log('I am In Product Both Above');
-    this.BothCheck = true;
-    this.Waitcall = true;
-    this.errormessage = false;
-    if (this.PriceStatus === false) {
-      //  console.log('Phones & Tablets')
-      this.httpService.getAllPhoneAndTabletProduct(1, this.CatName).subscribe(
-        data => {
-          this.Trend = data;
-          if (this.Trend['totalItems'] === 0) {
-            this.errormessage = true;
-          }
-        });
-    } else if (this.PriceStatus === true) {
-      //  console.log('Phones & Tablets')
-      this.httpService.getAllPhoneAndTabletProductWithPrice(1, this.Price1, this.Price2, this.CatName).subscribe(
-        data => {
-          this.Trend = data;
-          if (this.Trend['totalItems'] === 0) {
-            this.errormessage = true;
-          }
-        });
-    }
-    this.Waitcall = false;
-  }
+  // BothAbove() {
+  //   console.log('I am In Product Both Above');
+  //   this.BothCheck = true;
+  //   this.Waitcall = true;
+  //   this.errormessage = false;
+  //   if (this.PriceStatus === false) {
+  //     //  console.log('Phones & Tablets')
+  //     this.httpService.getAllPhoneAndTabletProduct(1, this.CatName).subscribe(
+  //       data => {
+  //         this.Trend = data;
+  //         if (this.Trend['totalItems'] === 0) {
+  //           this.errormessage = true;
+  //         }
+  //       });
+  //   } else if (this.PriceStatus === true) {
+  //     //  console.log('Phones & Tablets')
+  //     this.httpService.getAllPhoneAndTabletProductWithPrice(1, this.Price1, this.Price2, this.CatName).subscribe(
+  //       data => {
+  //         this.Trend = data;
+  //         if (this.Trend['totalItems'] === 0) {
+  //           this.errormessage = true;
+  //         }
+  //       });
+  //   }
+  //   this.Waitcall = false;
+  // }
 
   ProductType(abc: boolean) {
     console.log('I am In Product Type');
@@ -392,18 +400,20 @@ export class CategoryDetailComponent implements OnInit {
     // alert(fixeds)
     if (this.Auctions === true) {
       //  console.log('Phones & Tablets')
-      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName, this.Auctions, pk2, pk1).subscribe(
+      // Cat_Name,auction,Sub_Catname,subsub_name,maxvalue,minvalue)
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,'', this.Auctions, pk2, pk1).subscribe(
         // Cat_Name,auction,maxvalue,minvalue
         data => {
           // this.Trend = data.Results;
           // product
           let ProductPriceprods;
           ProductPriceprods = data.Results;
+          this.Trend = []
           for (let prods of ProductPriceprods) {
             this.Trend.push(prods.product);
             console.log(this.Trend.push(prods.product))
           }
-         
+
           if (this.Trend['totalItems'] === 0) {
             this.errormessage = true;
           }
@@ -411,15 +421,16 @@ export class CategoryDetailComponent implements OnInit {
         });
     } else if (this.fixeds === false) {
       //  console.log('Phones & Tablets')
-      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName, this.fixeds, pk2, pk1).subscribe(
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,'', this.fixeds, pk2, pk1).subscribe(
         data => {
           // this.Trend = data.Results;
           let ProductPriceprods;
           ProductPriceprods = data.Results;
-              for (let prods of ProductPriceprods) {
-                this.Trend.push(prods.product);
-                console.log(this.Trend.push(prods.product))
-              }
+          this.Trend = [];
+          for (let prods of ProductPriceprods) {
+            this.Trend.push(prods.product);
+            console.log(this.Trend.push(prods.product))
+          }
           if (this.Trend['totalItems'] === 0) {
             this.errormessage = true;
           }
@@ -427,15 +438,16 @@ export class CategoryDetailComponent implements OnInit {
     }
     else if (this.bothabove === "ALL") {
       //  console.log('Phones & Tablets')
-      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName, this.bothabove, pk2, pk1).subscribe(
+      this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName, '',this.bothabove, pk2, pk1).subscribe(
         data => {
           // this.Trend = data.Results;
           let ProductPriceprods;
           ProductPriceprods = data.Results;
-              for (let prods of ProductPriceprods) {
-                this.Trend.push(prods.product);
-                console.log(this.Trend.push(prods.product))
-              }
+          this.Trend = [];
+          for (let prods of ProductPriceprods) {
+            this.Trend.push(prods.product);
+            console.log(this.Trend.push(prods.product))
+          }
           if (this.Trend['totalItems'] === 0) {
             this.errormessage = true;
           }
