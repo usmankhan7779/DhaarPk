@@ -48,7 +48,7 @@ export class CategoryDetailComponent implements OnInit {
   BothCheck = false;
   total: any;
   userlogin = false;
-  Auctions = true;
+  Auctions ;
   bothabove;
   fixeds;
   Subcat: any;
@@ -158,7 +158,8 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   showallproducts(page: number) {
-    this.GetProducts.PhoneandTabletwithPage(this.CatName,page).subscribe(resSlidersData => {
+    // category_name23,Sub_Cat_Name,pag
+    this.GetProducts.PhoneandTabletwithPage(this.CatName,'',page).subscribe(resSlidersData => {
       console.log(resSlidersData)
       // this.Trend = resSlidersData.Results;
 
@@ -399,6 +400,7 @@ export class CategoryDetailComponent implements OnInit {
     // alert(fixeds)
     if (this.Auctions === true) {
       //  console.log('Phones & Tablets')
+      // Cat_Name,auction,Sub_Catname,subsub_name,maxvalue,minvalue)
       this.httpService.getAllPhoneAndTabletProductWithPrice(this.CatName,'', this.Auctions, pk2, pk1).subscribe(
         // Cat_Name,auction,maxvalue,minvalue
         data => {

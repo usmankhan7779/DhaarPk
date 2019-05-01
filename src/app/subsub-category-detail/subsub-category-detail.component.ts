@@ -46,7 +46,7 @@ export class SubsubCategoryDetailComponent implements OnInit {
   total: any;
   Price1: string;
   Price2: string;
-  Auctions = true;
+  Auctions ;
   constructor( @Inject(PLATFORM_ID) private platformId: Object,
                private _nav: Router,
                private route: ActivatedRoute,
@@ -71,6 +71,7 @@ export class SubsubCategoryDetailComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
         this.CatName = params['CatName'];
         this.Subcat = params['SubsubCat'];
+        alert(this.Subcat)
 
 
         if (this.CatName === 'Phones & Tablets') {

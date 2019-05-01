@@ -21,8 +21,8 @@ export class HomeService {
   // http://192.168.30.225:9000
   // https://apis.dhaar.pk
   
-  // ServerUrl = 'https://apis.dhaar.pk/products/';
-  ServerUrl = 'http://192.168.29.187:8000/products/';
+  ServerUrl = 'https://apis.dhaar.pk/products/';
+  // ServerUrl = 'http://192.168.30.187:8000/products/';
   
   // serverurladdtocart=''
 
@@ -497,7 +497,7 @@ export class HomeService {
 
     }
   }
-  PhoneandTabletwithPage(category_name2,page:any) {
+  PhoneandTabletwithPage(category_name23,Sub_Cat_Name,page:any) {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -507,7 +507,9 @@ export class HomeService {
         // this.ServerUrl +
         return this._http.post( this.ServerUrl +'Category_Products/'+'?page=' + page,
           {
-            'category_name1': category_name2,
+            'category_name1': category_name23,
+            // 'Subcat':SubCat_Name,
+            'SubSubcat':Sub_Cat_Name
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {
@@ -535,7 +537,9 @@ export class HomeService {
 
         return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
           {
-            'category_name1': category_name2,
+            'category_name1': category_name23,
+            // 'Subcat':SubCat_Name,
+            'SubSubcat':Sub_Cat_Name
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {
@@ -792,7 +796,7 @@ export class HomeService {
 
     }
   }
-  subsubcatmenu(Cat_Name,SubCat,page:any) {
+  subsubcatmenu(Cat_Name,Sub_Cat_Namess,page:any) {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -803,7 +807,10 @@ export class HomeService {
         return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
           {
             'category_name1':Cat_Name,
-            'Subcat': SubCat
+            'SubSubcat': Sub_Cat_Namess
+            // 'category_name1': category_name23,
+            // // 'Subcat':SubCat_Name,
+            // 'SubSubcat':Sub_Cat_Name
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {
@@ -832,7 +839,7 @@ export class HomeService {
         return this._http.post(this.ServerUrl + 'Category_Products/'+'?page=' + page,
           {
             'category_name1':Cat_Name,
-            'Subcat': SubCat
+            'SubSubcat': Sub_Cat_Namess
             // 'Cat_Name': CatName ,
             // 'User_ID': User_ID,
           }, { headers: headers }).map((res: Response) => {
