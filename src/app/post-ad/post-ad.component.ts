@@ -130,6 +130,13 @@ this.vendors();
 
   }
   }
+  routetopostad(){
+    if (localStorage.getItem('Vendor') == 'true'){
+      this.router.navigate(['/select-categoryss']);}
+      else if (localStorage.getItem('Vendor') == 'false'){
+        this.router.navigate(['/select-categorys']);
+      }
+  }
   vendors(){
      if(localStorage.getItem('Vendor') === 'true')
     {

@@ -32,12 +32,15 @@ export class SellerPurchasingComponent implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)){
     this.SessionstoreName = localStorage.getItem('StoreName');
-    this.httpService.GetallInvoiceIDByUser(localStorage.getItem('UserID')).subscribe(
+   this.viewpurchase();
+  }
+  }
+  viewpurchase(){
+    this.httpService.GetallInvoiceIDByUserreceviceorder('Done').subscribe(
       data => {
         this.ActiveProduct = data;
-        console.log(this.ActiveProduct);
+        console.log(this.ActiveProduct.Results);
       });
-  }
   }
 
   clearSessionstoreage() {

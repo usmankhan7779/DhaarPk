@@ -30,7 +30,7 @@ export class AdService {
   GetAllCategories() {
 
     return this._http.get(this.ServerUrl + 'Getallcat').map(response => response.json());
-    // return this._http.get('http://192.168.30.187:8000/courses/device_post').map(response => response.json());
+   
   }
   GetAllSubCategories() {
 

@@ -23,7 +23,7 @@ const appRoutes: Routes = [
       { path: 'forget-password', loadChildren: './forget-password/forget-password.module#ForgetPasswordModule' },
       { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
       { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordModule' },
-      { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
+      // { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
       { path: 'about-us', loadChildren: './about-uss/about-uss.module#AboutUssModule' },
       // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]},
       // { path: 'active-ad', loadChildren: './active-ad/active-ad.module#ActiveAdModule', canActivate: [AuthGuard]},
@@ -81,6 +81,8 @@ const appRoutes: Routes = [
       { path: 'buyer-user-shipment', loadChildren: './usershipment/usershipment.module#UserShipmentModule', canActivate: [AuthGuard] },
       { path: 'user-detail', loadChildren: './user-detail/user-detail.module#UserDetailModule', canActivate: [AuthGuard] },
       { path: 'account-setting', loadChildren: './buyer-setting/buyer-setting.module#BuyerSettingModule', canActivate: [AuthGuard] },
+      { path: 'select-categorys', loadChildren: './select-category/select-category.module#SelectCategoryModule',canActivate: [AuthGuard] },
+      { path: 'post-ads', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
       // { path: 'watch-Product', loadChildren: './watch-product/watch-product.module#WatchProductModule', },
 
     ]
@@ -96,6 +98,7 @@ const appRoutes: Routes = [
       { path: 'my-bids', loadChildren: './my-bids/my-bids.module#MyBidsModule', canActivate: [AuthGuard] },
       { path: 'active-ad', loadChildren: './active-ad/active-ad.module#ActiveAdModule', canActivate: [AuthGuard] },
       { path: 'pending-ad', loadChildren: './pending-ad/pending-ad.module#PendingAdModule', canActivate: [AuthGuard] },
+      { path: 'select-categoryss', loadChildren: './select-category/select-category.module#SelectCategoryModule',canActivate: [AuthGuard] },
       { path: 'seller-offer', loadChildren: './seller-offer/seller-offer.module#SellerOfferModule', canActivate: [AuthGuard] },
       { path: 'seller-purchasing', loadChildren: './seller-purchasing/seller-purchasing.module#SellerPurchasingModule', canActivate: [AuthGuard] },
       { path: 'seller-user-detail', loadChildren: './seller-user-detail/seller-user-detail.module#SellerUserDetailModule', canActivate: [AuthGuard] },
@@ -105,7 +108,7 @@ const appRoutes: Routes = [
       { path: 'watch-Product-seller', loadChildren: './watch-product/watch-product.module#WatchProductModule',canActivate: [AuthGuard]  },
       { path: 'user-shipment', loadChildren: './usershipment/usershipment.module#UserShipmentModule', canActivate: [AuthGuard] },
       { path: 'seller-purchasing-invoice', loadChildren: './seller-purchasing-invoice/seller-purchasing-invoice.module#SellerPurchasingInvoiceModule', canActivate: [AuthGuard] },
-
+      { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
       // SellerSettingStoreUpdateModule
 
     ]

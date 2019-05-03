@@ -28,25 +28,34 @@
       <p>Selling on Dhaar is easy and absolutely free. All you need is to register, list your catalogue and start selling your products.</p>
     </div>
 
-    <ul class="categoryList row">
+    <ul class="categoryList row" *ngIf="sellers">
+        <!-- <div *ngIf="users"> -->
       <ng-container *ngFor="let item_cat of GetallCat">
-      <li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']" [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }"><img src="{{ ServrUrl + item_cat.Pic }}" alt="Cate Img" /> <span>{{ item_cat.Cat_Name }}</span></a></li>
+          <!-- [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }" -->
+      <li class="col-md-2 col-sm-3 col-xs-6"><a  [routerLink]="['/post-ad']"  [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }"><img src="{{ ServrUrl + item_cat.Pic }}" alt="Cate Img" /> <span>{{ item_cat.Cat_Name }}</span></a></li>
       </ng-container>
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']" [queryParams]="{ CatName: 'Mobiles', CatId: '1'}"><img src="assets/assets2/images/category/02.png" alt="Cate Img" /> <span>Mobiles <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/03.png" alt="Cate Img" /> <span>Electronics <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/04.png" alt="Cate Img" /> <span>Furniture <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/05.png" alt="Cate Img" /> <span>Jobs <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/06.png" alt="Cate Img" /> <span>Real Estate <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/07.png" alt="Cate Img" /> <span>Services <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/08.png" alt="Cate Img" /> <span>Education <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/09.png" alt="Cate Img" /> <span>Pets <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/10.png" alt="Cate Img" /> <span>Fashion <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/11.png" alt="Cate Img" /> <span>Baby Products <i>(598)</i></span></a></li>-->
-        <!--<li class="col-md-2 col-sm-3 col-xs-6"><a [routerLink]="['/post-ad']"><img src="assets/assets2/images/category/12.png" alt="Cate Img" /> <span>Sports <i>(598)</i></span></a></li>-->
+       
+  
+      
+    </ul>
+    <ul class="categoryList row" *ngIf="users">
+        <!-- <div *ngIf="users"> -->
+      <ng-container *ngFor="let item_cat of GetallCat">
+          <!-- [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }" -->
+      <li class="col-md-2 col-sm-3 col-xs-6"><a  [routerLink]="['/post-ads']"  [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }"><img src="{{ ServrUrl + item_cat.Pic }}" alt="Cate Img" /> <span>{{ item_cat.Cat_Name }}</span></a></li>
+      </ng-container>
+       
+  
+      
     </ul>
   </div>
 </div>
 </div>
+<!-- <div *ngIf="sellers">
+    <ng-container *ngFor="let item_cat of GetallCat">
+     
+    <li class="col-md-2 col-sm-3 col-xs-6"><a  [routerLink]="['/post-ads']"  [queryParams]="{ CatName:  item_cat.Cat_Name, CatId: item_cat.id }" ><img src="{{ ServrUrl + item_cat.Pic }}" alt="Cate Img" /> <span>{{ item_cat.Cat_Name }}</span></a></li>
+    </ng-container> -->
 <div *ngIf="!user && seller">
   <div class="section catewrap">
     <div class="container">
@@ -66,7 +75,8 @@
       <div class="titleTop">
         <h3>You are not registered as a Seller on Dhaar.pk</h3>
         <p>Selling on Dhaar is easy and absolutely free. All you need is to register, list your catalogue and start selling your products.</p>
-        <p>To register as a seller <a [routerLink]="['/store-registration']"><span style="color: red">Click Here</span></a></p>
+        <p>To register as a seller <a [routerLink]="['/store-registration']">
+          <span style="color: red">Click Here</span></a></p>
       </div>
     </div>
   </div>
