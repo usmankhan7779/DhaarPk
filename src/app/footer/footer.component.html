@@ -1,156 +1,132 @@
 <!-- Footer -->
 <footer>
-  <div class="container">
+  <div class="footer-upper">
+  <div class="footer-container">
     <div class="row">
-      <div class="footer-newsletter">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-sm-12">
-              <h3>Subscribe now to receive the Latest News & Offers from Dhaar</h3>
-            </div>
-            <div class="col-md-6 col-sm-12">
-
-              <form role="form" id="newsletter-validate-detail" (ngSubmit)="f.form.valid && loged_in(Email.value)" #f="ngForm"
-                novalidate>
-                <div class="newsletter-inner">
-                  <span *ngIf="login_error" style="color: red !important; font-size: x-large">Email already exist!</span>
-
-                  <div *ngIf="f.submitted && !Email.valid" class="help-block"><span style="color: white !important;">Invalid
-                      email format.</span></div>
-
-                  <!--<div  *ngIf="f.submitted && Email.errors  && !Email.valid" >-->
-                  <!--Email is invalid-->
-                  <!--</div>-->
-
-
-                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
-                    <div class="form-group label-overlay">
-
-                      <input type="email" class="newsletter-email" pattern="^(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-                        (ngModelChange)="OnEmailChangeEvent()" name='Email' placeholder='Subscribe to Dhaar'
-                        [(ngModel)]="model.Email" #Email="ngModel" required />
-
-
-                    </div>
-
-                  </div><!-- End .form-group -->
-                  <button class="button subscribe" type="submit" title="Subscribe">Subscribe</button>
-
-                  <span *ngIf="Waitcall" style="color: white !important; font-size: 20px;float: left;padding: 10px 0px 0px 10px;">Thank
-                    you for Subscribing!</span>
-                </div>
-              </form>
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 ">
+        <div class="footer-links">
+            <h3 class="links-title">Who Are We?<a class="expander visible-xs" href="#TabBlock-1">+</a></h3>
+            <div class="tabBlock" id="TabBlock-1">
+              <ul class="list-links list-unstyled">
+                <li><a  [routerLink]="['/about-us']"><i class=" icon-anchor fa fa-book"></i>What is Dhaar?</a></li>
+                <li><a [routerLink]="['/dhaar']"><i class=" icon-anchor fa fa-cogs"></i>How It Works</a></li>
+                <li><a [routerLink]="['/contact-us']"><i class=" icon-anchor fa fa-phone-square"></i>Establish Contact</a></li>
+                <li><a  [routerLink]="['/contact-us']"><i class=" icon-anchor fa fa-question-circle"></i>FAQs</a></li>
+  
+              </ul>
             </div>
           </div>
-        </div>
+          
+          <ul class="list-social">
+              <h3 _ngcontent-universal-demo-v5-c3="" class="links-title">Stalk Us<a _ngcontent-universal-demo-v5-c3="" class="expander visible-xs">+</a></h3>
+            <li><a class="icon-anchor" href="https://www.facebook.com/RFPGurus-757980041074297/" target="_blank"><i class="fab fa-facebook-f"></i><span class="facebook">Facebook</span></a></li>
+            <li><a class="icon-anchor" href="https://www.facebook.com/RFPGurus-757980041074297/" target="_blank"><i class="fab fa-twitter"></i><span class="facebook">Twitter</span></a></li>
+            <li><a class="icon-anchor" href="https://www.facebook.com/RFPGurus-757980041074297/" target="_blank"><i class="fab fa-pinterest-p"></i><span class="facebook">Pinterest</span></a></li>
+          </ul>
       </div>
-      <div class="col-sm-12 col-md-3 col-xs-12 col-lg-3">
-        <div class="footer-logo">
-          <a href="/" class=""><img src="assets/images/newdhaarwhite.png" alt="fotter logo"></a>
+      <div class="col-md-6 col-sm-9 col-xs-6">
+        <div class="col-md-6 col-sm-6">
+            <div class="footer-links">
+                <h3 class="links-title">Categories<a class="expander visible-xs" href="#TabBlock-2">+</a></h3>
+                <div class="tabBlock" id="TabBlock-2">
+                  <ul class="list-links list-unstyled">
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Phones & Tablets' }"><i class=" icon-anchor fa fa-tablet"></i>
+                        Phone & Tablets</a></li>
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Women\'s Fashion' }"><i class=" icon-anchor fa fa-shopping-bag"></i>Women's
+                        Fashion</a></li>
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Men\'s Fashion' }"><i class=" icon-anchor fab fa-black-tie"></i>Men's
+                        Fashion</a></li>
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'TV, Audio & Video' }"><i class=" icon-anchor fa fa-music"></i>TV
+                        Audio & Video</a></li>
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Computing & Laptops' }"><i class="icon-anchor fa fa-laptop"></i>Computing
+                        & Laptops</a></li>
+                    <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Home Appliances' }"><i class=" icon-anchor fa fa-home"></i>Home
+                        Appliances</a></li>
+      
+                  </ul>
+                </div>
+              </div>
         </div>
-        <div class="footer-content pull-left">
-          <div class="email"> <i class="fa fa-envelope"></i>
-            <p>Contact@Dhaar.com</p>
-            <!-- <p>Contact AT Dhaar DOT com</p> -->
+        <div class="col-md-6 col-sm-6 col-xs-6">  <div class="footer-links">
+            <h3 class="links-title">My Dhaar<a class="expander visible-xs" href="#TabBlock-3">+</a></h3>
+            <div class="tabBlock" id="TabBlock-3">
+              <ul class="list-links list-unstyled">
+                <li> <a [routerLink]="['/select-category']"><i class="icon-anchor fa fa-camera"></i> Sell on Dhaar </a> </li>
+                <li> <a [routerLink]="['/sign-up']"> <i class=" icon-anchor fas fa-user-plus"></i>Signup </a> </li>
+                <li> <a [routerLink]="['/login']"><i class=" icon-anchor fas fa-fingerprint"></i>Login</a> </li>
+                <li> <a [routerLink]="['/store-registration']"><i class=" icon-anchor fa fa-paper-plane"></i>Store Registration</a></li>
+              </ul>
+            </div>
           </div>
-          <div class="phone"> <i class="fa fa-phone"></i>
+      
+        </div>
+
+            <h4 class="download-app-heading">Download and experience our Super-Cool Next-Generation Mobile App Now.</h4>
+            <a href="#" class="pull-left">
+                <img src="../../assets/images/Adroid-Badge.png">
+              </a>
+              <a href="#" class="pull-left ios ">
+                  <img src="../../assets/images/IOS-Badge.png">
+                </a>
+      </div>
+  
+      <div class="col-sm-12 col-md-3 col-xs-12 col-lg-3">
+        
+     <div class="footer-logo">
+          <a href="/" class=""><img src="assets/images/newdhaarwhite.png" alt="fotter logo"></a>
+        </div> 
+        <div class="footer-content pull-left">
+          <div class="email"> <i class=" icon-anchor fa fa-envelope"></i>
+            <p>Contact@Dhaar.com</p>
+          </div>
+          <div class="phone"> <i class=" icon-anchor fa fa-phone"></i>
             <p>+92 (42) 364-00960</p>
           </div>
-          <div class="address"> <i class="fa fa-map-marker"></i>
+          <div class="address"> <i class=" icon-anchor fa fa-map-marker"></i>
             <p>Al-Hafeez Heights
               13th Floor, <br>
             65-D Ghalib Road,
               Gulberg III
               Lahore, Pakistan</p>
           </div>
-          <div class="address"> <i class="fa fa-map-marker"></i>
+          <div class="address"> <i class=" icon-anchor fa fa-map-marker"></i>
             <p>1414-P Chen One Road, 2nd Floor
               Peoples Colony, Faisalabad</p>
           </div>
-          <div class="address"> <i class="fa fa-map-marker"></i>
+          <div class="address"> <i class=" icon-anchor fa fa-map-marker"></i>
             <p>86-M Noor Masjid St, 2nd Floor
               Khalid Bin Waleed Road, Karachi</p>
           </div>
-          <div class="address"> <i class="fa fa-map-marker"></i>
+          <div class="address"> <i class=" icon-anchor fa fa-map-marker"></i>
             <p>14681 Midway Rd Ste 200,
               Addison TX 75001 USA</p>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-md-2 col-xs-12 col-lg-2">
-        <div class="footer-links">
-          <h3 class="links-title">Who Are We?<a class="expander visible-xs" href="#TabBlock-1">+</a></h3>
-          <div class="tabBlock" id="TabBlock-1">
-            <ul class="list-links list-unstyled">
-              <li><a [routerLink]="['/about-us']"><i class="fa fa-book"></i>What is Dhaar?</a></li>
-              <li><a [routerLink]="['/dhaar']"><i class="fa fa-cogs"></i>How It Works</a></li>
-              <li><a [routerLink]="['/contact-us']"><i class="fa fa-phone-square"></i>Establish Contact</a></li>
-              <li><a [routerLink]="['/contact-us']"><i class="fa fa-question-circle"></i>FAQs</a></li>
+     
 
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-2 col-xs-12 col-lg-2">
-        <div class="footer-links">
-          <h3 class="links-title">Categories<a class="expander visible-xs" href="#TabBlock-2">+</a></h3>
-          <div class="tabBlock" id="TabBlock-2">
-            <ul class="list-links list-unstyled">
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Phones & Tablets' }"><i class="fa fa-tablet"></i>
-                  Phone & Tablets</a></li>
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Women\'s Fashion' }"><i class="fa fa-shopping-bag"></i>Women's
-                  Fashion</a></li>
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Men\'s Fashion' }"><i class="fab fa-black-tie"></i>Men's
-                  Fashion</a></li>
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'TV, Audio & Video' }"><i class="fa fa-music"></i>TV
-                  Audio & Video</a></li>
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Computing & Laptops' }"><i class="fa fa-laptop"></i>Computing
-                  & Laptops</a></li>
-              <li><a [routerLink]="['/category-detail']" [queryParams]="{ CatName:  'Home Appliances' }"><i class="fa fa-home"></i>Home
-                  Appliances</a></li>
+        <form role="form" id="newsletter-validate-detail" (ngSubmit)="f.form.valid && loged_in(Email.value)" #f="ngForm"
+        novalidate>
+        <div class="newsletter-inner">
+          <span *ngIf="login_error" style="color: red !important; font-size: x-large">Email already exist!</span>
 
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-2 col-xs-12 col-lg-2">
-        <div class="footer-links">
-          <h3 class="links-title">My Dhaar<a class="expander visible-xs" href="#TabBlock-3">+</a></h3>
-          <div class="tabBlock" id="TabBlock-3">
-            <ul class="list-links list-unstyled">
-              <li> <a [routerLink]="['/select-category']"><i class="fa fa-camera"></i> Sell on Dhaar </a> </li>
-              <li> <a [routerLink]="['/sign-up']"> <i class="fas fa-user-plus"></i>Signup </a> </li>
-              <li> <a [routerLink]="['/login']"><i class="fas fa-fingerprint"></i>Login</a> </li>
-              <li> <a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane"></i>Store Registration</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3 col-xs-12 col-lg-3">
-        <div class="footer-links">
+          <div *ngIf="f.submitted && !Email.valid" class="help-block"><span style="color: white !important;">Invalid
+              email format.</span></div>
+         
 
-          <h3 class="links-title">Stalk Us<a class="expander visible-xs">+</a></h3>
-          <div class="tabBlock pull-left" id="TabBlock-4">
-            <div class="social">
-              <ul class="inline-mode">
-                <li class="social-network fb"><a title="Connect us on Facebook" target="_blank" href="https://www.facebook.com/"><i
-                      class="fab fa-facebook-f"></i></a></li>
-                <li class="social-network googleplus"><a title="Connect us on Google+" target="_blank" href="https://plus.google.com/"><i
-                      class="fab fa-google-plus-g"></i></a></li>
-                <li class="social-network tw"><a title="Connect us on Twitter" target="_blank" href="https://twitter.com/"><i
-                      class="fab fa-twitter"></i></a></li>
-                <li class="social-network googleplus"><a title="Connect us on Pinterest" target="_blank" href="https://www.pinterest.com/"><i
-                      class="fab fa-pinterest-p"></i></a></li>
-              </ul>
-              <a href="#" class="pull-left">
-                <img src="../../assets/images/Adroid-Badge.png">
-              </a>
-              <a href="#" class="pull-left">
-                <img src="../../assets/images/IOS-Badge.png">
-              </a>
-            </div>
-          </div>
+
+          <div class="input-group footer-input" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
+              <input class="form-control" name="email" pattern="^(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+              (ngModelChange)="OnEmailChangeEvent()"
+              placeholder='Subscribe to Dhaar' type="email" [(ngModel)]="model.Email" #Email="ngModel" required>
+              <div class="input-group-btn">
+              <button type="submit" class="btn send-btn"
+              (click)="onSubmit(email.value)" type="button"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              </div>
+          <span *ngIf="Waitcall" style="color: white !important; font-size: 20px;float: left;padding: 10px 0px 0px 10px;">Thank
+            you for Subscribing!</span>
         </div>
+      </form>
       </div>
     </div>
   </div>
@@ -178,6 +154,7 @@
       </div>
     </div>
   </div>
+</div>
 </footer>
 <a href="#" class="totop"> </a>
 <!-- End Footer -->

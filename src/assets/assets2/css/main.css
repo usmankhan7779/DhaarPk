@@ -2855,18 +2855,21 @@ a.wit-btn {
 }
 
 .help-block {
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    color: #ff0000!important;
+    font-size: 13px
 }
 
 .formpanel .form-control {
     /* height: auto; */
-    padding: 5px 0;
+    padding: 3px 0;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid #000;
-    font-size: 16px;
+    font-size: 25px;
     box-shadow: none;
-    padding-bottom: 0
+    padding-bottom: 0;
+    color: black
 }
 
 .formsetup{
@@ -2988,9 +2991,10 @@ a.wit-btn {
 
 .img-box i {
     position: absolute;
-    right: 0;
+    right: 20px;
     font-size: 20px;
-    cursor: pointer
+    cursor: pointer;
+    color: red
 }
 
 .uploadimg img {
@@ -3106,15 +3110,19 @@ a.wit-btn {
 }
 
 .newuser {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     text-align: center;
-    font-size: 14px
+    font-size: 14px;
+   
+}
+.for-signup{
+ margin-top: -27px 
 }
 
 .newuser a {
-    font-weight: 600;
+    font-weight:300;
     text-decoration: underline;
-    color: #007dff;
+    color:#23527c;
     cursor: pointer
 }
 
@@ -4410,7 +4418,8 @@ input.upload-input {
     width: 115px;
     cursor: pointer;
     z-index: 99;
-    border-radius: 50%
+    border-radius: 50%;
+    left: 50px
 }
 
 .upload-cam-img {
@@ -4548,7 +4557,8 @@ select {
     padding-top: 10px;
     float: left;
     /* margin-left: -94px; */
-    margin-top: -50px
+    margin-top: -50px;
+    position: fixed;
   }
   .right-nav{
       width: 78%;
@@ -4606,7 +4616,7 @@ select {
 
 @media screen and (min-width:991px) {
     .sidenav{
-        width: 22% !important;
+        width: 250px !important;
     }
 }
 @media screen and (max-width:1199px) {
@@ -4663,7 +4673,7 @@ select {
     }
 }
 
-@media screen and (max-width:991px) {
+@media screen and (max-width:990px) {
     .sidenav{
         width: 0;
         position: fixed;
@@ -4788,7 +4798,7 @@ select {
         padding: 50px 15px
     }
     .inner-page{
-        padding: 14px 15px;
+        /* padding: 14px 15px; */
     }
     .searchList li .listbtn {
         margin-top: 20px
