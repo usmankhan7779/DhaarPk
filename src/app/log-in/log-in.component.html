@@ -95,7 +95,7 @@
                   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                     <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="model.username"
                       #username="ngModel" required>
-                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">*Username is required</div>
                   </div>
 
                 </div><!-- End .form-group -->
@@ -104,7 +104,7 @@
                 <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                   <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password"
                     #password="ngModel" required>
-                  <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                  <div *ngIf="f.submitted && !password.valid" class="help-block">*Password is required</div>
                 </div>
                 <p class="pull-left">
                   <a [routerLink]="['/forget-password']"> Forgot Password? </a>
