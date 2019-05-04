@@ -69,7 +69,7 @@ getusers;
                 this.getusers= this.users.user;
                 console.log(this.users)
                 // alert(this.getusers)
-                // localStorage.setItem('userss',this.getusers)
+                localStorage.setItem('userss',this.getusers)
                 
                 // localStorage.setitem('users',this.users.user)
                 // alert(this.users.user)

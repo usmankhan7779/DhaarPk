@@ -467,14 +467,14 @@
                             <label class="required">Default shipment address(*)</label>
         
                             <input  placeholder="Default shipment addres" type="checkbox" required
-                              ng-Model="model.default_shipment_address" #default_shipment_address
+                              ng-Model="model.default_shipment_address" #default_shipment_address checked data-toggle="toggle"
                               name="default_shipment_address" (click)="checked8($event,i)">
                           </div>
                           <div class="col-sm-6">
                             <br>
                             <label class="required">Default Bill address(*)</label>
         
-                            <input  placeholder="Default Bill addres" type="checkbox" required
+                            <input  placeholder="Default Bill addres" type="checkbox" checked data-toggle="toggle" required
                               ng-Model="model.default_bill_address" #default_bill_address name="default_bill_address"
                               (click)="checked7($event,i)">
                           </div>

@@ -62,12 +62,10 @@
                   <label  class="help-block">Select Your Store Name</label>
                   <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
                   <select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()" >
-                    <option *ngFor="let data of StoreNamess" [value]="data.StoreName"      >
+                    <option *ngFor="let data of StoreNamess" [value]="data.StoreName"  >
                       {{data.StoreName}}
                     </option>
-                    <!-- <option value="7">7 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="3">3 Days</option> -->
+                    
                   </select>
                 
               </div>

@@ -112,16 +112,16 @@ this.vendors();
       data => {
         this.ActiveProduct = data;
         console.log(this.ActiveProduct,"get store information ")
-        if (this.ActiveProduct ) {
+        if (this.ActiveProduct != null ) {
           this.StoreNamess =data;
           console.log(this.StoreNamess)
-          localStorage.setItem('StoreName', this.ActiveProduct.StoreInfo[0].StoreName);
-          // localStorage.setItem('StoreName', this.ActiveProduct[0].StoreName);
-          this.HomeServics.GetallProductsOffersByStoreName(1, localStorage.getItem('StoreName') ).subscribe(resSlidersData => {
-            this.GetUSerOffer = resSlidersData;
+          // localStorage.setItem('StoreName', this.ActiveProduct.StoreInfo[0].StoreName);
+          // // localStorage.setItem('StoreName', this.ActiveProduct[0].StoreName);
+          // this.HomeServics.GetallProductsOffersByStoreName(1, localStorage.getItem('StoreName') ).subscribe(resSlidersData => {
+          //   this.GetUSerOffer = resSlidersData;
 
 
-          });
+          // });
           // this.SessionstoreName = localStorage.getItem('StoreName');
         } else {
           this.router.navigate(['/store-registration']);

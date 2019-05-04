@@ -64,21 +64,45 @@ export class HomeComponent implements OnInit {
   // imageurls = 'https://storage.dhaar.pk/Category/SliderImages/';
   imageurls = 'https://storage.dhaar.pk/final/';
   usercheck = false;
+  ourproduct: boolean = false;
   Tmp_ProID_Array2: {
     ProID: any;
     Price: any;
   }[];
+  ProID: string;
+  resultProduct: any = [];
+  viewtimer: any = [];
   viewlogin;
-  intervalId = 0;
+  // intervalId = 0;
   message = '';
-  seconds = 59;
+  // seconds = 59;
+  PicList: any = [];
+  DbDate: string;
+  Title: any;
   ActiveProduct: any = [];
   page: number = 1;
+  Timeclose = false;
+  product: any;
   AuctionProductPrice: number;
   AuctionTest = true;
+  AuctionDayDB: string;
   Getphoto: any = [];
   GetallphotsProduct: any = [];
   pager: any = {};
+  ProPics: any = [];
+  MinimumbestOffer: any;
+  soldfix = false;
+  BidingProduct: any[] = [];
+  LocalStoreName: any;
+  ProPDes: any = [];
+  selectedImage;
+  user: any;
+  seconds: any;
+  Solddd = false;
+  minutes: any;
+  hours: any;
+  element: HTMLElement;
+  days: any;
   // myPhotosList: Photos[] = [];
   slideConfig;
   images = [
@@ -129,6 +153,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.viewlogin = localStorage.getItem('Authorization');
     if (isPlatformBrowser(this.platformId)) {
+
+
       window.scrollTo(0, 0);
       this.ProductsAllCat();
       this.GetAllBuyNowproduct();
@@ -148,8 +174,81 @@ export class HomeComponent implements OnInit {
       }
     }
   }
-  // GetProductsfromAllCatPageNumber
 
+  // GetProductsfromAllCatPageNumber
+  PhoneTablet() {
+    this.GetProducts.get_PhoneAndTabletProduct_ProductById(this.ProID).subscribe(resSlidersData => {
+      this.resultProduct = resSlidersData;
+      this.Title = this.resultProduct['P_Title']
+      // alert(this.resultProduct.inWishList)
+      // this.ourproduct = true;
+      console.log('Description of product is:', this.resultProduct['P_Des']);
+      this.ProPDes = this.resultProduct['P_Des'].split('\n');
+
+      this.ProPics = this.resultProduct['Pic'].split(',');
+      console.log(this.ProPics[0])
+
+      this.selectedImage = this.ProPics[0];
+      console.log(this.selectedImage);
+      for (let i = 0; i < this.ProPics.length - 1; i++) {
+        this.PicList[i] = this.ProPics[i + 1];
+      }
+
+      console.log('Pics Before:', this.ProPics);
+      console.log('Pics after:', this.PicList);
+
+
+      console.log('Pics are:', this.ProPics);
+      //  alert(this.resultProduct['StoreName'])
+      //  alert(localStorage.getItem('StoreName'))
+      // if (this.resultProduct['StoreName'] === localStorage.getItem('StoreName') ) {
+      this.ourproduct = true;
+
+      // }
+
+      if (this.resultProduct.Quantity <= 0) {
+        this.soldfix = true;
+      }
+      console.log('Product attributes', this.resultProduct);
+      this.LocalStoreName = this.resultProduct.StoreName;
+      this.MinimumbestOffer = this.resultProduct.Addbestoffer;
+      if (this.resultProduct.Auction) {
+        this.DbDate = this.resultProduct.CreatedDate;
+        this.AuctionDayDB = this.resultProduct.AuctionListing;
+        const auctiondays = +this.AuctionDayDB * 86400000;
+        console.log('Auction days:', auctiondays);
+        const time0 = new Date();
+        console.log('time0:', time0);
+        const time1 = new Date(this.DbDate);
+        console.log('time1:', time1);
+        const time3 = ((time1.getTime() - time0.getTime()) + auctiondays);
+        console.log('time3:', time3);
+        console.log('Bidding Products Are:', this.BidingProduct)
+        if (time3 <= 0 && this.BidingProduct.length !== 0) {
+          console.log('This Bidder wins:', this.BidingProduct[0]);
+          this.user = this.BidingProduct[0]['User_Id']
+          this.product = this.BidingProduct[0]['Product_Id']
+          this.GetProducts.InsertwinnerBid(this.user, this.product).subscribe();
+        }
+        // alert(time3.getDay() + '-' + time3.getMinutes() + '-' + time3.getSeconds());
+        let x = time3 / 1000;
+        this.seconds = Math.floor(x % 60);
+        console.log('Seconds are:', this.seconds);
+        x /= 60;
+        this.minutes = Math.floor(x % 60);
+        console.log('Minutes are:', this.minutes);
+        x /= 60;
+        this.hours = Math.floor(x % 24);
+        console.log('Hours are:', this.hours);
+        x /= 24;
+        this.days = Math.floor(x);
+        console.log('Days are:', this.days);
+
+
+      }
+
+    });
+  }
   GetProductsfromAllCatPageNumber(page: number) {
 
     if (this.viewlogin !== null) {
@@ -185,6 +284,7 @@ export class HomeComponent implements OnInit {
     }
 
   }
+
   ProductsAllCat() {
 
     if (this.viewlogin !== null) {
@@ -207,15 +307,106 @@ export class HomeComponent implements OnInit {
     else if (this.viewlogin == null) {
 
       this.GetProducts.GetProductsfromAllCat().subscribe(resSlidersData => {
-
-
+        // this.resultProduct = resSlidersData.Results
+        this.viewtimer = resSlidersData.Results;
+        this.resultProduct = this.viewtimer.product;
         let demoprods;
         demoprods = resSlidersData.Results;
 
         for (let prods of demoprods) {
           this.GetALLProductss.push(prods.product);
           // this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
+          this.DbDate = prods.product.CreatedDate;
+        
+          this.AuctionDayDB = prods.product.AuctionListing;
+          const auctiondays = +this.AuctionDayDB * 86400000;
+          console.log('Auction days:', auctiondays);
+          const time0 = new Date();
+          console.log('time0:', time0);
+          const time1 = new Date(this.DbDate);
+          console.log('time1:', time1);
+          const time3 = ((time1.getTime() + auctiondays) - time0.getTime());
+          // alert( time3);
+          console.log('time3:', time3);
+          
+          // if (time3 <= 0 && this.BidingProduct.length !== 0) {
+          //   // alert('time is less than time3')
+          //   console.log('This Bidder wins:', this.BidingProduct[0]);
+          //   this.user = this.BidingProduct[0]['User_Id']
+          //   this.product = this.BidingProduct[0]['Product_Id']
+          //   this.GetProducts.InsertwinnerBid(this.user, this.product).subscribe();
+          // }
+          // alert(time3.getDay() + '-' + time3.getMinutes() + '-' + time3.getSeconds());
+          let x = time3 / 1000;
+          this.seconds = Math.floor(x % 60);
+          // alert( this.seconds);
+          console.log('Seconds are:', this.seconds);
+          x /= 60;
+          this.minutes = Math.floor(x % 60);
+          // alert(this.minutes);
+          console.log('Minutes are:', this.minutes);
+          x /= 60;
+          this.hours = Math.floor(x % 24);
+          // alert(this.hours);
+          console.log('Hours are:', this.hours);
+          x /= 24;
+          this.days = Math.floor(x);
+          // alert( this.days);
+          console.log('Days are:', this.days);
+          if (this.seconds > 0 || this.minutes > 0 || this.hours > 0 || this.days > 0) {
+            setInterval(() => {
+              this.timer1(this.element);
+              console.log(this.timer1(this.element));
+              // alert('dd');
+            }, 1000);
+
+          }
+          else {
+            this.seconds = '00';
+            this.minutes = '00';
+            this.hours = '00';
+            this.days = '00';
+          }
+
         }
+        // this.Title = this.resultProduct['P_Title']
+        // alert(this.resultProduct.inWishList)
+        // this.ourproduct = true;
+        // console.log('Description of product is:', this.resultProduct['P_Des']);
+        // this.ProPDes = this.resultProduct['P_Des'].split('\n');
+
+        // this.ProPics = this.resultProduct['Pic'].split(',');
+        // console.log(this.ProPics[0])
+
+        // this.selectedImage = this.ProPics[0];
+        // console.log(this.selectedImage);
+        // for (let i = 0; i < this.ProPics.length - 1; i++) {
+        // this.PicList[i] = this.ProPics[i + 1];
+        // }
+
+        // console.log('Pics Before:', this.ProPics);
+        // console.log('Pics after:', this.PicList);
+
+
+        // console.log('Pics are:', this.ProPics);
+        //  alert(this.resultProduct['StoreName'])
+        //  alert(localStorage.getItem('StoreName'))
+        // if (this.resultProduct['StoreName'] === localStorage.getItem('StoreName') ) {
+        // this.ourproduct = true;
+
+        // }
+
+        // if (this.resultProduct.Quantity <= 0) {
+        //   this.soldfix = true;
+        // }
+        // console.log('Product attributes', this.resultProduct);
+        // this.LocalStoreName = this.resultProduct.StoreName;
+        // this.MinimumbestOffer = this.resultProduct.Addbestoffer;
+        // if (this.resultProduct.Auction) {
+
+
+        // }
+
 
 
 
@@ -353,7 +544,7 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-  
+
   Getjustlikeforyou(page: number) {
 
     this.GetProducts.Getlikeforyou().subscribe(resSlidersData => {
@@ -711,10 +902,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  timer(end_date: string) {
+  // timer(end_date: string) {
 
-    return ((new Date(end_date).getTime().valueOf() - new Date().getTime().valueOf()) / (1000)).toFixed(0);
-  }
+  //   return ((new Date(end_date).getTime().valueOf() - new Date().getTime().valueOf()) / (1000)).toFixed(0);
+  // }
 
 
   CheckFOrDifferent(ProID: string) {
@@ -739,6 +930,58 @@ export class HomeComponent implements OnInit {
       this.AuctionTest = true;
       return true;
 
+    }
+  }
+  timer1(element: HTMLElement) {
+
+    if (!this.Timeclose) {
+      // alert(this.Timeclose)
+      this.seconds -= 1;
+      if (this.seconds <= 0) {
+        this.seconds = 59
+        this.minutes -= 1
+        if (this.minutes <= 0) {
+          this.hours -= 1
+          this.minutes = 59
+          if (this.hours <= 0) {
+            this.days -= 1
+            this.hours = 23
+            if (this.days <= 0) { }
+          }
+        }
+      }
+      // if (this.seconds <= 0) {
+      //   // alert('001');
+      //   this.seconds = 59;
+      //   this.minutes -= 1;
+      //   if (this.minutes <= 0) {
+      //     // alert('002');
+      //     this.minutes = 59;
+      //     this.hours -= 1;
+      //     if (this.hours <= 0) {
+      //       // alert('003');
+      //       this.hours = 23;
+      //       this.days -= 1;
+      //       if (this.days <= 0) {
+      //         // alert('4s00');
+      //         this.Timeclose = true;
+      //         // this.Solddd = true;
+
+      //         // this.seconds = 0;
+      //         // this.minutes = 0;
+      //         // this.hours = 0;
+      //         // this.days = 0;
+      //       }
+
+      //     }
+      //   }
+
+      // }
+
+    }
+    else {
+      // this.jobStatus=false;
+      // alert('sdsddsf');
     }
   }
 }

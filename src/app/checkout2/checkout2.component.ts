@@ -457,10 +457,10 @@ alert(Abc)
                console.log(this.Getinvoiceamount)
             // this.OrderInvoiceid= this.Getinvoiceamount.InvoiceID;
                 
-               alert("order done place ho gya hi  ")
+              //  alert("order done place ho gya hi  ")
                   
                 // this.OrderPlaced = true;
-                Swal.fire('order done place ho gya hi', '', 'success');
+                // Swal.fire('order done place ho gya hi', '', 'success');
   
                 // this.InvoiceIDSet = localStorage.getItem('InvoiceID');
   
