@@ -300,7 +300,110 @@
       <div class="product-overview-tab">
 
         <div class="container">
-         
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- <div class="container">
+                <div class="row">
+                  <hr class="invis">
+                  <div class="well well-sm">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-3 text-center" style="padding: 30px;">
+                        <h1 class="rating-num">
+                          {{AverageRating}}</h1>
+                        <div class="rating">
+                          <ng-container *ngFor="let number of [0,1,2,3,4]">
+                            <span *ngIf="number < AverageRating && (number+1) <= AverageRating"
+                              class="star-icon full">☆</span>
+                            <span *ngIf="number < AverageRating && (number+1) > AverageRating" class="star-icon half"
+                              [style.width.%]="StarPercent">☆</span>
+                            <span *ngIf="number >= AverageRating && (number+1) > AverageRating"
+                              class="star-icon">☆</span>
+                          </ng-container>
+                        </div>
+                        <div>
+                          <span class="glyphicon glyphicon-user"></span>{{GetallProductReview.length}} total
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-9">
+                        <div class="row rating-desc">
+                          <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>5
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress progress-striped">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count5">
+                                <span class="sr-only">{{count5}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                       
+                           <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>4
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count4">
+                                <span class="sr-only">{{count4}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                       
+                          <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>3
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count3">
+                                <span class="sr-only">{{count3}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>2
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count2">
+                                <span class="sr-only">{{count2}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                   
+                          <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>1
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count1">
+                                <span class="sr-only">{{count1}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-4 col-md-2 text-right">
+                            <span class="glyphicon glyphicon-star"></span>0
+                          </div>
+                          <div class="col-xs-8 col-md-10">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100" [style.width.%]="count0">
+                                <span class="sr-only">{{count0}}%</span>
+                              </div>
+                            </div>
+                          </div>
+                         
+                        </div>
+               
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div> 
               <div class="product-tab-inner">
                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                   <li class="active"> <a href="#description" data-toggle="tab"> Description </a> </li>
@@ -428,9 +531,9 @@
         </div>
 
       </div>
-    <!-- </div> -->
+    </div>
   </div>
-<!-- </div> -->
+</div>
 
 <!-- Main Container End -->
 
