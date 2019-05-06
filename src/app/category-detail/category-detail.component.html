@@ -34,18 +34,18 @@
               <!--</ul>-->
             <!--</div>-->
             <div class="sorter">
-              <!-- <div class="col-lg-8"> -->
+              <div class="col-lg-8">
 
-                <!--<span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>-->
+                <span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>
 
-                 <!-- <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
+                 <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
                  <span *ngIf="!AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >All Listings</span>
 
                 <span *ngIf="BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Buy It Now</span>
                 <span *ngIf="!BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Buy It Now</span>
 
                 <span *ngIf="thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Auction</span>
-                <span *ngIf="!thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span> -->
+                <span *ngIf="!thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span>
 
 
                 <!--<span *ngIf="AcceptOffer" (click)="AcceptOfferFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Accept Offers</span>-->
@@ -58,7 +58,7 @@
                 <!--<option>List <span class="fa fa-list" aria-hidden="true"></span> </option>-->
 
                 <!--</select>-->
-              <!-- </div> -->
+              </div>
               <div class="short-by page">
                 <label>View:</label>
 

@@ -179,7 +179,7 @@ getusers;
     return this._http.get(this.ServerUrl + 'post_shipment_details/', { headers: headers }).map(response => response.json());
   }
 
-  GetUSerdetailsByUserIdupdate(id: number, fullname: string, address: string, province: string, city: string, area: string, default_shipment_address: string, phone_no: string) {
+  GetUSerdetailsByUserIdupdate(id: number, fullname: string, address: string, province: string,default_bill_address:string,city: string, area: string, default_shipment_address: string, phone_no: string) {
     // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
     console.log(this.USerNameID)
     const headers = new Headers();
@@ -195,7 +195,7 @@ getusers;
         "fullname": fullname,
         "address": address,
         "province": province,
-        "billadress":true,
+        "billadress":default_bill_address,
         "city": city,
         "area": area,
         "shipmentadress": default_shipment_address,

@@ -126,7 +126,7 @@
         <div class="tab-content">
           <div id="productTabContent2" class="tab-pane fade in active">
 
-            <ng-container *ngIf="this.viewlogin == null">
+            <!-- <ng-container *ngIf="this.viewlogin == null"> -->
             <div *ngFor="let Lastest of GetALLProductss">
               <div class="product-item home-productss col-lg-2 col-md-3 col-sm-4 col-xs-6">
                 <a [routerLink]="['/single-product']"
@@ -231,7 +231,7 @@
               </div>
 
             </div>
-            </ng-container>
+            <!-- </ng-container> -->
            
             <!-- <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
                
@@ -243,7 +243,7 @@
             <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
               <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
             
-              <a (click)="GetProductsfromAllCatPageNumber(pager.currentPage + 1)" class="btn btn-fill" type="Next">
+              <a (click)="GetProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
                   <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
                   <h6 >SHOW MORE</h6>
                 </a>
@@ -251,6 +251,8 @@
              
             </div>
             </div>
+            <!-- <div _ngcontent-c7="" class="ShowMore ng-star-inserted"><div _ngcontent-c7=""><img _ngcontent-c7=""  class="show-more-img" class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+              <h6 _ngcontent-c7="">SHOW MORE</h6></div></div> -->
           </div>
           <!-- GetAuctionProductsfromAllCatPageNumber -->
           <div class="tab-pane fade" id="buynow">
@@ -286,14 +288,14 @@
                             <div *ngIf="BuyNow.Auction == true" class="item-price pull-left">
                               <div class="price-box">
                                 <span class="regular-price">
-                                  <span class="price">Rs {{ BuyNow.SrartingPrice }}</span>
+                                  <span class="price">Rs {{ BuyNow.SrartingPrice| number:'.0-0'  }}</span>
                                 </span>
                               </div>
                             </div>
                             <div *ngIf="BuyNow.Auction == false" class="item-price pull-left">
                               <div class="price-box">
                                 <span class="regular-price">
-                                  <span class="price">Rs {{ BuyNow.FixedPrice }}</span>
+                                  <span class="price">Rs {{ BuyNow.FixedPrice | number:'.0-0'  }}</span>
                                 </span>
                               </div>
                             </div>
@@ -344,8 +346,19 @@
               </li>
               
             </ul> -->
-            <div _ngcontent-c7="" class="ShowMore ng-star-inserted"><div _ngcontent-c7=""><img _ngcontent-c7=""  class="show-more-img" class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-              <h6 _ngcontent-c7="">SHOW MORE</h6></div></div>
+            <!-- <div _ngcontent-c7="" class="ShowMore ng-star-inserted"><div _ngcontent-c7=""><img _ngcontent-c7=""  class="show-more-img" class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+              <h6 _ngcontent-c7="">SHOW MORE</h6></div></div> -->
+              <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+                  <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                
+                  <a (click)="GetBuyNowProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
+                      <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+                      <h6 >SHOW MORE</h6>
+                    </a>
+    
+                 
+                </div>
+                </div>
           </div>
           <div class="tab-pane fade" id="auction">
 
@@ -441,6 +454,17 @@
               </li>
               
             </ul> -->
+            <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+                <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              
+                <a (click)="GetAuctionProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
+                    <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+                    <h6 >SHOW MORE</h6>
+                  </a>
+  
+               
+              </div>
+              </div>
           </div>
           <div class="tab-pane fade" id="featured">
 
@@ -536,6 +560,17 @@
               </li>
               
             </ul> -->
+            <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+                <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              
+                <a (click)="GetAllFeaturedProductsPageNumber(pager.currentPage + 1)" type="Next">
+                    <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+                    <h6 >SHOW MORE</h6>
+                  </a>
+  
+               
+              </div>
+              </div>
 
           </div>
         </div>
@@ -1336,7 +1371,7 @@
               </div>
             </a>
           </div>
-        </div>
+        
         <!-- <div class="col-md-5"></div> -->
             <!-- <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3"> -->
               <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
@@ -1355,9 +1390,20 @@
                 <a (click)="showallproducts(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
               </li> -->
             <!-- </ul> -->
-            <div _ngcontent-c7="" class="ShowMore ng-star-inserted"><div _ngcontent-c7=""><img _ngcontent-c7=""  class="show-more-img" alt="showmore"  class="show-more-img" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-              <h6 _ngcontent-c7="">SHOW MORE</h6></div></div>
-
+            <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+                <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              
+                <a (click)="Getjustlikeforyou(pager.currentPage + 1)" type="Next">
+                    <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+                    <h6 >SHOW MORE</h6>
+                  </a>
+  
+               
+              </div>
+              </div>
+            <!-- <div _ngcontent-c7="" class="ShowMore ng-star-inserted"><div _ngcontent-c7=""><img _ngcontent-c7=""  class="show-more-img" alt="showmore"  class="show-more-img" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+              <h6 _ngcontent-c7="">SHOW MORE</h6></div></div> -->
+            </div>
       </div>
     </div>
     <!-- </ng-container> -->
