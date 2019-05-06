@@ -18,7 +18,7 @@ body {
     border: none;
     outline: 0;
     background-color: #c00;
-    box-shadow: 0 0 12px #c00;
+    /* box-shadow: 0 0 12px #c00; */
     color: #fff;
     cursor: pointer;
     padding: 10px;
@@ -2901,6 +2901,33 @@ ul#cart-sidebar {
     background-image: url(../images/slider-background.jpg);
     color: #fff;
     border-radius: 3px
+}
+.shipping-anchor{
+    float: right
+}
+.shpp{
+    border-left: 1px solid #0014ff;
+    padding: 2px;
+}
+.panel-info {
+   border:none
+}
+.ItemListing{
+    box-shadow: 0 0 2px 0.2px rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
+    margin: 30px 10px;
+}
+.Head{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    align-items: center;
+
+}
+.items-heading{
+    font-size: 30px;
+    margin: 20px 0 30px;
+    border-bottom: 3px solid #cd0000;
+    padding: 0 40px;
 }
 @media (max-width:768px) {
     #main-bg-slider .item {
@@ -6025,7 +6052,8 @@ button.button.button-clear:hover {
     font-size: 24px;
     letter-spacing: 1px;
     line-height: normal;
-    margin: 0 0 10px;
+    /* margin: 0 0 10px; */
+    margin: 0px;
     outline: medium none;
     padding: 0;
     position: relative;
@@ -9019,6 +9047,24 @@ label[for=rememberme] {
     transform: translateY(0);
     color:	blue
   }
+  .Adress-book{
+      width:100%;
+      
+  }
+  .anchor-tag{
+      float: right
+  }
+  .Shipment-anchor{
+      border-right: 1px solid grey  }
+      .inner-shipment{
+          width: 100%;
+          height: 300px;
+          background-color: #10b9b9;
+      }
+      .heading-ul{
+          list-style: none;
+          display: inline-block
+      }
 
 @media (max-width:768px) and (max-width:1199px) {
     .modal-dialog {
@@ -9218,7 +9264,16 @@ label[for=rememberme] {
     margin-top: 30px
 }
 .prominated{
-    color: #f90000!important
+    color: #ffffff!important;
+    background: #c00!important;
+    border-radius: 20px;
+}
+.li-promited{
+    background-color: #c00;
+}
+.prominated:hover{
+    background: none;
+    color: #ffffff!important
 }
 
 .header-icons-rightsettingnew:hover {

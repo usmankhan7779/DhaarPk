@@ -169,7 +169,7 @@ img {
 }
 
 .user-information {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px
 }
 
@@ -649,8 +649,7 @@ h6 {
 }
 
 .navbar-nav>li.active>a,
-.navbar-nav>li:hover>a,
-.navbar-nav>li>a:hover {
+.navbar-nav>li:hover>a {
     color: #c00!important;
     background: #fff!important
 }
@@ -4594,8 +4593,13 @@ select {
     color: #C00;
     z-index: 2
   }
-  .panel-title{
+  /* .panel-title{
       text-align: center
+  } */
+  .panel-info > .panel-heading{
+    color: #000000;
+    background:none;
+    border: none
   }
   .password-heading{
       text-align: center;
