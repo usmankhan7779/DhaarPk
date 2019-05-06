@@ -32,6 +32,7 @@ export class UsershipmentComponent implements OnInit {
   filetoup: FileList;
   fileName: any;
   ReservePrice = false;
+  makeshippingaddress =false;
   total_GetUSeradress;
   default_bill_address;
   default_shipment_address;
@@ -58,6 +59,9 @@ export class UsershipmentComponent implements OnInit {
     }
   }
 
+  checked90(){
+    this.makeshippingaddress = true;
+  }
   save(FName: string, Address: string, province: string, City: string, Area: string, Shipmentaddress, Shipmentbilladdress, Mobile) {
 
     console.log('I am in 1 Component');

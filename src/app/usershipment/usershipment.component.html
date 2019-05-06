@@ -14,8 +14,8 @@
 
           <div class="col-md-12 col-lg-12">
             <table class="table user-information">
-              <thead>
-                <tr>
+              <thead *ngFor="let GetUser of GetUSerAddress.Results;let i = index">
+                <tr *ngIf="i<1" >
                   <th>
                     Name
                   </th>
@@ -34,16 +34,47 @@
                   <th>
                     Address
                   </th>
-                  <th>
-                    Default
+                  <th *ngIf="GetUser.default_shipment_address == true ">
+                      Shipment address
+                    </th>
+                    <th *ngIf="GetUser.default_bill_address == true "  >
+                        Bill address
+                      </th>
+                  <th *ngIf="GetUser.default_shipment_address == false " >
+                   No Shipment address
                   </th>
-                  <th>Action</th>
+                  <th *ngIf="GetUser.default_bill_address == false " >
+                    NO  Bill address
+                    </th>
+                    <!-- <td *ngIf="GetUser.default_shipment_address == true " >
+                        Defulat Shippment Address</td>
+                        <td *ngIf="GetUser.default_bill_address == true " >
+                           Defulat Shippment Address</td>
+                       <td>
+                           <td *ngIf="GetUser.default_shipment_address == false " >
+                               No Shippment Address</td>
+                               <td *ngIf="GetUser.default_bill_address == false " >
+                                  No Shippment Address</td>
+                              <td> -->
+                  <!-- <th>Action</th> -->
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let GetUser of GetUSerAddress.Results">
                   <ng-container *ngIf="GetUSerAddress !== null ">
-                    <!-- <td>{{GetUser.id}}</td> -->
+                    <td *ngIf="makeshippingaddress == true " >
+                      <input  placeholder="Default Bill addres" type="radio"  data-toggle="toggle" required
+                        name="makeshippingaddress"
+                      (click)="Getallbuynowproductsdetail (GetUser.id,
+                      GetUser.fullname,
+                      GetUser.phone_no,
+                      GetUser.area,
+                      GetUser.city,
+                      GetUser.address,
+                      GetUser.province,
+                      GetUser.default_shipment_address,
+                      
+                      GetUser.user_id_id)"></td>
                     <td>{{GetUser.fullname }}</td>
                     <td>{{GetUser.phone_no}}</td>
                     <td>{{GetUser.area}}</td>
@@ -54,8 +85,16 @@
 
                     <td>{{GetUser.address }}</td>
 
-                    <td>{{GetUser.default_shipment_address}}</td>
+                    <td *ngIf="GetUser.default_shipment_address == true " >
+                     Defulat Shippment Address</td>
+                     <td *ngIf="GetUser.default_bill_address == true " >
+                        Defulat Shippment Address</td>
                     <td>
+                        <td *ngIf="GetUser.default_shipment_address == false " >
+                            No Shippment Address</td>
+                            <td *ngIf="GetUser.default_bill_address == false " >
+                               No Shippment Address</td>
+                           <td>
 
                       <a (click)="Getallbuynowproductsdetail (GetUser.id,
                       GetUser.fullname,
@@ -71,7 +110,7 @@
 
                         <i class="fa fa-edit"></i>
                       </a>
-                      <a href="#"><i class="fas fa-trash-alt del-icon"></i></a>
+                      <!-- <a href="#"><i class="fas fa-trash-alt del-icon"></i></a> -->
                     </td>
 
 
@@ -83,7 +122,9 @@
               </tbody>
             </table>
             <button class="new-address-btn"data-toggle="modal" data-target="#myModal2" >Add New Address</button>
-
+            <button class="new-address-btn" (click)="checked90()" >Make Shippment Address</button>
+            <button class="new-address-btn"data-toggle="modal" data-target="#myModal2" >Make Billing Address</button>
+            <button class="new-address-btn"   *ngIf="makeshippingaddress == true " >Save</button>
           </div>
 
 
@@ -325,15 +366,7 @@
           
                         </div>
                       
-                          <!-- user_id_id -->
-                          <!-- <div class="col-sm-4">
-                              <label class="required"></label>
-      
-                              <input class="input form-control" placeholder="" type="text" required ng-Model="model.user_id_id"
-                                #user_id_id name="user_id_id" value="{{getuser_id}}">
-              
-              
-                            </div> -->
+                        
 
  <div class="col-sm-4">
     <label for="address" class="required">Address(*)</label>

@@ -316,57 +316,58 @@ export class HomeComponent implements OnInit {
         for (let prods of demoprods) {
           this.GetALLProductss.push(prods.product);
           // this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
-          this.DbDate = prods.product.CreatedDate;
-        
-          this.AuctionDayDB = prods.product.AuctionListing;
-          const auctiondays = +this.AuctionDayDB * 86400000;
-          console.log('Auction days:', auctiondays);
-          const time0 = new Date();
-          console.log('time0:', time0);
-          const time1 = new Date(this.DbDate);
-          console.log('time1:', time1);
-          const time3 = ((time1.getTime() + auctiondays) - time0.getTime());
-          // alert( time3);
-          console.log('time3:', time3);
           
-          // if (time3 <= 0 && this.BidingProduct.length !== 0) {
-          //   // alert('time is less than time3')
-          //   console.log('This Bidder wins:', this.BidingProduct[0]);
-          //   this.user = this.BidingProduct[0]['User_Id']
-          //   this.product = this.BidingProduct[0]['Product_Id']
-          //   this.GetProducts.InsertwinnerBid(this.user, this.product).subscribe();
-          // }
-          // alert(time3.getDay() + '-' + time3.getMinutes() + '-' + time3.getSeconds());
-          let x = time3 / 1000;
-          this.seconds = Math.floor(x % 60);
-          // alert( this.seconds);
-          console.log('Seconds are:', this.seconds);
-          x /= 60;
-          this.minutes = Math.floor(x % 60);
-          // alert(this.minutes);
-          console.log('Minutes are:', this.minutes);
-          x /= 60;
-          this.hours = Math.floor(x % 24);
-          // alert(this.hours);
-          console.log('Hours are:', this.hours);
-          x /= 24;
-          this.days = Math.floor(x);
-          // alert( this.days);
-          console.log('Days are:', this.days);
-          if (this.seconds > 0 || this.minutes > 0 || this.hours > 0 || this.days > 0) {
-            setInterval(() => {
-              this.timer1(this.element);
-              console.log(this.timer1(this.element));
-              // alert('dd');
-            }, 1000);
+          // this.DbDate = prods.product.CreatedDate;
+        
+          // this.AuctionDayDB = prods.product.AuctionListing;
+          // const auctiondays = +this.AuctionDayDB * 86400000;
+          // console.log('Auction days:', auctiondays);
+          // const time0 = new Date();
+          // console.log('time0:', time0);
+          // const time1 = new Date(this.DbDate);
+          // console.log('time1:', time1);
+          // const time3 = ((time1.getTime() + auctiondays) - time0.getTime());
+          // // alert( time3);
+          // console.log('time3:', time3);
+          
+          // // if (time3 <= 0 && this.BidingProduct.length !== 0) {
+          // //   // alert('time is less than time3')
+          // //   console.log('This Bidder wins:', this.BidingProduct[0]);
+          // //   this.user = this.BidingProduct[0]['User_Id']
+          // //   this.product = this.BidingProduct[0]['Product_Id']
+          // //   this.GetProducts.InsertwinnerBid(this.user, this.product).subscribe();
+          // // }
+          // // alert(time3.getDay() + '-' + time3.getMinutes() + '-' + time3.getSeconds());
+          // let x = time3 / 1000;
+          // this.seconds = Math.floor(x % 60);
+          // // alert( this.seconds);
+          // console.log('Seconds are:', this.seconds);
+          // x /= 60;
+          // this.minutes = Math.floor(x % 60);
+          // // alert(this.minutes);
+          // console.log('Minutes are:', this.minutes);
+          // x /= 60;
+          // this.hours = Math.floor(x % 24);
+          // // alert(this.hours);
+          // console.log('Hours are:', this.hours);
+          // x /= 24;
+          // this.days = Math.floor(x);
+          // // alert( this.days);
+          // console.log('Days are:', this.days);
+          // if (this.seconds > 0 || this.minutes > 0 || this.hours > 0 || this.days > 0) {
+          //   setInterval(() => {
+          //     this.timer1(this.element);
+          //     console.log(this.timer1(this.element));
+          //     // alert('dd');
+          //   }, 1000);
 
-          }
-          else {
-            this.seconds = '00';
-            this.minutes = '00';
-            this.hours = '00';
-            this.days = '00';
-          }
+          // }
+          // else {
+          //   this.seconds = '00';
+          //   this.minutes = '00';
+          //   this.hours = '00';
+          //   this.days = '00';
+          // }
 
         }
         // this.Title = this.resultProduct['P_Title']
