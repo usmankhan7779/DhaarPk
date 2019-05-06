@@ -12,6 +12,7 @@ import { AuthService } from 'angular4-social-login';
 import { SocialUser } from 'angular4-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 import Swal from 'sweetalert2';
+declare const $: any;
 
        
 @Component({
@@ -54,6 +55,15 @@ export class LogInComponent implements OnInit {
                private route: ActivatedRoute) { }
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     if (isPlatformBrowser(this.platformId)){
       if(localStorage.getItem('UserID')){
         this._nav.navigate(['/']);

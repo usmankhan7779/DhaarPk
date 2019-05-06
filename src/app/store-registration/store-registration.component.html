@@ -121,7 +121,7 @@
                                pattern="^([A-Za-z]+?[ ]?|[A-Za-z]+?)+$"
                                #ownername="ngModel" name="ownername"
                                (keyup)=checkButtonStep1()
-                               required class="input form-control"
+                               required class="input form-control upper"
                                placeholder="Your Name"
                                id="company_name">
 
@@ -173,7 +173,7 @@
                         <label  for="city" class="required">City<span class="span-lab">*</span></label>
                         <div  style="color:red" *ngIf=" model.city!=null && !city.valid" class="help-block">City invalid/required</div>
 
-                        <input class="input form-control"
+                        <input class="input form-control upper"
                                (keyup)=checkButtonStep1()
                             placeholder="Your City"
                                pattern="^([A-Za-z])+$"

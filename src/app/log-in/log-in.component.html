@@ -93,8 +93,13 @@
               <div class="formrow">
                 <div class="form-group label-overlay">
                   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                    <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="model.username"
-                      #username="ngModel" required>
+                      <div class="mat-div">
+                          <label for="first-name" class="mat-label">Username</label>
+                          <input type="text" class="mat-input" name="username" [(ngModel)]="model.username"
+                          #username="ngModel" required>
+                        </div>
+                    <!-- <input name="username" [(ngModel)]="model.username"
+                      #username="ngModel" required> -->
                     <div *ngIf="f.submitted && !username.valid" class="help-block">*Username is required</div>
                   </div>
 
@@ -102,8 +107,13 @@
               </div>
               <div class="formrow">
                 <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                  <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password"
+                    <div class="mat-div">
+                    <label for="first-name" class="mat-label">password</label>
+                    <input type="password" class="mat-input" name="password" [(ngModel)]="model.password"
                     #password="ngModel" required>
+                  </div>
+                  <!-- <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password"
+                    #password="ngModel" required> -->
                   <div *ngIf="f.submitted && !password.valid" class="help-block">*Password is required</div>
                 </div>
                 <p class="pull-left">

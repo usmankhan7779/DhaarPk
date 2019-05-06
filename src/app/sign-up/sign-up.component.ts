@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import Swal from 'sweetalert2';
-
+declare const $: any;
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -49,6 +49,15 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     if (isPlatformBrowser(this.platformId)) {
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/log-in';
 

@@ -170,8 +170,8 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a [routerLink]="['/select-category']"><i
-                    class="far fa-money-bill-alt header-icons-rightsetting"></i>Sell</a></li>
+              <li  ><a class="prominated" [routerLink]="['/select-category']"><i
+                    class="far fa-money-bill-alt header-icons-rightsetting "></i>Sell or Auction Now</a></li>
               <li class="dropdown">
                 <a (click)="ProductNav()" style="cursor: pointer"><i
                     class="fa fa-list header-icons-rightsetting"></i>Categories<b class="caret"></b></a>
@@ -683,7 +683,7 @@
                                 [routerLink]="['/sub-category-detail','Home Appliances','Small Appliances']">Small
                                 Appliances</a></li>
                             <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Cooking']"><i
-                                  class="	fa fa-angle-double-right"> Cooking</i></a></li>
+                                  class="	fa fa-angle-double-right"><span style="font-family: sans-serif"> Cooking</span></i></a></li>
                             <li><a [routerLink]="['/subsub-category-detail','Home Appliances','Floorcare']"><i
                                   class="	fa fa-angle-double-right"> Floorcare</i></a></li>
 
