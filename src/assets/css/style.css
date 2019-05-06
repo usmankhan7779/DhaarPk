@@ -2903,14 +2903,16 @@ ul#cart-sidebar {
     border-radius: 3px
 }
 .shipping-anchor{
-    float: right
+    float: right;
+    padding: 10px
 }
 .shpp{
     border-left: 1px solid #0014ff;
     padding: 2px;
 }
 .panel-info {
-   border:none
+   border:none;
+margin-top: 20px
 }
 .ItemListing{
     box-shadow: 0 0 2px 0.2px rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
@@ -4738,7 +4740,7 @@ footer .phone .fa-phone:before {
 
 
 
-.footer-input{border-radius: 50px;overflow: hidden;}.send-btn{background: #fff;color: #fff;font-size: 19px;padding: 0}.footer-input .form-control{height: 41px;font-size: 18px;border: none;}.send-btn .fa-paper-plane{background: #c00; padding: 10px;border-radius: 100%;}
+.footer-input{border-radius: 50px;overflow: hidden;}.send-btn{background: #fff;color: #c00!important;font-size: 19px;padding: 6px}.footer-input .form-control{height: 41px;font-size: 18px;border: none;}.send-btn .fa-paper-plane{background: #c00; padding: 10px;border-radius: 100%;}
 
 
  .newsletter-email {
@@ -9264,22 +9266,25 @@ label[for=rememberme] {
     margin-top: 30px
 }
 .prominated{
-    color: #ffffff!important;
-    background: #c00!important;
-    border-radius: 20px;
+    color: #c00!important;
+   
 }
-.li-promited{
+/* .li-promited{
     background-color: #c00;
-}
-.prominated:hover{
+} */
+/* .prominated:hover{
     background: none;
     color: #ffffff!important
-}
+} */
 
 .header-icons-rightsettingnew:hover {
     color: #fff
 }
-
+.panel-info >.Address-heading{
+    color: #000000;
+    background: none;
+    border: none;
+}
 .header-icons-leftsetting {
     margin-left: 10px
 }

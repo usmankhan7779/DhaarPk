@@ -169,7 +169,7 @@ img {
 }
 
 .user-information {
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     border-radius: 5px
 }
 
@@ -2661,9 +2661,9 @@ a.wit-btn {
     margin: 10px
 }
 
-.inner-page {
+/* .inner-page {
     padding: 50px 0
-}
+} */
 
 .inner-page .title {
     text-align: center;
@@ -4557,7 +4557,7 @@ select {
     padding-top: 10px;
     float: left;
     /* margin-left: -94px; */
-    margin-top: -58px;
+    margin-top: -7px;
     position: fixed;
     padding-bottom: 49px
   }
@@ -4594,12 +4594,13 @@ select {
     z-index: 2
   }
   /* .panel-title{
-      text-align: center
+      text-align: center4599
+
   } */
   .panel-info > .panel-heading{
-    color: #000000;
-    background:none;
-    border: none
+    color: #ffffff;
+    border: none;
+    text-align: center;
   }
   .password-heading{
       text-align: center;
