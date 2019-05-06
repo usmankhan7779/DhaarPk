@@ -33,6 +33,45 @@ export class BuyerDashboardServices {
   GetallInvoiceIDByUser( UserID: any) {
     return this._http.get( this.saleServerUrl + 'GetallInvoiceIDByUser/' + UserID  ).map(response => response.json());
   }
+  GetallInvoiceIDByUserreceviceorder(proID: any) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'Token ' +  this.authentication);
+    headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+    console.log('pofile', localStorage.getItem('Authorization'));
+    // return this._http.post(this.saleServerUrl + 'GetallInvoiceIDByUser/', {
+    //   'que': proID
+    // },{headers:headers})
+    //   .map((res: Response) => {
+    //     if (res) {
+    //       console.log('statusresponse',res.status);
+    //       if (res.status === 200) {
+
+    //       }
+    //     }
+    //   }).catch((error: any) => {
+
+    //     return Observable.throw(new Error(error.status));
+    //   });
+
+      return this._http.post(this.saleServerUrl + 'GetallInvoiceIDByUser/',
+          {
+            'que': proID,
+            // 'Cat_Name': CatName ,
+            // 'User_ID': User_ID,
+          }, { headers: headers }).map((res: Response) => {
+            if (res) {
+
+              if (res.status === 200) {
+                const responce_data = res.json();
+                return responce_data;
+              }
+            }
+          }).catch((error: any) => {
+            console.log(error.toString());
+            return Observable.throw(new Error(error.status));
+          });
+  }
 
   GetallreceiveOrderByUser( ) {
     let headers = new Headers();

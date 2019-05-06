@@ -116,25 +116,38 @@
               </div>
               <div class="tab-pane fade" id="successfulbids">
                 <ng-container *ngIf="!errormessage">
-                  <ng-container *ngFor="let phoneProducts of successbid.results ">
+                  <ng-container *ngFor="let phoneProducts of successbid ">
                     <li>
                       <div class="row">
                         <div class="col-md-2 col-sm-4">
-                          <div class=""><img src="{{ phoneProducts.Pic  }}" alt="Ad Name"></div>
+                          <div class=""><img src="{{ phoneProducts.results.Pic  }}" alt="Ad Name"></div>
                         </div>
                         <div class="col-md-10 col-sm-8">
                           <div class="jobinfo">
                             <div class="row">
                               <div class="col-md-8 col-sm-7">
-                                <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" >{{ phoneProducts.P_Title }}</a></h3>
-                                <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name }}</a> </div>
+                                <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.results.ProductID, CatName: phoneProducts.results.Cat_Name,SubCatName:phoneProducts.results.Sub_Sub_Cat_Name, id:phoneProducts.results.id, W:phoneProducts.results.inWishList   }" >{{ phoneProducts.results.P_Title }}</a></h3>
+                                <div class="cateName"> 
+                                  <!-- <a href=""> -->
+                                  {{ phoneProducts.results.Cat_Name }}
+                                <!-- </a> -->
+                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+                                 <!-- <a href="#."> -->
+                                   {{ phoneProducts.results.Sub_Cat_Name }}
+                                  <!-- </a> -->
+                                   <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+                                   <!-- <a href="#."> -->
+                                     {{ phoneProducts.results.Sub_Sub_Cat_Name }}
+
+                                   <!-- </a> -->
+                                  </div>
                                 <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
                                 <div class="clearfix"></div>
                                 <!-- <p>{{phoneProducts.P_Des}}</p> -->
-                                <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.results.ProductID, CatName: phoneProducts.results.Cat_Name,SubCatName:phoneProducts.results.Sub_Sub_Cat_Name, id:phoneProducts.results.id, W:phoneProducts.results.inWishList  }">View Details</a></div>
                               </div>
                               <div class="col-md-4 col-sm-5 text-right">
-                                <div class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
+                                <div class="adprice">Rs {{ phoneProducts.results.MaxBidPrice  | number:'.0-0'}}</div>
                                 <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
                               </div>
                             </div>
@@ -152,25 +165,37 @@
               </div>
               <div class="tab-pane fade" id="unsuccessfulbids">
                   <ng-container *ngIf="!errormessage">
-                      <ng-container *ngFor="let phoneProducts of unsusssbid.results ">
+                      <ng-container *ngFor="let phoneProducts of unsusssbid ">
                         <li>
                           <div class="row">
                             <div class="col-md-2 col-sm-4">
-                              <div class=""><img src="{{ phoneProducts.Pic  }}" alt="Ad Name"></div>
+                              <div class=""><img src="{{ phoneProducts.results.Pic  }}" alt="Ad Name"></div>
                             </div>
                             <div class="col-md-10 col-sm-8">
                               <div class="jobinfo">
                                 <div class="row">
                                   <div class="col-md-8 col-sm-7">
-                                    <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }" >{{ phoneProducts.P_Title }}</a></h3>
-                                    <div class="cateName"> <a href="#.">{{ phoneProducts.Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#.">{{ phoneProducts.Sub_Sub_Cat_Name }}</a> </div>
-                                    <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
+                                    <h3><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.results.ProductID, CatName: phoneProducts.results.Cat_Name,SubCatName:phoneProducts.results.Sub_Sub_Cat_Name, id:phoneProducts.results.id, W:phoneProducts.results.inWishList  }" >{{ phoneProducts.results.P_Title }}</a></h3>
+                                    <div class="cateName"> 
+                                        <!-- <a href=""> -->
+                                        {{ phoneProducts.results.Cat_Name }}
+                                      <!-- </a> -->
+                                       <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+                                       <!-- <a href="#."> -->
+                                         {{ phoneProducts.results.Sub_Cat_Name }}
+                                        <!-- </a> -->
+                                         <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
+                                         <!-- <a href="#."> -->
+                                           {{ phoneProducts.results.Sub_Sub_Cat_Name }}
+      
+                                         <!-- </a> -->
+                                        </div>                                    <!--<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>-->
                                     <div class="clearfix"></div>
                                     <!-- <p>{{phoneProducts.P_Des}}</p> -->
-                                    <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                                    <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ProID:  phoneProducts.results.ProductID, CatName: phoneProducts.results.Cat_Name,SubCatName:phoneProducts.results.Sub_Sub_Cat_Name, id:phoneProducts.results.id, W:phoneProducts.results.inWishList}">View Details</a></div>
                                   </div>
                                   <div class="col-md-4 col-sm-5 text-right">
-                                    <div class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
+                                    <div class="adprice">Rs {{ phoneProducts.results.MaxBidPrice | number:'.0-0'}}</div>
                                     <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
                                   </div>
                                 </div>

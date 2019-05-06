@@ -63,6 +63,7 @@ getusers;
                 // alert(resSlidersData['ISConfirmed'])
                
                 this.users= resSlidersData;
+                // alert(resSlidersData.ISConfirmed )
                 localStorage.setItem('UserID',this.users.user );
                 console.log(this.users.user)
                 this.getusers= this.users.user;
@@ -72,7 +73,7 @@ getusers;
                 
                 // localStorage.setitem('users',this.users.user)
                 // alert(this.users.user)
-                if (resSlidersData['ISConfirmed'] === true) {
+                if (resSlidersData.ISConfirmed == true) {
                 //  alert(localStorage.setItem('Authorization', this.decoded))
                   localStorage.setItem('Authorization', this.decoded);
                   localStorage.setItem('password', null);
@@ -107,7 +108,7 @@ getusers;
                     localStorage.setItem('password', pass);
                   });
 
-                  this._nav.navigate(['/VerfiyEmail']);
+                  this._nav.navigate(['/VerfiyEmail/a']);
                 }
 
               });
@@ -178,7 +179,7 @@ getusers;
     return this._http.get(this.ServerUrl + 'post_shipment_details/', { headers: headers }).map(response => response.json());
   }
 
-  GetUSerdetailsByUserIdupdate(id: number, fullname: string, address: string, province: string, city: string, area: string, default_shipment_address: string, phone_no: string, user) {
+  GetUSerdetailsByUserIdupdate(id: number, fullname: string, address: string, province: string, city: string, area: string, default_shipment_address: string, phone_no: string) {
     // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
     console.log(this.USerNameID)
     const headers = new Headers();
@@ -190,15 +191,16 @@ getusers;
     return this.http.put(this.ServerUrl + 'put_delete_shipment_details/' + id,
       {
 
-        "id": id,
+        // "id": id,
         "fullname": fullname,
         "address": address,
         "province": province,
+        "billadress":true,
         "city": city,
         "area": area,
-        "default_shipment_address": default_shipment_address,
+        "shipmentadress": default_shipment_address,
         "phone_no": phone_no,
-        "user_id": user
+        // "user_id": user
 
 
       }, { headers: headers })

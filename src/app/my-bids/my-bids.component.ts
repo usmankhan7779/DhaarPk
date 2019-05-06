@@ -45,7 +45,7 @@ export class MyBidsComponent implements OnInit {
         data => {
           this.ActiveProduct = data.results;
           console.log(this.ActiveProduct)
-          if (this.ActiveProduct['totalItems'] === 0) {
+          if (this.ActiveProduct['totalItems'] == 0) {
             this.errormessagefirst = true;
           }
         });
@@ -58,9 +58,9 @@ export class MyBidsComponent implements OnInit {
   Getsuccssful()
   {
 
-    this.httpService.GetSuccessfulBids(true).subscribe( data => {
-      this.successbid = data;
-      if (this.successbid['totalItems'] === 0) {
+    this.httpService.GetSuccessfulBids(true).subscribe( Response => {
+      this.successbid = Response.Data;
+      if (this.successbid['totalItems'] == 0) {
         this.errormessage = true;
       }
     });
@@ -68,11 +68,23 @@ export class MyBidsComponent implements OnInit {
   Getunsuccssful()
   {
     
-    this.httpService.GetSuccessfulBids(false).subscribe( data => {
-      this.unsusssbid = data;
-      if (this.unsusssbid['totalItems'] === 0) {
+    this.httpService.GetSuccessfulBids(false).subscribe( Response => {
+      this.unsusssbid = Response.Data;
+
+      
+      // let demohomwprods;
+      // demohomwprods = Response.Data;
+
+      // for (let prods of Response.Data) {
+        // console.log("Data: "+JSON.stringify(this.unsusssbid));
+      //   this.unsusssbid.push(prods.results)
+      //   // this.unsusssbid.push(prods.results);
+      // }
+      
+      if (this.unsusssbid['totalItems'] == 0) {
         this.errormessage = true;
       }
+    
     });
   }
   clearSessionstoreage() {

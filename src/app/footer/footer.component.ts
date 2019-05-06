@@ -10,6 +10,8 @@ export class FooterComponent implements OnInit {
   login_error = false;
   model: any = {};
   Waitcall = false;
+  email;
+  onSubmit;
   constructor(private GetProducts: LoginService) { }
 
   ngOnInit() {

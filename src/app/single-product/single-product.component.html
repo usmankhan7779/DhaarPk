@@ -10,6 +10,11 @@
 
       <div class="col-main">
         <div class="product-view-area">
+            <div class="cateName">
+                <a href="#.">{{ resultProduct.Cat_Name }}</a> 
+                <i class="fa fa-angle-double-right"
+                  aria-hidden="true"></i> <a href="#.">{{ resultProduct.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right"
+                  aria-hidden="true"></i> <a href="#.">{{ resultProduct.Sub_Sub_Cat_Name}}</a> </div>
           <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
             
               <ngx-image-viewer [src]="ProPics" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer>
@@ -281,12 +286,12 @@
               </div>
             </ng-container>
 
-            <div class="review-box">
+            <!-- <div class="review-box">
               <h3>Description</h3>
               <ng-container *ngFor="let Des of ProPDes">
                 <p>{{Des}}</p>
               </ng-container>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -297,10 +302,10 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <div class="container">
+              <!-- <div class="container">
                 <div class="row">
                   <hr class="invis">
-                  <!-- <div class="well well-sm">
+                  <div class="well well-sm">
                     <div class="row">
                       <div class="col-xs-12 col-md-3 text-center" style="padding: 30px;">
                         <h1 class="rating-num">
@@ -398,7 +403,7 @@
                     </div>
                   </div> -->
                 </div>
-              </div>
+              </div> 
               <div class="product-tab-inner">
                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                   <li class="active"> <a href="#description" data-toggle="tab"> Description </a> </li>
@@ -452,67 +457,7 @@
                           <h2 style="font-size: 20px">Write Your Own Review</h2>
                           <input type="submit" class="input-button" value="Add Review" data-toggle="modal"
                             data-target="#myModal">
-                          <!--<form (ngSubmit)="f.form.valid && SubmitReview()" #f="ngForm" novalidate id="reviewsForm">-->
-                          <!--<h2>You're reviewing: <span style="color: red;">{{ resultProduct[0].P_Title}}</span></h2>-->
-                          <!--<h4>How do you rate this product?<em>*</em></h4>-->
-
-                          <!--<div class="col-lg-12">-->
-                          <!--<fieldset class="ratingq">-->
-                          <!--<input type="radio" id="star5q" name="rating" value="5" (click)="getValueq(5)"/>-->
-                          <!--<label class="full" for="star5q" title="Awesome - 5 stars"></label>-->
-                          <!--&lt;!&ndash;<input type="radio" id="star4halfq" name="rating" value="4 and a half"&ndash;&gt;-->
-                          <!--&lt;!&ndash;(click)="getValueq(4.5)"/><label class="half" for="star4halfq"&ndash;&gt;-->
-                          <!--&lt;!&ndash;title="Pretty good - 4.5 stars"></label>&ndash;&gt;-->
-                          <!--<input type="radio" id="starq" name="rating" value="4" (click)="getValueq(4)"/><label-->
-
-                          <!--class="full" for="starq" title="Pretty good - 4 stars"></label>-->
-                          <!--&lt;!&ndash;<input type="radio" id="star3halfq" name="rating" value="3 and a half"&ndash;&gt;-->
-                          <!--&lt;!&ndash;(click)="getValueq(3.5)"/><label class="half" for="star3halfq"&ndash;&gt;-->
-                          <!--&lt;!&ndash;title="Meh - 3.5 stars"></label>&ndash;&gt;-->
-                          <!--<input type="radio" id="star3q" name="rating" value="3" (click)="getValueq(3)"/><label-->
-                          <!--class="full" for="star3q" title="Meh - 3 stars"></label>-->
-                          <!--&lt;!&ndash;<input type="radio" id="star2halfq" name="rating" value="2 and a half"&ndash;&gt;-->
-                          <!--&lt;!&ndash;(click)="getValueq(2.5)"/><label class="half" for="star2halfq"&ndash;&gt;-->
-                          <!--&lt;!&ndash;title="Kinda bad - 2.5 stars"></label>&ndash;&gt;-->
-                          <!--<input type="radio" id="star2q" name="rating" value="2" (click)="getValueq(2)"/><label-->
-                          <!--class="full" for="star2q" title="Kinda bad - 2 stars"></label>-->
-                          <!--&lt;!&ndash;<input type="radio" id="star1halfq" name="rating" value="1 and a half"&ndash;&gt;-->
-                          <!--&lt;!&ndash;(click)="getValueq(1.5)"/><label class="half" for="star1halfq"&ndash;&gt;-->
-                          <!--&lt;!&ndash;title="Meh - 1.5 stars"></label>&ndash;&gt;-->
-                          <!--<input type="radio" id="star1q" name="rating" value="1" (click)="getValueq(1)"/><label-->
-                          <!--class="full" for="star1q" title="Sucks big time - 1 star"></label>-->
-                          <!--&lt;!&ndash;<input type="radio" id="starhalfq" (click)="getValueq(0.5)" name="rating" value="half"/><label&ndash;&gt;-->
-                          <!--&lt;!&ndash;class="half" for="starhalfq" title="Sucks big time - 0.5 stars"></label>&ndash;&gt;-->
-                          <!--</fieldset>-->
-                          <!--</div>-->
-
-                          <!--<div class="form-area">-->
-                          <!--<div class="form-element">-->
-                          <!--<label>Your Name <em>*</em></label>-->
-                          <!--<div class="formrow" [ngClass]="{ 'has-error': f.submitted && !YourName.valid }">-->
-                          <!--<input type="text" name="YourName" [(ngModel)]="model.YourName"  #YourName="ngModel" required>-->
-                          <!--<div *ngIf="f.submitted && !YourName.valid" class="help-block">Name is required</div>-->
-                          <!--</div>-->
-                          <!--</div>-->
-                          <!--<div class="form-element">-->
-                          <!--<div class="formrow" [ngClass]="{ 'has-error': f.submitted && !YourEmail.valid }">-->
-                          <!--<label>Your Email <em>*</em></label>-->
-                          <!--<input type="email" name="YourEmail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="model.YourEmail"  #YourEmail="ngModel" required>-->
-                          <!--<div *ngIf="f.submitted && !YourEmail.valid" class="help-block">Invalid email format.</div>-->
-                          <!--</div>-->
-                          <!--</div>-->
-                          <!--<div class="form-element">-->
-                          <!--<div class="formrow" [ngClass]="{ 'has-error': f.submitted && !YourReview.valid }">-->
-                          <!--<label>Review <em>*</em></label>-->
-                          <!--<textarea name="YourReview" [(ngModel)]="model.YourReview"  #YourReview="ngModel" required></textarea>-->
-                          <!--<div *ngIf="f.submitted && !YourReview.valid" class="help-block">Review is required</div>-->
-                          <!--</div>-->
-                          <!--</div>-->
-                          <!--<div class="buttons-set">-->
-                          <!--<button class="button submit" title="Submit Review" type="submit"><span><i class="fa fa-thumbs-up"></i> &nbsp;Review</span></button>-->
-                          <!--</div>-->
-                          <!--</div>-->
-                          <!--</form>-->
+                          
                         </div>
                       </div>
                     </ng-container>

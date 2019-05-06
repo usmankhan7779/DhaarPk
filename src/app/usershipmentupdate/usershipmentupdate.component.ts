@@ -88,10 +88,8 @@ export class UsershipmentupdateComponent implements OnInit {
         // data => {
          // this.Profile.UserDetailsUpdatePic(localStorage.getItem('UserID') ,this.fileName).subscribe();
           console.log('Successs' )
-          // save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)
-          // GetUSerdetailsByUserIdupdate(id:number,fullname:string,address:string,province:string,city:string,area:string,default_shipment_address:string,phone_no:string,user) {
-//  
-          this.obj.GetUSerdetailsByUserIdupdate(this.id,fullname,address,province,city,area,default_shipment_address,phone_no,this.USerNameID).subscribe((response) => {
+       
+          this.obj.GetUSerdetailsByUserIdupdate(this.id,fullname,address,province,city,area,default_shipment_address,phone_no).subscribe((response) => {
         //  console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed)
           this.Error = false;
           this.Waitcall = false;
