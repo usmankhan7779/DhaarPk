@@ -62,13 +62,14 @@
             </a>
           </div>
         </div>
-        <div class="search-box float-left">
+        <!-- <div class="search-box float-left"> -->
           <!-- Search -->
           <!--top-search-->
-          <div id="search" style="text-align: center">
-            <button type="button" data-toggle="modal" data-target="#myModal1">Search<i
-                class="fa fa-search header-icons-leftsetting"></i></button>
-          </div>
+          <!-- <div class="search-box" id="search"> -->
+            <!-- <button type="button" data-toggle="modal" data-target="#myModal1">Search -->
+              <!-- <i id="search" class="fa fa-search fa-2x header-icons-leftsetting" data-toggle="modal" data-target="#myModal1"></i> -->
+            <!-- </button> -->
+          <!-- </div> -->
 
           <!--(keydown)="navigate($event, search.value, 1 )"-->
           <!--<div *ngIf="opSearch === 1" class="search-outer">-->
@@ -159,7 +160,7 @@
           <!--</div>-->
           <!--</div>-->
           <!-- End Search -->
-        </div>
+        <!-- </div> -->
         <div class="menu-box float-left">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -172,6 +173,7 @@
             <ul class="nav navbar-nav ">
               <li  ><a class="prominated" [routerLink]="['/select-category']"><i
                     class="far fa-money-bill-alt header-icons-rightsetting "></i>Sell or Auction Now</a></li>
+                    <li class="search-li"> <i id="search" class="fa fa-search fa-2x header-icons-leftsetting" data-toggle="modal" data-target="#myModal1"></i></li>
               <li class="dropdown">
                 <a (click)="ProductNav()" style="cursor: pointer"><i
                     class="fa fa-list header-icons-rightsetting"></i>Categories<b class="caret"></b></a>

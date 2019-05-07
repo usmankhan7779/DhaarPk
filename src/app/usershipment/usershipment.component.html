@@ -32,7 +32,7 @@
         <h3 class="panel-title" *ngIf="makeshippingaddress == true ">Make default shipping address</h3>
         <h3 class="panel-title" *ngIf="makebilladdress == true ">Make default Bill address</h3>
         <div class="shipping-anchor"  *ngIf="check">
-        <a  (click)="checked90()"   >Make default Shipping Address</a>
+        <a style="cursor:pointer"  (click)="checked90()"   >Make default Shipping Address</a>
         <a (click)="checked91()"   class="shpp">Make default Billing Address</a>
       </div>
       </div>
@@ -46,10 +46,10 @@
               <thead *ngFor="let GetUser of GetUSerAddress.Results;let i = index">
                 <tr *ngIf="i<1" >
                   <th *ngIf="makeshippingaddress == true ">
-                    Please Choose Option
+                     Option
                   </th>
                   <th *ngIf="makebilladdress == true ">
-                      Please Choose Option
+                      Option
                     </th>
                   <th>
                      Full Name
@@ -72,7 +72,7 @@
                   <th>
                       Status
                      </th>
-                     <th>
+                     <th class="Edit-form">
                         Edit
                        </th>
                 
@@ -142,7 +142,7 @@
                       GetUser.user_id_id);step1=false;"
                         class="action add-to-cart" data-toggle="modal" data-target="#myModal">
 
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit Edit-form"></i>
                       </a>
                       <!-- <a href="#"><i class="fas fa-trash-alt del-icon"></i></a> -->
                     </td>

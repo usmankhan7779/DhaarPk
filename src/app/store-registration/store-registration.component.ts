@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Rx';
 // import { UploadItemService } from '../file-uploads/upload-item-service';
 import {UploadItemService} from '../file-uploads/upload-item-service';
 import { Router } from '@angular/router';
-
+declare const $: any;
 @Component({
   selector: 'app-store-registration',
   templateUrl: './store-registration.component.html',
@@ -274,6 +274,15 @@ uploadItemsToActivity() {
   }
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     this.SessionstoreName= localStorage.getItem('StoreName');
       if (this.SessionstoreName === null) {
         this.seller = false;

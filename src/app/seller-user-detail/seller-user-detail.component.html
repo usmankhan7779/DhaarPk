@@ -61,14 +61,23 @@
                   <div class="row from-setting">
                       <div class="col-sm-6">
 
-                        <label for="FName" class="required">First Name<span class="span-mad">*</span></label>
-                        <input type="text"ng-Model="model.FName" #FName name="FName"
+                        <!-- <label for="FName" class="required">First Name<span class="span-mad">*</span></label> -->
+                        <!-- <input type="text"ng-Model="model.FName" #FName name="FName"
                                required class="input form-control"
                                placeholder="First Name"
                                id="FName"
-                               value="{{GetUSerdetails.Fname}}">
+                               value="{{GetUSerdetails.Fname}}"> -->
 
-
+                               <!-- <div class="mat-div">
+                                  <label for="first-name" class="mat-label">First Name</label>
+                                  <input type="text" class="mat-input"
+                                  ng-Model="model.FName" #FName name="FName" id="FName">
+                                </div> -->
+                                <div class="mat-div">
+                                    <label for="first-name" class="mat-label">Last name</label>
+                                    <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+                                   required>
+                                  </div>
 
                       </div>
                       <div class="col-sm-6">

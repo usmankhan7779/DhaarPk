@@ -31,8 +31,6 @@ const loginRoutes: Routes = [
     SlickModule,
     PreloaderFullModule,
 //  CountdownModule,
-
-
     ImageZoomModule,
     FormsModule,
     ReactiveFormsModule,

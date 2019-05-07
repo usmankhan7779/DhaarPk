@@ -6,7 +6,7 @@ import { LoginService } from '../log-in/log-in.services';
 import Swal from 'sweetalert2';
 import { UploadItemService } from '../file-uploads/upload-item-service';
 import { Observable } from 'rxjs';
-
+declare const $: any;
 @Component({
   selector: 'app-seller-user-detail',
   templateUrl: './seller-user-detail.component.html',
@@ -63,6 +63,15 @@ filetoup: FileList;
               private itemUploadService: UploadItemService) { }
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     if (isPlatformBrowser(this.platformId)) {
       this.SessionstoreName = localStorage.getItem('StoreName');
     //  this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];

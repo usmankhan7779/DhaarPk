@@ -46,3 +46,20 @@
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
  }
+ .mat-input{
+padding: 0px!important
+ }
+ 
+element.style {
+}
+.mat-input[_ngcontent-universal-demo-v5-c4] {
+    padding: 0px!important;
+}
+.from-setting input{
+    margin: 0
+}
+.from-setting label {
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: block;
+}

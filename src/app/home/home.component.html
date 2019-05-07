@@ -240,12 +240,12 @@
               </li>
               
             </ul> -->
-            <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
-              <div [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-            
+            <div class="ab" class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+              <div [ngClass]="{hide:pager.currentPage === pager.totalPages}" >
+            <div></div>
               <a (click)="GetProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
                   <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-                  <h6 >SHOW MORE</h6>
+                  <h6 class="show-more-text" >SHOW MORE</h6>
                 </a>
 
              
@@ -353,7 +353,7 @@
                 
                   <a (click)="GetBuyNowProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
                       <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-                      <h6 >SHOW MORE</h6>
+                      <h6 class="show-more-text" >SHOW MORE</h6>
                     </a>
     
                  
@@ -459,7 +459,7 @@
               
                 <a (click)="GetAuctionProductsfromAllCatPageNumber(pager.currentPage + 1)" type="Next">
                     <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-                    <h6 >SHOW MORE</h6>
+                    <h6 class="show-more-text" >SHOW MORE</h6>
                   </a>
   
                
@@ -565,7 +565,7 @@
               
                 <a (click)="GetAllFeaturedProductsPageNumber(pager.currentPage + 1)" type="Next">
                     <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-                    <h6 >SHOW MORE</h6>
+                    <h6 class="show-more-text" >SHOW MORE</h6>
                   </a>
   
                
@@ -1395,7 +1395,7 @@
               
                 <a (click)="Getjustlikeforyou(pager.currentPage + 1)" type="Next">
                     <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
-                    <h6 >SHOW MORE</h6>
+                    <h6  class="show-more-text">SHOW MORE</h6>
                   </a>
   
                
