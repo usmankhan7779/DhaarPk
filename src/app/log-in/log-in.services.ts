@@ -35,6 +35,11 @@ export class LoginService {
   EMailServerUrl = 'https://apis.dhaar.pk/rest-auth/';
 users;
 getusers;
+fb_id: any;
+fb_name: any;
+fb_email: any;
+fb_photo_Url: any;
+fb_token: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private _http: HttpService,
@@ -43,7 +48,15 @@ getusers;
 
   }
 
-
+  social_login() {
+    return this._http.post( 'https://apis.dhaar.pk/user/sociallogin/',{
+        id: this.fb_id,
+        name: this.fb_name,
+        email: this.fb_email,
+        photoUrl: this.fb_photo_Url,
+        authToken: this.fb_token
+    }).map((res: Response) => res.json());
+  }
   loged_in(mail: any, pass: any, CatName: any, ProID: any, checkout: any) {
 
     if (isPlatformBrowser(this.platformId)) {

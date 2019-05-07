@@ -405,6 +405,14 @@
           
           
                         </div>
+                        <div class="col-sm-4">
+                            <label class="required">getdefault_bill_address(*)</label>
+    
+                            <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.default_bill_address"
+                              #default_shipment_address name="default_shipment_address" value="{{getdefault_bill_address}}">
+            
+            
+                          </div>
                       
                         
 
@@ -434,7 +442,7 @@
           </p>
         </div> -->
         <input type="submit"
-          (click)="save2(id.value,fullname.value,address.value,province.value,city.value,area.value,default_shipment_address.value,phone_no.value)"
+          (click)="save2(id.value,fullname.value,address.value,province.value,default_bill_address.value,city.value,area.value,default_shipment_address.value,phone_no.value)"
           class="btn-black" value="Update">
       </div>
     </div>
