@@ -10,6 +10,7 @@ import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { GoogleLoginProvider,AuthService,SocialUser, FacebookLoginProvider } from 'angular4-social-login';
 import Swal from 'sweetalert2';
+import { JwtHelper } from 'angular2-jwt';
 declare const $: any;
 
        
@@ -30,6 +31,7 @@ export class LogInComponent implements OnInit {
   Waitcall = false;
   logout: string;
   fb_id: any;
+  jwtHelper: JwtHelper = new JwtHelper();
   fb_name: any;
   fb_email: any;
   fb_photo_Url: any;
@@ -117,42 +119,33 @@ export class LogInComponent implements OnInit {
     console.log('HAhahahahaahahahah')
   }
 
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
-    //   (userData) => {
-    //   this.user = userData;
-    //   console.log('User Data...', this.user);
-    // });
-      .then(this.socialCallBack).catch(user => console.log(user));
-  }
 
-
-  socialCallBack = (user) => {
-    this.user = user;
-    console.log(this.user);
-    const headers = { 'Content-Type': 'application/json' };
-    return  this.http.post('https://apis.dhaar.pk/user/sociallogin/', {
-      id: this.fb_id,
-      name: this.fb_name,
-      email: this.fb_email,
-      photoUrl: this.fb_photo_Url,
-      authToken: this.fb_token
-    }).map((res: Response) => res.json()).subscribe(data => {
-          // let user = {
-          //   user_id: this.jwtHelper.decodeToken(data['token']).user_id,
-          //   username: this.jwtHelper.decodeToken(data['token']).username,
-          //   token: data['token'] };
-          // if (user && user.token) {
-          //   localStorage.setItem('loged_in', '1');
-          //   localStorage.setItem('currentUser', JSON.stringify(user));
-          //   localStorage.setItem('profilePhoto' , this.pic);
-            this._nav.navigate(['/dashboard']);
-          //   this.showSuccess();
-          // }
-      console.log(data);
-        }
-      );
-  }
+  // socialCallBack = (user) => {
+  //   this.user = user;
+  //   console.log(this.user);
+  //   const headers = { 'Content-Type': 'application/json' };
+  //   return  this.http.post('https://apis.dhaar.pk/user/sociallogin/', {
+  //     id: this.fb_id,
+  //     name: this.fb_name,
+  //     email: this.fb_email,
+  //     photoUrl: this.fb_photo_Url,
+  //     authToken: this.fb_token
+  //   }).map((res: Response) => res.json()).subscribe(data => {
+  //         // let user = {
+  //         //   user_id: this.jwtHelper.decodeToken(data['token']).user_id,
+  //         //   username: this.jwtHelper.decodeToken(data['token']).username,
+  //         //   token: data['token'] };
+  //         // if (user && user.token) {
+  //         //   localStorage.setItem('loged_in', '1');
+  //         //   localStorage.setItem('currentUser', JSON.stringify(user));
+  //         //   localStorage.setItem('profilePhoto' , this.pic);
+  //           this._nav.navigate(['/dashboard']);
+  //         //   this.showSuccess();
+  //         // }
+  //     console.log(data);
+  //       }
+  //     );
+  // }
 
   signOut(): void {
     this.authService.signOut();
@@ -255,5 +248,83 @@ export class LogInComponent implements OnInit {
 //         });
 //     });
 //   }
+
+signInWithFB(): void {
+  this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
+  //   (userData) => {
+  //   this.user = userData;
+  //   console.log('User Data...', this.user);
+  // });
+    .then(this.socialCallBack).catch(user => console.log(user));
+}
+
+///////////////////////////////////////////////////////////////////////
+socialCallBack = (user) => {
+  this.user = user;
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  if (user) {
+      const createUser = this.http.post('https://apis.dhaar.pk/user/sociallogin/', {
+          user
+      }, { headers: headers })
+      createUser.subscribe(data => {
+          let user = { userid: this.jwtHelper.decodeToken(data.json().token).user_id,
+               username: this.jwtHelper.decodeToken(data.json().token).username,
+                token: data.json().token };
+          if (user && user.token) {
+              localStorage.setItem('loged_in', '1');
+              localStorage.setItem('currentUser', JSON.stringify(user));
+          }
+          Swal.fire({
+              type: 'success',
+              title: 'Successfully Logged in',
+              showConfirmButton: false,
+              timer: 1500, width: '512px',
+          });
+          // this._location.back();
+          // if (localStorage.getItem('member')) {
+          //     let url = localStorage.getItem('member')
+          //     let last = url.length
+          //     let ur = url.slice(0, 13)
+          //     let state = url.slice(0, 5)
+          //     let category = url.slice(0, 8)
+          //     let agency = url.slice(0, 6)
+
+
+          //     if (ur == 'searched-data') { this._nav.navigate([ur], { queryParams: { keyword: url.slice(13, last) } }); }
+          //     else if (state == 'state') {
+          //         this._nav.navigate([state], { queryParams: { state: url.slice(5, last) } });
+          //     }
+          //     else if (category == 'category') {
+          //         this._nav.navigate([category], { queryParams: { cat: url.slice(8, last) } });
+          //     }
+          //     else if (agency == 'agency') {
+
+          //         this._nav.navigate([agency], { queryParams: { agency: url.slice(6, last) } });
+          //     }
+          //     else if (url == 'advanced-search') {
+          //         this._nav.navigate([url]);
+          //     }
+          //     else if (url == 'latest-rfp') {
+          //         this._nav.navigate([url]);
+          //     }
+          //     else {
+          //         var val = 'rfp/' + url
+          //         this._nav.navigate([val]);
+          //     }
+          // } else {
+          //     this._nav.navigate(['/']);
+          // }
+
+      },
+          error => {
+            Swal.fire(
+                  'Invalid',
+                  'Something went wrong',
+                  'error'
+              )
+          })
+  }
+}
 
 }
