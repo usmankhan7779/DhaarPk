@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, PLATFORM_ID, ViewChild } from '@angular/core
 import { isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from './log-in.services';
-import {FormControl, NgModel, Validators} from '@angular/forms';
+import {FormControl, NgModel, Validators, FormGroup} from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import {HttpService} from '../services/http-service';
 import { Headers} from "@angular/http";
@@ -107,7 +107,7 @@ export class LogInComponent implements OnInit {
       }
     }
   }
-
+  
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     console.log('HAhahahahaahahahah')
@@ -124,7 +124,15 @@ export class LogInComponent implements OnInit {
   //   console.log(`Resolved captcha with response ${captchaResponse}:`);
   //   this.captcha= true;
   // }
-
+  // isFieldValid(form: FormGroup, field: string) {
+  //   return !form.get(field).valid && form.get(field).touched;
+  // }
+  // displayFieldCss(form: FormGroup, field: string) {
+  //   return {
+  //     'has-error': this.isFieldValid(form, field),
+  //     'has-feedback': this.isFieldValid(form, field)
+  //   };
+  // }
   loged_in(username: any, password: any) {
     if (this.recha.check()) {
     this.obj.loged_in(username, password, this.CatName, this.ProID, this.checkout).subscribe((response) => {

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {HeaderModule} from "../header/header.module";
 import {RecaptchaModule} from 'ng-recaptcha';
 import { RecapchaModule } from '../recapcha/recapcha.module';
+import { MaterialModule } from '../app.module';
 const loginRoutes: Routes = [
   { path: '', component: LogInComponent }
 ];
@@ -21,6 +22,7 @@ const loginRoutes: Routes = [
     HeaderModule,
     ReactiveFormsModule,
     RecapchaModule,
+    MaterialModule,
     RecaptchaModule.forRoot(),     
     // HeaderModule,
     RouterModule.forChild(loginRoutes)
