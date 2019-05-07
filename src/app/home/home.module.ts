@@ -30,7 +30,7 @@ const loginRoutes: Routes = [
     NewModule,
     SlickModule,
     PreloaderFullModule,
- CountdownModule,
+//  CountdownModule,
     ImageZoomModule,
     FormsModule,
     ReactiveFormsModule,

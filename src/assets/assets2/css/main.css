@@ -172,6 +172,9 @@ img {
     border: 1px solid #ccc;
     border-radius: 5px
 }
+.Edit-form{
+    cursor: pointer
+}
 
 .user-information th {
     padding: 8px!important;
@@ -630,7 +633,8 @@ h6 {
 }
 
 .navbar-nav>li {
-    padding: 0
+    padding:0;
+    padding-left: 10px;
 }
 
 .navbar-nav>li>a {
@@ -650,14 +654,19 @@ h6 {
 
 .navbar-nav>li.active>a,
 .navbar-nav>li:hover>a {
-    color: #c00!important;
-    background: #fff!important
+    color: #c00;
+    background: #fff
 }
 
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:focus,
 .navbar-default .navbar-nav>.open>a:hover {
     background-color: #fff
+}
+.search-li{
+    margin-top: 10px;
+    color: #777;
+    cursor: pointer
 }
 
 .dropdown-menu {
@@ -1275,8 +1284,10 @@ a.wit-btn {
     border-radius: 30px;
     font-size: 12px;
     transition: .4s;
-    color: #fff
+    color: #fff;
+    box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)!important;
 }
+
 
 .categoryList li a i {
     font-size: 12px;
@@ -2543,14 +2554,15 @@ a.wit-btn {
 .usernavdash li a {
     border: 1px solid #eee;
     border-bottom: none;
-    padding: 10px 18px;
+    padding: 5px 10px;
     border-radius: 5px;
     text-transform: capitalize;
     color: #444;
     display: block;
     font-size: 15px;
     background: #fff;
-    cursor: pointer
+    cursor: pointer;
+    font-weight: 600
 }
 
 .usernavdash li:last-child a {
@@ -2558,8 +2570,8 @@ a.wit-btn {
 }
 
 .usernavdash li a:hover {
-    background: #333;
-    color: #fff;
+    background:	#A9A9A9;
+    color:#000000;
     text-decoration: none
 }
 
@@ -2571,8 +2583,8 @@ a.wit-btn {
 }
 
 .usernavdash li a.active {
-    background: #333;
-    color: #fff
+    background:	#A9A9A9;
+    color: #000000
 }
 
 .profilestat li .inbox {
@@ -4427,7 +4439,7 @@ input.upload-input {
     top: -42px;
     font-size: 55px;
     color: #000;
-    left: 114px;
+    left: 100px;
     cursor: pointer;
     display: none
 }
@@ -4804,9 +4816,9 @@ select {
     .listpgWraper {
         padding: 50px 15px
     }
-    .inner-page{
-        /* padding: 14px 15px; */
-    }
+     /* .inner-page{
+         padding: 14px 15px; 
+    }  */
     .searchList li .listbtn {
         margin-top: 20px
     }
@@ -4826,7 +4838,7 @@ select {
         padding: 0
     }
     .navbar-nav>li>a {
-        padding: 10px 15px
+        /* padding: 10px 15px */
     }
     .searchbar div {
         padding: 0 15px

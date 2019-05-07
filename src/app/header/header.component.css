@@ -3,3 +3,13 @@
     background-color: #c00!important;
     color:#ffffff!important
 }
+.prominated{
+    background: #cd0000!important;
+    color: #fff!important;
+    border-radius: 25px;
+    padding: 15px 10px
+   
+}
+.prominated:hover{
+    background-color: #cd0000!important
+}
