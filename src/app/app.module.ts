@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DatePipe } from '@angular/common';
 import { Routing, AppRoutingProvider } from './app.routing';
-import { SocialLoginModule } from 'angular4-social-login';
-import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { SocialLoginModule } from 'angular5-social-login';
+import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ImageViewerModule } from 'ngx-image-viewer';
 const config = new AuthServiceConfig([
