@@ -8,7 +8,7 @@ import {HttpService} from '../services/http-service';
 import {Headers, Response} from '@angular/http';
 import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
-import { GoogleLoginProvider,AuthService,SocialUser, FacebookLoginProvider } from 'angular4-social-login';
+import { GoogleLoginProvider,AuthService,SocialUser, FacebookLoginProvider } from 'angular5-social-login';
 import Swal from 'sweetalert2';
 import { JwtHelper } from "angular2-jwt";
 declare const $: any;
@@ -70,15 +70,16 @@ export class LogInComponent implements OnInit {
     })
     if (isPlatformBrowser(this.platformId)) {
 
-      //   if(localStorage.getItem('UserID'))
-      //   {
-      //     this._nav.navigate(['/']);
-      //
-      // } else {
-      // this.authService.authState.subscribe((user) => {
-      //   this.user = user;
-      //   console.log('Name of user', this.user);
-      // });
+        if(localStorage.getItem('UserID'))
+        {
+          this._nav.navigate(['/dashboard']);
+      
+      } else {
+      this.authService.authState.subscribe((user) => {
+        this.user = user;
+        console.log('Name of user', this.user);
+      });
+    }
       this.sub = this.route
         .queryParams
         .subscribe(params => {
@@ -255,15 +256,20 @@ signInWithFB(): void {
   //   this.user = userData;
   //   console.log('User Data...', this.user);
   // });
-    .then(this.socialCallBack).catch(user => console.log(user));
+    .then(this.socialCallBack)
+    // .catch(user => console.log(user));
+    alert("usamnkhan")
 }
 
 ///////////////////////////////////////////////////////////////////////
 socialCallBack = (user) => {
+
+  alert('social')
   this.user = user;
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
   if (user) {
+    
       const createUser = this.http.post('https://apis.dhaar.pk/user/sociallogin/', {
           user
       }, { headers: headers })

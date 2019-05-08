@@ -134,28 +134,28 @@ fb_token: any;
 
     }
   }
-  loged_No_redirect(mail: any, pass: any) {
-    if (isPlatformBrowser(this.platformId)) {
+  // loged_No_redirect(mail: any, pass: any) {
+  //   if (isPlatformBrowser(this.platformId)) {
 
-      return this._http.post(this.ServerUrl + 'user-token-auth/', { 'username': mail, 'password': pass })
-        .map((res: Response) => {
-          if (res) {
-            if (res.status === 200) {
-              localStorage.setItem('Authorization', res.json().token);
-              localStorage.setItem('UserName', mail);
-              // this.decoded = this.jwtHelper.decodeToken(res.json().token)['user_id'];
-              localStorage.setItem('UserID', this.decoded);
+  //     return this._http.post(this.ServerUrl + 'user-token-auth/', { 'username': mail, 'password': pass })
+  //       .map((res: Response) => {
+  //         if (res) {
+  //           if (res.status === 200) {
+  //             localStorage.setItem('Authorization', res.json().token);
+  //             localStorage.setItem('UserName', mail);
+  //             // this.decoded = this.jwtHelper.decodeToken(res.json().token)['user_id'];
+  //             localStorage.setItem('UserID', this.decoded);
 
-            }
-          }
-        }).catch((error: any) => {
+  //           }
+  //         }
+  //       }).catch((error: any) => {
 
-          return Observable.throw(new Error(error.status));
-        });
+  //         return Observable.throw(new Error(error.status));
+  //       });
 
-    }
+  //   }
 
-  }
+  // }
 
   GetUSerdetailsByUserId() {
     const headers = new Headers();

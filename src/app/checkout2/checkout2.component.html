@@ -175,12 +175,12 @@
 
       <div class="col-main col-xs-12">
         <div class="page-content checkout-page">
-          <div class="page-title">
+          <!-- <div class="page-title">
             <h2>Checkout</h2>
-          </div>
+          </div> -->
 
-          <h4 class="checkout-sep">Order Review</h4>
-          <div class="box-border">
+          <!-- <h4 class="checkout-sep">Order Review</h4> -->
+          <!-- <div class="box-border">
             <div class="table-responsive">
               <table class="table table-bordered cart_summary">
                 <thead>
@@ -196,7 +196,7 @@
                 </thead>
                 <tbody>
 
-                  <!-- <ng-container *ngIf="Total > 0"> -->
+                  
                   <ng-container *ngFor="let abc of CartedProduct.Results; let i=index">
                     <tr>
                       <td class="cart_product">
@@ -205,8 +205,7 @@
                       </td>
                       <td class="cart_description">
                         <p class="product-name"><a href="#">{{ abc.product.P_Title }} </a></p>
-                        <!--<small><a href="#">Color : Beige</a></small><br>-->
-                        <!--<small><a href="#">Size : S</a></small>-->
+                       
                       </td>
                       <td class="cart_avail"><span class="label label-success">In stock</span></td>
                       <td class="price"><span>Rs: {{ abc.product.FixedPrice | number:'.0-0' }}</span></td>
@@ -226,7 +225,7 @@
                     </tr>
 
                   </ng-container>
-                  <!-- </ng-container> -->
+                   
 
                 </tbody>
                 <tfoot>
@@ -237,7 +236,7 @@
 
                       <input [(ngModel)]="mymodel.coupon" #coupon="ngModel" type="text" class="button col-lg-6"
                         style="font-size: 20px" name="" id="first_name">
-                        <!-- <span class="col-lg-push-3">-</span> -->
+                       
                       <button type="submit" (click)="Applycoupon(coupon.value)" class="button col-lg-push-6"><span>Apply
                           Coupon</span></button>
                       <br />
@@ -262,18 +261,18 @@
               <button (click)="ContinuetoCHeckout()" class="button pull-right"><span>Continue to Checkout </span>
               </button>
             </ng-container>
-          </div>
+          </div> -->
+          <!-- <br />
           <br />
           <br />
-          <br />
-          <br />
-          <ng-container *ngIf="CheckoutMethod === true">
+          <br /> -->
+          <!-- <ng-container *ngIf="CheckoutMethod === true">
             <h4 class="checkout-sep">Checkout Method</h4>
             <div *ngIf="LoggedIn === false" class="box-border">
               <div class="row">
                 <div class="col-sm-6">
                   <h5>Checkout as a Guest</h5>
-                  <!--<p>Register with us for future convenience:</p>-->
+                   
                   <ul>
                     <li><label><input type="radio" #Guest name="radio1">Checkout as Guest</label></li>
                     <li><label><input type="radio" #Register name="radio1">Sign up</label></li>
@@ -302,18 +301,18 @@
               </div>
             </div>
 
-          </ng-container>
-          <div *ngIf="LoggedIn === true" class="box-border">
+          </ng-container> -->
+          <!-- <div *ngIf="LoggedIn === true" class="box-border">
             <div class="row">
               <h4 class="col-lg-4">Logged in as <a style="color: red">{{ LoginName }}</a></h4>
             </div>
-          </div>
+          </div> -->
+          <!-- <br />
           <br />
           <br />
-          <br />
-          <br />
+          <br /> -->
 
-          <ng-container *ngIf="GuestButton == true">
+          <!-- <ng-container *ngIf="GuestButton == true">
             <h4 class="checkout-sep">Shipping Infomations</h4>
             <form role="form" class="login-form" (ngSubmit)="f.form.valid && GuestCheck()" #f="ngForm" novalidate>
               <div class="formpanel">
@@ -326,15 +325,13 @@
                         <div *ngIf="f.submitted && !fname.valid" class="help-block">First Name is required</div>
                       </div>
 
-                    </div><!-- End .form-group -->
-
-                    <!--<div class="formrow">-->
+                    </div> 
                     <div class="col-sm-6">
                       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lname.valid }">
                         <input type="text" class="form-control" placeholder="Last Name" name="lname"
                           [(ngModel)]="model.lname" #lname="ngModel" required>
                         <div *ngIf="f.submitted && !lname.valid" class="help-block">Last Name is required</div>
-                        <!--</div>-->
+                      
                       </div>
                     </div>
 
@@ -348,28 +345,26 @@
                         <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
                       </div>
 
-                    </div><!-- End .form-group -->
-
-                    <!--<div class="formrow">-->
+                    </div> 
                     <div class="col-sm-6">
                       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
                         <input type="text" class="form-control" placeholder="Mobile" name="mobile"
                           [(ngModel)]="model.mobile" #mobile="ngModel" required>
                         <div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile is required</div>
-                        <!--</div>-->
+                        
                       </div>
                     </div>
 
 
                   </li>
                   <li class="formrow">
-                    <!--<div class="col-sm-6">-->
+                    
                     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
                       <input type="text" class="form-control" placeholder="Shipping Address" name="address"
                         [(ngModel)]="model.address" #address="ngModel" required>
                       <div *ngIf="f.submitted && !address.valid" class="help-block">Shipping Address is required</div>
                     </div>
-                    <!--</div>-->
+                     
                   </li>
 
                   <li class="row">
@@ -380,15 +375,13 @@
                         <div *ngIf="f.submitted && !country.valid" class="help-block">Country is required</div>
                       </div>
 
-                    </div><!-- End .form-group -->
-
-                    <!--<div class="formrow">-->
+                    </div> 
                     <div class="col-sm-6">
                       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !state.valid }">
                         <input type="text" class="form-control" placeholder="State" name="state"
                           [(ngModel)]="model.state" #state="ngModel" required>
                         <div *ngIf="f.submitted && !state.valid" class="help-block">State is required</div>
-                        <!--</div>-->
+                        
                       </div>
                     </div>
 
@@ -402,15 +395,13 @@
                         <div *ngIf="f.submitted && !city.valid" class="help-block">City is required</div>
                       </div>
 
-                    </div><!-- End .form-group -->
-
-                    <!--<div class="formrow">-->
+                    </div> 
                     <div class="col-sm-6">
                       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !zip.valid }">
                         <input type="text" class="form-control" placeholder="Zip" name="zip" [(ngModel)]="model.zip"
                           #zip="ngModel" required>
                         <div *ngIf="f.submitted && !zip.valid" class="help-block">Zip is required</div>
-                        <!--</div>-->
+                       
                       </div>
                     </div>
 
@@ -421,14 +412,14 @@
                 </ul>
               </div>
             </form>
-          </ng-container>
+          </ng-container> -->
 
 
-          <ng-container *ngIf="GuestBillingMethod === true">
+          <!-- <ng-container *ngIf="GuestBillingMethod === true">
             <br>
             <br>
-            <h4 class="checkout-sep">Shipping Information</h4>
-            <div
+            <h4 class="checkout-sep">Shipping Information</h4> -->
+            <!-- <div
               class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad">
 
 
@@ -477,9 +468,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <form (ngSubmit)="f.form.valid  && GuestShippingDetails()" #f="ngForm" novalidate>
+            <!-- <form (ngSubmit)="f.form.valid  && GuestShippingDetails()" #f="ngForm" novalidate>
 
               
 
@@ -511,7 +502,7 @@
 
                               </div>
                             </div>
-                            <!--/ [col] -->
+                           
                             <div class="col-sm-12">
                               <div class="col-sm-6">
                                 <br />
@@ -525,7 +516,7 @@
                               </div>
 
                             </div>
-                            <!--/ [col] -->
+                            
 
 
                             <div class="col-sm-12">
@@ -561,7 +552,7 @@
                                 </div>
                               </div>
                             </div>
-                            <!--/ [col] -->
+                            
                           </ng-container>
 
                         </li>
@@ -586,36 +577,34 @@
                       </button>
                     </div>
                   </li>
-                  <!--/ .row -->
+                  
 
                 </ul>
 
-                <!--<ng-container *ngIf="BillingMethodButton === true;">-->
-                <!--<button (click)="BillingInfo()" class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>-->
-                <!--</ng-container>-->
+                
               </div>
-            </form>
-          </ng-container>
+            </form> -->
+          <!-- </ng-container> -->
 
           <!-- yaha pe payment start ho ti -->
           <ng-container *ngIf="BillingMethod === true">
-            <h4 class="checkout-sep">Shippingssss Information</h4>
-            <div
-              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad">
+            <!-- <h4 class="checkout-sep">Shippingssss Information</h4> -->
+            <!-- <div
+              class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1 toppad"> -->
 
 
-              <div class="panel panel-info">
+              <!-- <div class="panel panel-info"> -->
 
-                <div class="panel-heading">
+                <!-- <div class="panel-heading">
                   <h3 class="panel-title">My details</h3>
-                </div>
-                <div class="panel-body">
-                  <div class="row" *ngIf="total_GetUSeradress != 0">
+                </div> -->
+                <!-- <div class="panel-body"> -->
+                  <!-- <div class="row" *ngIf="total_GetUSeradress != 0">
                     <div *ngFor="let GetUser of GetUSeradress.Results">
-                      <!-- <ng-container *ngIf="GetUSerDOne !== null"> -->
+                      
 
                       <div class=" col-md-8 col-lg-8 ">
-                        <!-- <div *ngIf="GetUSer['default_shipment_address'] == 'true'"> -->
+                        
 
                         <table class="table table-user-information">
                           <tbody *ngIf="GetUser.default_shipment_address == true">
@@ -635,7 +624,7 @@
                             <tr>
                             <tr>
                               <td>City:</td>
-                              <!-- +' ' +GetUser['Zip']/ -->
+                              
                               <td>{{ GetUser.city }}</td>
                             </tr>
 
@@ -664,16 +653,16 @@
 
                           </tbody>
                         </table>
-                        <!-- </div> -->
+                         
 
                       </div>
 
-                      <!-- </ng-container> -->
+                      
 
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row" *ngIf="total_GetUSeradress == 0">
+                  <!-- <div class="row" *ngIf="total_GetUSeradress == 0">
                     <div class="col-md-9 col-sm-8">
                       <form name="form1" role="form" class="login-form">
 
@@ -705,7 +694,7 @@
 
                                     <label for="telephone" class="required">Contact Number(*)</label>
 
-                                    <!-- [textMask]="{mask: mask}" -->
+                                     
                                     <input class="input form-control" placeholder="your contact number" type="text"
                                       required ng-Model="model.Mobile" #Mobile name="Mobile" id="telephone">
                                   </div>
@@ -769,18 +758,18 @@
                                 </li>
                                 <li class="row">
                                   <div class="col-xs-12">
-                                    <!-- FName,province,City,Area,Mobile,Address,Shipmentaddress -->
+                                    
                                     <label for="Shipmentaddress" class="required">Shipping(*)</label>
 
                                     <input type="checkbox" class="input form-control" required
                                       ng-Model="model.Shipmentaddress" #Shipmentaddress name="Shipmentaddress"
                                       id="Shipmentaddress" (change)="checked3($event,i)">
                                   </div>
-                                  <!--/ [col] -->
+                                  
                                 </li>
                                 <li class="row">
                                   <div class="col-xs-12">
-                                    <!-- FName,province,City,Area,Mobile,Address,Shipmentaddress -->
+                                    
                                     <label for="Shipmentbilladdress" class="required">Shipping Billing
                                       address(*)</label>
 
@@ -788,7 +777,7 @@
                                       ng-Model="model.Shipmentbilladdress" #Shipmentbilladdress
                                       name="Shipmentbilladdress" id="Shipmentbilladdress" (change)="checked4($event,i)">
                                   </div>
-                                  <!--/ [col] -->
+                                 
                                 </li>
 
 
@@ -800,22 +789,7 @@
 
 
                               <div class="nav nav-tabs">
-                                <!-- <div *ngIf="Error" class="alert alert-danger">
-                                  <strong>Error </strong> While updating record.
-                                </div>
-
-                                <div *ngIf="Right" class="alert alert-success">
-                                  <strong> Updated!
-                                     <a style="color: red !important;" [routerLink]="['/buyer-dashboard']">Go
-                                      to Dashboard Section</a></strong>
-                                </div>
-                                <div *ngIf="Waitcall" class="alert  alert-info">
-                                  <p class="">
-                                    <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
-                                    </span><span> &nbsp; Loading ...</span>
-
-                                  </p>
-                                </div> -->
+                                 
                                 <input type="submit"
                                   (click)="save(FName.value,province.value,City.value,Area.value,Mobile.value,Address.value,Shipmentaddress.value,Shipmentbilladdress.value)"
                                   class="btn" value="Update">
@@ -830,17 +804,17 @@
 
                       </form>
                     </div>
-                  </div>
-                </div>
+                  </div> -->
+                <!-- </div> -->
 
 
-              </div>
+              <!-- </div> -->
 
 
-            </div>
+            <!-- </div> -->
 
             <form (ngSubmit)="f.form.valid  " #f="ngForm" novalidate>
-              <!-- && EditProduct() -->
+               
               <h4 class="checkout-sep">Paymentsss Method</h4>
               <div class="box-border">
                 <ul>

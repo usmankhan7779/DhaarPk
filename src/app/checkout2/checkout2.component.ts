@@ -149,7 +149,8 @@ export class Checkout2Component implements OnInit {
           this.list.push({
             "ProductID":checkout.product.ProductID,
             "Qty":checkout.Quantity,
-            "sellerid":checkout.product.User_ID
+            "sellerid":checkout.product.User_ID,
+            "proprice":this.Total
           })
           console.log(this.list,'fatimaaaaaaaaaa')
         //  this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)

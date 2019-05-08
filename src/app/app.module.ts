@@ -9,8 +9,8 @@ import { HttpModule } from '@angular/http';
 import { DatePipe } from '@angular/common';
 // import { JwtHelper } from 'angular2-jwt';
 import { Routing, AppRoutingProvider } from './app.routing';
-import { SocialLoginModule } from 'angular4-social-login';
-import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { SocialLoginModule } from 'angular5-social-login';
+import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ImageViewerModule } from 'ngx-image-viewer';
 const config = new AuthServiceConfig([

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../log-in/log-in.services';
+import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms'
  
 import Swal from 'sweetalert2';
 import { UploadItemService } from '../file-uploads/upload-item-service';
@@ -14,7 +15,7 @@ declare const $: any;
 })
 export class SellerUserDetailComponent implements OnInit {
   model: any = {};
- 
+  signupForm: FormGroup;
   public mask = [  /\d/, /\d/, /\d/, /\d/, '-' , /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
   step1 = true;
   step2 = false;
@@ -58,6 +59,7 @@ filetoup: FileList;
   picname:any;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private obj: LoginService,
+              private fb: FormBuilder,
               private _nav: Router,
               private Profile: LoginService,
               private itemUploadService: UploadItemService) { }
@@ -71,6 +73,36 @@ filetoup: FileList;
       if($(this).val() === "")
         $(this).parent().removeClass("is-completed");
       $(this).parent().removeClass("is-active");
+    })
+    this.signupForm = this.fb.group({
+
+      'FName': ['', Validators.compose([Validators.required])],
+      'Lname': ['', Validators.compose([Validators.required])],
+      'City': ['', Validators.compose([Validators.required])],
+      'Zip': ['', Validators.compose([Validators.required])],
+      'personal': ['', Validators.compose([Validators.required])],
+      'address': ['', Validators.compose([Validators.required])],
+      'Country': ['', Validators.compose([Validators.required])],
+      'State': ['', Validators.compose([Validators.required])],
+
+      
+      
+      
+      // 'service_zip': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
+
+      // 'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+      // 'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
+
+      // 'phoneno': ['', Validators.compose([Validators.required])],
+      // // 'dob': ['', Validators.compose([Validators.required])],
+      // 'service_state': ['', Validators.compose([Validators.required])],
+      // 'service_address': ['', Validators.compose([Validators.required])],
+      // 'service_city': ['', Validators.compose([Validators.required])],
+
+      // 'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      // 'confirmpassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+
+
     })
     if (isPlatformBrowser(this.platformId)) {
       this.SessionstoreName = localStorage.getItem('StoreName');
@@ -92,6 +124,17 @@ filetoup: FileList;
 
   }
 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      // console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
   OnEmailChangeEvent() {
     this.EmailExist = false;
     this.Emailok = false;
