@@ -53,12 +53,14 @@
                             <a href="#" class="heart-icon">
                               <i class="far fa-heart"></i>
                             </a>
-                            <a class="del-icon" (click)="TrashcartElement(abc.product.id)"><i class="fa fa-trash-o"></i></a>
+                            <a class="del-icon" (click)="TrashcartElement(abc.product.id)">
+                              <i class="fa fa-trash-o"></i></a>
                           </div>
                         </div>
                       </div>
                       <div class="cart-item-middle col-sm-2">
                         <p class="current-price">Rs. {{ abc.product.FixedPrice | number:'.0-0' }}</p>
+                        {{ abc.product.FixedPrice * abc.Quantity | number:'.0-0' }}
                       </div>
                       <div class="cart-item-right col-sm-4">
                         
@@ -74,7 +76,8 @@
                                     onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;"
                                     class="dec qtybutton"><i class="fa fa-minus" (click)="onChange($event, abc.product.ProductID,abc.Quantity)" ></i></div> -->
                                   <input type="number" ng-Model="1" [(ngModel)]="abc.Quantity" #qty class="qty"
-                                    style="font-size: 15px !important;" id="qty" (change)="onChange($event, abc.product.ProductID,qty.value)"  name="qty">
+                                    style="font-size: 15px !important;" id="qty" (change)="onChange($event, abc.product.ProductID,qty.value)"
+                                       name="qty" (click)="SaveProduct2(abc.product.ProductID,qty.value,abc.id)">
                                     <!-- <input type="text" class="qty" maxlength="3" minlength="1"
                             (change)="onChange($event, abc.product.ProductID,qty.value)" name="qty" #qty id="qty"
                             [(ngModel)]="abc.Quantity"> -->
@@ -113,29 +116,38 @@
       <div class="col-md-4 bg-light-grey">
         <ng-container *ngIf="BillingMethod === true">
           <div *ngIf="total_GetUSeradress != 0">
-            <div *ngFor="let GetUser of GetUSeradress.Results">
+            <div *ngFor="let GetUser of GetUSeradress.Results;let i = index">
+              <div *ngIf="GetUser.default_shipment_address">
               <p class="address-heading">Shipping and Billing</p>
               <div class="address-title-container">
                 <span class="address-title">Ship to</span>
                 <a (click)="SaveProduct(GetUser.id,GetUser.fullname,GetUser.phone_no,GetUser.area, GetUser.city,GetUser.province,GetUser.address,GetUser.default_shipment_address )"
                   data-toggle="modal" data-target="#myModal" class="address-edit">Edit</a>
               </div>
-              <div class="address-title-container">
+              <div class="address-title-container"  >
+                  <!-- default_shipment_address -->
                 <div class="address-name">{{GetUser.fullname }}</div>
                 <div class="address-info-item">{{GetUser.area}}, {{GetUser.address }}</div>
                 <div class="address-info-item">{{ GetUser.city }}, {{ GetUser.province }}</div>
                 <div class="address-info-item">{{GetUser.phone_no}}</div>
               </div>
+              </div>
+            </div>
+            <div *ngFor="let GetUser of GetUSeradress.Results;">
+                <div *ngIf="GetUser.default_bill_address">
               <div class="address-title-container">
                 <span class="address-title">Bill to the same address</span>
                 <a (click)="SaveProduct(GetUser.id,GetUser.fullname,GetUser.phone_no,GetUser.area, GetUser.city,GetUser.province,GetUser.address,GetUser.default_shipment_address )"
                   data-toggle="modal" data-target="#myModal" class="address-edit">Edit</a>
               </div>
-              <!-- <div class="address-title-container">
-                <span class="address-title">Email: anastahir411@gmail.com</span>
-                <a (click)="SaveProduct(GetUser.id,GetUser.fullname,GetUser.phone_no,GetUser.area, GetUser.city,GetUser.province,GetUser.address,GetUser.default_shipment_address )"
-                  data-toggle="modal" data-target="#myModal" class="address-edit">Edit</a>
-              </div> -->
+              <div class="address-title-container"  >
+                  <!-- default_shipment_address -->
+                <div class="address-name">{{GetUser.fullname }}</div>
+                <div class="address-info-item">{{GetUser.area}}, {{GetUser.address }}</div>
+                <div class="address-info-item">{{ GetUser.city }}, {{ GetUser.province }}</div>
+                <div class="address-info-item">{{GetUser.phone_no}}</div>
+              </div>
+            </div>
             </div>
           </div>
         </ng-container>
@@ -989,7 +1001,7 @@
         <h4 class="edit-modal-title" id="myModalLabel">Edit Product</h4>
       </div>
       <div class="modal-body">
-        <!-- <ng-container *ngIf="GetUSerdetails"> -->
+        
         <div id="step1">
           <ul>
             <li class="row">
@@ -1007,16 +1019,7 @@
             <!--/ .row -->
             <br>
             <li class="row">
-              <!-- <div class="col-sm-6">
-
-                      <label   class="required">Select Your Country(*) </label>
-                      <select  class="form-control"  ng-Model="model.Country" #Country name="Country" style="color: black; line-height: 20px; border: 2px #f1f1f1 solid !important;" >
-                        <option value="Pakistan" selected>Pakistan</option>
-
-                      </select>
-
-                    </div>
--->
+            
               <div class="col-sm-6">
                 <label for="State" class="required">Province(*)</label>
                 <input type="text" ng-Model="model.province" #province name="province" required class="input form-control" placeholder="Province" id="State" value="{{Provinces}}">
@@ -1109,145 +1112,118 @@
             <input type="submit" (click)="save(FName.value,province.value,City.value,Area.value,Mobile.value,Address.value,Shipmentaddress.value,Shipmentbilladdress.value)" class="btn-order" value="Update">
           </div>
         </div>
-        <!-- </ng-container> -->
-        <!-- <div class="formrow">
-        <label>Category:</label>
-        <select [(ngModel)]="model.Cat_Name" name="cat" (click)="MainCatSel(model.Cat_Name)" required>
-          <ng-container *ngFor="let cat of GetallCat">
-          <option value="{{cat.Cat_Name}}">{{cat.Cat_Name}}</option>
-          </ng-container>
-        </select>
-            </div> -->
-        <!-- <div class="formrow">
-        <label>Sub-Category:</label>
-        <select [(ngModel)]="model.Sub_Cat_Name" name="Subcat" (click)="SubCatSel(model.Sub_Cat_Name)" required>
-          <ng-container *ngFor="let cat of GetAllSubCat">
-          <option value="{{cat.Sub_Cat_Name}}">{{cat.Sub_Cat_Name}}</option>
-          </ng-container>
-        </select>
-            <div class="formrow">
-          </div>
-        <label>Sub-Sub-Category:</label>
-        <select [(ngModel)]="model.Sub_Sub_Cat_Name" name="SubSubcat" required>
-          <ng-container *ngFor="let cat of GetAllSubSubCat">
-          <option value="{{cat.Sub_Sub_Cat_Name}}">{{cat.Sub_Sub_Cat_Name}}</option>
-          </ng-container>
-        </select>
-          </div> -->
-        <!-- <div class="formrow">
-        <label>Title:</label>
-        <input type="text" class="form-control" name="Title" [(ngModel)]="model.P_Title" required>
-          </div> -->
-        <!-- <div class="formrow">
-        <label>Product Condition:</label>
-        <input type="text" class="form-control" name="Condition" [(ngModel)]="model.P_Condition" required>
-          </div> -->
-        <!-- <div class="formrow">
-        <label>Product Description:</label>
-        <textarea type="text" class="form-control" name="Description" [(ngModel)]="model.P_Des" ></textarea>
-          </div> -->
-        <!-- <ng-container *ngIf="model.Auction">
-        <div class="col-md-12">
-          <div class="userbtns">
-            <ul class="nav nav-tabs">
-              <li (click)="EnableAuction(true)" class="active"><a data-toggle="tab" href="#wsell">Auction</a></li>
-              <li (click)="EnableFixd(false)"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+        <div id="step1">
+            <ul>
+              <li class="row">
+                <div class="col-sm-6">
+                  <label for="FName" class="required">First Name(*)</label>
+                  <input type="text" ng-Model="model.FName" #FName name="FName" required class="input form-control" placeholder="First Name" id="FName" value="{{fullname}}">
+                </div>
+                <!--/ [col] -->
+                <div class="col-sm-6">
+                  <!-- [textMask]="{mask: mask}" -->
+                  <label for="telephone" class="required">Contact Number(*)</label>
+                  <input class="input form-control" placeholder="your contact number" type="text" required ng-Model="model.Mobile" #Mobile name="Mobile" id="telephone" value="{{phone_no}}">
+                </div>
+              </li>
+              <!--/ .row -->
+              <br>
+              <li class="row">
+              
+                <div class="col-sm-6">
+                  <label for="State" class="required">Province(*)</label>
+                  <input type="text" ng-Model="model.province" #province name="province" required class="input form-control" placeholder="Province" id="State" value="{{Provinces}}">
+                  <!-- </div> -->
+                </div>
+                <div class="col-sm-6">
+  
+                  <label class="required">Your City(*)</label>
+  
+                  <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.City"
+                    #City name="City" value="{{city}}">
+                </div>
+              </li>
+              <br>
+              <li class="row">
+              </li>
+              <!-- <br> -->
+              <li class="row">
+  
+                <div class="col-sm-12">
+  
+                  <label class="required">Area(*)</label>
+  
+                  <input class="input form-control" placeholder="Your Area" type="text" required ng-Model="model.Area"
+                    #Area name="Area" value="{{area}}">
+                </div>
+              </li>
+              <!--/ .row -->
+  
+              <br>
+              <li class="row">
+                <div class="col-xs-12">
+                  <!-- FName,province,City,Area,Mobile,Address,Shipmentaddress -->
+                  <label for="address" class="required">Address(*)</label>
+  
+                  <input type="text" class="input form-control" required placeholder="shop #, street# etc"
+                    ng-Model="model.Address" #Address name="Address" id="address" value="{{address}}">
+                </div>
+                <!--/ [col] -->
+              </li><!-- / .row -->
+              <li class="row">
+                <div class="col-xs-12">
+                  <!-- FName,province,City,Area,Mobile,Address,Shipmentaddress -->
+                  <label for="Shipmentaddress" class="required checkbox-container">Shipping(*)
+                    <input type="checkbox" required ng-Model="model.Shipmentaddress"
+                    #Shipmentaddress name="Shipmentaddress" id="Shipmentaddress" (change)="checked3($event,i)">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <!--/ [col] -->
+              </li>
+              <li class="row">
+                <div class="col-xs-12">
+                  <!-- FName,province,City,Area,Mobile,Address,Shipmentaddress -->
+                  <label for="Shipmentbilladdress" class="required checkbox-container">Shipping Billing address(*)
+                    <input type="checkbox" required ng-Model="model.Shipmentbilladdress"
+                    #Shipmentbilladdress name="Shipmentbilladdress" id="Shipmentbilladdress"
+                    (change)="checked4($event,i)">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <!--/ [col] -->
+              </li>
+              <!-- <div class="col-xs-2">
+  
+                    <label for="fbrRegister" class="required">FbrRegister(*)</label>
+  
+                    <input type="checkbox" class="input form-control" required placeholder="FbrRegister" ng-Model="model.FbrRegister"
+                      #fbrregister name="FbrRegister" id="fbrRegister" (change)="checked3($event,i)"  >
+                  </div> -->
+              <!-- / .row -->
             </ul>
-          </div>
-          <div class="tab-content">
-            <div id="wsell" class="formpanel tab-pane fade in active">
-              <div class="formrow">
-                <input type="number" name="StartingPrice" class="form-control" [(ngModel)]="model.SrartingPrice">
+            <div class="nav nav-tabs">
+              <div *ngIf="Error" class="alert alert-danger">
+                <strong>Error </strong> While updating record.
               </div>
-       
-
-              <div class="formrow">
-                <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
-                Add a Reserve Price
+  
+              <div *ngIf="Right" class="alert alert-success">
+                <strong>Profile Updated! <a style="color: red !important;" [routerLink]="['/buyer-dashboard']">Go to
+                    Dashboard Section</a></strong>
               </div>
-              <div *ngIf="ReservePrice == true" class="formrow">
-                <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control">
+              <div *ngIf="Waitcall" class="alert  alert-info">
+                <p class="">
+                  <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
+                  </span><span>
+                    &nbsp; Loading ...</span>
+  
+                </p>
               </div>
-              <div class="formrow">
-                <label  style="color: black" class="help-block">Select Your Listing</label>
-                <select [(ngModel)]="model.AuctionListing"  class="col-md-push-6" name="listing" style="height: 45px; font-size: 20px; color:#555555; line-height: 20px; border: 2px #f1f1f1 solid !important;" >
-                  <option value="10" selected>10 Days</option>
-                  <option value="7">7 Days</option>
-                  <option value="5">5 Days</option>
-                  <option value="3">3 Days</option>
-                </select>
-              </div>
-            </div>
-            <div id="wbuy" class="formpanel tab-pane fade in">
-              <div class="formrow">
-                <input type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice" class="form-control">
-              </div>
-              <div class="formrow">
-                <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
-                Accept Offers?
-              </div>
-              <div class="formrow">
-                <input type="number" [(ngModel)]="model.Quantity" name="Quantity" class="form-control">
-              </div>
+              <input type="submit" (click)="save(FName.value,province.value,City.value,Area.value,Mobile.value,Address.value,Shipmentaddress.value,Shipmentbilladdress.value)" class="btn-order" value="Update">
             </div>
           </div>
-        </div>
-        </ng-container> -->
-        <!-- <ng-container *ngIf="!model.Auction">
-          <div class="col-md-12">
-            <div class="userbtns">
-              <ul class="nav nav-tabs">
-                <li (click)="EnableAuction(true)"><a data-toggle="tab" href="#wsell">Auction</a></li>
-                <li (click)="EnableFixd(false)" class="active"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
-              </ul>
-            </div>
-            <div class="tab-content">
-              <div id="wbuy" class="formpanel tab-pane fade in active">
-                <div class="formrow">
-                  <input type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice" class="form-control">
-                </div>
-                <div class="formrow">
-                  <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
-                  Accept Offers?
-                </div>
-                <div class="formrow">
-                  <input type="number" [(ngModel)]="model.Quantity" name="Quantity" class="form-control">
-                </div>
-              </div>
-              <div id="wsell" class="formpanel tab-pane fade in" >
-                <div class="formrow">
-                  <input type="number" name="StartingPrice" class="form-control" [(ngModel)]="model.SrartingPrice">
-                </div>
-                <div *ngIf="Buyitnow == true" class="formrow">
-                  <input type="number" name="BuyitNow" class="form-control" [(ngModel)]="model.Buyitnow">
-                </div>
-
-                <div class="formrow">
-                  <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
-                  Add a Reserve Price
-                </div>
-                <div *ngIf="ReservePrice == true" class="formrow">
-                  <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control">
-                </div>
-                <div class="formrow">
-                  <label  style="color: black" class="help-block">Select Your Listing</label>
-                  <select [(ngModel)]="model.AuctionListing"  class="col-md-push-6" name="listing" style="height: 45px; font-size: 20px; color:#555555; line-height: 20px; border: 2px #f1f1f1 solid !important;" >
-                    <option value="10" selected>10 Days</option>
-                    <option value="7">7 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="3">3 Days</option>
-                  </select>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </ng-container> -->
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal"(click)="EditProduct()">Submit</button>
-      </div> -->
+      
     </div>
   </div>
 </div>
