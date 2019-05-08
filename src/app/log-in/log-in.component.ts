@@ -70,16 +70,16 @@ export class LogInComponent implements OnInit {
     })
     if (isPlatformBrowser(this.platformId)) {
 
-        if(localStorage.getItem('UserID'))
-        {
-          this._nav.navigate(['/dashboard']);
+    //     if(localStorage.getItem('UserID'))
+    //     {
+    //       this._nav.navigate(['/dashboard']);
       
-      } else {
-      this.authService.authState.subscribe((user) => {
-        this.user = user;
-        console.log('Name of user', this.user);
-      });
-    }
+    //   } else {
+    //   this.authService.authState.subscribe((user) => {
+    //     this.user = user;
+    //     console.log('Name of user', this.user);
+    //   });
+    // }
       this.sub = this.route
         .queryParams
         .subscribe(params => {
@@ -250,15 +250,19 @@ export class LogInComponent implements OnInit {
 //     });
 //   }
 
+// signInWithFB(): void {
+//   this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
+//   //   (userData) => {
+//   //   this.user = userData;
+//   //   console.log('User Data...', this.user);
+//   // });
+//     .then(this.socialCallBack)
+//     // .catch(user => console.log(user));
+//     alert("usamnkhan")
+// }
 signInWithFB(): void {
-  this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
-  //   (userData) => {
-  //   this.user = userData;
-  //   console.log('User Data...', this.user);
-  // });
-    .then(this.socialCallBack)
-    // .catch(user => console.log(user));
-    alert("usamnkhan")
+  this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.socialCallBack)
+      .catch(message => console.log(message));
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -274,8 +278,9 @@ socialCallBack = (user) => {
           user
       }, { headers: headers })
       createUser.subscribe(data => {
-          let user = { userid: this.jwtHelper.decodeToken(data.json().token).user_id,
-               username: this.jwtHelper.decodeToken(data.json().token).username,
+          let user = { 
+            userid: data.user_id,
+               username: data.username,
                 token: data.json().token };
           if (user && user.token) {
               localStorage.setItem('loged_in', '1');

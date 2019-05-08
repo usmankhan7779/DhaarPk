@@ -16,7 +16,7 @@ export class BuyerDashboardServices {
   private head: any;
   public login: any;
   returnUrl: string;
-  ServerUrl = 'http://192.168.29.187:8000/products/';
+  ServerUrl = 'https://apis.dhaar.pk/products/';
   // https://apis.dhaar.pk/products/
   
   // saleServerUrl = 'https://apis.dhaar.pk/sale/';
