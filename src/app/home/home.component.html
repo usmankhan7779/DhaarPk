@@ -128,7 +128,7 @@
 
             <!-- <ng-container *ngIf="this.viewlogin == null"> -->
             <div *ngFor="let Lastest of GetALLProductss">
-              <div class="product-item home-productss col-lg-3 col-md-3 col-sm-4 col-xs-6">
+              <div class="product-item home-productss col-lg-2 col-md-3 col-sm-4 col-xs-6">
                 <a [routerLink]="['/single-product']"
                   [queryParams]="{ ProID:  Lastest.ProductID, CatName: Lastest.Cat_Name, SubCatName:Lastest.Sub_Sub_Cat_Name, id:Lastest.id, W:Lastest.inWishList }">
                   <div class="item-inner">

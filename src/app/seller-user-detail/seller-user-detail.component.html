@@ -59,7 +59,7 @@
           <div id="step1" class="tab-pane fade in active">
 
             <div class="row from-setting">
-              <div class="col-sm-6">
+              <div class="col-sm-4">
                 <!-- <div class="form-group margin-up"> -->
                 <!-- <label for="FName" class="required">First Name<span class="span-mad">*</span></label>
                 <input type="text"ng-Model="model.FName" #FName name="FName"
@@ -93,7 +93,7 @@
 
                 <!-- </div> -->
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
 
 
@@ -114,7 +114,7 @@
 
 
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
                 <!-- <label class="required">Select Your Country<span class="span-mad">*</span></label>
                 <select class="form-control" ng-Model="model.Country" #Country name="Country">
@@ -132,7 +132,7 @@
 
                 </mat-form-field>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
                 <!-- <label class="required">Select Your State/Province<span class="span-mad">*</span></label>
                 <select class="form-control" ng-Model="model.State" #State name="State">
@@ -155,7 +155,7 @@
                 </mat-form-field>
 
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
                 <!-- <label class="required">Your City<span class="span-mad">*</span></label>
 
@@ -171,7 +171,7 @@
 
                 </mat-form-field>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
                 <!-- <label for="postal_code" class="required">Zip/Postal Code<span class="span-mad">*</span></label>
                 <input class="input form-control" type="text" pattern="([0-9])+$" placeholder="55560" required
@@ -187,7 +187,7 @@
 
                 </mat-form-field>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-4">
 
                 <!-- <label for="telephone" class="required">Owner Contact Number<span class="span-mad">*</span></label>
 
@@ -207,7 +207,39 @@
 
                 </mat-form-field>
               </div>
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
+
+                <div class="form-group">
+
+                  <label for="telephone" class="required">Upload Your Profile Picture</label>
+
+
+                  <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text"
+                    (change)="handleFileInput($event.target.files)" multiple accept="image/*">
+
+
+                </div>
+
+              </div> -->
+              <div class="col-xs-8">
+
+                <!-- <label for="address" class="required">Address<span class="span-mad">*</span></label>
+
+                <input type="text" class="input form-control" required placeholder="shop #, street# etc"
+                  ng-Model="model.address" #address name="address" id="address" value="{{GetUSerdetails.Address}}"> -->
+
+                <mat-form-field>
+                  <input matInput placeholder="Address" [formControl]="signupForm.controls['address']" required #address
+                    name="address" value="{{GetUSerdetails?.Address}}" style="width:550px!important">
+                  <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
+                  <mat-error
+                    *ngIf="signupForm.controls['address'].value == '' || !signupForm.controls['address'].value">
+                    <strong>This
+                      Field cannot be empty</strong></mat-error>
+
+                </mat-form-field>
+              </div>
+                   <div class="col-sm-6">
 
                 <div class="form-group">
 
@@ -221,25 +253,7 @@
                 </div>
 
               </div>
-              <div class="col-xs-12">
-
-                <!-- <label for="address" class="required">Address<span class="span-mad">*</span></label>
-
-                <input type="text" class="input form-control" required placeholder="shop #, street# etc"
-                  ng-Model="model.address" #address name="address" id="address" value="{{GetUSerdetails.Address}}"> -->
-
-                <mat-form-field>
-                  <input matInput placeholder="Address" [formControl]="signupForm.controls['address']" required #address
-                    name="address" value="{{GetUSerdetails?.Address}}">
-                  <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
-                  <mat-error
-                    *ngIf="signupForm.controls['address'].value == '' || !signupForm.controls['address'].value">
-                    <strong>This
-                      Field cannot be empty</strong></mat-error>
-
-                </mat-form-field>
-              </div>
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div *ngIf="Error" class="alert alert-danger">
                   <strong>Error </strong> While updating record.
                 </div>
@@ -258,7 +272,7 @@
                 <!-- <input type="submit"
                   (click)="save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)"
                   class="btn-black" value="Update"> -->
-                <button class="btn btn-fill update-button" type="submit"
+                <button class="btn btn-fill update-button pull-right update-btn" type="submit"
 
                 (click)="save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)"  
                 

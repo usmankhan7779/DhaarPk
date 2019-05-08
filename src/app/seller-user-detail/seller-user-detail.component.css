@@ -35,3 +35,13 @@
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
  }
+ /* .mat-form-field-infix {
+      display: block;
+      position: relative;
+      flex: auto;
+      min-width: 0;
+      width: 321px!important
+  } */
+  .update-btn{
+        margin-right: 80px
+  }

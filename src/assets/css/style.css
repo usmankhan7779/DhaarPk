@@ -4928,8 +4928,17 @@ button.subscribe:before {
     padding-top: 14px;
     text-align: center;
     color: #ccc;
+    /* width: calc(75% - -26px); */
 }
-
+input.mat-input-element {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0
+}
+.mat-form-field-infix {
+   
+    width: 100%!important;
+}
 .footer-coppyright a {
     color:#ccc
 }
