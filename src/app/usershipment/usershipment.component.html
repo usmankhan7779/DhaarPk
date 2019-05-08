@@ -32,7 +32,7 @@
         <h3 class="panel-title" *ngIf="makeshippingaddress == true ">Make default shipping address</h3>
         <h3 class="panel-title" *ngIf="makebilladdress == true ">Make default Bill address</h3>
         <div class="shipping-anchor"  *ngIf="check">
-        <a style="cursor:pointer"  (click)="checked90()"   >Make default Shipping Address</a>
+        <a style="cursor:pointer"  class="Defulat" (click)="checked90()"   >Make default Shipping Address</a>
         <a (click)="checked91()"   class="shpp">Make default Billing Address</a>
       </div>
       </div>
@@ -112,8 +112,8 @@
                     <td>{{GetUser.area}}</td>
 
                     <td>{{ GetUser.city }}</td>
-                    <td><h6 *ngIf="GetUser.default_bill_address == true"> Defalut Bill Address</h6> <br>
-                      <h6 *ngIf="GetUser.default_shipment_address == true"> Defalut Shipment Address </h6>
+                    <td><p class="bill" *ngIf="GetUser.default_bill_address == true"> Defalut Bill Address</p> 
+                      <p  class="bill" *ngIf="GetUser.default_shipment_address == true"> Defalut Shipment Address </p>
                     </td>
                     <!-- <td>{{GetUser.province }} </td> -->
 
@@ -142,7 +142,7 @@
                       GetUser.user_id_id);step1=false;"
                         class="action add-to-cart" data-toggle="modal" data-target="#myModal">
 
-                        <i class="fa fa-edit Edit-form"></i>
+                        <i class="fa fa-edit Edit-form color"></i>
                       </a>
                       <!-- <a href="#"><i class="fas fa-trash-alt del-icon"></i></a> -->
                     </td>

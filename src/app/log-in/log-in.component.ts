@@ -10,7 +10,7 @@ import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { GoogleLoginProvider,AuthService,SocialUser, FacebookLoginProvider } from 'angular4-social-login';
 import Swal from 'sweetalert2';
-import { JwtHelper } from 'angular2-jwt';
+import { JwtHelper } from "angular2-jwt";
 declare const $: any;
 
        
