@@ -9308,7 +9308,6 @@ label[for=rememberme] {
 
 #wrapper {
     position: relative;
-    overflow: hidden
 }
 
 #wrapper.search-active:after {

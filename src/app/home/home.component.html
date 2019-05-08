@@ -1289,7 +1289,7 @@
           <span id="content" class="Dhaar-for-you" >Dhaar for You </span>
         </div>
         <div class="recommendedslider" style="margin-top: 0px !important;">
-          <div *ngFor="let Lastest of GetALLLikeforyou" class="product-item home-productss col-lg-3 col-md-3 col-sm-4 col-xs-6">
+          <div *ngFor="let Lastest of GetALLLikeforyou" class="product-item home-productss col-lg-2 col-md-3 col-sm-4 col-xs-6">
             <a [routerLink]="['/single-product']"
               [queryParams]="{ ProID:  Lastest.ProductID, CatName: Lastest.Cat_Name, SubCatName:Lastest.Sub_Sub_Cat_Name, id:Lastest.id, W:Lastest.inwhishlist }">
               <div class="item-inner">
@@ -1416,7 +1416,7 @@
           </div>
           <div class="viewedslider" style="margin-top: 0px !important;">
             <ng-container *ngFor="let TvVideoaudio88 of ViewedProducts">
-              <div class="product-item col-md-3 col-sm-4 col-xs-6">
+              <div class="product-item col-md-2 col-sm-4 col-xs-6">
                 <a [routerLink]="['/single-product']"
                   [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name, SubCatName:TvVideoaudio88.Sub_Sub_Cat_Name, id:TvVideoaudio88.id }">
                   <div class="item-inner">
