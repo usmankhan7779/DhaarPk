@@ -2907,11 +2907,6 @@ ul#cart-sidebar {
     float: right;
     padding: 10px
 }
-.shpp{
-    border-left: 1px solid #0014ff;
-    padding: 2px;
-    cursor: pointer
-}
 .panel-info {
    border:none;
 margin-top: 20px
@@ -4520,8 +4515,8 @@ img.secondary-img {
 .footer-upper{
     padding: 0 50px;
     background: #000;
-    min-height: 402px;
-    margin-top: 50px
+    min-height: 402px
+    /* margin-top: 50px */
 }
 
 footer h3 {
@@ -4901,7 +4896,10 @@ button.subscribe:before {
 
 .payment ul {
     padding: 0;
-    margin: auto
+    margin: auto;
+    float: right;
+    margin-right: 71px
+
 }
 
 .payment li {
@@ -4922,7 +4920,7 @@ button.subscribe:before {
 
 .footer-coppyright {
     padding-bottom: 8px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     background-color: #1d1d1d
 }
 
@@ -6857,7 +6855,8 @@ button.button.pro-add-to-cart span {
 
 #product-detail-tab.nav-tabs>li {
     float: none;
-    display: inline-block
+    display: block;
+    margin: 10px 0px;
 }
 
 .product-tab-inner {
@@ -6900,7 +6899,7 @@ button.button.pro-add-to-cart span {
     margin-top: 5px;
     margin-bottom: 0;
     clear: left;
-    min-height: 202px
+    min-height: auto
 }
 
 .tab-content>.active {
@@ -7173,7 +7172,8 @@ textarea {
 .product-overview-tab ul,
 .product-view-area ul {
     padding: 0;
-    margin: 0
+    margin: 0;
+    width:100%
 }
 
 .col2-right-layout .product-color-size-area .size-area {

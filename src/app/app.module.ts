@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DatePipe } from '@angular/common';
+// import { JwtHelper } from 'angular2-jwt';
 import { Routing, AppRoutingProvider } from './app.routing';
 import { SocialLoginModule } from 'angular5-social-login';
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
