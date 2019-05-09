@@ -65,44 +65,17 @@ filetoup: FileList;
               private itemUploadService: UploadItemService) { }
 
   ngOnInit() {
-    $(".mat-input").focus(function(){
-      $(this).parent().addClass("is-active is-completed");
-    });
-    
-    $(".mat-input").focusout(function(){
-      if($(this).val() === "")
-        $(this).parent().removeClass("is-completed");
-      $(this).parent().removeClass("is-active");
-    })
+ 
     this.signupForm = this.fb.group({
 
-      'FName': ['', Validators.compose([Validators.required])],
-      'Lname': ['', Validators.compose([Validators.required])],
-      'City': ['', Validators.compose([Validators.required])],
-      'Zip': ['', Validators.compose([Validators.required])],
-      'personal': ['', Validators.compose([Validators.required])],
-      'address': ['', Validators.compose([Validators.required])],
-      'Country': ['', Validators.compose([Validators.required])],
-      'State': ['', Validators.compose([Validators.required])],
-
-      
-      
-      
-      // 'service_zip': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
-
-      // 'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
-      // 'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
-
-      // 'phoneno': ['', Validators.compose([Validators.required])],
-      // // 'dob': ['', Validators.compose([Validators.required])],
-      // 'service_state': ['', Validators.compose([Validators.required])],
-      // 'service_address': ['', Validators.compose([Validators.required])],
-      // 'service_city': ['', Validators.compose([Validators.required])],
-
-      // 'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      // 'confirmpassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-
-
+      'FName': [''],
+      'Lname': [''],
+      'City': [''],
+      'Zip': [''],
+      'personal': [''],
+      'address': [''],
+      'Country': [''],
+      'State': [''],
     })
     if (isPlatformBrowser(this.platformId)) {
       this.SessionstoreName = localStorage.getItem('StoreName');

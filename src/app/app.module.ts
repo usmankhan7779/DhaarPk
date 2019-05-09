@@ -14,13 +14,13 @@ import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'a
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ImageViewerModule } from 'ngx-image-viewer';
 const config = new AuthServiceConfig([
-  {
-    id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
-  },
+  // {
+  //   id: GoogleLoginProvider.PROVIDER_ID,
+  //   provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
+  // },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('346354716089456')
+    provider: new FacebookLoginProvider('2421913111163728')
   }
 ]);
 export function provideConfig() {
@@ -181,7 +181,8 @@ export class MaterialModule { }
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    },
+    }
+    ,
     {
       provide: HttpService,
       useFactory: httpServiceFactory,

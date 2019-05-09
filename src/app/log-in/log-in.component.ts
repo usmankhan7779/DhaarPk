@@ -75,10 +75,10 @@ export class LogInComponent implements OnInit {
     //       this._nav.navigate(['/dashboard']);
       
     //   } else {
-    //   this.authService.authState.subscribe((user) => {
-    //     this.user = user;
-    //     console.log('Name of user', this.user);
-    //   });
+      // this.authService.authState.subscribe((user) => {
+      //   this.user = user;
+      //   console.log('Name of user', this.user);
+      // });
     // }
       this.sub = this.route
         .queryParams
@@ -115,10 +115,10 @@ export class LogInComponent implements OnInit {
 
 
   
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    console.log('HAhahahahaahahahah')
-  }
+  // signInWithGoogle(): void {
+  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  //   console.log('HAhahahahaahahahah')
+  // }
 
 
   // socialCallBack = (user) => {
