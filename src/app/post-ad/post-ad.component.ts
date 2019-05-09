@@ -9,6 +9,7 @@ import {HomeService} from '../home/home.services';
 import {and} from '@angular/router/src/utils/collection';
 import {UploadItemService} from '../file-uploads/upload-item-service';
 import Swal from "sweetalert2";
+declare const $: any;
 
 
 @Component({
@@ -84,6 +85,15 @@ i;
     private router: Router) {}
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     if (isPlatformBrowser(this.platformId)){
 
     this.sub = this.route

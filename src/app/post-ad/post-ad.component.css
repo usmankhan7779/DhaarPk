@@ -3,3 +3,18 @@
     font-weight: 600!important;
     font-size: 15px!important
 }
+.userccount {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 25px 20px 10px;
+    /* box-shadow: 0 5px 10px #ccc; */
+    border-radius: 5px;
+    margin-top: -113px;
+    width: 100%
+}
+.Ad-details{
+    height: 200px
+}
+.formpanel .form-control {
+    font-size: 17px
+}

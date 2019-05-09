@@ -21,7 +21,7 @@
 <div class="listpgWraper">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8">
         <div class="userccount">
           <div class="">
             <form role="form" class="login-form" (ngSubmit)="f.form.valid && save('fsd','sfs')"  #f="ngForm" novalidate>
@@ -37,12 +37,16 @@
                 <div class="formrow">
                   <div class="" [ngClass]="{ 'has-error': f.submitted && !Title.valid }">
 
-                    <label class="help-block">Title</label>
+                    <!-- <label class="help-block">Title</label> -->
                     <div *ngIf="f.submitted && !Title.valid" class="help-block">Title required</div>
-                    <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required>
-
+                    <!-- <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required> -->
+                    <div class="mat-div">
+                      <label for="first-name" class="mat-label">Title</label>
+                      <input type="text" class="mat-input text-capitl" name="LName"  
+                     required>
+                    </div>
                   </div>
-                  <span class="help-block">A Good title needs Maximum 90 characters. </span>
+                  <!-- <span class="help-block">A Good title needs Maximum 90 characters. </span> -->
                   <!--<input type="text" name="jobtitle" class="form-control" placeholder="Ad Title ">-->
                 </div>
               </div>
@@ -116,9 +120,16 @@
                 <div class="formrow">
                   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Addetail.valid }">
 
-                    <label class="help-block">Ad Detail*</label>
+                    <!-- <label class="help-block">Ad Detail*</label> -->
                     <div *ngIf="f.submitted && !Addetail.valid" class="help-block">Ad-details required</div>
-                    <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="form-control" name="Addetail" placeholder="Ad Detail" [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea>
+                    <!-- <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="form-control" name="Addetail" placeholder="Ad Detail" [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea> -->
+                    <div class="mat-div">
+                      <label for="first-name" class="mat-label">Ad Detail</label>
+                      <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+                     required> -->
+                       <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="mat-input Ad-details text-capitl" name="Addetail"
+                        [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea>
+                    </div>
                 </div>
                 </div>
               </div>
@@ -141,7 +152,7 @@
                 <div class="formrow">
                   <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
                   <!--</image-upload>-->
-                  <div class="uploadphotobx"> <i class="fa fa-upload" aria-hidden="true"></i>
+                  <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
                     <h4>Upload Product photos</h4>
                     <p>It must be a head-shot photo</p>
                     <label class="uploadBox">Click to Upload Cover Photos
