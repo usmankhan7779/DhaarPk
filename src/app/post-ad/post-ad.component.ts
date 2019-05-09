@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AdService } from './ad.services';
@@ -9,6 +9,7 @@ import {HomeService} from '../home/home.services';
 import {and} from '@angular/router/src/utils/collection';
 import {UploadItemService} from '../file-uploads/upload-item-service';
 import Swal from "sweetalert2";
+
 declare const $: any;
 
 
@@ -73,10 +74,12 @@ i;
   fileCounter = 0;
   filetoup1:any=[];
   product_ad_active ="False";
-  
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private HomeServics: HomeService,
+    private _formBuilder: FormBuilder,
     private Profile: LoginService,
     private route: ActivatedRoute,
     private PostAdd: AdService,
@@ -85,15 +88,22 @@ i;
     private router: Router) {}
 
   ngOnInit() {
-    $(".mat-input").focus(function(){
-      $(this).parent().addClass("is-active is-completed");
+    // $(".mat-input").focus(function(){
+    //   $(this).parent().addClass("is-active is-completed");
+    // });
+    
+    // $(".mat-input").focusout(function(){
+    //   if($(this).val() === "")
+    //     $(this).parent().removeClass("is-completed");
+    //   $(this).parent().removeClass("is-active");
+    // })
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
     });
     
-    $(".mat-input").focusout(function(){
-      if($(this).val() === "")
-        $(this).parent().removeClass("is-completed");
-      $(this).parent().removeClass("is-active");
-    })
     if (isPlatformBrowser(this.platformId)){
 
     this.sub = this.route

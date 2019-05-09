@@ -2877,6 +2877,21 @@ margin-top: 12px;
     font-size: 23px;
   
 }
+.mat-step-header .mat-step-icon-selected{
+    background-color: #000000!important;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 15px;
+}
+.mat-step-header .mat-step-icon {
+    background-color: #000000!important;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 15px;
+   
+}
 .formpanel .form-control {
     /* height: auto; */
     padding: 3px 0;
@@ -2971,7 +2986,23 @@ margin-top: 12px;
     right: 0;
     text-align: right;
     top: 0;
-    cursor: pointer
+    cursor: pointer;
+    display: none
+}
+
+.mat-tab-label{
+    height: 48px!important;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: .6;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
 }
 
 .uploadphotobx .uploadBox {

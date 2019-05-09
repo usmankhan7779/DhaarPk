@@ -1,4 +1,326 @@
-<app-header></app-header>
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <!-- <div  class="Upload">
+            <input  #fileImportInput   class="inputfile inputfile-1" id="file1" name="file" type="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
+            <label  class="uploadfile" for="file-input">
+              <svg  height="17" viewBox="0 0 20 17" width="20" xmlns="http://www.w3.org/2000/svg">
+                <path  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg><span  style="margin: 10px 0 -5px; width: 83px;">Add Photos
+                </span>
+              </label>
+            </div> -->
+            <!-- <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*"> -->
+            <div class="col-md-offset-3  col-md-8 uploadimg">
+                <div class="formrow">
+              
+                  <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
+                    <h4>Upload Product photos</h4>
+                    <p>It must be a head-shot photo</p>
+                    <label class="uploadBox">Click to Upload Cover Photos
+                      <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
+                    </label><br>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-md-10 uploadimg">
+                  <ng-container *ngFor="let img of url; let i=index">
+                    <div class="img-box">
+                        <i class="fas fa-times" (click)="removepic(i)"></i>
+                      <!-- <i class="fa fa-close" (click)="removepic(i)" style="cursor: pointer"></i> -->
+                      <img [src]="img">
+                    </div>
+                    <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
+                  </ng-container>
+              </div>  
+ 
+          <mat-form-field>
+           
+              <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required>
+           
+          </mat-form-field>
+          <div>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional>
+      <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <!-- <mat-form-field>
+              <input matInput placeholder="Address" formControlName="secondCtrl" required> -->
+              <div class="col-md-4">
+              <label  class="help-block">Select Your Store Name</label>
+              <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
+              <select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()" >
+                <option *ngFor="let data of StoreNamess" [value]="data.StoreName"  >
+                  {{data.StoreName}}
+                </option>
+                
+              </select>
+            </div>
+          <!-- </mat-form-field> -->
+          <div class="col-md-4">
+
+         
+          <label  class="help-block">Product condition</label>
+          <select   [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat"  >
+            <option value="New" selected>New</option>
+            <option value="Used">Used</option>
+
+
+          </select>
+        </div>
+        <div  class="col-md-4">
+                <div class="formrow">
+
+                    <label  class="help-block">Select Sub Catgory</label>
+                    <select   [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat"  >
+                      <optgroup *ngFor="let item of GetAllSubCat"  label="{{ item.Sub_Cat_Name}}">
+                        <ng-container *ngFor="let item_sub of GetAllSubSubCat">
+                        <option  *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID" [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id"> {{ item_sub.Sub_Sub_Cat_Name }}</option>
+                        </ng-container>
+                      </optgroup>
+
+
+
+                    </select>
+
+                </div>
+
+              </div>
+          <div class="Ad-button">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+       
+        
+        <mat-tab-group mat-align-tabs="center">
+            <img _ngcontent-c11="" alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png" width="30px">
+          <mat-tab label="Auction">
+            
+            
+            
+            
+              <div id="wsell" class="formpanel tab-pane fade in active">
+
+               
+                  <!-- <div class="formrow col-md-6">
+                    <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+                    Add a Reserve Price
+                  </div> -->
+                  <div class="form">
+                  <div class="col-md-offset-4 col-md-8">
+                  <form class="example-form">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Staring price" value="$">
+                      </mat-form-field>
+              
+                    
+                    </form>
+                          </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png" width="25">
+                                <span _ngcontent-c11="">Reserve Auction/No Reserve Auction</span><span class="slide-bar"> <mat-slide-toggle></mat-slide-toggle></span></div>
+                                <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span _ngcontent-c11="">Listing Duration</span>
+                                 
+
+<span class="slide-bar">
+<mat-form-field>
+    <mat-label>Select Your Listing</mat-label>
+    <select matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
+        <option value="10" selected>10 Days</option>
+        <option value="7">7 Days</option>
+        <option value="5">5 Days</option>
+        <option value="3">3 Days</option>
+        </select>
+  </mat-form-field>
+</span>
+                                </div>
+                                <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25"><span _ngcontent-c11="">Automatic Relisting</span><span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
+                              </div>
+                            </div>
+                  <div *ngIf="ReservePrice == true" class="formrow">
+                    <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
+                  </div>
+                  <!-- <div  class="formrow col-md-6">
+                    <input type="checkbox" name="namead"  [(ngModel)]="model.product_ad_active"  (change)="checked3($event,i)" placeholder="product_ad_active">
+                 If you want active ad about this Product
+                  </div>
+      -->
+                
+                  <!-- <div *ngIf="ReservePrice == true" class="formrow">
+                    <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
+                  </div> -->
+                    <!-- <div class="formrow">
+                      <label  class="col-md-4 help-block">Select Your Listing</label>
+                      <select [(ngModel)]="model.AuctionListing"  class="col-md-8" name="listing"  >
+                        <option value="10" selected>10 Days</option>
+                        <option value="7">7 Days</option>
+                        <option value="5">5 Days</option>
+                        <option value="3">3 Days</option>
+                      </select>
+                    </div> -->
+                    <!-- <div class="formrow col-md-4">
+     
+                      <input type="number" name="name1" class="form-control" placeholder="Starting Price" [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel" >
+     
+                    </div> -->
+     
+                    <!-- <div class="formrow col-md-4">
+     
+                      <input type="date" name="date1" class="form-control" placeholder="Starting Date" [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel" >
+     
+                    </div>
+                    <div class="formrow col-md-4">
+     
+                      <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel" >
+     
+                    </div> -->
+     
+     
+     
+                  </div>
+          
+          </mat-tab>
+          <mat-tab label="Fixed Price">
+              <div id="wbuy" class="formpanel tab-pane fade in">
+
+
+                  <div class="formrow">
+   
+   
+                      <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
+                  </div>
+   
+                  <div class="formrow">
+                    <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+                    Accept Offers?
+                  </div>
+                  <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
+                    <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
+                  <!--</div>-->
+   
+                  <div class="formrow">
+                    <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
+                </div>
+   
+   
+   
+   
+                </div>  
+          
+          
+          </mat-tab>
+          <!-- <mat-tab label="Third">Content 3</mat-tab> -->
+        </mat-tab-group>
+        
+      
+        
+      <div class="col-md-12" hidden="true">
+
+
+          <div class="userbtns">
+             <ul class="nav nav-tabs">
+               <li (click)="EnableAuction()" class="active" style="width: 50%;"><a data-toggle="tab" href="#wsell">Auction</a></li>
+               <li (click)="EnableFixd()" style="width: 50%;"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+             </ul>
+           </div>
+           <div class="tab-content">
+             <div id="wsell" class="formpanel tab-pane fade in active">
+
+               
+             <div class="formrow col-md-6">
+               <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+               Add a Reserve Price
+             </div>
+             <div *ngIf="ReservePrice == true" class="formrow">
+               <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
+             </div>
+             <div  class="formrow col-md-6">
+               <input type="checkbox" name="namead"  [(ngModel)]="model.product_ad_active"  (change)="checked3($event,i)" placeholder="product_ad_active">
+            If you want active ad about this Product
+             </div>
+
+           
+             <!-- <div *ngIf="ReservePrice == true" class="formrow">
+               <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
+             </div> -->
+               <div class="formrow">
+                 <label  class="col-md-4 help-block">Select Your Listing</label>
+                 <select [(ngModel)]="model.AuctionListing"  class="col-md-8" name="listing"  >
+                   <option value="10" selected>10 Days</option>
+                   <option value="7">7 Days</option>
+                   <option value="5">5 Days</option>
+                   <option value="3">3 Days</option>
+                 </select>
+               </div>
+               <div class="formrow col-md-4">
+
+                 <input type="number" name="name1" class="form-control" placeholder="Starting Price" [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel" >
+
+               </div>
+
+               <div class="formrow col-md-4">
+
+                 <input type="date" name="date1" class="form-control" placeholder="Starting Date" [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel" >
+
+               </div>
+               <div class="formrow col-md-4">
+
+                 <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel" >
+
+               </div>
+
+
+
+             </div>
+
+             <!--- 2nd tab --->
+
+             <div id="wbuy" class="formpanel tab-pane fade in">
+
+
+               <div class="formrow">
+
+
+                   <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
+               </div>
+
+               <div class="formrow">
+                 <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+                 Accept Offers?
+               </div>
+               <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
+                 <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
+               <!--</div>-->
+
+               <div class="formrow">
+                 <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
+             </div>
+
+
+
+
+             </div>
+           </div>
+
+
+
+       </div>
+      <div class="Ad-button">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+  </mat-step>
+</mat-horizontal-stepper>
+<!-- <app-header></app-header> -->
 
 
 <!-- Page Title start -->
@@ -16,8 +338,9 @@
 <!--</div>-->
 
 <!-- Page Title End -->
+<!--new shape started-->
 
-
+<!--new shape End-->
 <div class="listpgWraper">
   <div class="container">
     <div class="row">
@@ -147,11 +470,11 @@
                 <!--</div>-->
               <!--</div>-->
 
-
+    <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
+                  <!--</image-upload>-->
               <div class="col-md-12">
                 <div class="formrow">
-                  <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
-                  <!--</image-upload>-->
+              
                   <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
                     <h4>Upload Product photos</h4>
                     <p>It must be a head-shot photo</p>
