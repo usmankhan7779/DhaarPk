@@ -264,11 +264,41 @@ signInWithFB(): void {
   this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.socialCallBack)
       .catch(message => console.log(message));
 }
-
+googlelogin() {
+  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.socialCallBack).catch(message => console.log(message));
+  }
+  username;
 ///////////////////////////////////////////////////////////////////////
 socialCallBack = (user) => {
+  this.user = user;
+  console.log(this.user);
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  if (user) {
+    const createUser = this.http.post('https://apis.dhaar.pk/user/sociallogin/', JSON.stringify(
+      {
+        user
+      }),{  headers: headers}  );
 
-  alert('social')
+    createUser.subscribe(data => {
+        let user = { 
+         user_id: this.jwtHelper.decodeToken(data['token']).user_id,
+         username: this.jwtHelper.decodeToken(data['token']).username, 
+         token: data['token'] };
+        if (user && user.token) {
+          localStorage.setItem('loged_in', '1');
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          // localStorage.setItem('profilePhoto' , this.pic);
+          this._nav.navigate(['/dashboard/' + this.username]);
+          // this.showSuccess();
+        }
+      }
+    );
+  }
+}
+socialCallBack1122 = (user) => {
+
+  alert(user)
   this.user = user;
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
