@@ -17,59 +17,14 @@
                   aria-hidden="true"></i> <a href="#.">{{ resultProduct.Sub_Sub_Cat_Name}}</a> </div>
           <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
             
-              <ngx-image-viewer [src]="ProPics" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer>
-             
+              <!-- <ngx-image-viewer [src]="ProPics" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer> -->
+              <!-- <ngx-image-viewer [src]="ProPics" [imageZoom]="ProPics" lensWidth="600" lensHeight="380" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer> -->
+              <img [imageZoom]="myFullresImage"  [src]="myThumbnail" lensWidth="600" lensHeight="380" scrollZoom="true" >
+              <span *ngFor="let img of PicList; let i = index" (click)="ChangeImage(i)">
+                <img src="{{img}}" alt="" width="40px" height="40px">
+            </span>
 
-              <div class="product-slider">
-               
-                <div class="clearfix">
-                  <div id="thumbcarousel" class="carousel slide" data-interval="false">
-                    <div class="carousel-inner">
-                      <div class="item active">
-                          <ng-container *ngIf="ProPics.length === 6">
-                              <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                              <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{{ProPics[1]}}" (click)="IndexChange(1)"></div>
-                              <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="{{ProPics[2]}}" (click)="IndexChange(2)"></div>
-                              <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="{{ProPics[3]}}" (click)="IndexChange(3)"></div>
-                              <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="{{ProPics[4]}}" (click)="IndexChange(4)"></div>
-                              <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="{{ProPics[5]}}" (click)="IndexChange(5)"></div>
-  
-                            </ng-container>
-                          <ng-container *ngIf="ProPics.length === 5">
-                              <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                              <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{{ProPics[1]}}" (click)="IndexChange(1)"></div>
-                              <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="{{ProPics[2]}}" (click)="IndexChange(2)"></div>
-                              <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="{{ProPics[3]}}" (click)="IndexChange(3)"></div>
-                              <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="{{ProPics[4]}}" (click)="IndexChange(4)"></div>
-  
-                            </ng-container>
-                          <ng-container *ngIf="ProPics.length === 4">
-                              <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                              <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{{ProPics[1]}}" (click)="IndexChange(1)"></div>
-                              <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="{{ProPics[2]}}" (click)="IndexChange(2)"></div>
-                              <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="{{ProPics[3]}}" (click)="IndexChange(3)"></div>
-                            </ng-container>
-                        <ng-container *ngIf="ProPics.length === 3">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{{ProPics[1]}}" (click)="IndexChange(1)"></div>
-                          <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="{{ProPics[2]}}" (click)="IndexChange(2)"></div>
-                        </ng-container>
-                        <ng-container *ngIf="ProPics.length === 2">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                          <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{{ProPics[1]}}" (click)="IndexChange(1)"></div>
-                        </ng-container>
-                        <ng-container *ngIf="ProPics.length === 1">
-                          <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{ProPics[0]}}" (click)="IndexChange(0)"></div>
-                        </ng-container>
-                      </div>
-                    </div>
-                    <!-- /carousel-inner -->
-                    <!--<a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev"> <i class="fa fa-angle-left" aria-hidden="true"></i> </a> <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next"><i class="fa fa-angle-right" aria-hidden="true"></i> </a>-->
-                  </div>
-                 
-  
-                </div>
-              </div>
+              
   
             <!-- <div class="col-sm-12 image-gallary">
               {{selectedImage}}

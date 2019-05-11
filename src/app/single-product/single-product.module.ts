@@ -4,9 +4,10 @@ import { CommonModule } from "@angular/common";
 import { SingleProductComponent } from "./single-product.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageZoomModule } from "angular2-image-zoom";
+import { ImageViewerModule } from "ngx-image-viewer";
 import { HeaderModule } from "../header/header.module";
 import { NewModule } from '../home/new.module';
-import { NgxImageZoomModule } from '../Image Zoom/index';
+ 
 // import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 const loginRoutes: Routes = [
@@ -23,8 +24,9 @@ const loginRoutes: Routes = [
     FormsModule,
     HeaderModule,
     ImageZoomModule,
+    ImageViewerModule.forRoot(),
     NewModule,
-    NgxImageZoomModule.forRoot(),
+    
 
     // ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)

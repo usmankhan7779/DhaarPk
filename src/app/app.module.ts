@@ -2,7 +2,7 @@
 import { AppComponent } from './app.component';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -16,11 +16,11 @@ import { ImageViewerModule } from 'ngx-image-viewer';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('142528311372-9qujkvuco9cgilud7bhicicnmlv3l0vq.apps.googleusercontent.com')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('346354716089456')
+    provider: new FacebookLoginProvider('2421913111163728')
   }
 ]);
 export function provideConfig() {
@@ -93,6 +93,7 @@ import { SlickModule } from 'ngx-slick';
 import { PagerService } from './pager.service';
 import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-masters/seller-dashboard-masters.component';
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
+import { AuthInterceptor } from './auth-guard/auth.interceptor';
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -181,12 +182,18 @@ export class MaterialModule { }
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    },
+    }
+    ,
     {
       provide: HttpService,
       useFactory: httpServiceFactory,
       deps: [XHRBackend, RequestOptions, PreloaderService]
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent],
   schemas: [

@@ -8,6 +8,7 @@ import { HttpService } from '../services/http-service';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import Swal from "sweetalert2";
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -29,6 +30,7 @@ export class HomeService {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private _http: HttpService,
+    private httpclient :HttpClient,
     private http: Http,
     private _nav: Router) {
   }
@@ -169,16 +171,15 @@ export class HomeService {
   GetProductsfromAllCat() {
     // page: number
     if (localStorage.getItem('Authorization') !== null) {
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', 'Token ' +  this.authentication);
-      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
-      return this._http.get(this.ServerUrl + 'getProductsfromAllCAtHome/', { headers: headers }).map(response =>
+      // let headers = new Headers();
+      // headers.append('Content-Type', 'application/json');
+      // // headers.append('Authorization', 'Token ' +  this.authentication);
+      // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
+      return this.httpclient.get(this.ServerUrl + 'getProductsfromAllCAtHome/').map((response :Response) =>
 
         // getProductsfromAllCat
-        response.json()
-
+        response
       );
 
 

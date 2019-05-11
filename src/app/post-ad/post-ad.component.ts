@@ -49,6 +49,7 @@ i;
   Waitcall = false;
   ActiveProduct: any = [];
   GetUSerOffer: any[] = [];
+  Title;
   SessionstoreName: any;
   ReversePrice = false;
   private base64textString= '';
