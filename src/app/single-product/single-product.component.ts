@@ -314,8 +314,8 @@ export class SingleProductComponent implements OnInit {
  myThumbnail;
  myFullresImage;
  ChangeImage(index) {
-  this.myThumbnail = this.PicList[index]
-  this.myFullresImage = this.PicList[index]
+  this.myThumbnail = this.ProPics[index]
+  this.myFullresImage = this.ProPics[index]
 }
   PhoneTablet() {
     this.GetAdd.get_PhoneAndTabletProduct_ProductById(this.ProID).subscribe(resSlidersData => {
@@ -327,8 +327,8 @@ export class SingleProductComponent implements OnInit {
       this.ProPDes = this.resultProduct['P_Des'].split('\n');
 
       this.ProPics = this.resultProduct['Pic'].split(',');
-this.pics = this.ProPics[0];
-      // alert(this.ProPics[0])
+      this.pics = this.ProPics[0];
+      alert(this.ProPics[0])
       console.log(this.ProPics[0])
 
       this.selectedImage = this.ProPics[0];
@@ -336,11 +336,14 @@ this.pics = this.ProPics[0];
     
       for (let i = 0; i < this.ProPics.length - 1; i++) {
         this.PicList[i] = this.ProPics[i + 1];
-        
-      }
-      this.myThumbnail = this.PicList[0]
 
-      this.myFullresImage = this.PicList[0]
+       console.log (this.PicList[i] = this.ProPics[i + 1])
+        // console.log()
+      }
+      this.myThumbnail = this.ProPics[0]
+      
+
+      this.myFullresImage = this.ProPics[0]
 
 
       console.log('Pics Before:', this.ProPics);
