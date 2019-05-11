@@ -15,14 +15,22 @@
                 <i class="fa fa-angle-double-right"
                   aria-hidden="true"></i> <a href="#.">{{ resultProduct.Sub_Cat_Name }}</a> <i class="fa fa-angle-double-right"
                   aria-hidden="true"></i> <a href="#.">{{ resultProduct.Sub_Sub_Cat_Name}}</a> </div>
-          <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
+          <div class="product-big-image col-xs-12 col-sm-12 col-lg-5 col-md-12">
             
               <!-- <ngx-image-viewer [src]="ProPics" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer> -->
               <!-- <ngx-image-viewer [src]="ProPics" [imageZoom]="ProPics" lensWidth="600" lensHeight="380" [(index)]="imageIndexOne" (customEvent)="handleEvent($event)"></ngx-image-viewer> -->
-              <img [imageZoom]="myFullresImage"  [src]="myThumbnail" lensWidth="600" lensHeight="380" scrollZoom="true" >
-              <span *ngFor="let img of PicList; let i = index" (click)="ChangeImage(i)">
-                <img src="{{img}}" alt="" width="40px" height="40px">
-            </span>
+              <div class="col-md-3">
+                <ul>
+
+        <li>
+              <span class="side-image" *ngFor="let img of PicList; let i = index" (click)="ChangeImage(i)">
+                  <img src="{{img}}" alt="" width="60px" height="60px">
+              </span>
+            </li>
+            </ul>
+            </div>
+              <img [imageZoom]="myFullresImage"  [src]="myThumbnail" lensWidth="600" lensHeight="600" scrollZoom="true" >
+             
 
               
   
@@ -42,41 +50,98 @@
 
           </div>
           <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
-            <div class="product-name width100 pull-left">
-              <h1 class="heading">{{ resultProduct.P_Title}}</h1>
-              <h1 class="heart-icon"><i class="fas fa-heart"></i></h1>
+            <div class="product-name width100 ">
+              <!-- <h1 class="heading">{{ resultProduct.P_Title}}</h1> -->
+              <!-- <h1 class="heart-icon"><i class="fas fa-heart"></i></h1> -->
+             
             </div>
             <ng-container *ngIf="resultProduct.Auction">
               <div class="price-box">
-                <p class="special-price"> <span class="price-label">Price</span>
-                  <span class="price"> Rs: {{ resultProduct.SrartingPrice | number:'.0-0' }} </span> </p>
-              </div>
+                  <h1 class="heading">{{ resultProduct.P_Title}}</h1>
+                <!-- <p class="special-price"> <span class="price-label">Price</span> -->
+                  <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p>
+                  <div id="clockdiv">
+                      <div>
+                        <span class="days">{{days}}</span>
+                        <div class="smalltext">Days</div>
+                      </div>
+                      <div>
+                        <span class="hours">{{ hours }}</span>
+                        <div class="smalltext">Hours</div>
+                      </div>
+                      <div>
+                        <span class="minutes">{{minutes}}</span>
+                        <div class="smalltext">Minutes</div>
+                      </div>
+                      <div>
+                        <span class="minutes">{{seconds}}</span>
+                        <div class="smalltext">Seconds</div>
+                      </div>
+                    </div>
+                  <div class="star">
+                    <i class="far fa-star star-icon"></i>
+                    <i class="far fa-star star-icon"></i>
+                    <i class="far fa-star star-icon "></i>
+                    <i class="far fa-star star-icon "></i>
+                    <i class="far fa-star star-icon "></i>
+                    <!-- <div id="clockdiv">
+                        <div>
+                          <span class="days">{{days}}</span>
+                          <div class="smalltext">Days</div>
+                        </div>
+                        <div>
+                          <span class="hours">{{ hours }}</span>
+                          <div class="smalltext">Hours</div>
+                        </div>
+                        <div>
+                          <span class="minutes">{{minutes}}</span>
+                          <div class="smalltext">Minutes</div>
+                        </div>
+                        <div>
+                          <span class="minutes">{{seconds}}</span>
+                          <div class="smalltext">Seconds</div>
+                        </div>
+                      </div> -->
+                </div>
+                  </div>
+                         
+                  <!-- <span class="price"> Rs: {{ resultProduct.SrartingPrice | number:'.0-0' }} </span> </p> -->
+                  <!-- <div id="clockdiv">
+                      <div>
+                        <span class="days">{{days}}</span>
+                        <div class="smalltext">Days</div>
+                      </div>
+                      <div>
+                        <span class="hours">{{ hours }}</span>
+                        <div class="smalltext">Hours</div>
+                      </div>
+                      <div>
+                        <span class="minutes">{{minutes}}</span>
+                        <div class="smalltext">Minutes</div>
+                      </div>
+                      <div>
+                        <span class="minutes">{{seconds}}</span>
+                        <div class="smalltext">Seconds</div>
+                      </div>
+                    </div>
+              </div> -->
               <div class="ratings">
                 <div class="rating">
-                  <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p>
+                  <!-- <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p> -->
+                  <span  class=" Accessories Price "><img class="icon-images"alt="dollar" src="../.././assets/images/single-product/dollar.png" width="26"> <span class="tec"> {{ resultProduct.FixedPrice | number:'.0-0' }} </span></span>
+                       <span class="Accessories Price"><img  class="icon-images"alt="icon" src="../.././assets/images/single-product/condition.png" width="26"><span class="tec"> Open box / like new </span></span>
+                         <span  class="Accessories Price"><img  class="icon-images"alt="icon" src="../.././assets/images/single-product/quantity.png" width="26"> <span class="tec">{{ resultProduct.Quantity}}</span> </span>
+                          <span class="Accessories Price" ><img  class="icon-images" alt="icon" src="../.././assets/images/single-product/datetime.png" width="26"><span class="tec"> Quantity:{{ resultProduct.Quantity}}</span> </span>
+                             <span class=" Accessories Price"><img alt="icon" class="icon-images" src="../.././assets/images/single-product/location.png" width="26"><span class="tec"> 
+                                <a href="#Bidhistory" data-toggle="tab"><i class="fa fa-history"></i><span>Bid History ({{
+                                    BidingProduct.length}})</span></a>   
+                            </span></span>
                 </div>
                 <p class="availability in-stock pull-right">Availability: <span *ngIf="!Solddd" class="not-sold">In
                     Stock</span> <span *ngIf="Solddd" class="sold">Sold Out</span></p>
               </div>
               <div class="product-variation">
-                <div id="clockdiv">
-                  <div>
-                    <span class="days">{{days}}</span>
-                    <div class="smalltext">Days</div>
-                  </div>
-                  <div>
-                    <span class="hours">{{ hours }}</span>
-                    <div class="smalltext">Hours</div>
-                  </div>
-                  <div>
-                    <span class="minutes">{{minutes}}</span>
-                    <div class="smalltext">Minutes</div>
-                  </div>
-                  <div>
-                    <span class="minutes">{{seconds}}</span>
-                    <div class="smalltext">Seconds</div>
-                  </div>
-                </div>
+           
                 <div class="product-cart-option">
                   <ul>
                     <li><a href="#Bidhistory" data-toggle="tab"><i class="fa fa-history"></i><span>Bid History ({{
@@ -150,10 +215,10 @@
               </div>
             </ng-container>
             <ng-container *ngIf="!resultProduct.Auction || resultProduct.Auction  ">
-              <div class="price-box">
+              <!-- <div class="price-box">
                 <p class="special-price"> <span class="price-label">Price</span>
                   <span class="price"> Rs: {{ resultProduct.FixedPrice | number:'.0-0' }} </span> </p>
-              </div>
+              </div> -->
               <div class="ratings">
                 <div class="rating">
 
@@ -203,7 +268,11 @@
 
 
                     <button class="button pro-add-to-cart singlebutton" (click)=" Addtocart(qtys.value)"
+                      title="Add to Cart" type="button">Add to Watchlist</button>
+                      <button class="button pro-add-to-cart singlebutton" (click)=" Addtocart(qtys.value)"
                       title="Add to Cart" type="button">Buy Now</button>
+                      <button class="button pro-add-to-cart singlebutton" (click)=" Addtocart(qtys.value)"
+                      title="Add to Cart" type="button">Offer Now</button>
 
                     <button *ngIf="LoginID === true && resultProduct.Addbestoffer"
                       class="button pro-add-to-cart singlebutton" style="margin-left: 3px;" (click)="MakeAnOffer()"
@@ -360,6 +429,32 @@
                 </div>
               </div> 
               <div class="product-tab-inner">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#description">Description</a>
+      </h4>
+    </div>
+    <div id="description" class="panel-collapse collapse">
+        <div class="tab-pane fade in active" id="#description">
+            <div class="std">
+              <ng-container *ngFor="let Des of ProPDes">
+                <p>{{ Des}}</p>
+              </ng-container>
+            </div>
+          </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                   <li class="active"> <a href="#description" data-toggle="tab"> Description </a> 
                     
