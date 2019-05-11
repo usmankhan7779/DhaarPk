@@ -157,7 +157,7 @@
               <div class="ratings">
                 <div class="rating">
 
-                  <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p>
+                  <p> Seller: <a [routerLink]="['/store', resultProduct?.StoreName]"> {{resultProduct?.StoreName}}</a></p>
                 </div>
                 <p class="availability in-stock pull-right">Availability: <span *ngIf="!soldfix" class="not-sold">In
                     Stock</span> <span *ngIf="soldfix" class="sold">Sold Out</span></p>
