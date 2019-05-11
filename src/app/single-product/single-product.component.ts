@@ -19,6 +19,7 @@ declare const $: any;
 
 })
 export class SingleProductComponent implements OnInit {
+
   config: ImageViewerConfig = { customBtns: [{ name: 'print', icon: 'fa fa-print' }] };
   // , {name: 'link', icon: 'fa fa-link'}
   imageIndexOne = 0;
@@ -264,7 +265,7 @@ export class SingleProductComponent implements OnInit {
       this.GetallProductReview = resSlidersData.Results;
  
       this.getusername = this.GetallProductReview.user.username;
-      alert(this.getusername)
+      // alert(this.getusername)
       console.log(this.getusername)
   
 
@@ -327,7 +328,7 @@ export class SingleProductComponent implements OnInit {
 
       this.ProPics = this.resultProduct['Pic'].split(',');
 this.pics = this.ProPics[0];
-      alert(this.ProPics[0])
+      // alert(this.ProPics[0])
       console.log(this.ProPics[0])
 
       this.selectedImage = this.ProPics[0];
