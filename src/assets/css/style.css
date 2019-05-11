@@ -6571,11 +6571,12 @@ ul.products-list .sale-left {
     font-size: 21px;
     width: 85%;
     margin: 0;
-    padding: 15px 0;
+    /* padding: 15px 0; */
     letter-spacing: normal;
     font-weight: 600;
     float: left
 }
+
 
 .product-view-area .product-name .heart-icon {
     font-size: 22px;
@@ -6621,7 +6622,8 @@ ul.products-list .sale-left {
 
 .product-view-area .product-details-area .ratings {
     padding: 5px 0 0;
-    margin: auto;
+    /* margin: auto; */
+    margin-top: 24px;
     float: left;
     width: 100%
 }
