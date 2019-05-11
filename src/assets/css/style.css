@@ -4935,10 +4935,10 @@ input.mat-input-element {
     font-weight: 600;
     margin: 0
 }
-.mat-form-field-infix {
+/* .mat-form-field-infix {
    
     width: 100%!important;
-}
+} */
 .footer-coppyright a {
     color:#ccc
 }
@@ -4947,7 +4947,10 @@ input.mat-input-element {
     color: #fff;
     text-decoration: underline
 }
-
+/* .mat-form-field-infix  {
+    
+    width: 113px!important
+} */
 nav {
     position: relative;
     margin: auto;
@@ -9310,7 +9313,14 @@ label[for=rememberme] {
     position: relative;
     overflow: hidden
 }
-
+ .mat-form-field-appearance-outline .mat-form-field-label {
+    top: 12px!important;
+    margin-top: 0!important
+    }
+    /* .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0!important
+    }
+     */
 #wrapper.search-active:after {
     content: '';
     position: absolute;

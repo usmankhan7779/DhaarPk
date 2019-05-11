@@ -4879,6 +4879,7 @@ select {
     .searchbar div {
         padding: 0 15px
     }
+   
     .pagiWrap {
         margin-bottom: 30px
     }
@@ -4886,6 +4887,10 @@ select {
         font-size: 15px;
         margin-right: 0;
         padding: 6px 10px
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+        padding-bottom: 1.25em;
+        width: 175px;
     }
     .post-header h4 {
         margin-top: 10px

@@ -54,9 +54,8 @@ input {
     display: none!important
 }
 .formpanel .formrow, .formrow {
-   
-   
     width: 450px;
+    margin: 0 auto;
 }
 .mat-tab-labels {
     display: flex;
@@ -93,12 +92,13 @@ input {
     flex-direction: row;
     padding: 10px 0;
     align-items: center;
+    justify-content: center
 }
 .mat-form-field-type-mat-native-select .mat-input-element {
     padding-right: 105px;
 }
 .slide-bar-2{
-    margin-left: 181px;
+    margin-left: 170px;
     float: right
 }
 .Ad-button{
@@ -128,4 +128,45 @@ input {
     overflow: visible;
     background-color: #000000;
     color:#fff
+}
+.Aution-heading{
+margin-left: 20px;
+font-size: 15px
+}
+.listing{
+    margin-left: 64px
+}
+.back-button{
+    float: left;
+}
+.Reset-button{
+float:right;
+}
+.mat-form-field-flex {
+    
+    width: 50%!important
+}
+.iner-discount{
+    text-align: center
+}
+.is{
+    margin: 0;
+}
+.mat-select-arrow-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    width: 258px!important
+}
+
+.price{
+    width: 130px;
+}
+.Days{
+    width: 140px;
+}
+.Days-2{
+    width: 162px
+}
+.what-selling{
+    width: 400px
 }

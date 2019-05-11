@@ -1,7 +1,7 @@
 <mat-horizontal-stepper labelPosition="bottom" #stepper>
   <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Fill out your name</ng-template>
+          <ng-template matStepLabel>Photo</ng-template>
           <!-- <div  class="Upload">
             <input  #fileImportInput   class="inputfile inputfile-1" id="file1" name="file" type="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
             <label  class="uploadfile" for="file-input">
@@ -11,7 +11,7 @@
               </label>
             </div> -->
             <!-- <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*"> -->
-            <div class="col-md-offset-3  col-md-8 uploadimg">
+            <div class="  col-md-12 uploadimg">
                 <div class="formrow">
               
                   <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
@@ -35,74 +35,99 @@
                     <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
                   </ng-container>
               </div>  
- 
-          <mat-form-field>
+        <div class="col-lg-10  text-center selling">
+          <mat-form-field class="what-selling">
            
               <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required>
            
           </mat-form-field>
+        </div>
           <div>
               <button mat-button matStepperNext>Next</button>
           </div>
       </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" optional>
+  <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Fill out your address</ng-template>
+          <ng-template matStepLabel>Detail</ng-template>
           <!-- <mat-form-field>
               <input matInput placeholder="Address" formControlName="secondCtrl" required> -->
               <div class="col-md-4">
-              <label  class="help-block">Select Your Store Name</label>
+              <!-- <label  class="help-block">Select Your Store Name</label>
               <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
               <select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()" >
                 <option *ngFor="let data of StoreNamess" [value]="data.StoreName"  >
                   {{data.StoreName}}
                 </option>
                 
-              </select>
+              </select> -->
+              <!-- <mat-form-field>
+                  <mat-label *ngIf="f.submitted " class="help-block">Select Your Store</mat-label>
+                  
+                  <mat-select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()">
+                    <mat-option *ngFor="let data of StoreNamess" [value]="data.StoreName">
+                      {{data.StoreName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+                <mat-form-field>
+                    <mat-label>Select Your Store</mat-label>
+                    <mat-select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()">
+                      <mat-option *ngFor="let data of StoreNamess" [value]="data.StoreName">
+                          {{data.StoreName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </div>
           <!-- </mat-form-field> -->
           <div class="col-md-4">
 
-         
+<!--          
           <label  class="help-block">Product condition</label>
           <select   [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat"  >
             <option value="New" selected>New</option>
             <option value="Used">Used</option>
 
 
-          </select>
+          </select> -->
+        
+            <mat-form-field>
+                <mat-label>Product condition</mat-label>
+                <mat-select [(ngModel)]="model.condition" matNativeControl required>
+                    <mat-option value="New" selected>New</mat-option>
+                    <mat-option value="Used">Used</mat-option>
+                </mat-select>
+              </mat-form-field>
         </div>
         <div  class="col-md-4">
                 <div class="formrow">
-
-                    <label  class="help-block">Select Sub Catgory</label>
-                    <select   [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat"  >
-                      <optgroup *ngFor="let item of GetAllSubCat"  label="{{ item.Sub_Cat_Name}}">
+                  <mat-form-field>
+                    <mat-label  >Select Sub Catgory</mat-label>
+                    <mat-select   [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat"  >
+                      <mat-optgroup *ngFor="let item of GetAllSubCat"  label="{{ item.Sub_Cat_Name}}">
                         <ng-container *ngFor="let item_sub of GetAllSubSubCat">
-                        <option  *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID" [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id"> {{ item_sub.Sub_Sub_Cat_Name }}</option>
+                        <mat-option  *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID" [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id"> {{ item_sub.Sub_Sub_Cat_Name }}</mat-option>
                         </ng-container>
-                      </optgroup>
+                      </mat-optgroup>
+                     
 
-
-
-                    </select>
-
+                    </mat-select>
+                  </mat-form-field>
                 </div>
 
               </div>
           <div class="Ad-button">
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-button matStepperPrevious  class="back-button">Back</button>
+              <button mat-button matStepperNext class="Reset-button">Next</button>
           </div>
       </form>
   </mat-step>
   <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel>Price</ng-template>
        
         
         <mat-tab-group mat-align-tabs="center">
-            <img _ngcontent-c11="" alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png" width="30px">
+            <img alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png" width="30px">
           <mat-tab label="Auction">
             
             
@@ -118,21 +143,23 @@
                   <div class="form">
                   <div class="col-md-offset-4 col-md-8">
                   <form class="example-form">
-                      <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Staring price" value="$">
-                      </mat-form-field>
+                      <mat-form-field>
+                          <input matInput placeholder="Amount" type="number" class="example-right-align">
+                          <span matPrefix>$&nbsp;</span>
+                          <span matSuffix>.00</span>
+                        </mat-form-field>
               
                     
                     </form>
                           </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png" width="25">
-                                <span _ngcontent-c11="">Reserve Auction/No Reserve Auction</span><span class="slide-bar"> <mat-slide-toggle></mat-slide-toggle></span></div>
-                                <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span _ngcontent-c11="">Listing Duration</span>
+                              <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png" width="25">
+                                <span class="Aution-heading">Reserve Auction/No Reserve Auction</span><span class="slide-bar"> <mat-slide-toggle></mat-slide-toggle></span></div>
+                                <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="Aution-heading">Listing Duration</span>
                                  
 
-<span class="slide-bar">
-<mat-form-field>
+<span class="listing">
+<!-- <mat-form-field>
     <mat-label>Select Your Listing</mat-label>
     <select matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
         <option value="10" selected>10 Days</option>
@@ -140,10 +167,19 @@
         <option value="5">5 Days</option>
         <option value="3">3 Days</option>
         </select>
-  </mat-form-field>
+  </mat-form-field> -->
+  <mat-form-field class="Days-2">
+      <mat-label>Select Your Listing</mat-label>
+      <mat-select disableRipple  matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
+        <mat-option value="10" selected>10 Days</mat-option>
+        <mat-option value="7">Option 7</mat-option>
+        <mat-option value="5">Option 5</mat-option>
+        <mat-option value="3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
 </span>
                                 </div>
-                                <div _ngcontent-c11="" class="Icon"><img _ngcontent-c11="" alt="" src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25"><span _ngcontent-c11="">Automatic Relisting</span><span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
+                                <div class="Icon"><img alt="" src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25"><span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
                               </div>
                             </div>
                   <div *ngIf="ReservePrice == true" class="formrow">
@@ -189,38 +225,130 @@
                   </div>
           
           </mat-tab>
-          <mat-tab label="Fixed Price">
+          <mat-tab label="BUY NOW">
               <div id="wbuy" class="formpanel tab-pane fade in">
+                <!-- <div class="form"> -->
 
-
-                  <div class="formrow">
+                  <!-- <div class="formrow">
    
    
                       <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
+                  </div> -->
+                  <div class=" col-md-offset-4 col-md-2">
+                      <mat-form-field class="price">
+                          <input matInput placeholder="Price" type="number" class="example-right-align">
+                          <span matPrefix>$&nbsp;</span>
+                          <span matSuffix>.00</span>
+                        </mat-form-field>
                   </div>
-   
-                  <div class="formrow">
+                  <div class=" col-md-3" >
+                      <mat-form-field class="price">
+                          <input matInput placeholder="Quantity" type="number" class="example-right-align">
+                          <span matPrefix>$&nbsp;</span>
+                          <span matSuffix>.00</span>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="Icon"><img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png" width="25"><span class="Aution-heading">List Indefinitely</span>
+                        <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
+                        <!-- <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span >Listing Duration</span>
+                           <span class="listing">   <mat-form-field class="example-full-width">
+                            
+                            <input matInput placeholder="Quantity " value="">
+                          </mat-form-field></span></div> -->
+                          <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="Aution-heading">Listing Duration</span>
+                            <span class="listing">
+                                <mat-form-field class=Days>
+                                    <mat-label>Select Your Listing</mat-label>
+                                    <mat-select disableRipple  matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
+                                      <mat-option value="10" selected>10 Days</mat-option>
+                                      <mat-option value="7">Option 7</mat-option>
+                                      <mat-option value="5">Option 5</mat-option>
+                                      <mat-option value="3">Option 3</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+  </span>
+                          </div>
+                          <div class="Icon">
+                            <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png" width="25">
+                              <span class="Aution-heading">Discount Offer</span>
+                              <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle>
+                              </span>
+                          </div>
+                          <div class="Icon">
+                              <span class="Aution-heading">Discount Percentage</span>
+                              <span class="listing">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Percentage">
+                              </mat-form-field>
+                            </span>
+                            </div>
+                            <div class="Icon">
+                                <span class="Aution-heading">Discount Price</span>
+                                <span class="listing">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Amount" type="number" class="example-right-align">
+                                        <span matPrefix>$&nbsp;</span>
+                                        <span matSuffix>.00</span>
+                                      </mat-form-field>
+                              </span>
+                          </div>
+                          <!-- <div class="Icon text-center">
+                           <div> <span>akjdnvkjnadfkj</span><input type="text" class="is"><br><br></div>
+                            <div><span>akjdnvkjnadfkj</span><input type="text" class="is"></div>
+                          </div> -->
+                          <div class="Icon"><img alt="" src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Ok_check_yes_tick_accept_success_green_correct.png" width="25">
+                            <span class="Aution-heading">Accept Offers</span>
+                            <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span>
+                          </div>
+
+
+                          <div class="Icon">
+                              <mat-slide-toggle></mat-slide-toggle>
+                              <span class="Aution-heading">Automatically accept offers of at least</span>
+                              <span class="listing">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="">
+                              </mat-form-field>
+                            </span>
+                        </div>
+
+                        <div class="Icon">
+                              <mat-slide-toggle></mat-slide-toggle>
+                              <span class="Aution-heading">Automatically decline offers lower than</span>
+                              <span class="listing">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="">
+                              </mat-form-field>
+                            </span>
+                        </div>
+                         
+                        </div>
+                      
+                      </div>
+                  <!-- <div class="formrow">
                     <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
                     Accept Offers?
-                  </div>
+                  </div> -->
                   <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
                     <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
                   <!--</div>-->
    
-                  <div class="formrow">
+                  <!-- <div class="formrow">
                     <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
-                </div>
+                </div> -->
    
    
    
    
-                </div>  
+               
+               
           
-          
+              <!-- </div> -->
           </mat-tab>
           <!-- <mat-tab label="Third">Content 3</mat-tab> -->
         </mat-tab-group>
-        
+
       
         
       <div class="col-md-12" hidden="true">
@@ -315,8 +443,8 @@
 
        </div>
       <div class="Ad-button">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button class="back-button" matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()" class="Reset-button" >Finish</button>
       </div>
   </mat-step>
 </mat-horizontal-stepper>
