@@ -154,11 +154,11 @@ export class HomeComponent implements OnInit {
     this.viewlogin = localStorage.getItem('Authorization');
     if (isPlatformBrowser(this.platformId)) {
 
-      setInterval(() => {
-        this.timer1(this.element);
-        // console.log(this.timer1(this.element));
-        // alert('dd');
-      }, 1000);
+      // setInterval(() => {
+      //   this.timer1(this.element);
+      //   // console.log(this.timer1(this.element));
+      //   // alert('dd');
+      // }, 1000);
 
       window.scrollTo(0, 0);
       this.ProductsAllCat();

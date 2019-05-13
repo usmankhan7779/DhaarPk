@@ -149,7 +149,7 @@
                     <!--<li><a href="#Bidhistory"><i class="fa fa-envelope"></i><span>Share</span></a></li>-->
                   </ul>
                 </div>
-                <!-- <ng-container *ngIf="!LoginID">
+                <ng-container *ngIf="!LoginID">
                   <div class="short-description">
                     <h5>Login required for Bid*</h5>
                   </div>
@@ -163,7 +163,7 @@
                   <button class="button pro-add-to-cart col-md-push-6 " (click)="LoginUser()" title="Bid Now"
                     type="button"><span>
                       Login</span></button>
-                </ng-container> -->
+                </ng-container>
                 <ng-container *ngIf="LoginID">
                   <ng-container *ngIf="AuctionTest == true">
                     <div class="message-alerts">
