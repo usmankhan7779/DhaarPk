@@ -1,35 +1,29 @@
 .donate-form-area h3{margin:0}input{border-radius:5px}#stay{margin-right:-20px}.fontAwesome{font-family:Helvetica,FontAwesome,sans-serif}.donate-form-area{height:730px!important}
 ::-webkit-input-placeholder {
-    font-size: 16px!important;
-      font-weight: bold;
-}
+    font-size: 25px!important }
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 16px;
-       font-weight: bold;
+       font-size: 25px;
  }
  
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 16px;
-       font-weight: bold;
+       font-size: 25px;
  }
  
  /* Overriding styles */
  
  ::-webkit-input-placeholder {
-    font-size: 16px!important;
-    font-weight: bold;
+    font-size: 13px!important;
  }
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 16px!important;
-       font-weight: bold;
+       font-size: 13px!important;
  }
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 16px!important;
-       font-weight: bold;
+       font-size: 13px!important;
  }    
  .mat-input{
+<<<<<<< HEAD
        padding: 0 0 5px;
  }
  .mat-label{
@@ -123,3 +117,7 @@
 .terms-box a{
       margin: 0 20px;
 }
+=======
+       padding: 0
+ }
+>>>>>>> 0fd84a62ad40574d38e4af6f7f1b22750b841b67

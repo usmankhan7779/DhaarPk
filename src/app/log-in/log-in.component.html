@@ -64,11 +64,10 @@
               </div>
               <div class="formrow">
                 <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                  <div class="mat-div">
+                    <div class="mat-div">
                     <label for="first-name" class="mat-label">password</label>
-                    <input  id="password-field" type="password" class="mat-input" name="password" [(ngModel)]="model.password"
+                    <input type="password" class="mat-input" name="password" [(ngModel)]="model.password"
                     #password="ngModel" required>
-                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   </div>
               
                   <div *ngIf="f.submitted && !password.valid" class="help-block">*Password is required</div>
@@ -81,17 +80,9 @@
                     <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This Field cannot be empty</strong></mat-error>
       
                   </mat-form-field> -->
-                <div class="pull-left">
+                <p class="pull-left">
                   <a [routerLink]="['/forget-password']"> Forgot Password? </a>
-                  <div  class="checked-box">
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                    Stay signed in 
-                  </div>
-                </div>
-                
+                </p>
                 <div class="formrow pull-right">
                   <div class="form-group">
                     <app-recapcha></app-recapcha>

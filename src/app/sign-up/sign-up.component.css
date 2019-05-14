@@ -20,6 +20,7 @@
  }
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
+<<<<<<< HEAD
  }
  .mat-input{
       padding: 0 0 5px;
@@ -36,3 +37,6 @@
       transform: translateY(0);
       transition: ease-in-out .5s;
   }
+=======
+ }
+>>>>>>> 0fd84a62ad40574d38e4af6f7f1b22750b841b67

@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 import { CategoryServices } from '../category-detail/category-detail.services';
 import { StoredetailsService } from '../store-all-details/storedetails.service';
 import { LoginService } from '../log-in/log-in.services';
-declare const $: any;
 
 @Component({
   selector: 'app-seller-product-setting-store',
@@ -56,7 +55,6 @@ Error;
               private GetWatch:ActiveAdServices) {}
 
   ngOnInit() {
-  
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo(0, 0);
       this.GetProducts.GetAllStoreByStorenames().subscribe(resSlidersData => {
