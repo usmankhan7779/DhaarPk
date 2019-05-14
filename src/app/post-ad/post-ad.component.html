@@ -1,59 +1,55 @@
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+<form role="form" class="login-form"  #f="ngForm" novalidate>
+      <!-- (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate -->
+  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+
       <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Photo</ng-template>
-          <!-- <div  class="Upload">
-            <input  #fileImportInput   class="inputfile inputfile-1" id="file1" name="file" type="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
-            <label  class="uploadfile" for="file-input">
-              <svg  height="17" viewBox="0 0 20 17" width="20" xmlns="http://www.w3.org/2000/svg">
-                <path  d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg><span  style="margin: 10px 0 -5px; width: 83px;">Add Photos
-                </span>
-              </label>
-            </div> -->
-            <!-- <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*"> -->
-            <div class="  col-md-12 uploadimg">
-                <div class="formrow">
-              
-                  <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
-                    <h4>Upload Product photos</h4>
-                    <p>It must be a head-shot photo</p>
-                    <label class="uploadBox">Click to Upload Cover Photos
-                      <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
-                    </label><br>
-                  </div>
+        <ng-template matStepLabel>Photo</ng-template>
+       
+       <div class="  col-md-12 uploadimg">
+          <div class="formrow">
 
-                </div>
-              </div>
+            <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
+              <h4>Upload Product photos</h4>
+              <p>It must be a head-shot photo</p>
+              <label class="uploadBox">Click to Upload Cover Photos
+                <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text"
+                  (change)="onChange($event.target.files)" multiple accept="image/*">
+              </label><br>
+            </div>
 
-              <div class="col-md-10 uploadimg">
-                  <ng-container *ngFor="let img of url; let i=index">
-                    <div class="img-box">
-                        <i class="fas fa-times" (click)="removepic(i)"></i>
-                      <!-- <i class="fa fa-close" (click)="removepic(i)" style="cursor: pointer"></i> -->
-                      <img [src]="img">
-                    </div>
-                    <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
-                  </ng-container>
-              </div>  
+          </div>
+        </div>
+
+        <div class="col-md-10 uploadimg">
+          <ng-container *ngFor="let img of url; let i=index">
+            <div class="img-box">
+              <i class="fas fa-times" (click)="removepic(i)"></i>
+              <!-- <i class="fa fa-close" (click)="removepic(i)" style="cursor: pointer"></i> -->
+              <img [src]="img">
+            </div>
+            <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
+          </ng-container>
+        </div>
         <div class="col-lg-10  text-center selling">
           <mat-form-field class="what-selling">
-           
-              <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required>
-           
+
+            <!-- <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required> -->
+            <input matInput   maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required> 
           </mat-form-field>
         </div>
-          <div>
-              <button mat-button matStepperNext>Next</button>
-          </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
       </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Detail</ng-template>
-          <!-- <mat-form-field>
+        <ng-template matStepLabel>Detail</ng-template>
+        <!-- <mat-form-field>
               <input matInput placeholder="Address" formControlName="secondCtrl" required> -->
-              <div class="col-md-4">
-              <!-- <label  class="help-block">Select Your Store Name</label>
+        <div class="col-md-4">
+          <!-- <label  class="help-block">Select Your Store Name</label>
               <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
               <select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()" >
                 <option *ngFor="let data of StoreNamess" [value]="data.StoreName"  >
@@ -61,7 +57,7 @@
                 </option>
                 
               </select> -->
-              <!-- <mat-form-field>
+          <!-- <mat-form-field>
                   <mat-label *ngIf="f.submitted " class="help-block">Select Your Store</mat-label>
                   
                   <mat-select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()">
@@ -70,19 +66,19 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field> -->
-                <mat-form-field>
-                    <mat-label>Select Your Store</mat-label>
-                    <mat-select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()">
-                      <mat-option *ngFor="let data of StoreNamess" [value]="data.StoreName">
-                          {{data.StoreName}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-            </div>
-          <!-- </mat-form-field> -->
-          <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Select Your Store</mat-label>
+            <mat-select [(ngModel)]="model.StoreName" class="col-md-push-6" name="StoreName" (change)="storess()">
+              <mat-option *ngFor="let data of StoreNamess" [value]="data.StoreName">
+                {{data.StoreName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- </mat-form-field> -->
+        <div class="col-md-4">
 
-<!--          
+<!--                    
           <label  class="help-block">Product condition</label>
           <select   [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat"  >
             <option value="New" selected>New</option>
@@ -90,76 +86,105 @@
 
 
           </select> -->
-        
-            <mat-form-field>
-                <mat-label>Product condition</mat-label>
-                <mat-select [(ngModel)]="model.condition" matNativeControl required>
-                    <mat-option value="New" selected>New</mat-option>
-                    <mat-option value="Used">Used</mat-option>
-                </mat-select>
-              </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Product condition</mat-label>
+            <mat-select [(ngModel)]="model.condition" matNativeControl required>
+              <mat-option value="New" selected>New</mat-option>
+              <mat-option value="Used">Used</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-        <div  class="col-md-4">
-                <div class="formrow">
-                  <mat-form-field>
-                    <mat-label  >Select Sub Catgory</mat-label>
-                    <mat-select   [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat"  >
-                      <mat-optgroup *ngFor="let item of GetAllSubCat"  label="{{ item.Sub_Cat_Name}}">
-                        <ng-container *ngFor="let item_sub of GetAllSubSubCat">
-                        <mat-option  *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID" [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id"> {{ item_sub.Sub_Sub_Cat_Name }}</mat-option>
-                        </ng-container>
-                      </mat-optgroup>
-                     
+        <div class="col-md-4">
+          <div class="formrow">
+            <mat-form-field>
+              <mat-label>Select Sub Catgory</mat-label>
+              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat">
+                <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}">
+                  <ng-container *ngFor="let item_sub of GetAllSubSubCat">
+                    <mat-option *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID"
+                      [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id">
+                      {{ item_sub.Sub_Sub_Cat_Name }}</mat-option>
+                  </ng-container>
+                </mat-optgroup>
 
-                    </mat-select>
-                  </mat-form-field>
-                </div>
 
-              </div>
-          <div class="Ad-button">
-              <button mat-button matStepperPrevious  class="back-button">Back</button>
-              <button mat-button matStepperNext class="Reset-button">Next</button>
+              </mat-select>
+            </mat-form-field>
           </div>
-      </form>
-  </mat-step>
-  <mat-step>
-      <ng-template matStepLabel>Price</ng-template>
-       
-        
-        <mat-tab-group mat-align-tabs="center">
-            <img alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png" width="30px">
-          <mat-tab label="Auction">
-            
-            
-            
-            
-              <div id="wsell" class="formpanel tab-pane fade in active">
 
-               
-                  <!-- <div class="formrow col-md-6">
+        </div>
+        <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Addetail.valid }"> -->
+
+      
+      
+            <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+                   required> -->
+                   <div class="col-md-4">
+                      <div class="formrow">
+                        <mat-form-field>
+            <textarea rows="8"  matInput cols="60" style="font-size: 20px !important;" maxlength="2000"
+              class="mat-input Ad-details text-capitl" name="Addetail" [(ngModel)]="model.Addetail" #Addetail="ngModel"
+              required></textarea>
+          <!-- </div> -->
+        <!-- </div> -->
+        </mat-form-field>
+        </div>
+                   </div>
+        <div class="Ad-button">
+          <button mat-button matStepperPrevious class="back-button">Back</button>
+          <button mat-button matStepperNext class="Reset-button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Price</ng-template>
+
+
+      <mat-tab-group mat-align-tabs="center">
+        <img alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png"
+          width="30px">
+        <mat-tab label="Auction">
+
+
+
+
+          <div id="wsell" class="formpanel tab-pane fade in active">
+
+
+            <!-- <div class="formrow col-md-6">
                     <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
                     Add a Reserve Price
                   </div> -->
-                  <div class="form">
-                  <div class="col-md-offset-4 col-md-8">
-                  <form class="example-form">
-                      <mat-form-field>
-                          <input matInput placeholder="Amount" type="number" class="example-right-align">
-                          <span matPrefix>$&nbsp;</span>
-                          <span matSuffix>.00</span>
-                        </mat-form-field>
-              
-                    
-                    </form>
-                          </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png" width="25">
-                                <span class="Aution-heading">Reserve Auction/No Reserve Auction</span><span class="slide-bar"> <mat-slide-toggle></mat-slide-toggle></span></div>
-                                <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="Aution-heading">Listing Duration</span>
-                                 
+            <div class="form">
+              <div class="col-md-offset-4 col-md-8">
+                <form class="example-form">
+                  <mat-form-field>
+                    <input matInput placeholder="Amount" type="number" class="example-right-align">
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                  </mat-form-field>
 
-<span class="listing">
-<!-- <mat-form-field>
+
+                </form>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png"
+                    width="25">
+                  <span class="Aution-heading">Reserve Auction/No Reserve Auction</span><span class="slide-bar">
+                    <mat-slide-toggle (click)="AddReservePriceFun()"></mat-slide-toggle>
+                  </span></div>
+                <div *ngIf="ReservePrice == true" class="formrow">
+                  <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control"
+                    placeholder="Reserve Price">
+                </div>
+                <div class="Icon"><img alt=""
+                    src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span
+                    class="Aution-heading">Listing Duration</span>
+
+
+                  <span class="listing">
+                    <!-- <mat-form-field>
     <mat-label>Select Your Listing</mat-label>
     <select matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
         <option value="10" selected>10 Days</option>
@@ -168,33 +193,39 @@
         <option value="3">3 Days</option>
         </select>
   </mat-form-field> -->
-  <mat-form-field class="Days-2">
-      <mat-label>Select Your Listing</mat-label>
-      <mat-select disableRipple  matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
-        <mat-option value="10" selected>10 Days</mat-option>
-        <mat-option value="7">Option 7</mat-option>
-        <mat-option value="5">Option 5</mat-option>
-        <mat-option value="3">Option 3</mat-option>
-      </mat-select>
-    </mat-form-field>
-</span>
-                                </div>
-                                <div class="Icon"><img alt="" src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25"><span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
-                              </div>
-                            </div>
-                  <div *ngIf="ReservePrice == true" class="formrow">
-                    <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
-                  </div>
-                  <!-- <div  class="formrow col-md-6">
+                    <mat-form-field class="Days-2">
+                      <mat-label>Select Your Listing</mat-label>
+                      <mat-select disableRipple matNativeControl required [(ngModel)]="model.AuctionListing"
+                        name="listing">
+                        <mat-option value="15" selected>15 Days</mat-option>
+                        <mat-option value="12">12 Days</mat-option>
+                        <mat-option value="7">7 Days</mat-option>
+                        <mat-option value="5">5 Days</mat-option>
+                        <mat-option value="3">3 Days</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </span>
+                </div>
+                <div class="Icon"><img alt=""
+                    src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
+                  <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2">
+                    <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
+                      (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div  class="formrow col-md-6">
                     <input type="checkbox" name="namead"  [(ngModel)]="model.product_ad_active"  (change)="checked3($event,i)" placeholder="product_ad_active">
                  If you want active ad about this Product
                   </div>
       -->
-                
-                  <!-- <div *ngIf="ReservePrice == true" class="formrow">
+
+            <!-- <div *ngIf="ReservePrice == true" class="formrow">
                     <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
                   </div> -->
-                    <!-- <div class="formrow">
+            <!-- <div class="formrow">
                       <label  class="col-md-4 help-block">Select Your Listing</label>
                       <select [(ngModel)]="model.AuctionListing"  class="col-md-8" name="listing"  >
                         <option value="10" selected>10 Days</option>
@@ -203,13 +234,13 @@
                         <option value="3">3 Days</option>
                       </select>
                     </div> -->
-                    <!-- <div class="formrow col-md-4">
+            <!-- <div class="formrow col-md-4">
      
                       <input type="number" name="name1" class="form-control" placeholder="Starting Price" [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel" >
      
                     </div> -->
-     
-                    <!-- <div class="formrow col-md-4">
+
+            <!-- <div class="formrow col-md-4">
      
                       <input type="date" name="date1" class="form-control" placeholder="Starting Date" [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel" >
      
@@ -219,255 +250,269 @@
                       <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel" >
      
                     </div> -->
-     
-     
-     
-                  </div>
-          
-          </mat-tab>
-          <mat-tab label="BUY NOW">
-              <div id="wbuy" class="formpanel tab-pane fade in">
-                <!-- <div class="form"> -->
 
-                  <!-- <div class="formrow">
+
+
+          </div>
+
+        </mat-tab>
+        <mat-tab label="BUY NOW">
+          <div id="wbuy" class="formpanel tab-pane fade in">
+            <!-- <div class="form"> -->
+
+            <!-- <div class="formrow">
    
    
                       <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
                   </div> -->
-                  <div class=" col-md-offset-4 col-md-2">
-                      <mat-form-field class="price">
-                          <input matInput placeholder="Price" type="number" class="example-right-align">
-                          <span matPrefix>$&nbsp;</span>
-                          <span matSuffix>.00</span>
-                        </mat-form-field>
-                  </div>
-                  <div class=" col-md-3" >
-                      <mat-form-field class="price">
-                          <input matInput placeholder="Quantity" type="number" class="example-right-align">
-                          <span matPrefix>$&nbsp;</span>
-                          <span matSuffix>.00</span>
-                        </mat-form-field>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <div class="Icon"><img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png" width="25"><span class="Aution-heading">List Indefinitely</span>
-                        <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span></div>
-                        <!-- <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span >Listing Duration</span>
+            <div class=" col-md-offset-4 col-md-2">
+              <mat-form-field class="price">
+                <input matInput placeholder="Price" type="number" class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+              </mat-form-field>
+            </div>
+            <div class=" col-md-3">
+              <mat-form-field class="price">
+                <input matInput placeholder="Quantity" type="number" class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="Icon"><img alt=""
+                  src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
+                  width="25"><span class="Aution-heading">List Indefinitely</span>
+                <span class="slide-bar-2">
+                  <mat-slide-toggle (click)="List_Indefinitely()"></mat-slide-toggle>
+                </span></div>
+              <!-- <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span >Listing Duration</span>
                            <span class="listing">   <mat-form-field class="example-full-width">
                             
                             <input matInput placeholder="Quantity " value="">
                           </mat-form-field></span></div> -->
-                          <div class="Icon"><img alt="" src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="Aution-heading">Listing Duration</span>
-                            <span class="listing">
-                                <mat-form-field class=Days>
-                                    <mat-label>Select Your Listing</mat-label>
-                                    <mat-select disableRipple  matNativeControl required  [(ngModel)]="model.AuctionListing"   name="listing">
-                                      <mat-option value="10" selected>10 Days</mat-option>
-                                      <mat-option value="7">Option 7</mat-option>
-                                      <mat-option value="5">Option 5</mat-option>
-                                      <mat-option value="3">Option 3</mat-option>
-                                    </mat-select>
-                                  </mat-form-field>
-  </span>
-                          </div>
-                          <div class="Icon">
-                            <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png" width="25">
-                              <span class="Aution-heading">Discount Offer</span>
-                              <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle>
-                              </span>
-                          </div>
-                          <div class="Icon">
-                              <span class="Aution-heading">Discount Percentage</span>
-                              <span class="listing">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Percentage">
-                              </mat-form-field>
-                            </span>
-                            </div>
-                            <div class="Icon">
-                                <span class="Aution-heading">Discount Price</span>
-                                <span class="listing">
-                                    <mat-form-field>
-                                        <input matInput placeholder="Amount" type="number" class="example-right-align">
-                                        <span matPrefix>$&nbsp;</span>
-                                        <span matSuffix>.00</span>
-                                      </mat-form-field>
-                              </span>
-                          </div>
-                          <!-- <div class="Icon text-center">
+              <div *ngIf="list == true" class="Icon"><img alt=""
+                  src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span
+                  class="Aution-heading">Listing Duration</span>
+                <span class="listing">
+                  <mat-form-field class=Days>
+                    <mat-label>Select Your Listing</mat-label>
+                    <mat-select disableRipple matNativeControl required [(ngModel)]="model.AuctionListing"
+                      name="listing">
+                      <mat-option value="15" selected>15 Days</mat-option>
+                      <mat-option value="12">12 Days</mat-option>
+                      <mat-option value="7">Option 7</mat-option>
+                      <mat-option value="5">Option 5</mat-option>
+                      <mat-option value="3">Option 3</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </span>
+              </div>
+              <div *ngIf="list == true" class="Icon"><img alt=""
+                  src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
+                <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2">
+                  <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
+                    (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
+                </span>
+              </div>
+              <div class="Icon">
+                <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
+                  width="25">
+                <span class="Aution-heading">Discount Offer</span>
+                <span class="slide-bar-2">
+                  <mat-slide-toggle (click)="showdiscount()"></mat-slide-toggle>
+                </span>
+              </div>
+              <div *ngIf="discount == true" class="Icon">
+                <span class="Aution-heading">Discount Percentage</span>
+                <span class="listing">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Percentage">
+                  </mat-form-field>
+                </span>
+              </div>
+              <div *ngIf="discount == true" class="Icon">
+                <span class="Aution-heading">Discount Price</span>
+                <span class="listing">
+                  <mat-form-field>
+                    <input matInput placeholder="Amount" type="number" class="example-right-align">
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix>.00</span>
+                  </mat-form-field>
+                </span>
+              </div>
+              <!-- <div class="Icon text-center">
                            <div> <span>akjdnvkjnadfkj</span><input type="text" class="is"><br><br></div>
                             <div><span>akjdnvkjnadfkj</span><input type="text" class="is"></div>
                           </div> -->
-                          <div class="Icon"><img alt="" src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Ok_check_yes_tick_accept_success_green_correct.png" width="25">
-                            <span class="Aution-heading">Accept Offers</span>
-                            <span class="slide-bar-2"> <mat-slide-toggle></mat-slide-toggle></span>
-                          </div>
+              <div class="Icon"><img alt=""
+                  src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Ok_check_yes_tick_accept_success_green_correct.png"
+                  width="25">
+                <span class="Aution-heading">Accept Offers</span>
+                <span class="slide-bar-2">
+                  <mat-slide-toggle></mat-slide-toggle>
+                </span>
+              </div>
 
 
-                          <div class="Icon">
-                              <mat-slide-toggle></mat-slide-toggle>
-                              <span class="Aution-heading">Automatically accept offers of at least</span>
-                              <span class="listing">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="">
-                              </mat-form-field>
-                            </span>
-                        </div>
+              <div class="Icon">
+                <mat-slide-toggle></mat-slide-toggle>
+                <span class="Aution-heading">Automatically accept offers of at least</span>
+                <span class="listing">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="">
+                  </mat-form-field>
+                </span>
+              </div>
 
-                        <div class="Icon">
-                              <mat-slide-toggle></mat-slide-toggle>
-                              <span class="Aution-heading">Automatically decline offers lower than</span>
-                              <span class="listing">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="">
-                              </mat-form-field>
-                            </span>
-                        </div>
-                         
-                        </div>
-                      
-                      </div>
-                  <!-- <div class="formrow">
+              <div class="Icon">
+                <mat-slide-toggle></mat-slide-toggle>
+                <span class="Aution-heading">Automatically decline offers lower than</span>
+                <span class="listing">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="">
+                  </mat-form-field>
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- <div class="formrow">
                     <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
                     Accept Offers?
                   </div> -->
-                  <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
-                    <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
-                  <!--</div>-->
-   
-                  <!-- <div class="formrow">
+          <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
+          <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
+          <!--</div>-->
+
+          <!-- <div class="formrow">
                     <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
                 </div> -->
-   
-   
-   
-   
-               
-               
-          
-              <!-- </div> -->
-          </mat-tab>
-          <!-- <mat-tab label="Third">Content 3</mat-tab> -->
-        </mat-tab-group>
 
-      
-        
+
+
+
+
+
+
+          <!-- </div> -->
+        </mat-tab>
+        <!-- <mat-tab label="Third">Content 3</mat-tab> -->
+      </mat-tab-group>
+
+
+
       <div class="col-md-12" hidden="true">
 
 
-          <div class="userbtns">
-             <ul class="nav nav-tabs">
-               <li (click)="EnableAuction()" class="active" style="width: 50%;"><a data-toggle="tab" href="#wsell">Auction</a></li>
-               <li (click)="EnableFixd()" style="width: 50%;"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
-             </ul>
-           </div>
-           <div class="tab-content">
-             <div id="wsell" class="formpanel tab-pane fade in active">
+        <div class="userbtns">
+          <ul class="nav nav-tabs">
+            <li (click)="EnableAuction()" class="active" style="width: 50%;"><a data-toggle="tab"
+                href="#wsell">Auction</a></li>
+            <li (click)="EnableFixd()" style="width: 50%;"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="wsell" class="formpanel tab-pane fade in active">
 
-               
-             <div class="formrow col-md-6">
-               <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
-               Add a Reserve Price
-             </div>
-             <div *ngIf="ReservePrice == true" class="formrow">
-               <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
-             </div>
-             <div  class="formrow col-md-6">
-               <input type="checkbox" name="namead"  [(ngModel)]="model.product_ad_active"  (change)="checked3($event,i)" placeholder="product_ad_active">
-            If you want active ad about this Product
-             </div>
 
-           
-             <!-- <div *ngIf="ReservePrice == true" class="formrow">
+            <div class="formrow col-md-6">
+              <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+              Add a Reserve Price
+            </div>
+            <div *ngIf="ReservePrice == true" class="formrow">
+              <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control"
+                placeholder="Reserve Price">
+            </div>
+            <div class="formrow col-md-6">
+              <input type="checkbox" name="namead" [(ngModel)]="model.product_ad_active" (change)="checked3($event,i)"
+                placeholder="product_ad_active">
+              If you want active ad about this Product
+            </div>
+
+
+            <!-- <div *ngIf="ReservePrice == true" class="formrow">
                <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
              </div> -->
-               <div class="formrow">
-                 <label  class="col-md-4 help-block">Select Your Listing</label>
-                 <select [(ngModel)]="model.AuctionListing"  class="col-md-8" name="listing"  >
-                   <option value="10" selected>10 Days</option>
-                   <option value="7">7 Days</option>
-                   <option value="5">5 Days</option>
-                   <option value="3">3 Days</option>
-                 </select>
-               </div>
-               <div class="formrow col-md-4">
+            <div class="formrow">
+              <label class="col-md-4 help-block">Select Your Listing</label>
+              <select [(ngModel)]="model.AuctionListing" class="col-md-8" name="listing">
+                <option value="10" selected>10 Days</option>
+                <option value="7">7 Days</option>
+                <option value="5">5 Days</option>
+                <option value="3">3 Days</option>
+              </select>
+            </div>
+            <div class="formrow col-md-4">
 
-                 <input type="number" name="name1" class="form-control" placeholder="Starting Price" [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel" >
+              <input type="number" name="name1" class="form-control" placeholder="Starting Price"
+                [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel">
 
-               </div>
+            </div>
 
-               <div class="formrow col-md-4">
+            <div class="formrow col-md-4">
 
-                 <input type="date" name="date1" class="form-control" placeholder="Starting Date" [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel" >
+              <input type="date" name="date1" class="form-control" placeholder="Starting Date"
+                [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel">
 
-               </div>
-               <div class="formrow col-md-4">
+            </div>
+            <div class="formrow col-md-4">
 
-                 <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel" >
+              <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime"
+                #EndbidTime="ngModel">
 
-               </div>
-
-
-
-             </div>
-
-             <!--- 2nd tab --->
-
-             <div id="wbuy" class="formpanel tab-pane fade in">
-
-
-               <div class="formrow">
-
-
-                   <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
-               </div>
-
-               <div class="formrow">
-                 <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
-                 Accept Offers?
-               </div>
-               <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
-                 <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
-               <!--</div>-->
-
-               <div class="formrow">
-                 <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
-             </div>
+            </div>
 
 
 
+          </div>
 
-             </div>
-           </div>
+          <!--- 2nd tab --->
+
+          <div id="wbuy" class="formpanel tab-pane fade in">
+
+
+            <div class="formrow">
+
+
+              <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
+            </div>
+
+            <div class="formrow">
+              <input type="checkbox" [(ngModel)]="model.AddBestOffer" value="agree text" name="agree" />
+              Accept Offers?
+            </div>
+            <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
+            <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
+            <!--</div>-->
+
+            <div class="formrow">
+              <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control"
+                placeholder="Quantity">
+            </div>
 
 
 
-       </div>
-      <div class="Ad-button">
-          <button mat-button class="back-button" matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()" class="Reset-button" >Finish</button>
+
+          </div>
+        </div>
+
+
+
       </div>
-  </mat-step>
-</mat-horizontal-stepper>
-<!-- <app-header></app-header> -->
+      <div class="Ad-button">
+        <button mat-button class="back-button" matStepperPrevious>Back</button>
+        <button mat-button (click)="f.form.valid || save('fsd','sfs')" class="Reset-button">Finish</button>
+        <!-- <input type="submit" class="btn-black" value="Post An Ad"> -->
+        <!-- <button type="submit" mat-button matStepperNext 
+        (click)="signupuserdata(utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate,basefee)" class="btn btn-fill">Done</button> -->
 
-
-<!-- Page Title start -->
-<!--<div class="pageTitle">-->
-  <!--<div class="container">-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-6 col-sm-6">-->
-        <!--<h1 class="page-heading">Post Ad</h1>-->
-      <!--</div>-->
-      <!--<div class="col-md-6 col-sm-6">-->
-        <!--<div class="breadCrumb"><a href="#.">Home</a> / <span>Post Ad</span></div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-
-<!-- Page Title End -->
-<!--new shape started-->
-
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
+ 
 <!--new shape End-->
 <div class="listpgWraper">
   <div class="container">
@@ -475,35 +520,36 @@
       <div class="col-md-8">
         <div class="userccount">
           <div class="">
-            <form role="form" class="login-form" (ngSubmit)="f.form.valid && save('fsd','sfs')"  #f="ngForm" novalidate>
+            <form role="form" class="login-form" (ngSubmit)="f.form.valid && save('fsd','sfs')" #f="ngForm" novalidate>
 
-            <div class="">
-              <label class="control-label label-set">Product Type: </label> <span style="color: #CC0000; font-size: 16px;font-weight: bold"> <u style="cursor: sty;">{{ CatName }}</u>  </span> <a class="label-set" (click)="routetopostad()">Change</a>
-            </div>
-            <!-- Ad Information -->
-
-            <h5 class="margin-t-b-5">Add New Information</h5>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="formrow">
-                  <div class="" [ngClass]="{ 'has-error': f.submitted && !Title.valid }">
-
-                    <!-- <label class="help-block">Title</label> -->
-                    <div *ngIf="f.submitted && !Title.valid" class="help-block">Title required</div>
-                    <!-- <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required> -->
-                    <div class="mat-div">
-                      <label for="first-name" class="mat-label">Title</label>
-                      <input type="text" class="mat-input text-capitl" name="LName"  
-                     required>
-                    </div>
-                  </div>
-                  <!-- <span class="help-block">A Good title needs Maximum 90 characters. </span> -->
-                  <!--<input type="text" name="jobtitle" class="form-control" placeholder="Ad Title ">-->
-                </div>
+              <div class="">
+                <label class="control-label label-set">Product Type: </label> <span
+                  style="color: #CC0000; font-size: 16px;font-weight: bold"> <u style="cursor: sty;">{{ CatName }}</u>
+                </span> <a class="label-set" (click)="routetopostad()">Change</a>
               </div>
-              <div class="col-lg-4" *ngIf="Vendor == true" >
-              <div class="formrow">
-                  <!-- <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+              <!-- Ad Information -->
+
+              <h5 class="margin-t-b-5">Add New Information</h5>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <div class="" [ngClass]="{ 'has-error': f.submitted && !Title.valid }">
+
+                      <!-- <label class="help-block">Title</label> -->
+                      <div *ngIf="f.submitted && !Title.valid" class="help-block">Title required</div>
+                      <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required>
+                      <div class="mat-div">
+                        <label for="first-name" class="mat-label">Title</label>
+                        <!-- <input type="text" class="mat-input text-capitl" name="LName" required> -->
+                      </div>
+                    </div>
+                    <!-- <span class="help-block">A Good title needs Maximum 90 characters. </span> -->
+                    <!--<input type="text" name="jobtitle" class="form-control" placeholder="Ad Title ">-->
+                  </div>
+                </div>
+                <div class="col-lg-4" *ngIf="Vendor == true">
+                  <div class="formrow">
+                    <!-- <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
 
                       <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
                     <mat-option *ngFor="let data of title" [value]="data.title">
@@ -515,47 +561,50 @@
                   </mat-select> -->
 
 
-                  <label  class="help-block">Select Your Store Name</label>
-                  <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
-                  <select [(ngModel)]="model.StoreName"  class="col-md-push-6" name="StoreName" (change)="storess()" >
-                    <option *ngFor="let data of StoreNamess" [value]="data.StoreName"  >
-                      {{data.StoreName}}
-                    </option>
-                    
-                  </select>
-                
-              </div>
-              </div>
-              <div class="col-lg-4" hidden="true">
-                  <div class="formrow">
-                  <label  class="help-block"> Store Name</label>
-                  <input hidden="true" type="text" class="form-control"  name="store" placeholder="Product Title" [(ngModel)]="model.StoreName"   required>
+                    <label class="help-block">Select Your Store Name</label>
+                    <div *ngIf="f.submitted " class="help-block">Select Your StoreName</div>
+                    <select [(ngModel)]="model.StoreName" class="col-md-push-6" name="StoreName" (change)="storess()">
+                      <option *ngFor="let data of StoreNamess" [value]="data.StoreName">
+                        {{data.StoreName}}
+                      </option>
+
+                    </select>
+
                   </div>
-              </div>
-              <div  class="col-md-4">
-                <div class="formrow">
+                </div>
+                <div class="col-lg-4" hidden="true">
+                  <div class="formrow">
+                    <label class="help-block"> Store Name</label>
+                    <input hidden="true" type="text" class="form-control" name="store" placeholder="Product Title"
+                      [(ngModel)]="model.StoreName" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="formrow">
 
-                  <label  class="help-block">Product condition</label>
-                  <select   [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat"  >
-                    <option value="New" selected>New</option>
-                    <option value="Used">Used</option>
+                    <label class="help-block">Product condition</label>
+                    <select [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat">
+                      <option value="New" selected>New</option>
+                      <option value="Used">Used</option>
 
 
-                  </select>
+                    </select>
+
+                  </div>
 
                 </div>
 
-              </div>
 
+                <div class="col-md-4">
+                  <div class="formrow">
 
-              <div  class="col-md-4">
-                <div class="formrow">
-
-                    <label  class="help-block">Select Sub Catgory</label>
-                    <select   [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat"  >
-                      <optgroup *ngFor="let item of GetAllSubCat"  label="{{ item.Sub_Cat_Name}}">
+                    <label class="help-block">Select Sub Catgory</label>
+                    <select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat">
+                      <optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}">
                         <ng-container *ngFor="let item_sub of GetAllSubSubCat">
-                        <option  *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID" [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id"> {{ item_sub.Sub_Sub_Cat_Name }}</option>
+                          <option *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID"
+                            [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id">
+                            {{ item_sub.Sub_Sub_Cat_Name }}</option>
                         </ng-container>
                       </optgroup>
 
@@ -563,100 +612,107 @@
 
                     </select>
 
-                </div>
-
-              </div>
-
-              <div class="col-md-12">
-                <div class="formrow">
-                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Addetail.valid }">
-
-                    <!-- <label class="help-block">Ad Detail*</label> -->
-                    <div *ngIf="f.submitted && !Addetail.valid" class="help-block">Ad-details required</div>
-                    <!-- <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="form-control" name="Addetail" placeholder="Ad Detail" [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea> -->
-                    <div class="mat-div">
-                      <label for="first-name" class="mat-label">Ad Detail</label>
-                      <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
-                     required> -->
-                       <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="mat-input Ad-details text-capitl" name="Addetail"
-                        [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea>
-                    </div>
-                </div>
-                </div>
-              </div>
-
-              <!--<div class="col-md-6">-->
-                <!--<div class="formrow">-->
-                  <!--<select class="form-control" name="msalary">-->
-                    <!--<option>Select Sub Catgory</option>-->
-                    <!--<option>Vehicles</option>-->
-                    <!--<option>Mobiles</option>-->
-                    <!--<option>Furniture</option>-->
-                    <!--<option>Jobs</option>-->
-                    <!--<option>Real Estates</option>-->
-                  <!--</select>-->
-                <!--</div>-->
-              <!--</div>-->
-
-    <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
-                  <!--</image-upload>-->
-              <div class="col-md-12">
-                <div class="formrow">
-              
-                  <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
-                    <h4>Upload Product photos</h4>
-                    <p>It must be a head-shot photo</p>
-                    <label class="uploadBox">Click to Upload Cover Photos
-                      <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="onChange($event.target.files)" multiple accept="image/*">
-                    </label><br>
                   </div>
 
                 </div>
-              </div>
 
-              <div class="col-md-12 uploadimg">
+                <div class="col-md-12">
+                  <div class="formrow">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Addetail.valid }">
+
+                      <!-- <label class="help-block">Ad Detail*</label> -->
+                      <div *ngIf="f.submitted && !Addetail.valid" class="help-block">Ad-details required</div>
+                      <!-- <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000" class="form-control" name="Addetail" placeholder="Ad Detail" [(ngModel)]="model.Addetail" #Addetail="ngModel"  required></textarea> -->
+                      <div class="mat-div">
+                        <label for="first-name" class="mat-label">Ad Detail</label>
+                        <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+                     required> -->
+                        <textarea rows="8" cols="60" style="font-size: 20px !important;" maxlength="2000"
+                          class="mat-input Ad-details text-capitl" name="Addetail" [(ngModel)]="model.Addetail"
+                          #Addetail="ngModel" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--<div class="col-md-6">-->
+                <!--<div class="formrow">-->
+                <!--<select class="form-control" name="msalary">-->
+                <!--<option>Select Sub Catgory</option>-->
+                <!--<option>Vehicles</option>-->
+                <!--<option>Mobiles</option>-->
+                <!--<option>Furniture</option>-->
+                <!--<option>Jobs</option>-->
+                <!--<option>Real Estates</option>-->
+                <!--</select>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<image-upload [style]="customStyle" [max]="3" [extensions]="['jpeg','png']" (removed)="onRemoved($event)" (uploadFinished)="onUploadFinished($event)" (uploadStateChanged)="onUploadStateChanged($event)">-->
+                <!--</image-upload>-->
+                <div class="col-md-12">
+                  <div class="formrow">
+
+                    <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
+                      <h4>Upload Product photos</h4>
+                      <p>It must be a head-shot photo</p>
+                      <label class="uploadBox">Click to Upload Cover Photos
+                        <input type="file" #fileImportInput id="file1" name="file" class="file"
+                          data-preview-file-type="text" (change)="onChange($event.target.files)" multiple
+                          accept="image/*">
+                      </label><br>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-12 uploadimg">
                   <ng-container *ngFor="let img of url; let i=index">
                     <div class="img-box">
-                        <i class="fas fa-times" (click)="removepic(i)"></i>
+                      <i class="fas fa-times" (click)="removepic(i)"></i>
                       <!-- <i class="fa fa-close" (click)="removepic(i)" style="cursor: pointer"></i> -->
                       <img [src]="img">
                     </div>
                     <!--<input type="submit" value="Delete" (click)="removepic(i)">-->
                   </ng-container>
-              </div>
+                </div>
 
-              <div class="col-md-12">
+                <div class="col-md-12">
 
 
-                 <div class="userbtns">
+                  <div class="userbtns">
                     <ul class="nav nav-tabs">
-                      <li (click)="EnableAuction()" class="active" style="width: 50%;"><a data-toggle="tab" href="#wsell">Auction</a></li>
-                      <li (click)="EnableFixd()" style="width: 50%;"><a data-toggle="tab" href="#wbuy">Fixed Price</a></li>
+                      <li (click)="EnableAuction()" class="active" style="width: 50%;"><a data-toggle="tab"
+                          href="#wsell">Auction</a></li>
+                      <li (click)="EnableFixd()" style="width: 50%;"><a data-toggle="tab" href="#wbuy">Fixed Price</a>
+                      </li>
                     </ul>
                   </div>
                   <div class="tab-content">
                     <div id="wsell" class="formpanel tab-pane fade in active">
 
-                      
-                    <div class="formrow col-md-6">
-                      <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
-                      Add a Reserve Price
-                    </div>
-                    <div *ngIf="ReservePrice == true" class="formrow">
-                      <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
-                    </div>
-                    <div  class="formrow col-md-6">
-                      <input type="checkbox" name="namead"  [(ngModel)]="model.product_ad_active"  (change)="checked3($event,i)" placeholder="product_ad_active">
-                   If you want active ad about this Product
-                    </div>
 
-                  
-                    <!-- <div *ngIf="ReservePrice == true" class="formrow">
+                      <div class="formrow col-md-6">
+                        <input type="checkbox" (click)="AddReservePriceFun()" value="agree text" name="agree" />
+                        Add a Reserve Price
+                      </div>
+                      <div *ngIf="ReservePrice == true" class="formrow">
+                        <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control"
+                          placeholder="Reserve Price">
+                      </div>
+                      <div class="formrow col-md-6">
+                        <input type="checkbox" name="namead" [(ngModel)]="model.product_ad_active"
+                          (change)="checked3($event,i)" placeholder="product_ad_active">
+                        If you want active ad about this Product
+                      </div>
+
+
+                      <!-- <div *ngIf="ReservePrice == true" class="formrow">
                       <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control" placeholder="Reserve Price">
                     </div> -->
                       <div class="formrow">
-                        <label  class="col-md-4 help-block">Select Your Listing</label>
-                        <select [(ngModel)]="model.AuctionListing"  class="col-md-8" name="listing"  >
+                        <label class="col-md-4 help-block">Select Your Listing</label>
+                        <select [(ngModel)]="model.AuctionListing" class="col-md-8" name="listing">
                           <option value="10" selected>10 Days</option>
                           <option value="7">7 Days</option>
                           <option value="5">5 Days</option>
@@ -665,21 +721,24 @@
                       </div>
                       <div class="formrow col-md-4">
 
-                        <input type="number" name="name1" class="form-control" placeholder="Starting Price" [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel" >
+                        <input type="number" name="name1" class="form-control" placeholder="Starting Price"
+                          [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel">
 
                       </div>
 
                       <div class="formrow col-md-4">
 
-                        <input type="date" name="date1" class="form-control" placeholder="Starting Date" [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel" >
+                        <input type="date" name="date1" class="form-control" placeholder="Starting Date"
+                          [(ngModel)]="model.StartbidTime" #StartbidTime="ngModel">
 
                       </div>
                       <div class="formrow col-md-4">
 
-                        <input type="date" name="date2" class="form-control" placeholder=" Date" [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel" >
+                        <input type="date" name="date2" class="form-control" placeholder=" Date"
+                          [(ngModel)]="model.EndbidTime" #EndbidTime="ngModel">
 
                       </div>
- 
+
 
 
                     </div>
@@ -692,7 +751,8 @@
                       <div class="formrow">
 
 
-                          <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control" placeholder="Price">
+                        <input type="number" [(ngModel)]="model.FixedPrice" name="name4" class="form-control"
+                          placeholder="Price">
                       </div>
 
                       <div class="formrow">
@@ -700,12 +760,13 @@
                         Accept Offers?
                       </div>
                       <!--<div *ngIf="Addbestoffer == true" class="formrow">-->
-                        <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
+                      <!--<input type="radio" [(ngModel)]="model.AddBestOffer" name="name5" class="form-control" placeholder="Offer">-->
                       <!--</div>-->
 
                       <div class="formrow">
-                        <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control" placeholder="Quantity">
-                    </div>
+                        <input type="number" [(ngModel)]="model.Quantity" name="name6" class="form-control"
+                          placeholder="Quantity">
+                      </div>
 
 
 
@@ -715,32 +776,33 @@
 
 
 
+                </div>
+
+
+
               </div>
-
-
-
-            </div>
-            <br>
+              <br>
               <ng-container *ngIf="ShowPictureError">
-                <div  class="alert alert-danger">
+                <div class="alert alert-danger">
                   <strong>Upload atleast 1 Product Photo </strong>
                 </div>
 
               </ng-container>
               <div *ngIf="Waitcall" class="alert  alert-info">
                 <p class="">
-                  <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
+                  <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
+                  </span><span> &nbsp; Loading ...</span>
 
                 </p>
               </div>
-            <input type="submit" class="btn-black" value="Post An Ad">
+              <input type="submit" class="btn-black" value="Post An Ad">
 
             </form>
           </div>
         </div>
       </div>
     </div>
-<!-- <div class="container">
+    <!-- <div class="container">
 <div class="ItemListing">
   <div class="Head">
     <span class="items-heading">Item Listing</span>
@@ -749,10 +811,4 @@
 </div> -->
 
 
-<!--<app-footer></app-footer>-->
-
-
-
-
-
-
+    <!--<app-footer></app-footer>-->
