@@ -45,21 +45,21 @@ export class AdService {
   GetAllSubCategoriesByCatID(pk: string) {
 
 
-    console.log(pk);
+    //console.log(pk);
     return this._http.get(this.ServerUrl + 'Getsubcat/' + pk).map(response => response.json());
 
 
-    // console.log(this.CateDeatils)
+    // //console.log(this.CateDeatils)
   }
   GetAllSubSubCategoriesByCatID(pk: string) {
 
       return this._http.get(this.ServerUrl + 'Getsubsubcat/' + pk).map(response => response.json());
-    // console.log(this.CateDeatils)
+    // //console.log(this.CateDeatils)
   }
   GetAllSubSubCategoriesBySubCatID(pk: string) {
 
       return this._http.get(this.ServerUrl + 'GetsubsubcatBySubcat/' + pk).map(response => response.json());
-    // console.log(this.CateDeatils)
+    // //console.log(this.CateDeatils)
   }
 
   GetSubSubCategories(pk: string) {
@@ -67,14 +67,14 @@ export class AdService {
     return this._http.get(this.ServerUrl + 'Getsubsubcat/' + pk).map(response => response.json());
 
 
-    // console.log(this.CateDeatils)
+    // //console.log(this.CateDeatils)
   }
 
 
   Fixed_Product(Pic: any, Sub2_cat: any, title: any, User_ID: any, des: any, con: any, cat: any, sub_cat: any, Sub_Subcat: any, Price: any, Day: any, Auction: any ) {
 
 
-    // console.log(Pidd);
+    // //console.log(Pidd);
 
 
     return this._http.post('http://localhost:8000/AddNewProduct',
@@ -95,11 +95,11 @@ export class AdService {
         //    'Pidd':  Pidd,
       }).map((res: Response) => {
       if (res) {
-        console.log('abc');
+        //console.log('abc');
         if (res.status === 201) {
           const responce_data = res.json();
 
-          console.log('this is the id' + responce_data.id);
+          //console.log('this is the id' + responce_data.id);
           this.ProductImages(Pic, responce_data.id).subscribe();
           // localStorage.setItem('Authorization', res.json().token);
 
@@ -107,7 +107,7 @@ export class AdService {
         }
       }
     }).catch((error: any) => {
-      console.log(error.toString());
+      //console.log(error.toString());
       return Observable.throw(new Error(error.status));
     });
 
@@ -118,11 +118,11 @@ export class AdService {
         return this._http.post(this.ServerUrl + 'productimages', {'Pic': ALLbase64textStringforPic, 'ProID': Pidd})
           .map((res: Response) => {
             if (res) {
-              // console.log('testing res');
+              // //console.log('testing res');
               if (res.status === 200 || res.status === 201) {
 
                 const responce_data = res.json();
-                // console.log('this isinsertion ' + responce_data.id);
+                // //console.log('this isinsertion ' + responce_data.id);
                 // this.UPload_PIc2(Sub2_cat, title, des, con, cat, sub_cat, Sub_Subcat, this.id).subscribe();
                 //            localStorage.setItem('Authorization', res.json().token);
                 //          this._nav.navigate(['/profile']);
@@ -130,7 +130,7 @@ export class AdService {
               }
             }
           }).catch((error: any) => {
-            console.log('errors ');
+            //console.log('errors ');
             alert(error)
             return Observable.throw(new Error(error.status));
           });
@@ -143,7 +143,7 @@ export class AdService {
     const headers = new Headers();
     // headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    //// console.log('pofile', localStorage.getItem('Authorization'));
     headers.append('Content-Type', 'application/json');
     if (isPlatformBrowser(this.platformId)){
 
@@ -172,7 +172,7 @@ export class AdService {
         }, { headers: headers }).map((res: Response) => {
 
       }).catch((error: any) => {
-        console.log(error.toString());
+        //console.log(error.toString());
         return Observable.throw(new Error(error.status));
       });
 
@@ -187,7 +187,7 @@ export class AdService {
     // headers.append('Content-Type', 'applicati on/json');
     // headers.append('Authorization', 'Token ' +  this.authentication);
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    //// console.log('pofile', localStorage.getItem('Authorization'));
     headers.append('Content-Type', 'application/json');
     if (isPlatformBrowser(this.platformId)){
 
@@ -227,7 +227,7 @@ export class AdService {
           const responce_data = res.json();
 
           // for (let a = 0; a < arrayIndex; a++) {
-          //   console.log(a);
+          //   //console.log(a);
           //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
           // }
 
@@ -242,7 +242,7 @@ export class AdService {
         }
       }
     }).catch((error: any) => {
-      console.log(error.toString());
+      //console.log(error.toString());
       return Observable.throw(new Error(error.status));
     });
 
@@ -281,12 +281,12 @@ export class AdService {
   //       //    'Pidd':  Pidd,
   //     }).map((res: Response) => {
   //     if (res) {
-  //       console.log('abc');
+  //       //console.log('abc');
   //       if (res.status === 201) {
   //         const responce_data = res.json();
   //
   //         // for (let a = 0; a < arrayIndex; a++) {
-  //         //   console.log(a);
+  //         //   //console.log(a);
   //         //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
   //         // }
   //
@@ -299,7 +299,7 @@ export class AdService {
   //       }
   //     }
   //   }).catch((error: any) => {
-  //     console.log(error.toString());
+  //     //console.log(error.toString());
   //     return Observable.throw(new Error(error.status));
   //   });
   //
@@ -339,11 +339,11 @@ export class AdService {
   //       //    'Pidd':  Pidd,
   //     }).map((res: Response) => {
   //     if (res) {
-  //       console.log('abc');
+  //       //console.log('abc');
   //       if (res.status === 201) {
   //         const responce_data = res.json();
   //         // for (let a = 0; a < arrayIndex; a++) {
-  //         //   console.log(a);
+  //         //   //console.log(a);
   //         //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
   //         // }
   //
@@ -355,7 +355,7 @@ export class AdService {
   //       }
   //     }
   //   }).catch((error: any) => {
-  //     console.log(error.toString());
+  //     //console.log(error.toString());
   //     return Observable.throw(new Error(error.status));
   //   });
   //
@@ -395,12 +395,12 @@ export class AdService {
   //       //    'Pidd':  Pidd,
   //     }).map((res: Response) => {
   //     if (res) {
-  //       console.log('abc');
+  //       //console.log('abc');
   //       if (res.status === 201) {
   //         const responce_data = res.json();
   //
   //         // for (let a = 0; a < arrayIndex; a++) {
-  //         //   console.log(a);
+  //         //   //console.log(a);
   //         //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
   //         // }
   //
@@ -413,7 +413,7 @@ export class AdService {
   //       }
   //     }
   //   }).catch((error: any) => {
-  //     console.log(error.toString());
+  //     //console.log(error.toString());
   //     return Observable.throw(new Error(error.status));
   //   });
   //
@@ -421,7 +421,7 @@ export class AdService {
   // }
   // }
   // Add_ComputingLaptops_Product(Product_ID: any, User_ID: any,  basex64: any, Title: any, CatName: any, SubCat: any, SubSubCat: any, condition: any, Addetail: any, Auction: any, Starting_Price: any, Buyitnow: any, ReservePrice: any, AuctionListing: any, FixedPrice: any, AddBestOffer: any, Quantity: any) {
-  //  // console.log('fsdfsfgsahd' + SubSubCat);
+  //  // //console.log('fsdfsfgsahd' + SubSubCat);
   //   if (isPlatformBrowser(this.platformId)) {
   //     return this._http.post(this.ServerUrl + 'ComputingLaptops',
   //       {
@@ -452,11 +452,11 @@ export class AdService {
   //         //    'Pidd':  Pidd,
   //       }).map((res: Response) => {
   //       if (res) {
-  //         console.log('abc');
+  //         //console.log('abc');
   //         if (res.status === 201) {
   //           const responce_data = res.json();
   //           // for (let a = 0; a < arrayIndex; a++) {
-  //           //   console.log(a);
+  //           //   //console.log(a);
   //           //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
   //           // }
   //
@@ -468,7 +468,7 @@ export class AdService {
   //         }
   //       }
   //     }).catch((error: any) => {
-  //       console.log(error.toString());
+  //       //console.log(error.toString());
   //       return Observable.throw(new Error(error.status));
   //     });
   //   }
@@ -506,12 +506,12 @@ export class AdService {
   //       //    'Pidd':  Pidd,
   //     }).map((res: Response) => {
   //     if (res) {
-  //       console.log('abc');
+  //       //console.log('abc');
   //       if (res.status === 201) {
   //         const responce_data = res.json();
   //
   //         // for (let a = 0; a < arrayIndex; a++) {
-  //         //   console.log(a);
+  //         //   //console.log(a);
   //         //   this.ProductImages(Product_ID, ALLbase64textStringforPic[a]).subscribe();
   //         // }
   //
@@ -525,7 +525,7 @@ export class AdService {
   //       }
   //     }
   //   }).catch((error: any) => {
-  //     console.log(error.toString());
+  //     //console.log(error.toString());
   //     return Observable.throw(new Error(error.status));
   //   });
   //
