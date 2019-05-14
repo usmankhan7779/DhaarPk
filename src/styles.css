@@ -3240,13 +3240,14 @@ a.wit-btn {
 
 .searchList li h3 {
     text-align: left;
-    margin: 0 0 10px;
+    /* margin: 0 0 10px; */
+    margin: 0;
     line-height: 20px
 }
 
 .searchList li h3 a {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 14px;
+    /* font-weight: 600; */
     color: #000
 }
 
@@ -3260,7 +3261,7 @@ a.wit-btn {
 }
 
 .adprice {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     margin: 10px 0;
     color: #000
@@ -12097,18 +12098,18 @@ button.button-checkout {
 
 .sidebar ol,
 .sidebar ul {
-    margin: 0;
+    margin: 0 18px;
     padding: 0
 }
 
 .sidebar-bar-title {
-    border-bottom: 2px solid #e0e0e0
+    /* border-bottom: 2px solid #e0e0e0 */
 }
 
 .sidebar-bar-title h3 {
     text-transform: uppercase;
     margin: auto;
-    font-size: 16px;
+    font-size: .875rem;
     letter-spacing: .5px;
     background-color: #fff;
     color: #000;
@@ -12116,7 +12117,7 @@ button.button-checkout {
     font-weight: 700;
     display: inline-block;
     /* border: 1px solid #c1c1c1; */
-    border-bottom: 2px #ed2424 solid;
+    /* border-bottom: 2px #ed2424 solid; */
     margin-bottom: -2px
 }
 
@@ -12124,9 +12125,9 @@ button.button-checkout {
     margin-bottom: 30px
 }
 
-.product-price-range .block-content {
+/* .product-price-range .block-content {
     padding: 28px 0 0
-}
+} */
 
 .product-price-range .amount-range-price {
     padding: 15px 0
@@ -12257,9 +12258,9 @@ h2.saider-bar-title {
     margin-bottom: 15px
 }
 
-.shop-by-side .block-content {
+/* .shop-by-side .block-content {
     padding: 14px 0 0
-}
+} */
 
 .color-area {
     margin-bottom: 18px;
@@ -16064,6 +16065,7 @@ label[for=rememberme] {
     max-width: 1400px;
     margin: 10px auto 0;
     padding: 0 80px;
+    
     text-align: center
 }
 

@@ -36,7 +36,14 @@
       font-size: 16px;
       color: #616161!important;
       font-weight: bold;
+      transition: ease-in-out .5s;
  }
+ .is-completed .mat-label {
+      font-size: 12px !important;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      transition: ease-in-out .5s;
+  }
  .field-icon {
       font-weight: 900;
       position: absolute;
@@ -113,3 +120,6 @@
       font-weight: 600;
     }
 /* End slide Toggle */
+.terms-box a{
+      margin: 0 20px;
+}
