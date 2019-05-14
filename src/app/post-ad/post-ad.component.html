@@ -99,7 +99,7 @@
           <div class="formrow">
             <mat-form-field>
               <mat-label>Select Sub Catgory</mat-label>
-              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat">
+              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6"  name="Subcat">
                 <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}">
                   <ng-container *ngFor="let item_sub of GetAllSubSubCat">
                     <mat-option *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID"
@@ -503,7 +503,7 @@
       </div>
       <div class="Ad-button">
         <button mat-button class="back-button" matStepperPrevious>Back</button>
-        <button mat-button (click)="f.form.valid || save('fsd','sfs')" class="Reset-button">Finish</button>
+        <button mat-button (click)="f.form.valid || save(f)" class="Reset-button">Finish</button>
         <!-- <input type="submit" class="btn-black" value="Post An Ad"> -->
         <!-- <button type="submit" mat-button matStepperNext 
         (click)="signupuserdata(utilityarea,contact_email.value,title.value,profileurl.value,profile_logo.value,product_name,terms_month,fixed,customer_type,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh, publish_product_date,product_inactive_date,enrollment_productid,product_batch_rate,basefee)" class="btn btn-fill">Done</button> -->

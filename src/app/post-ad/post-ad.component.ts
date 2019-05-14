@@ -285,88 +285,95 @@ export class PostAdComponent implements OnInit {
     }
     //console.log(this.months3)
   }
-  save(cateogry: any, condition: string) {
+  subcat;
+  sunb(subcat){
+    console.log(subcat)
+
+  }
+  save( from) {
     // alert('first')
-    this.ShowPictureError = false;
-    if (this.PictureCheck) {
+    console.log(this.model)
+    // console.log(from)
+    // this.ShowPictureError = false;
+    // if (this.PictureCheck) {
 
 
-      const utcDate = new Date(new Date().getTime());
-      const dateformat = utcDate.toString().split(' ');
-      const timeNOw = dateformat[4].split(':');
-      const Monthlist = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      const monthind = Monthlist.indexOf(dateformat[1]);
-      const monthindex = monthind + 1;
-      console.log('month' + monthindex);
-      this.DateTime = monthindex + dateformat[2] + dateformat[3] + timeNOw[0] + timeNOw[1] + timeNOw[2];
-      console.log('month' + this.DateTime);
-      const subcat = this.model.subcat.split('!');
-      console.log('SubCat issss:', subcat);
+    //   const utcDate = new Date(new Date().getTime());
+    //   const dateformat = utcDate.toString().split(' ');
+    //   const timeNOw = dateformat[4].split(':');
+    //   const Monthlist = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    //   const monthind = Monthlist.indexOf(dateformat[1]);
+    //   const monthindex = monthind + 1;
+    //   console.log('month' + monthindex);
+    //   this.DateTime = monthindex + dateformat[2] + dateformat[3] + timeNOw[0] + timeNOw[1] + timeNOw[2];
+    //   console.log('month' + this.DateTime);
+    //   const subcat = this.model.subcat.split('!');
+    //   console.log('SubCat issss:', subcat);
 
-      this.CatNumber = +this.CatId;
-      console.log('CatNumber value is', this.CatNumber);
+    //   this.CatNumber = +this.CatId;
+    //   console.log('CatNumber value is', this.CatNumber);
 
-      if (this.CatNumber < 10) {
+    //   if (this.CatNumber < 10) {
 
-        this.CatId = '0' + this.CatId;
-      }
-      this.Waitcall = true;
-      const Product_ID = this.CatId + subcat[1] + subcat[3] + this.DateTime;
-      // console.log('var132:' + Product_ID );
-      //   alert('before');
-      //   alert(this.CatName);
-      this.uploadItemsToActivity(this.SessionstoreName, Product_ID);
-      const baseurl = 'https://storage.dhaar.pk/';
-      for (let i = 0; i < this.filetoup.length; i++) {
-        if (i === 0) {
-          this.fileName = baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
-        } else {
-          this.fileName += ',' + baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
-        }
-        //alert( this.fileName);
-      }
-      console.log('File Name is:', this.fileName);
-      if (this.Auction === true) {
-        // alert('dasdasd');
-        this.model.FixedPrice = 0;
-        this.model.AddBestOffer = false;
-        this.model.Quantity = 1;
-        if (this.model.ReservePrice == null) {
-          this.model.ReservePrice = 0;
-        }
-        if (this.model.Buyitnow == null) {
-          this.model.Buyitnow = 0;
-        }
-
-
-        console.log('ABC');
-
-        //  console.log('Phones & Tablets')
-        console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
-        this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
-
-      } else {
+    //     this.CatId = '0' + this.CatId;
+    //   }
+    //   this.Waitcall = true;
+    //   const Product_ID = this.CatId + subcat[1] + subcat[3] + this.DateTime;
+    //   // console.log('var132:' + Product_ID );
+    //   //   alert('before');
+    //   //   alert(this.CatName);
+    //   this.uploadItemsToActivity(this.SessionstoreName, Product_ID);
+    //   const baseurl = 'https://storage.dhaar.pk/';
+    //   for (let i = 0; i < this.filetoup.length; i++) {
+    //     if (i === 0) {
+    //       this.fileName = baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+    //     } else {
+    //       this.fileName += ',' + baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+    //     }
+    //     //alert( this.fileName);
+    //   }
+    //   console.log('File Name is:', this.fileName);
+    //   if (this.Auction === true) {
+    //     // alert('dasdasd');
+    //     this.model.FixedPrice = 0;
+    //     this.model.AddBestOffer = false;
+    //     this.model.Quantity = 1;
+    //     if (this.model.ReservePrice == null) {
+    //       this.model.ReservePrice = 0;
+    //     }
+    //     if (this.model.Buyitnow == null) {
+    //       this.model.Buyitnow = 0;
+    //     }
 
 
-        this.model.Starting_Price = 0;
-        this.model.Buyitnow = 0;
-        this.model.ReservePrice = 0;
-        this.model.AuctionListing = 0;
+    //     console.log('ABC');
 
-        // if (this.model.AddBestOffer == null) {
-        //   this.model.AddBestOffer = 0;
-        // }
-        // console.log('catName:'+ this.CatName);
+    //     //  console.log('Phones & Tablets')
+    //     console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
+    //     this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
+
+    //   } else {
 
 
-        this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
+    //     this.model.Starting_Price = 0;
+    //     this.model.Buyitnow = 0;
+    //     this.model.ReservePrice = 0;
+    //     this.model.AuctionListing = 0;
 
-      }
-    } else {
-      this.ShowPictureError = true;
+    //     // if (this.model.AddBestOffer == null) {
+    //     //   this.model.AddBestOffer = 0;
+    //     // }
+    //     // console.log('catName:'+ this.CatName);
 
 
-    }
+    //     this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
+
+    //   }
+    // } else {
+    //   this.ShowPictureError = true;
+
+
+    // }
 
     // console.log(day);
 
