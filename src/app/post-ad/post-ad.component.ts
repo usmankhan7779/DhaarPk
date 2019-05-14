@@ -285,9 +285,9 @@ export class PostAdComponent implements OnInit {
     }
     //console.log(this.months3)
   }
-  subcat;
-  sunb(subcat){
-    console.log(subcat)
+  Subcat;
+  sunb(){
+    console.log(this.model.subcat)
 
   }
   save( from) {

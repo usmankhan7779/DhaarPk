@@ -201,8 +201,8 @@ uploadItemsToActivity() {
         data => {
          // this.Profile.UserDetailsUpdatePic(localStorage.getItem('UserID') ,this.fileName).subscribe();
           console.log('Successs' )
-          this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => {
-         console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed)
+          this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID).subscribe((response) => {
+         console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete)
           this.Error = false;
           this.Waitcall = false;
           this.Right = true;
@@ -226,9 +226,9 @@ uploadItemsToActivity() {
       );
     } else {
       this.Waitcall = true;
-      this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => 
+      this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID).subscribe((response) => 
       {
-        console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed)
+        console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete)
          this.Error = false;
          this.Waitcall = false;
          this.Right = true;

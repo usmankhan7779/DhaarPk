@@ -39,15 +39,15 @@
           <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
         <ng-container *ngIf="GetUSerDOne !== null">
           <div class="user-detail">
-            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] !== ''">
-              <img alt="User Pic" src="{{GetUSerDOne['Pic']}}" onerror="this.src='../../assets/images/Image.png'">
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne.Pic !== ''">
+              <img alt="User Pic" src="{{GetUSerDOne.Pic}}" onerror="this.src='../../assets/images/Image.png'">
               <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">
               <i class="fa fa-camera upload-cam-img"></i>
               <!-- <img src="../../../assets/images/Image.png"> -->
               <!-- <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*"> -->
               <!-- <i class="fa fa-camera upload-cam-img"></i> -->
             </div>
-            <div class="upload-img-wrapper" *ngIf="GetUSerDOne['Pic'] === ''">
+            <div class="upload-img-wrapper" *ngIf="GetUSerDOne.Pic === ''">
 
               <img alt="User Pic" src="assets/images/Image.jpg" onerror="this.src='../../assets/images/Image.png'">
               <input type="file" class="upload-input" (change)="handleFileInput($event.target.files)" accept="image/*">

@@ -1050,7 +1050,7 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
   }
 
 
-  UserDetailsUpdate(id: number, FName: string, Lname: string, Country: string, State: string, City: string, Zip: string, Mobile: string, Address: string, Vendor: string, Pic: any, Username: string, ISConfirmed: string, Complete: string) {
+  UserDetailsUpdate(id: number, FName: string, Lname: string, Country: string, State: string, City: string, Zip: string, Mobile: string, Address: string, Vendor: string, Pic: any, Username: string) {
     // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
     // console.log(this.USerNameID)
     // Get_User_details
@@ -1073,9 +1073,9 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
         'Zip': Zip,
         'Address': Address,
         'Vendor': Vendor,
-        'ISConfirmed': ISConfirmed,
+        'ISConfirmed':true,
         'Pic': Pic,
-        'Complete': Complete
+        'Complete': true
 
 
       },{headers:headers})

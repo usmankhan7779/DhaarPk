@@ -1,12 +1,12 @@
-<form role="form" class="login-form"  #f="ngForm" novalidate>
-      <!-- (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate -->
+<form role="form" class="login-form" #f="ngForm" novalidate>
+  <!-- (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate -->
   <mat-horizontal-stepper labelPosition="bottom" #stepper>
     <mat-step [stepControl]="firstFormGroup">
 
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Photo</ng-template>
-       
-       <div class="  col-md-12 uploadimg">
+
+        <div class="  col-md-12 uploadimg">
           <div class="formrow">
 
             <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
@@ -35,7 +35,8 @@
           <mat-form-field class="what-selling">
 
             <!-- <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required> -->
-            <input matInput   maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required> 
+            <input matInput maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title"
+              #Title="ngModel" required>
           </mat-form-field>
         </div>
         <div>
@@ -78,7 +79,7 @@
         <!-- </mat-form-field> -->
         <div class="col-md-4">
 
-<!--                    
+          <!--                    
           <label  class="help-block">Product condition</label>
           <select   [(ngModel)]="model.condition" class="col-md-push-6" name="Subcat"  >
             <option value="New" selected>New</option>
@@ -99,8 +100,8 @@
           <div class="formrow">
             <mat-form-field>
               <mat-label>Select Sub Catgory</mat-label>
-              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6"  name="Subcat">
-                <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}">
+              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat" (click)="sunb()">
+                <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}" (click)="sunb()">
                   <ng-container *ngFor="let item_sub of GetAllSubSubCat">
                     <mat-option *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID"
                       [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id">
@@ -116,21 +117,21 @@
         </div>
         <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Addetail.valid }"> -->
 
-      
-      
-            <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+
+
+        <!-- <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
                    required> -->
-                   <div class="col-md-4">
-                      <div class="formrow">
-                        <mat-form-field>
-            <textarea rows="8"  matInput cols="60" style="font-size: 20px !important;" maxlength="2000"
-              class="mat-input Ad-details text-capitl" name="Addetail" [(ngModel)]="model.Addetail" #Addetail="ngModel"
-              required></textarea>
-          <!-- </div> -->
-        <!-- </div> -->
-        </mat-form-field>
+        <div class="col-md-4">
+          <div class="formrow">
+            <mat-form-field>
+              <textarea rows="8" matInput cols="60" style="font-size: 20px !important;" maxlength="2000"
+                class="mat-input Ad-details text-capitl" name="Addetail" [(ngModel)]="model.Addetail"
+                #Addetail="ngModel" required></textarea>
+              <!-- </div> -->
+              <!-- </div> -->
+            </mat-form-field>
+          </div>
         </div>
-                   </div>
         <div class="Ad-button">
           <button mat-button matStepperPrevious class="back-button">Back</button>
           <button mat-button matStepperNext class="Reset-button">Next</button>
@@ -512,7 +513,7 @@
     </mat-step>
   </mat-horizontal-stepper>
 </form>
- 
+
 <!--new shape End-->
 <div class="listpgWraper">
   <div class="container">
@@ -520,7 +521,7 @@
       <div class="col-md-8">
         <div class="userccount">
           <div class="">
-            <form role="form" class="login-form" (ngSubmit)="f.form.valid && save('fsd','sfs')" #f="ngForm" novalidate>
+            <form role="form" class="login-form" (ngSubmit)="f.form.valid && save(f)" #f="ngForm" novalidate>
 
               <div class="">
                 <label class="control-label label-set">Product Type: </label> <span
@@ -537,7 +538,8 @@
 
                       <!-- <label class="help-block">Title</label> -->
                       <div *ngIf="f.submitted && !Title.valid" class="help-block">Title required</div>
-                      <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title" [(ngModel)]="model.Title" #Title="ngModel"  required>
+                      <input type="text" class="form-control" maxlength="90" name="Title" placeholder="Product Title"
+                        [(ngModel)]="model.Title" #Title="ngModel" required>
                       <div class="mat-div">
                         <label for="first-name" class="mat-label">Title</label>
                         <!-- <input type="text" class="mat-input text-capitl" name="LName" required> -->
