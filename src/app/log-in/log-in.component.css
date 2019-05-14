@@ -1,29 +1,39 @@
 .donate-form-area h3{margin:0}input{border-radius:5px}#stay{margin-right:-20px}.fontAwesome{font-family:Helvetica,FontAwesome,sans-serif}.donate-form-area{height:730px!important}
 ::-webkit-input-placeholder {
-    font-size: 25px!important }
+    font-size: 16px!important;
+      font-weight: bold;
+}
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 25px;
+       font-size: 16px;
+       font-weight: bold;
  }
  
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 25px;
+       font-size: 16px;
+       font-weight: bold;
  }
  
  /* Overriding styles */
  
  ::-webkit-input-placeholder {
-    font-size: 13px!important;
+    font-size: 16px!important;
+    font-weight: bold;
  }
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 13px!important;
+       font-size: 16px!important;
+       font-weight: bold;
  }
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 13px!important;
+       font-size: 16px!important;
+       font-weight: bold;
  }    
  .mat-input{
+<<<<<<< HEAD
  
+=======
+>>>>>>> parent of ddbfe48... hmbnmb
        padding: 0 0 5px;
  }
  .mat-label{
@@ -116,5 +126,9 @@
 /* End slide Toggle */
 .terms-box a{
       margin: 0 20px;
+<<<<<<< HEAD
 }
  
+=======
+}
+>>>>>>> parent of ddbfe48... hmbnmb

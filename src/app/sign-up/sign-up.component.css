@@ -20,7 +20,10 @@
  }
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
+<<<<<<< HEAD
  
+=======
+>>>>>>> parent of ddbfe48... hmbnmb
  }
  .mat-input{
       padding: 0 0 5px;
@@ -36,6 +39,10 @@
       -webkit-transform: translateY(0);
       transform: translateY(0);
       transition: ease-in-out .5s;
+<<<<<<< HEAD
   }
  
  
+=======
+  }
+>>>>>>> parent of ddbfe48... hmbnmb
