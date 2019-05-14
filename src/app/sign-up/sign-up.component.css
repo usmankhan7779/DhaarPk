@@ -21,11 +21,3 @@
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
  }
- .mat-input{
-      padding: 0 0 5px;
-}
-.mat-label{
-     font-size: 16px;
-     color: #616161!important;
-     font-weight: bold;
-}
