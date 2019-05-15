@@ -49,7 +49,7 @@ const appRoutes: Routes = [
       { path: 'store/:storename', loadChildren: './store-template/store-template.module#StoreTemplateModule' },
       { path: 'sub-category-detail/:CatName/:SubCat', loadChildren: './sub-category-detail/sub-category-detail.module#SubCategoryDetailModule' },
       { path: 'subsub-category-detail/:CatName/:SubsubCat', loadChildren: './subsub-category-detail/subsub-category-detail.module#SubsubCategoryDetailModule' },
-      { path: 'account-setting', loadChildren: './buyer-setting/buyer-setting.module#BuyerSettingModule', canActivate: [AuthGuard] },
+      // { path: 'account-setting', loadChildren: './buyer-setting/buyer-setting.module#BuyerSettingModule', canActivate: [AuthGuard] },
       // { path: 'seller-setting', loadChildren: './seller-setting/seller-setting.module#SellerSettingModule', canActivate: [AuthGuard]},
       { path: 'manage-coupons', loadChildren: './manage-coupons/manage-coupons.module#ManageCouponsModule', canActivate: [AuthGuard] },
       { path: 'reset/:uid/:token', loadChildren: './reset-password/reset-password.module#ResetPasswordModule', },
