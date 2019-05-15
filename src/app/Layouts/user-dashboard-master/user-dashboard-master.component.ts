@@ -12,7 +12,7 @@ import { LoginService } from '../../log-in/log-in.services';
 import { HomeService } from '../../home/home.services';
 import { ActiveAdServices } from '../../active-ad/active-ad.services';
 import { UploadItemService } from '../../file-uploads/upload-item-service';
-
+declare const $: any;
 @Component({
   selector: 'app-user-dashboard-master',
   templateUrl: './user-dashboard-master.component.html',
@@ -78,32 +78,34 @@ export class UserDashboardMasterComponent implements OnInit {
       }
 
       window.scrollTo(0, 0);
+///ye me ne abi comment kya beauaee yaha pe humy storenae ni chay 
+      // this.Profile.GetStoreInformationByUserId().subscribe(
+      //   data => {
+      //     this.ActiveProduct = data;
+      //     console.log(this.ActiveProduct,"get store infomation")
+      //     //alert(this.ActiveProduct = data )
+      //   //  if (this.ActiveProduct.length > 0) {
+      //       localStorage.setItem('StoreName', this.ActiveProduct.StoreInfo[0].StoreName);
+      //       this.HomeServics.GetallProductsOffersByStoreName(1, localStorage.getItem('StoreName')).subscribe(resSlidersData => {
+      //         this.GetUSerOffer = resSlidersData;
+      //         // this.offerLength = GetUSerOffer['results'].length;
 
-      this.Profile.GetStoreInformationByUserId().subscribe(
-        data => {
-          this.ActiveProduct = data;
-          console.log(this.ActiveProduct,"get store infomation")
-          //alert(this.ActiveProduct = data )
-        //  if (this.ActiveProduct.length > 0) {
-            localStorage.setItem('StoreName', this.ActiveProduct.StoreInfo[0].StoreName);
-            this.HomeServics.GetallProductsOffersByStoreName(1, localStorage.getItem('StoreName')).subscribe(resSlidersData => {
-              this.GetUSerOffer = resSlidersData;
-              // this.offerLength = GetUSerOffer['results'].length;
 
+      //       });
+      //       this.storename = localStorage.getItem('StoreName');
+      //     // }
+      //     //  else {
+      //     //   this._nav.navigate(['/login']);
+      //     // }
+      //   });
 
-            });
-            this.storename = localStorage.getItem('StoreName');
-          // }
-          //  else {
-          //   this._nav.navigate(['/login']);
-          // }
-        });
-      this.sessionstore = localStorage.getItem('StoreName');
-      console.log('storename is', this.sessionstore);
-      this.httpService.GetStoreOffers(this.sessionstore).subscribe(data => {
-        this.ProductOffer = data;
-        console.log('product offer is: ',this.ProductOffer);
-      });
+        ///ye me ne abi comment kya beauaee yaha pe humy storenae ni chay 
+      // this.sessionstore = localStorage.getItem('StoreName');
+      // console.log('storename is', this.sessionstore);
+      // this.httpService.GetStoreOffers(this.sessionstore).subscribe(data => {
+      //   this.ProductOffer = data;
+      //   console.log('product offer is: ',this.ProductOffer);
+      // });
 
 
     }

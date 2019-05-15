@@ -640,7 +640,7 @@ export class HomeComponent implements OnInit {
         setTimeout(function () {
           $('.homeSlider').slick({
             infinite: true,
-            slidesToShow: 5,
+            slidesToShow: 6,
             slidesToScroll: 1,
             autoplay: true,
             prevArrow: '<button class="leftRs" style="left: 30px;"><i class="fa fa-angle-left"></i></button>',

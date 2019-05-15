@@ -67,7 +67,7 @@ export class UserDetailComponent implements OnInit {
         });
 
       // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
-      console.log(this.USerNameID)
+      // console.log(this.USerNameID)
       
       // GetUserDetailByName
       this.obj.GetUSerdetailsByUserId().subscribe(resSlidersData => {
@@ -189,9 +189,12 @@ uploadItemsToActivity() {
           data => {
            // this.Profile.UserDetailsUpdatePic(localStorage.getItem('UserID') ,this.fileName).subscribe();
             console.log('Successs' )
+       
+            // UserDetailsUpdate(id: number, FName: string, Lname: string, Country: string, State: string, City: string, Zip: string, Mobile: string, Address: string, Vendor: string, Pic: any, Username: string, ISConfirmed: string, Complete: string) {
+
             // save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)
-            this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => {
-           console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed)
+            this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID).subscribe((response) => {
+           console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID)
             this.Error = false;
             this.Waitcall = false;
             this.Right = true;
@@ -216,9 +219,9 @@ uploadItemsToActivity() {
       } 
       else {
         this.Waitcall = true;
-        this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => 
+        this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID).subscribe((response) => 
         {
-          console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed)
+          console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID)
            this.Error = false;
            this.Waitcall = false;
            this.Right = true;

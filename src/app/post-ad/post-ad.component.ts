@@ -42,7 +42,8 @@ export class PostAdComponent implements OnInit {
   uploadFile: any;
   Buyitnow = false;
   CatNumber: number;
-  ReservePrice = false;
+  ReservePrice ;
+  viewacutionlist = false;
   list = false;
   discount = false;
   PictureCheck = false;
@@ -104,7 +105,8 @@ export class PostAdComponent implements OnInit {
     //     $(this).parent().removeClass("is-completed");
     //   $(this).parent().removeClass("is-active");
     // })
-    this.AddAutomatic_Relisting()
+    // this.AddAutomatic_Relisting();
+    // this. showauctionlist()
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -198,6 +200,18 @@ export class PostAdComponent implements OnInit {
 
   }
 
+  showauctionlist(){
+
+    this.viewacutionlist = !this.viewacutionlist;
+    console.log(this.viewacutionlist)
+    // if (this.viewacutionlist === true) {
+    //   this.viewacutionlist = true;
+    //   console.log('adsadadad')
+    // } else {
+    //   this.viewacutionlist = false;
+    //   console.log('false')
+    // }
+  }
 
   BuyitnowFun() {
 
@@ -221,52 +235,50 @@ export class PostAdComponent implements OnInit {
 
 
   AddReservePriceFun() {
-    if (this.ReservePrice === true) {
-      this.ReservePrice = false;
-    } else {
-      this.ReservePrice = true;
-    }
+    this.ReservePrice = ! this.ReservePrice
+    console.log(this.ReservePrice)
+    // if (this.ReservePrice === true) {
+    //   this.ReservePrice = true;
+    // } else {
+    //   this.ReservePrice = false;
+    // }
   }
   List_Indefinitely() {
-    if (this.list === true) {
-      this.list = false;
-    } else {
-      this.list = true;
-    }
+    this.list = !this.list
+    console.log(this.list)
+    // if (this.list === true) {
+    //   this.list = false;
+
+    // } else {
+    //   this.list = true;
+    // }
   }
   showdiscount() {
-    if (this.discount === true) {
-      this.discount = false;
-    } else {
-      this.discount = true;
-    }
+    this. discount = ! this.discount
+    console.log(this.discount)
+    // if (this.discount === true) {
+    //   this.discount = false;
+    // } else {
+    //   this.discount = true;
+    // }
   }
   AddAutomatic_Relisting() {
-    if (this.model.Automatic_Relisting === true) {
-      this.model.Automatic_Relisting = true;
+    this.Automatic_Relisting = ! this.Automatic_Relisting
+    console.log(this.Automatic_Relisting)
+    // if (this.model.Automatic_Relisting === true) {
+    //   this.model.Automatic_Relisting = true;
 
-      // alert( this.model.Automatic_Relisting)
-      console.log(this.model.Automatic_Relisting)
-    } else {
-      this.model.Automatic_Relisting = false;
-      // alert(this.model.Automatic_Relisting)
-      console.log(this.model.Automatic_Relisting)
-    }
+    //   // alert( this.model.Automatic_Relisting)
+    //   console.log(this.model.Automatic_Relisting)
+    // } else {
+    //   this.model.Automatic_Relisting = false;
+    //   // alert(this.model.Automatic_Relisting)
+    //   console.log(this.model.Automatic_Relisting)
+    // }
   }
 
 
-
-  // BuyitnowFun() {
-  //
-  //    if ( this.Buyitnow is equal(false) ){
-  //      this.Buyitnow = true;
-  //    }
-  //    else {
-  //      this.Buyitnow = false;
-  //    }
-  //
-  // }
-
+ 
 
   checked3(event, i) {
     if (event.target.checked == true) {
@@ -285,8 +297,15 @@ export class PostAdComponent implements OnInit {
     }
     //console.log(this.months3)
   }
-  save(cateogry: any, condition: string) {
+  Subcat;
+  sunb(){
+    console.log(this.model.subcat)
+
+  }
+  save( from) {
     // alert('first')
+    console.log(this.model)
+    console.log(from)
     this.ShowPictureError = false;
     if (this.PictureCheck) {
 
@@ -315,53 +334,80 @@ export class PostAdComponent implements OnInit {
       // console.log('var132:' + Product_ID );
       //   alert('before');
       //   alert(this.CatName);
-      this.uploadItemsToActivity(this.SessionstoreName, Product_ID);
+      this.uploadItemsToActivity(this.model.StoreName, Product_ID);
       const baseurl = 'https://storage.dhaar.pk/';
       for (let i = 0; i < this.filetoup.length; i++) {
         if (i === 0) {
-          this.fileName = baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+          this.fileName = baseurl + this.model.StoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
         } else {
-          this.fileName += ',' + baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+          this.fileName += ',' + baseurl + this.model.StoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
         }
         //alert( this.fileName);
       }
       console.log('File Name is:', this.fileName);
-      if (this.Auction === true) {
+      // if (this.Auction === true) {
         // alert('dasdasd');
-        this.model.FixedPrice = 0;
+        // this.model.FixedPrice = 0;
         this.model.AddBestOffer = false;
-        this.model.Quantity = 1;
-        if (this.model.ReservePrice == null) {
-          this.model.ReservePrice = 0;
-        }
-        if (this.model.Buyitnow == null) {
-          this.model.Buyitnow = 0;
-        }
+        // this.model.Quantity = 1;
+        // if (this.model.ReservePrice == null) {
+        //   this.model.ReservePrice = 0;
+        // }
+        // if (this.model.Buyitnow == null) {
+        //   this.model.Buyitnow = 0;
+        // }
 
 
         console.log('ABC');
 
         //  console.log('Phones & Tablets')
-        console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
-        this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
+        console.log( Product_ID,  this.fileName, this.model.Title, this.CatName, subcat[0], 
+          subcat[2], this.model.condition, this.model.Addetail, 
+          this.Auction, this.model.Starting_Price,this.model.list,
+           this.model.ReservePrice, this.model.AuctionListing,
+            this.model.FixedPrice, this.model.AddBestOffer, 
+            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
+            this.model.declineprice,
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
+            ,this.list 
+          )
+        // console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
+    //     Product_ID: any,  User_ID: any,  basex64: any, Title: any, CatName: any, SubCat: any, SubSubCat: any,
+    //  condition: any, Addetail: any, Auction: any, Starting_Price: any, 
+    //  Buyitnow: any, ReservePrice: any, AuctionListing: any, FixedPrice: any,
+    //   AddBestOffer: any,StoreName:any, Quantity: any,product_ad_active:any,
+    //AutoRelist:any,declineprice:any,atleastprcieaccept:any,
+    //   DicountStatus:any,Discountprice:any, Discountpersentage:any
+    //      "ListIndefinitly":ListIndefinitly,
+    // "ReserveStatus":ReserveStatus
+        this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID,  this.fileName, this.model.Title, this.CatName, subcat[0], 
+          subcat[2], this.model.condition, this.model.Addetail, 
+          this.Auction, this.model.Starting_Price,this.model.list,
+           this.model.ReservePrice, this.model.AuctionListing,
+            this.model.FixedPrice, this.model.AddBestOffer, 
+            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
+            this.model.declineprice,
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
+            ,this.list).subscribe();
 
-      } else {
+      // } 
+      // else {
 
 
-        this.model.Starting_Price = 0;
-        this.model.Buyitnow = 0;
-        this.model.ReservePrice = 0;
-        this.model.AuctionListing = 0;
+      //   this.model.Starting_Price = 0;
+      //   this.model.Buyitnow = 0;
+      //   this.model.ReservePrice = 0;
+      //   this.model.AuctionListing = 0;
 
-        // if (this.model.AddBestOffer == null) {
-        //   this.model.AddBestOffer = 0;
-        // }
-        // console.log('catName:'+ this.CatName);
+      //   // if (this.model.AddBestOffer == null) {
+      //   //   this.model.AddBestOffer = 0;
+      //   // }
+      //   // console.log('catName:'+ this.CatName);
 
 
-        this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
+      //   this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID, localStorage.getItem('UserID'), this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime, this.product_ad_active).subscribe();
 
-      }
+      // }
     } else {
       this.ShowPictureError = true;
 

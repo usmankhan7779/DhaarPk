@@ -17,7 +17,8 @@ export class AdService {
   private head: any;
   public login: any;
   returnUrl: string;
-  ServerUrl = 'https://apis.dhaar.pk/products/';
+  // ServerUrl = 'https://apis.dhaar.pk/products/';
+  ServerUrl = 'http://192.168.30.132:8000/products/';
   ServerUrlLocal = 'https://apis.dhaar.pk/products/';
   StoreUrl =  'https://apis.dhaar.pk/store/';
 
@@ -180,7 +181,11 @@ export class AdService {
     }
   }
 
-  Add_PhoneAndTabletProduct_Product(Product_ID: any,  User_ID: any,  basex64: any, Title: any, CatName: any, SubCat: any, SubSubCat: any, condition: any, Addetail: any, Auction: any, Starting_Price: any, Buyitnow: any, ReservePrice: any, AuctionListing: any, FixedPrice: any, AddBestOffer: any,StoreName:any, Quantity: any,StartbidTime:any,EndbidTime:any,product_ad_active:any) {
+  Add_PhoneAndTabletProduct_Product(Product_ID: any,    basex64: any, Title: any, CatName: any, SubCat: any, SubSubCat: any,
+     condition: any, Addetail: any, Auction: any, Starting_Price: any, Listing:any,
+       ReservePrice: any, AuctionListing: any, FixedPrice: any,
+      AddBestOffer: any,StoreName:any, Quantity: any,product_ad_active:any,AutoRelist:any,declineprice:any,atleastprcieaccept:any,
+      DicountStatus:any,Discountprice:any, Discountpersentage:any,ListIndefinitly:any,ReserveStatus:any) {
   
     const headers = new Headers();
     // headers.append('Content-Type', 'application/json');
@@ -196,7 +201,7 @@ export class AdService {
         'ProductID': Product_ID,
         'Cat_Name': CatName ,
         'Sub_Cat_Name': SubCat,
-        'User_ID': User_ID,
+        
         'Sub_Sub_Cat_Name': SubSubCat,
         'P_Title':  Title,
         'P_Des':  Addetail,
@@ -204,21 +209,58 @@ export class AdService {
         'auction': Auction,
         'SrartingPrice': Starting_Price,
         'MaxBidPrice': Starting_Price,
-        'Buyitnow': Buyitnow,
+       'Listing':Listing,
         'AuctionListing': AuctionListing,
         'ReservePrice': ReservePrice,
         'FixedPrice': FixedPrice,
         'Addbestoffer': AddBestOffer,
         'StoreName':StoreName ,
-        // 'StoreName': localStorage.getItem('StoreName')
         'Quantity': Quantity,
         'MaxQuantity': Quantity,
         'Active': true,
         'Sold': false,
         'Pic': basex64,
-        "StartbidTime":StartbidTime,
-        "EndbidTime":EndbidTime,
-        "product_ad_active":product_ad_active
+        // "StartbidTime":StartbidTime,
+        // "EndbidTime":EndbidTime,
+        'product_ad_active':product_ad_active,
+        'AutoRelist':AutoRelist,
+        'declineprice':declineprice,
+        'atleastprcieaccept':atleastprcieaccept,
+         'DicountStatus':DicountStatus,
+        'Discountprice':Discountprice,
+         'Discountpersentage':Discountpersentage,
+         'ListIndefinitly':ListIndefinitly,
+         'ReserveStatus':ReserveStatus
+
+//         Cat_Name done
+// Sub_Cat_Name done
+// Sub_Sub_Cat_Name  doen
+// StoreName doen
+// auction deon
+// ProductID deon
+// P_Title deon
+// P_Des dedon
+// P_Condition deon
+// Active deon
+// Sold deon
+// FixedPrice deon
+// Quantity deon
+// MaxQuantity deon
+// Pic deon
+// Addbestoffer deon
+// AutoRelist deon
+// SrartingPrice deon
+// MaxBidPrice  deon
+// ReservePrice deon
+// AuctionListing deon
+// product_ad_active deon
+// declineprice doen
+// atleastprcieaccept deon
+
+// -----------------------------
+// DicountStatus doen
+// Discountpriced deon
+// Discountpersentage deon
 
        }, { headers: headers }).map((res: Response) => {
       if (res) {

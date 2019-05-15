@@ -90,9 +90,11 @@
                                                           <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>
                                                           </ng-container>                     
                           </div>
-                          <div class="col-md-4 col-sm-5 ">
-                              <a (click)="TrashcartElement(phoneProducts.ProductID.id)">{{phoneProducts.ProductID.id}} <i class="fa fa-trash"></i></a>
-                            <!-- <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
+                          <div class="col-md-4 col-sm-5 text-right">
+                              <a (click)="TrashcartElement(phoneProducts.ProductID.id)">
+                                <!-- {{phoneProducts.ProductID.id}} -->
+                                 <i class="fa fa-trash"></i></a>
+                            <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
                             <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>
                             </ng-container> -->
                             <!-- <ng-container *ngIf="phoneProducts.ProductID.Auction === false">

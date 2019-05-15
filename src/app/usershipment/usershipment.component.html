@@ -31,13 +31,13 @@
         <h3 class="panel-title"> Address Book </h3>
         <h3 class="panel-title" *ngIf="makeshippingaddress == true ">Make default shipping address</h3>
         <h3 class="panel-title" *ngIf="makebilladdress == true ">Make default Bill address</h3>
-        <div class="shipping-anchor"  *ngIf="check">
-        <a style="cursor:pointer"  class="Defulat" (click)="checked90()"   >Make default Shipping Address</a>
-        <a (click)="checked91()"   class="shpp">Make default Billing Address</a>
+        <div class="shipping-anchor"  *ngIf="check " >
+        <a style="cursor:pointer" *ngIf="total_GetUSeradress !== 0"  class="Defulat" (click)="checked90()"   >Make default Shipping Address</a>
+        <a (click)="checked91()"  *ngIf="total_GetUSeradress != 0"  class="shpp">Make default Billing Address</a>
       </div>
       </div>
       <div class="panel-body">
-        <div class="">
+        <div class="" *ngIf="total_GetUSeradress != 0">
           <!-- <ng-container *ngIf="GetUSerAddress !== null "> -->
 
 
