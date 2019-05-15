@@ -2395,29 +2395,45 @@ ul#cart-sidebar {
     height: 70px;
     margin: 0 auto
 }
+.homeSlider .item .slide-overlay{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 9px;
+}
+.homeSlider .item .card-title{
+    line-height: 16px;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0;
+    transition: ease-in-out .5s;
+}
 .item.slick-slide {
     border: solid 1px #222;
-    min-height: 130px;
+    min-height: 115px;
     padding: 10px;
     border-radius: 4px;
     background: #0000004f;
-    margin-right: 10px
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    transition: ease-in-out .5s;
 }
 .item.slick-slide:hover {
     background: 0 0;
     border: none
 }
 
-.item.slick-slide:hover a {
-    /* color: #c00!important */
+.item:hover .slide-overlay{
+    background-color: #c00;
 }
-.slider-img:hover{
+/* .slider-img:hover{
     background-color: #c00;
     color: white!important
-}
+} */
 
 .item.slick-slide a {
-    position: relative;
+    /* position: relative; */
     top: 10px;
     font-size: 15px
 }
@@ -9434,7 +9450,8 @@ label[for=rememberme] {
 .homeSlider {
     max-width: 1400px;
     margin: 10px auto 0;
-    padding: 0 80px;
+    /* padding: 0 80px; */
+    padding: 0 30px;
     text-align: center
 }
 
