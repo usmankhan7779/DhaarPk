@@ -191,23 +191,24 @@
                               </p>
 
 
-                              <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
+                              <!-- <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div> -->
                             </div>
                             <div class="col-md-4 col-sm-5 ">
                               <!-- <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
                               <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div> -->
                               <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
                               <div class="biddong-time">
-                                <ul style="list-style: none">
-                              <li><span>0 bids</span><br></li>
-                              <li><span>3d 4h</span></li>
-                            </ul>
+                               
+                              <span>0 bids</span><br>
+                             <span>3d 4h</span>
+                         
                             </div>
                             </div>
                           </div>
                         </div>
                         <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
                         <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div>
+                        <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
 
                       </div>
                     </div>

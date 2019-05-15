@@ -88,7 +88,7 @@
                                                      <!-- <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name, SubCatName:TvVideoaudio88.Sub_Sub_Cat_Name, id:TvVideoaudio88.id }"> -->
 
                           </div>
-                          <div class="col-md-4 col-sm-5 text-right">
+                          <div class="col-md-4 col-sm-5 ">
                               <a (click)="TrashcartElement(phoneProducts.ProductID.id)">{{phoneProducts.ProductID.id}} <i class="fa fa-trash"></i></a>
                             <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
                             <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>

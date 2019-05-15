@@ -3217,7 +3217,7 @@ a.wit-btn {
 }
 
 .searchList li {
-    background: #fbfafa;
+    background: #fff;
     padding: 10px;
     margin-bottom: 10px;
     transition: .4s all ease-in-out;
@@ -3227,7 +3227,8 @@ a.wit-btn {
 }
 
 .searchList li:hover {
-    box-shadow: 1px 1px 5px 1px #ebebeb
+    box-shadow: 1px 1px 5px 1px #ebebeb;
+    transform: translate(2px, 2px);
 }
 
 .searchList li .adimg {
@@ -3244,7 +3245,9 @@ a.wit-btn {
     margin: 0;
     line-height: 20px
 }
-
+.searchList li h3:hover{
+text-decoration: underline;
+}
 .searchList li h3 a {
     font-size: 14px;
     /* font-weight: 600; */
@@ -3898,7 +3901,7 @@ a.wit-btn {
 
 .usernavdash {
     margin-bottom: 30px;
-    margin-left: 0
+    margin-left: 7px
 }
 
 .usernavdash li a {
@@ -3968,6 +3971,9 @@ a.wit-btn {
     display: block;
     font-size: 13px;
     color: #333
+}
+.panel-heading-3{
+    background-color: #000!important
 }
 
 .instoretxt {
@@ -4450,8 +4456,8 @@ margin-top: 12px;
 
 .userccount {
     background: #fff;
-    border: 1px solid #ddd;
-    padding: 25px 20px 10px;
+    /* border: 1px solid #ddd; */
+    padding: 22px 0px 9px;
     /* box-shadow: 0 5px 10px #ccc; */
     border-radius: 5px;
   
@@ -12548,7 +12554,7 @@ button.button.button-clear:hover {
 
 .shop-inner .page-title h2 {
     display: inline-block;
-    font-size: 24px;
+    font-size: 18px;
     letter-spacing: 1px;
     line-height: normal;
     /* margin: 0 0 10px; */
@@ -16873,6 +16879,7 @@ body{
     margin-top: -22px;
     border-radius: 50px;
     border: 1px solid #fff;
+    right: 0px
 }
 .leftRs, .leftRs1, .rightRs, .rightRs1, .search-bg__btn {
     font-size: 20px;
