@@ -86,7 +86,9 @@
 
                             <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID.ProductID, CatName: phoneProducts.ProductID.Cat_Name, SubCatName:phoneProducts.ProductID.Sub_Cat_Name, id:phoneProducts.ProductID.id }">View Details</a></div>
                                                      <!-- <a [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name, SubCatName:TvVideoaudio88.Sub_Sub_Cat_Name, id:TvVideoaudio88.id }"> -->
-
+                                                      <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
+                                                          <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>
+                                                          </ng-container>                     
                           </div>
                           <div class="col-md-4 col-sm-5 text-right">
                               <a (click)="TrashcartElement(phoneProducts.ProductID.id)">
@@ -94,10 +96,10 @@
                                  <i class="fa fa-trash"></i></a>
                             <ng-container *ngIf="phoneProducts.ProductID.Auction === true">
                             <div class="adprice">Rs {{ phoneProducts.ProductID.MaxBidPrice | number:'.0-0'}}</div>
-                            </ng-container>
-                            <ng-container *ngIf="phoneProducts.ProductID.Auction === false">
+                            </ng-container> -->
+                            <!-- <ng-container *ngIf="phoneProducts.ProductID.Auction === false">
                               <div class="adprice">Rs {{ phoneProducts.ProductID.FixedPrice | number:'.0-0'}}</div>
-                            </ng-container>
+                            </ng-container> -->
                             <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
                           </div>
                         </div>

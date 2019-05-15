@@ -51,6 +51,7 @@
 
 
     <div class="userccount">
+      <div class="panel-heading-4">
       <h5>My Details</h5>
 
 
@@ -80,7 +81,7 @@
                 </div> -->
                 <!-- <div class="margin-b-10-i"> -->
 
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="First Name" [formControl]="signupForm.controls['FName']" required #FName
                     value="{{GetUSerdetails?.Fname}}">
 
@@ -102,7 +103,7 @@
                 <input type="text" class="input form-control" required placeholder="Last Name" ng-Model="model.Lname"
                   #Lname name="Lname" id="Lname" value="{{GetUSerdetails.Lname}}"> -->
 
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="Last Name" [formControl]="signupForm.controls['Lname']" required #Lname
                     value="{{GetUSerdetails?.Lname}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -121,7 +122,7 @@
                   <option value="Pakistan" selected>Pakistan</option>
 
                 </select> -->
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="Country" [formControl]="signupForm.controls['Country']" required #Country
                     value="{{GetUSerdetails?.Country}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -144,7 +145,7 @@
 
 
                 </select> -->
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="State" [formControl]="signupForm.controls['State']" required #State
                     value="{{GetUSerdetails?.State}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -161,7 +162,7 @@
 
                 <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.City"
                   #City name="City" value="{{GetUSerdetails.City}}"> -->
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="City" [formControl]="signupForm.controls['City']" required #City
                     value="{{GetUSerdetails?.City}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -177,7 +178,7 @@
                 <input class="input form-control" type="text" pattern="([0-9])+$" placeholder="55560" required
                   ng-Model="model.zipcode" #zipcode name="zipcode" id="postal_code" value="{{GetUSerdetails.Zip}}">
                -->
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="Zipcode" [formControl]="signupForm.controls['Zip']" required #zipcode
                     value="{{GetUSerdetails?.Zip}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -196,7 +197,7 @@
                   type="text" required ng-Model="model.personal" #personal name="personal" id="telephone"
                   value="{{GetUSerdetails.Mobile}}"> -->
 
-                <mat-form-field>
+                <mat-form-field class="seller-user">
                   <input matInput placeholder="Contact No." [formControl]="signupForm.controls['personal']" required
                     #personal value="{{GetUSerdetails?.Mobile}}">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -228,7 +229,7 @@
                 <input type="text" class="input form-control" required placeholder="shop #, street# etc"
                   ng-Model="model.address" #address name="address" id="address" value="{{GetUSerdetails.Address}}"> -->
 
-                <mat-form-field>
+                <mat-form-field class="seller-address">
                   <input matInput placeholder="Address" [formControl]="signupForm.controls['address']" required #address
                     name="address" value="{{GetUSerdetails?.Address}}" style="width:550px!important">
                   <!-- <mat-icon matSuffix (click)="hide = !hide">account_circle </mat-icon> -->
@@ -288,7 +289,7 @@
 
       </div>
 
-
+    </div>
     </div>
 
   </form>

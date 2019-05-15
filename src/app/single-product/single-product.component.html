@@ -24,14 +24,15 @@
 
         <li>
               <span class="side-image" *ngFor="let img of ProPics; let i = index" (click)="ChangeImage(i)">
-                  <img src="{{img}}" alt="" width="60px" height="60px">
+                  <img class="side-magifar-iamge" src="{{img}}" alt="" width="60px" height="60px">
               </span>
             </li>
             </ul>
             </div>
-              <img [imageZoom]="myFullresImage"  [src]="myThumbnail" lensWidth="600" lensHeight="600" scrollZoom="true" >
+            <div class="colo-md-9">
+              <img width="75%" [imageZoom]="myFullresImage"  [src]="myThumbnail" lensWidth="600" lensHeight="600" scrollZoom="true" >
              
-
+            </div>
               
   
             <!-- <div class="col-sm-12 image-gallary">

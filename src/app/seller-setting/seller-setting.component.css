@@ -21,3 +21,12 @@
  ::-moz-placeholder {  /* Firefox 19+ */
        font-size: 13px!important;
  }
+ .password-heading{
+      text-align: center;
+      font-size: 22px;
+      color: white;
+      border-radius: 5px;
+      height: 40px;
+      padding: 4px;
+      background-color: black;
+  }

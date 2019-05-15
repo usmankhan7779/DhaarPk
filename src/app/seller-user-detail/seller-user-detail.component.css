@@ -43,5 +43,12 @@
       width: 321px!important
   } */
   .update-btn{
-        margin-right: 80px
+      margin-right: 44px;
+      margin-top: 13px
+  }
+  .seller-user{
+      width: 329px;
+  }
+  .seller-address{
+        width: 668px;
   }

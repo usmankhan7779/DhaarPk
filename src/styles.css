@@ -3217,7 +3217,7 @@ a.wit-btn {
 }
 
 .searchList li {
-    background: #fbfafa;
+    background: #fff;
     padding: 10px;
     margin-bottom: 10px;
     transition: .4s all ease-in-out;
@@ -3227,7 +3227,8 @@ a.wit-btn {
 }
 
 .searchList li:hover {
-    box-shadow: 1px 1px 5px 1px #ebebeb
+    box-shadow: 1px 1px 5px 1px #ebebeb;
+    transform: translate(2px, 2px);
 }
 
 .searchList li .adimg {
@@ -3244,7 +3245,9 @@ a.wit-btn {
     margin: 0;
     line-height: 20px
 }
-
+.searchList li h3:hover{
+text-decoration: underline;
+}
 .searchList li h3 a {
     font-size: 14px;
     /* font-weight: 600; */
@@ -3260,12 +3263,13 @@ a.wit-btn {
     color: #969595
 }
 
-.adprice {
+/* .adprice {
     font-size: 17px;
     font-weight: 600;
     margin: 10px 0;
-    color: #000
-}
+    color: #000;
+    margin-left: 8px
+} */
 
 .adverify {
     text-align: right;
@@ -3898,7 +3902,7 @@ a.wit-btn {
 
 .usernavdash {
     margin-bottom: 30px;
-    margin-left: 0
+    margin-left: 7px
 }
 
 .usernavdash li a {
@@ -3968,6 +3972,9 @@ a.wit-btn {
     display: block;
     font-size: 13px;
     color: #333
+}
+.panel-heading-3{
+    background-color: #000!important
 }
 
 .instoretxt {
@@ -4472,7 +4479,7 @@ margin-top: 12px;
     text-align: center;
     background-color: black;
     padding: 8px;
-    margin-top: -45px;
+    /* margin-top: -45px; */
     border-radius: 5px;
     
 }
@@ -6000,10 +6007,14 @@ select {
     border: none;
     text-align: center;
   }
-  .password-heading{
+  /* .password-heading{
       text-align: center;
-      font-size: 22px
-  }
+      font-size: 22px;
+      color: white;
+      border-radius: 5px;
+      height: 40px;
+      padding: 4px;
+  } */
   .field-icon{
     font-weight: 900;
     position: absolute;
@@ -12548,7 +12559,7 @@ button.button.button-clear:hover {
 
 .shop-inner .page-title h2 {
     display: inline-block;
-    font-size: 24px;
+    font-size: 18px;
     letter-spacing: 1px;
     line-height: normal;
     /* margin: 0 0 10px; */
@@ -16873,6 +16884,7 @@ body{
     margin-top: -22px;
     border-radius: 50px;
     border: 1px solid #fff;
+    right: 0px
 }
 .leftRs, .leftRs1, .rightRs, .rightRs1, .search-bg__btn {
     font-size: 20px;

@@ -7,7 +7,7 @@ import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { UploadItemService } from '../file-uploads/upload-item-service';
 import Swal from 'sweetalert2';
-
+declare const $: any;
 @Component({
   selector: 'app-usershipment',
   templateUrl: './usershipment.component.html',
@@ -48,6 +48,15 @@ export class UsershipmentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    $(".mat-input").focus(function(){
+      $(this).parent().addClass("is-active is-completed");
+    });
+    
+    $(".mat-input").focusout(function(){
+      if($(this).val() === "")
+        $(this).parent().removeClass("is-completed");
+      $(this).parent().removeClass("is-active");
+    })
     if (isPlatformBrowser(this.platformId)) {
       console.log('hahaha', localStorage.getItem('UserID'));
 this.viewuseraddress();

@@ -642,9 +642,9 @@ export class HomeComponent implements OnInit {
             infinite: true,
             slidesToShow: 6,
             slidesToScroll: 1,
-            autoplay: false,
-            prevArrow: '<button class="leftRs" style="left: -27px;"><i class="fa fa-angle-left"></i></button>',
-            nextArrow: '<button class="rightRs" style="right: -27px;"><i class="fa fa-angle-right"></i></button>',
+            autoplay: true,
+            prevArrow: '<button class="leftRs" style="left: 30px;"><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button class="rightRs" style="right: 30px;"><i class="fa fa-angle-right"></i></button>',
 
             responsive: [
               {
