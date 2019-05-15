@@ -4459,9 +4459,10 @@ margin-top: 12px;
     background: #fff;
     border: 1px solid #ddd;
     padding: 25px 20px 10px;
-    width: 450px;
-    margin: -34px auto 10px;
-    max-width: 450px;
+    /* box-shadow: 0 5px 10px #ccc; */
+    border-radius: 5px;
+  
+
 }
 
 .userccount p {
@@ -4475,7 +4476,7 @@ margin-top: 12px;
     font-size: 26px;
     color: #fff;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
     background-color: black;
     padding: 8px;
@@ -5966,9 +5967,8 @@ select {
     padding-bottom: 49px
   }
   .right-nav{
-    width: 80%;
-    float: right;
-    margin-right: 10px;
+      width: 78%;
+      float: right;
   }
   .sidenav a {
     padding: 8px 8px 8px 32px;
