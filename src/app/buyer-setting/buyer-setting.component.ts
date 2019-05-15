@@ -29,6 +29,8 @@ export class BuyerSettingComponent implements OnInit {
     // this.USerNameID =  
     // this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
     }
+    
+
   }
 
 

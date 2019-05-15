@@ -4452,10 +4452,9 @@ margin-top: 12px;
     background: #fff;
     border: 1px solid #ddd;
     padding: 25px 20px 10px;
-    /* box-shadow: 0 5px 10px #ccc; */
-    border-radius: 5px;
-  
-
+    width: 450px;
+    margin: -34px auto 10px;
+    max-width: 450px;
 }
 
 .userccount p {
@@ -4469,11 +4468,11 @@ margin-top: 12px;
     font-size: 26px;
     color: #fff;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
     background-color: black;
     padding: 8px;
-    /* margin-top: -45px; */
+    margin-top: -45px;
     border-radius: 5px;
     
 }
@@ -5960,8 +5959,9 @@ select {
     padding-bottom: 49px
   }
   .right-nav{
-      width: 78%;
-      float: right;
+    width: 80%;
+    float: right;
+    margin-right: 10px;
   }
   .sidenav a {
     padding: 8px 8px 8px 32px;
