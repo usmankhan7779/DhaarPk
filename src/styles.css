@@ -3263,12 +3263,13 @@ text-decoration: underline;
     color: #969595
 }
 
-.adprice {
+/* .adprice {
     font-size: 17px;
     font-weight: 600;
     margin: 10px 0;
-    color: #000
-}
+    color: #000;
+    margin-left: 8px
+} */
 
 .adverify {
     text-align: right;
@@ -6006,10 +6007,14 @@ select {
     border: none;
     text-align: center;
   }
-  .password-heading{
+  /* .password-heading{
       text-align: center;
-      font-size: 22px
-  }
+      font-size: 22px;
+      color: white;
+      border-radius: 5px;
+      height: 40px;
+      padding: 4px;
+  } */
   .field-icon{
     font-weight: 900;
     position: absolute;

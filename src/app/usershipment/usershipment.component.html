@@ -185,11 +185,14 @@
 
                 <div class="row from-setting padding-l-r-15">
                   <div class="col-sm-12">
-
-                    <label for="fullname" class="required">Full Name(*)</label>
+                      <div class="mat-div">
+                          <label for="first-name" class="mat-label">Full Name(*)</label>
+                          <input type="text" class="mat-input" ng-Model="model.fullname" #fullname name="fullname" required
+                          id="fullname" value="{{GetUSerAddress.fullname}}">
+                      </div>
+                    <!-- <label for="fullname" class="required">Full Name(*)</label>
                     <input type="text" ng-Model="model.fullname" #fullname name="fullname" required
-                      class="input form-control" placeholder="First Name" id="fullname"
-                      value="{{GetUSerAddress.fullname}}">
+                       id="fullname" value="{{GetUSerAddress.fullname}}"> -->
 
 
                   </div>
