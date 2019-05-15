@@ -642,7 +642,7 @@ export class HomeComponent implements OnInit {
             infinite: true,
             slidesToShow: 5,
             slidesToScroll: 1,
-            autoplay: false,
+            autoplay: true,
             prevArrow: '<button class="leftRs" style="left: 30px;"><i class="fa fa-angle-left"></i></button>',
             nextArrow: '<button class="rightRs" style="right: 30px;"><i class="fa fa-angle-right"></i></button>',
 
