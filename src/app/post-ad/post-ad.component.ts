@@ -42,7 +42,7 @@ export class PostAdComponent implements OnInit {
   uploadFile: any;
   Buyitnow = false;
   CatNumber: number;
-  ReservePrice = false;
+  ReservePrice ;
   viewacutionlist = false;
   list = false;
   discount = false;
@@ -105,7 +105,7 @@ export class PostAdComponent implements OnInit {
     //     $(this).parent().removeClass("is-completed");
     //   $(this).parent().removeClass("is-active");
     // })
-    this.AddAutomatic_Relisting();
+    // this.AddAutomatic_Relisting();
     // this. showauctionlist()
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -263,16 +263,18 @@ export class PostAdComponent implements OnInit {
     // }
   }
   AddAutomatic_Relisting() {
-    if (this.model.Automatic_Relisting === true) {
-      this.model.Automatic_Relisting = true;
+    this.Automatic_Relisting = ! this.Automatic_Relisting
+    console.log(this.Automatic_Relisting)
+    // if (this.model.Automatic_Relisting === true) {
+    //   this.model.Automatic_Relisting = true;
 
-      // alert( this.model.Automatic_Relisting)
-      console.log(this.model.Automatic_Relisting)
-    } else {
-      this.model.Automatic_Relisting = false;
-      // alert(this.model.Automatic_Relisting)
-      console.log(this.model.Automatic_Relisting)
-    }
+    //   // alert( this.model.Automatic_Relisting)
+    //   console.log(this.model.Automatic_Relisting)
+    // } else {
+    //   this.model.Automatic_Relisting = false;
+    //   // alert(this.model.Automatic_Relisting)
+    //   console.log(this.model.Automatic_Relisting)
+    // }
   }
 
 
@@ -332,13 +334,13 @@ export class PostAdComponent implements OnInit {
       // console.log('var132:' + Product_ID );
       //   alert('before');
       //   alert(this.CatName);
-      this.uploadItemsToActivity(this.SessionstoreName, Product_ID);
+      this.uploadItemsToActivity(this.model.StoreName, Product_ID);
       const baseurl = 'https://storage.dhaar.pk/';
       for (let i = 0; i < this.filetoup.length; i++) {
         if (i === 0) {
-          this.fileName = baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+          this.fileName = baseurl + this.model.StoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
         } else {
-          this.fileName += ',' + baseurl + this.SessionstoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
+          this.fileName += ',' + baseurl + this.model.StoreName + '/' + Product_ID + '/' + this.filetoup[i].name;
         }
         //alert( this.fileName);
       }
@@ -364,9 +366,9 @@ export class PostAdComponent implements OnInit {
           this.Auction, this.model.Starting_Price,this.model.list,
            this.model.ReservePrice, this.model.AuctionListing,
             this.model.FixedPrice, this.model.AddBestOffer, 
-            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.model.Automatic_Relisting ,
+            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
             this.model.declineprice,
-            this.model.atleastprcieaccept,this.discount,this.model.Discountprice,this.model.Discountpersentage,this.ReservePrice
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
             ,this.list 
           )
         // console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
@@ -383,9 +385,9 @@ export class PostAdComponent implements OnInit {
           this.Auction, this.model.Starting_Price,this.model.list,
            this.model.ReservePrice, this.model.AuctionListing,
             this.model.FixedPrice, this.model.AddBestOffer, 
-            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.model.Automatic_Relisting ,
+            this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
             this.model.declineprice,
-            this.model.atleastprcieaccept,this.discount,this.model.Discountprice,this.model.Discountpersentage,this.ReservePrice
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
             ,this.list).subscribe();
 
       // } 
