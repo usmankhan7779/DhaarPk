@@ -8,7 +8,7 @@ import {UploadItemService} from '../file-uploads/upload-item-service';
 import Swal from 'sweetalert2';
 import { SharedData } from '../shared-service';
 
-
+declare const $: any;
 @Component({
   selector: 'app-buyer-dashboard',
   templateUrl: './buyer-dashboard.component.html',
@@ -23,7 +23,7 @@ export class BuyerDashboardComponent implements OnInit {
   files: FileList;
   Mobile: string;
   Address: string;
-  GetUSerDOne: any [];
+  GetUSerDOne: any;
   Results:any;
   GetUSerAddress:any[];
   ValueRec: Boolean = false;
@@ -52,7 +52,7 @@ export class BuyerDashboardComponent implements OnInit {
       console.log('hahaha', localStorage.getItem('UserID'));
     this.obj.GetUSerdetailsByUserId().subscribe(resSlidersData => {
       this.GetUSerDOne = resSlidersData;
-      console.log('User Id is:', this.GetUSerDOne);
+      console.log('User Id is:', this.GetUSerDOne.Complete);
       // this.FName = this.GetUSerDOne['Fname'];
       // this.LName = this.GetUSerDOne['Lname'];
       // this.Country = this.GetUSerDOne['Country'];

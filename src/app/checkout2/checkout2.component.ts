@@ -20,6 +20,7 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 export class Checkout2Component implements OnInit {
   CartedProduct: any = [];
   Total: number;
+  subtotal:number;
   TotalDiscount: number;
   public mask = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public phonemask = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
@@ -57,7 +58,7 @@ export class Checkout2Component implements OnInit {
   id: any;
   payaddressid;
   ProPics: any = [];
-  qty = '1';
+  qty ;
   currentindex: any;
   //sub: any;
   CatId: any;
@@ -139,40 +140,7 @@ export class Checkout2Component implements OnInit {
           }
         });
 
-      this.GetAdd.GetAllProductcart().subscribe(resSlidersData => {
-
-        this.CartedProduct = resSlidersData;
-        console.log(this.CartedProduct.Results, 'cart')
-        this.total = this.CartedProduct['Total Result']
-        for(const checkout of this.CartedProduct.Results){
-          // {"ProductID": "123","UserID":"338","Qty":"1","sellerid":"hassan"}
-          this.list.push({
-            "ProductID":checkout.product.ProductID,
-            "Qty":checkout.Quantity,
-            "sellerid":checkout.product.User_ID
-          })
-          console.log(this.list,'fatimaaaaaaaaaa')
-        //  this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)
-        }
-        this._shareData.watchtotal(this.total);
-
-        // this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
-        console.log('Carted products are:', this.CartedProduct);
-        for (const tmp1 of this.CartedProduct.Results) {
-          console.log('Temp1 is:', tmp1);
-          console.log('Values are:', tmp1.product.Pic);
-          this.ProPics.push(tmp1.product.Pic.split(',')[0]);
-        }
-        console.log('Pics are are:', this.ProPics);
-
-
-        this.Total = 0;
-        for (const tmp of this.CartedProduct.Results) {
-
-          this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
-          console.log(tmp.product.FixedPrice, 'total')
-        }
-      });
+     this.viewCheckOut();
       this.get()
       // this.httpService.GetUSerdetailsByUserId1().subscribe(resSlidersData => {
       //   this.GetUSeradress = resSlidersData;
@@ -189,17 +157,49 @@ export class Checkout2Component implements OnInit {
 
     }
   }
-  // //     "id": 2,
-  // //     "fullname": "hassan",
-  // //     "address": "madina",
-  // //     "province": "custom",
-  // //     "city": "fsd",
-  // //     "area": "samanabad s",
-  // //     "default_shipment_address": false,
-  // //     "phone_no": 30112889666,
-  // //     "user_id": 303
-  // SaveProduct(GetUser.id,GetUser.fullname,GetUser.phone_no,GetUser.area, GetUser.city,GetUser.province,GetUser.address,GetUser.default_shipment_address )"
-  SaveProduct(id, val1, val2, val3, val4, val5, val6, val7, val8) {
+  quantites;
+  viewCheckOut(){
+    this.GetAdd.GetAllProductcart().subscribe(resSlidersData => {
+
+      this.CartedProduct = resSlidersData;
+      console.log(this.CartedProduct.Results, 'cart')
+      this.total = this.CartedProduct['Total Result']
+      // for(const checkout of this.CartedProduct.Results){
+      //   // {"ProductID": "123","UserID":"338","Qty":"1","sellerid":"hassan"}
+      //   this.subtotal=checkout.product.FixedPrice * checkout.Quantity
+        // alert(checkout.Quantity)
+      //   this.list.push({
+      //     "ProductID":checkout.product.ProductID,          
+      //     "sellerid":checkout.product.User_ID,
+      //     "Qty":checkout.Quantity,
+      //     "proprice": this.subtotal
+      
+      //   })
+      //   console.log(this.list,'fatimaaaaaaaaaa')
+      // //  this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)
+      // }
+      this._shareData.watchtotal(this.total);
+
+      // this.CartedProduct = JSON.parse(localStorage.getItem('Cartdata'));
+      console.log('Carted products are:', this.CartedProduct);
+      for (const tmp1 of this.CartedProduct.Results) {
+        console.log('Temp1 is:', tmp1);
+        console.log('Values are:', tmp1.product.Pic);
+        this.ProPics.push(tmp1.product.Pic.split(',')[0]);
+      }
+      console.log('Pics are are:', this.ProPics);
+
+
+      this.Total = 0;
+      for (const tmp of this.CartedProduct.Results) {
+      //  this.subtotal = (tmp.product.FixedPrice * tmp.Quantity)
+      //  alert(this.subtotal)
+        this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
+        console.log(tmp.product.FixedPrice, 'total')
+      }
+    });
+  }
+   SaveProduct(id, val1, val2, val3, val4, val5, val6, val7, val8) {
     this.catid = id;
     this.fullname = val1;
     this.address = val6;
@@ -215,15 +215,44 @@ export class Checkout2Component implements OnInit {
     console.log('id : ' + this.catid);
     console.log(this.fullname)
   }
+getproductsid;
+getqty;
+getcartid;
+  SaveProduct2(val1,val2,val3) {
+    // SaveProduct1(abc.product.ProductID,qty.value){}
+    this.getproductsid = val1;
+    this.getqty=val2;
+    // this.CartedProduct.Results = this.getcartid.id;
+    this.getcartid = val3
+    console.log(val1,val2,val3)
+         this.httpbuyerService.Updatequantity(this.getcartid,this.getqty).subscribe((response) => {
+          //  console.log(SName,OName,Email,zip,City,ownercontactnum,Businessphone,Address,fbrregister,Legalname,ntn,strn,atitle,accountnum,banknam,branchnam,branchcod,pic)
+           console.log(response)
+           console.log(this.getproductsid,this.getqty,this.getcartid)
+           this.viewCheckOut();
+           Swal.fire('Changes has been Saved','','success');
+        }
+         );
+        // ,
+        // error => {
+        //   console.log(error);
+        // });
 
+        
+         
+           
+   
+  }
 
   onChange(qty, Abc: any, value: any) {
 // alert(value)
     for (const tmp of this.CartedProduct.Results) {
       if (tmp.ProductID === Abc) {
         tmp.Quantity = value;
-        console.log(value)
+        // this.list.Qty=value;
+        
       }
+      console.log(this.list.Qty)
 
     }
     this.Total = 0;
@@ -270,16 +299,30 @@ export class Checkout2Component implements OnInit {
       console.log(event.target.checked)
       this.Shipmentbilladdress = "False";
       console.log(this.Shipmentbilladdress, 'false fbr register')
-      // alert(this.Shipmentbilladdress)
-      //this.setPage(1);
+       
     }
-    //console.log(this.months3)
+     
   }
+  viewidofshippmentaddress;
   get() {
     this.httpService.GetUSerdetailsByUserId1().subscribe(resSlidersData => {
       // this.httpService.GetUSerdetailsByUserId().subscribe(resSlidersData => {
       this.GetUSeradress = resSlidersData;
       this.payaddressid= this.GetUSeradress.Results;
+      // if (this.payaddressid.default_shipment_address == true){
+
+      // }
+      for (const tmps of this.GetUSeradress.Results) {
+        // this.subtotal = (tmp.product.FixedPrice * tmp.Quantity)
+       //  alert(this.subtotal)
+        //  this.Total = this.Total + (tmp.product.FixedPrice * tmp.Quantity);
+         console.log(tmps.default_shipment_address, 'total')
+         if(tmps.default_shipment_address == true){
+          this.viewidofshippmentaddress = tmps.id;
+
+          //  alert(tmps.id)
+         }
+       }
       // console.log(this.payaddressid.default_shipment_address == )
       // alert(this.payaddressid.default_shipment_address);
       this.total_GetUSeradress = resSlidersData['Total Result']
@@ -314,7 +357,7 @@ export class Checkout2Component implements OnInit {
   TrashcartElement(Abc: any) {
 
     if (isPlatformBrowser(this.platformId)) {
-alert(Abc)
+// alert(Abc)
       // for (const tmp of this.CartedProduct.Results) {
       //   if (tmp.id === Abc) {
           // console.log(tmp.id);
@@ -419,7 +462,7 @@ alert(Abc)
 
 
 
-  ContinuetoCHeckout() {
+  ContinuetoCHeckout(qty) {
 
     if (isPlatformBrowser(this.platformId)) {
        
@@ -450,17 +493,32 @@ alert(Abc)
             // for(const checkout of this.CartedProduct.Results){
             //   this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)
             //  }
-            this.httpbuyerService.proceesedtocheckout(this.Total,this.list,'35' ).subscribe(
+
+            for(const checkout of this.CartedProduct.Results){
+              // {"ProductID": "123","UserID":"338","Qty":"1","sellerid":"hassan"}
+              this.subtotal=checkout.product.FixedPrice * checkout.Quantity
+              alert(checkout.Quantity)
+              this.list.push({
+                "ProductID":checkout.product.ProductID,          
+                "sellerid":checkout.product.User_ID,
+                "Qty":checkout.Quantity,
+                "proprice": this.subtotal
+            
+              })
+              console.log(this.list,'fatimaaaaaaaaaa')
+            //  this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)
+            }
+            this.httpbuyerService.proceesedtocheckout(this.Total,this.list, this.viewidofshippmentaddress).subscribe(
               data => {
                this.Getinvoiceamount= data.InvoiceID;
               
                console.log(this.Getinvoiceamount)
             // this.OrderInvoiceid= this.Getinvoiceamount.InvoiceID;
                 
-               alert("order done place ho gya hi  ")
+              //  alert("order done place ho gya hi  ")
                   
                 // this.OrderPlaced = true;
-                Swal.fire('order done place ho gya hi', '', 'success');
+                // Swal.fire('order done place ho gya hi', '', 'success');
   
                 // this.InvoiceIDSet = localStorage.getItem('InvoiceID');
   

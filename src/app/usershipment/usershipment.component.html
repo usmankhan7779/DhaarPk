@@ -1,61 +1,134 @@
+<!-- <div class="col-md-12 col-sm-12">
+<div class="Adress-book">
+  <h5>Adress Book</h5>
+  <div class="anchor-tag">
+  <a href="#" class="Shipment-anchor">Make Defult Shipment address 
+  </a>
+  <a href="#">Make Defult Billing address 
+    </a>
+  </div>
+  <div class="col-md-12">
+    <div class="inner-shipment">
+      <div class="heading-table">
+        <ul class="heading-ul">
+          <li>Full name</li>
+          <li>Address</li>
+          <li>Region</li>
+          <li>Phone Number</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
 <div class="col-md-12 col-sm-12">
   
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 toppad ">
 
 
     <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">Edit My Address</h3>
+      <div class="Address-heading">
+        <h3 class="panel-title"> Address Book </h3>
+        <h3 class="panel-title" *ngIf="makeshippingaddress == true ">Make default shipping address</h3>
+        <h3 class="panel-title" *ngIf="makebilladdress == true ">Make default Bill address</h3>
+        <div class="shipping-anchor"  *ngIf="check " >
+        <a style="cursor:pointer" *ngIf="total_GetUSeradress !== 0"  class="Defulat" (click)="checked90()"   >Make default Shipping Address</a>
+        <a (click)="checked91()"  *ngIf="total_GetUSeradress != 0"  class="shpp">Make default Billing Address</a>
+      </div>
       </div>
       <div class="panel-body">
-        <div class="">
+        <div class="" *ngIf="total_GetUSeradress != 0">
           <!-- <ng-container *ngIf="GetUSerAddress !== null "> -->
 
 
           <div class="col-md-12 col-lg-12">
             <table class="table user-information">
-              <thead>
-                <tr>
-                  <th>
-                    Name
+              <thead *ngFor="let GetUser of GetUSerAddress.Results;let i = index">
+                <tr *ngIf="i<1" >
+                  <th *ngIf="makeshippingaddress == true ">
+                     Option
                   </th>
+                  <th *ngIf="makebilladdress == true ">
+                      Option
+                    </th>
                   <th>
+                     Full Name
+                  </th>
+                  <!-- <th>
                     Mobile
+                  </th> -->
+                  <th>
+                    Address
                   </th>
                   <th>
-                    Area
-                  </th>
-                  <th>
-                    City
+                    Region
                   </th>
                   <!-- <th>
                         State:
                     </th> -->
                   <th>
-                    Address
+                   Phone Number
                   </th>
                   <th>
-                    Default
-                  </th>
-                  <th>Action</th>
+                      Status
+                     </th>
+                     <th class="Edit-form">
+                        Edit
+                       </th>
+                
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let GetUser of GetUSerAddress.Results">
                   <ng-container *ngIf="GetUSerAddress !== null ">
-                    <!-- <td>{{GetUser.id}}</td> -->
+                    <td *ngIf="makeshippingaddress == true " >
+                      <input  placeholder="Default Bill addres" type="radio"  data-toggle="toggle" required
+                        name="makeshippingaddress"
+                      (click)="Getallbuynowproductsdetail (GetUser.id,
+                      GetUser.fullname,
+                      GetUser.phone_no,
+                      GetUser.area,
+                      GetUser.city,
+                      GetUser.address,
+                      GetUser.province,
+                      GetUser.default_shipment_address,
+                      GetUser.default_bill_address,
+                      GetUser.user_id_id)"></td>
+                      <td *ngIf="makebilladdress == true " >
+                          <input  placeholder="Default Bill addres" type="radio"  data-toggle="toggle" required
+                            name="makebilladdress"
+                          (click)="Getallbuynowproductsdetail (GetUser.id,
+                          GetUser.fullname,
+                          GetUser.phone_no,
+                          GetUser.area,
+                          GetUser.city,
+                          GetUser.address,
+                          GetUser.province,
+                          GetUser.default_shipment_address,
+                          GetUser.default_bill_address,
+                          GetUser.user_id_id)"></td>
                     <td>{{GetUser.fullname }}</td>
                     <td>{{GetUser.phone_no}}</td>
                     <td>{{GetUser.area}}</td>
 
                     <td>{{ GetUser.city }}</td>
-
+                    <td><p class="bill" *ngIf="GetUser.default_bill_address == true"> Defalut Bill Address</p> 
+                      <p  class="bill" *ngIf="GetUser.default_shipment_address == true"> Defalut Shipment Address </p>
+                    </td>
                     <!-- <td>{{GetUser.province }} </td> -->
 
-                    <td>{{GetUser.address }}</td>
+                    <!-- <td>{{GetUser.address }}</td> -->
 
-                    <td>{{GetUser.default_shipment_address}}</td>
-                    <td>
+                    <!-- <td *ngIf="GetUser.default_shipment_address == true " >
+                     Defulat Shippment Address</td> -->
+                     <!-- <td *ngIf="GetUser.default_bill_address == true " >
+                        Defulat Shippment Address</td> -->
+                    <!-- <td> -->
+                        <!-- <td *ngIf="GetUser.default_shipment_address == false " >
+                            No Shippment Address</td> -->
+                            <!-- <td *ngIf="GetUser.default_bill_address == false " >
+                               No Shippment Address</td> -->
+                           <td>
 
                       <a (click)="Getallbuynowproductsdetail (GetUser.id,
                       GetUser.fullname,
@@ -65,13 +138,13 @@
                       GetUser.address,
                       GetUser.province,
                       GetUser.default_shipment_address,
-                      
+                      GetUser.default_bill_address,
                       GetUser.user_id_id);step1=false;"
                         class="action add-to-cart" data-toggle="modal" data-target="#myModal">
 
-                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-edit Edit-form color"></i>
                       </a>
-                      <a href="#"><i class="fas fa-trash-alt del-icon"></i></a>
+                      <!-- <a href="#"><i class="fas fa-trash-alt del-icon"></i></a> -->
                     </td>
 
 
@@ -82,9 +155,17 @@
 
               </tbody>
             </table>
-            <button class="new-address-btn"data-toggle="modal" data-target="#myModal2" >Add New Address</button>
+            <div  *ngIf="addnewaddress" >
+                <button class="new-address-btn"data-toggle="modal" data-target="#myModal2" >+ Add New Address</button>
+            </div>
+           
+            <!-- <button class="new-address-btn" (click)="checked90()" >Make Shippment Address</button>
+            <button class="new-address-btn"data-toggle="modal" data-target="#myModal2" >Make Billing Address</button> -->
+            <button class="new-address-btn"  (click)="checkedviewadd();MakeDefluatShippment()" *ngIf="makeshippingaddress == true " >Save</button>
 
+            <button class="new-address-btn"  (click)="checkedviewadd();MakeDefluatbill()" *ngIf="makebilladdress == true " >Save</button>
           </div>
+          
 
 
 
@@ -227,15 +308,15 @@
           </form>
         </div>
       </div>
-      <div class="panel-footer">
+      <!-- <div class="panel-footer"> -->
         <!-- <a class="info" [routerLink]="['/single-product']" [queryParams]="{ ProID:  TvVideoaudio88.ProductID, CatName: TvVideoaudio88.Cat_Name,SubCatName:TvVideoaudio88.Sub_Sub_Cat_Name, id:TvVideoaudio88.id }">Product Detail</a> -->
 
         <!-- <a [routerLink]="['/user-shipment-create']" [queryParams]="{ ProID:  GetUser.id }" data-original-title="Edit this user"
           data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a> -->
-        <span class="pull-right">
-        </span>
-      </div>
+        <!-- <span class="pull-right">
+        </span> -->
+      <!-- </div> -->
 
 
     </div>
@@ -324,16 +405,16 @@
           
           
                         </div>
+                        <div class="col-sm-4">
+                            <label class="required">getdefault_bill_address(*)</label>
+    
+                            <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.default_bill_address"
+                              #default_shipment_address name="default_shipment_address" value="{{getdefault_bill_address}}">
+            
+            
+                          </div>
                       
-                          <!-- user_id_id -->
-                          <!-- <div class="col-sm-4">
-                              <label class="required"></label>
-      
-                              <input class="input form-control" placeholder="" type="text" required ng-Model="model.user_id_id"
-                                #user_id_id name="user_id_id" value="{{getuser_id}}">
-              
-              
-                            </div> -->
+                        
 
  <div class="col-sm-4">
     <label for="address" class="required">Address(*)</label>
@@ -342,26 +423,11 @@
  </div>
             
 
+ 
 
-
-      <!-- <div class="nav nav-tabs">
-        <div *ngIf="Error" class="alert alert-danger">
-          <strong>Error </strong> While updating record.
-        </div>
-
-        <div *ngIf="Right" class="alert alert-success">
-          <strong>Profile Updated! <a style="color: red !important;" [routerLink]="['/buyer-dashboard']">Go to
-              Dashboard Section</a></strong>
-        </div>
-        <div *ngIf="Waitcall" class="alert  alert-info">
-          <p class="">
-            <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>
-              &nbsp; Loading ...</span>
-
-          </p>
-        </div> -->
+       
         <input type="submit"
-          (click)="save2(id.value,fullname.value,address.value,province.value,city.value,area.value,default_shipment_address.value,phone_no.value)"
+          (click)="save2(id.value,fullname.value,address.value,province.value,default_bill_address.value,city.value,area.value,default_shipment_address.value,phone_no.value)"
           class="btn-black" value="Update">
       </div>
     </div>
@@ -418,13 +484,13 @@
                               type="text" required ng-Model="model.phone_no" #phone_no name="phone_no" id="telephone"
                               value="{{GetUSerAddress.phone_no}}">
                           </div>
-                          <div class="col-sm-6">
+                          <!-- <div class="col-sm-6">
         
                             <label class="required">Province (*)</label>
         
                             <input class="input form-control" placeholder="Your province" type="text" required
                               ng-Model="model.province" #province name="province" value="{{GetUSerAddress.province}}">
-                          </div>
+                          </div> -->
                           <div class="col-sm-6">
         
                             <label class="required">Select Your Country(*) </label>
@@ -437,7 +503,7 @@
                           <div class="col-sm-6">
         
                             <label class="required">Select Your State/Province(*)</label>
-                            <select class="form-control" ng-Model="model.State" #State name="State">
+                            <select class="form-control" ng-Model="model.province" #province name="State" value={{GetUSerAddress.province}}>
                               <option value="Punjab" selected>Punjab</option>
         
                               <option value="Sindh">Sindh</option>
@@ -467,14 +533,14 @@
                             <label class="required">Default shipment address(*)</label>
         
                             <input  placeholder="Default shipment addres" type="checkbox" required
-                              ng-Model="model.default_shipment_address" #default_shipment_address
+                              ng-Model="model.default_shipment_address" #default_shipment_address    
                               name="default_shipment_address" (click)="checked8($event,i)">
                           </div>
                           <div class="col-sm-6">
                             <br>
                             <label class="required">Default Bill address(*)</label>
         
-                            <input  placeholder="Default Bill addres" type="checkbox" required
+                            <input  placeholder="Default Bill addres" type="checkbox"    required
                               ng-Model="model.default_bill_address" #default_bill_address name="default_bill_address"
                               (click)="checked7($event,i)">
                           </div>

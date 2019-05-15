@@ -1,0 +1,27 @@
+.footer-input{
+  border-radius: 50px;
+  overflow: hidden; 
+  background-color: #fff; 
+  margin-top: 15px
+}
+.send-btn{
+  background: #fff; 
+  color: #c00!important;
+  font-size: 19px;
+  padding: 6px;
+  box-shadow: none;
+}
+.footer-input .form-control{
+  height: 41px;
+  font-size: 18px;
+  border: none;
+}
+.send-btn .fa-paper-plane{
+  /* / background: #c00;  / */
+  /* / color: #c00;  */
+  padding: 10px;
+  border-radius: 100%;
+}
+.send-btn:focus{
+  outline: none;
+}

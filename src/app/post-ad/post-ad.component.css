@@ -3,3 +3,170 @@
     font-weight: 600!important;
     font-size: 15px!important
 }
+.userccount {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 25px 20px 10px;
+    /* box-shadow: 0 5px 10px #ccc; */
+    border-radius: 5px;
+    margin-top: -55px;
+    width: 100%
+}
+.Ad-details{
+    height: 200px
+}
+.formpanel .form-control {
+    font-size: 17px
+}
+.mat-stepper-horizontal, .mat-stepper-vertical {
+    display: block;
+   
+    margin-top: 21px;
+    width: auto;
+    box-shadow: 0 0 2px 0.2px rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.19);
+    margin: 30px 10px;
+}
+input {
+    display: block;
+    margin: 0 auto;
+}
+.Upload {
+    width: 104px;
+    height: 104px;
+    padding: 5px;
+    border: 1px dotted #b7b7b7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    cursor: pointer
+}
+.uploadfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+}
+.inputfile{
+    display: none!important
+}
+.formpanel .formrow, .formrow {
+    width: 450px;
+    margin: 0 auto;
+}
+.mat-tab-labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 0;
+}
+.Buy-Now{
+    height: 48px!important;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: .6;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+.slide-bar{
+    margin-left: 50px
+}
+.Icon{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center
+}
+.mat-form-field-type-mat-native-select .mat-input-element {
+    padding-right: 105px;
+}
+.slide-bar-2{
+    margin-left: 170px;
+    float: right
+}
+.Ad-button{
+    text-align: center!important
+}
+.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    background-color: #000000;
+    color:#fff
+}
+.Aution-heading{
+margin-left: 20px;
+font-size: 15px
+}
+.listing{
+    margin-left: 64px
+}
+.back-button{
+    float: left;
+}
+.Reset-button{
+float:right;
+}
+.mat-form-field-flex {
+    
+    width: 50%!important
+}
+.iner-discount{
+    text-align: center
+}
+.is{
+    margin: 0;
+}
+.mat-select-arrow-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    width: 258px!important
+}
+
+.price{
+    width: 130px;
+}
+.Days{
+    width: 140px;
+}
+.Days-2{
+    width: 162px
+}
+.what-selling{
+    width: 400px
+}

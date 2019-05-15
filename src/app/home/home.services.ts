@@ -8,6 +8,7 @@ import { HttpService } from '../services/http-service';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import Swal from "sweetalert2";
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -29,6 +30,7 @@ export class HomeService {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private _http: HttpService,
+    private httpclient :HttpClient,
     private http: Http,
     private _nav: Router) {
   }
@@ -97,7 +99,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get(this.ServerUrl + 'getphoneproductsById/' + proId,{headers:headers}).map(response => response.json());
     // console.log(this.CateDeatils)
     }
@@ -144,14 +146,14 @@ export class HomeService {
     // let headers = new Headers();
     // headers.append('Content-Type', 'application/json');
  
-    // // console.log('pofile', localStorage.getItem('Authorization'));
+    // // // console.log('pofile', localStorage.getItem('Authorization'));
     // return this._http.get(this.ServerUrl + 'getProductsfromAllCat' +'?page=' + page,).map(response => response.json());
     if (localStorage.getItem('Authorization') !== null) {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response =>
 
         // getProductsfromAllCat
@@ -169,16 +171,15 @@ export class HomeService {
   GetProductsfromAllCat() {
     // page: number
     if (localStorage.getItem('Authorization') !== null) {
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      // headers.append('Authorization', 'Token ' +  this.authentication);
-      headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
-      return this._http.get(this.ServerUrl + 'getProductsfromAllCAtHome/', { headers: headers }).map(response =>
+      // let headers = new Headers();
+      // headers.append('Content-Type', 'application/json');
+      // // headers.append('Authorization', 'Token ' +  this.authentication);
+      // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
+      return this.httpclient.get(this.ServerUrl + 'getProductsfromAllCAtHome/').map((response :Response) =>
 
         // getProductsfromAllCat
-        response.json()
-
+        response
       );
 
 
@@ -194,7 +195,7 @@ export class HomeService {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
    
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getFunProductsHome/', { headers: headers }).map(response => response.json());
      
   }
@@ -203,7 +204,7 @@ export class HomeService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
  
-    // console.log('pofile', localStorage.getItem('Authorization'));
+    // // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get(this.ServerUrl + 'getalljustfunproducts' +'?page=' + page,).map(response => response.json());
    
 }
@@ -212,7 +213,7 @@ export class HomeService {
 //   let headers = new Headers();
 //   headers.append('Content-Type', 'application/json');
 
-//   // console.log('pofile', localStorage.getItem('Authorization'));
+//   // // console.log('pofile', localStorage.getItem('Authorization'));
 //   return this._http.get(this.ServerUrl + 'getalljustfunproducts' +'?page=' + page,).map(response => response.json());
  
 // }
@@ -223,7 +224,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
     
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getAuctionProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response => response.json());
      
     }
@@ -238,7 +239,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getAuctionProductsfromAllCAtHome/', { headers: headers }).map(response => response.json());
       // console.log(this.CateDeatils)
       // getAuctionProductsfromAllCat
@@ -254,7 +255,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getBuyNowProductsfromAllCAtHome/', { headers: headers }).map(response => response.json());
       // getBuyNowProductsfromAllCat
     }
@@ -268,7 +269,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
     
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getBuyNowProductsfromAllCat'+'?page=' + page, { headers: headers }).map(response => response.json());
      
     }
@@ -283,7 +284,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getFeaturedProductHome/', { headers: headers }).map(response => response.json());
       // console.log(this.CateDeatils)
       // getallfeaturedProducts
@@ -300,7 +301,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
     
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getallfeaturedProducts'+'?page=' + page, { headers: headers }).map(response => response.json());
      
     }
@@ -319,7 +320,7 @@ export class HomeService {
     // headers.append('Content-Type', 'application/json');
     // // headers.append('Authorization', 'Token ' +  this.authentication);
     // headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    // console.log('pofile', localStorage.getItem('Authorization'));
+    // // console.log('pofile', localStorage.getItem('Authorization'));
 
     return this._http.get(this.ServerUrl + 'GetallProductsOffersByStoreName/' + StoreName + '?page=' + page).map(response => response.json());
   }
@@ -351,7 +352,7 @@ export class HomeService {
 //     if (localStorage.getItem('Authorization') !== null) {
 //       const headers = new Headers();
 //       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-//       console.log('pofile', localStorage.getItem('Authorization'));
+//       // console.log('pofile', localStorage.getItem('Authorization'));
 //       headers.append('Content-Type', 'application/json');
 //       if (isPlatformBrowser(this.platformId)) {
 
@@ -383,7 +384,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -411,7 +412,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -442,7 +443,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
         // this.ServerUrl +
@@ -470,7 +471,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -501,7 +502,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
         // this.ServerUrl +
@@ -531,7 +532,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -564,7 +565,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -592,7 +593,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -623,7 +624,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -651,7 +652,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -682,7 +683,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -710,7 +711,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -741,7 +742,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -769,7 +770,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -800,7 +801,7 @@ export class HomeService {
     if (localStorage.getItem('Authorization') !== null) {
       const headers = new Headers();
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -832,7 +833,7 @@ export class HomeService {
     else {
       const headers = new Headers();
       // headers.append('Authorization', 'Token ' +localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
       headers.append('Content-Type', 'application/json');
       if (isPlatformBrowser(this.platformId)) {
 
@@ -865,7 +866,7 @@ export class HomeService {
     // headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'Token ' +  this.authentication);
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     headers.append('Content-Type', 'application/json');
     if (isPlatformBrowser(this.platformId)) {
 
@@ -900,7 +901,7 @@ export class HomeService {
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'Token ' +  this.authentication);
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get(this.ServerUrl + 'CheckoutProducts/', { headers: headers }).map(response => response.json());
 
   }
@@ -909,7 +910,7 @@ export class HomeService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     return this.http.delete(this.ServerUrl + 'Checkout_Edit/' + id,
       { headers: headers }).map((response: Response) => response.json());
   }
@@ -918,7 +919,7 @@ export class HomeService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     return this.http.delete(this.ServerUrl + 'editwatchList/' + id,
       { headers: headers }).map((response: Response) => response.json());
   }
@@ -933,7 +934,7 @@ export class HomeService {
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'Token ' +  this.authentication);
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     if (isPlatformBrowser(this.platformId)) {
 
       return this._http.post(this.ServerUrl + 'CheckoutProducts/',
@@ -1042,7 +1043,7 @@ export class HomeService {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.post(this.ServerUrl + 'InsertUserReview/' + Product_ID,
       {
         // 'Name': Name,

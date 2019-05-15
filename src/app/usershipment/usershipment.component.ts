@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class UsershipmentComponent implements OnInit {
   mask;
+  addnewaddress = true;
   i;
   Inc;
   Right;
@@ -22,6 +23,7 @@ export class UsershipmentComponent implements OnInit {
   GetallCat: any;
   Waitcall: boolean;
   Error: boolean;
+  check= true;
   private base64textString = '';
   files: FileList;
   Mobile: string;
@@ -32,6 +34,8 @@ export class UsershipmentComponent implements OnInit {
   filetoup: FileList;
   fileName: any;
   ReservePrice = false;
+  makeshippingaddress =false;
+  makebilladdress =false;
   total_GetUSeradress;
   default_bill_address;
   default_shipment_address;
@@ -46,25 +50,32 @@ export class UsershipmentComponent implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       console.log('hahaha', localStorage.getItem('UserID'));
-
-      this.obj.GetUSeraddress().subscribe(resAddSlidersData => {
-        this.GetUSerAddress = resAddSlidersData;
-        this.total_GetUSeradress = resAddSlidersData['Total Result']
-        console.log(this.total_GetUSeradress, 'total')
-
-        console.log('User Id is:', this.GetUSerAddress);
-        this.ValueRec = true;
-      });
+this.viewuseraddress();
+   
     }
   }
 
-  save(FName: string, Address: string, province: string, City: string, Area: string, Shipmentaddress, Shipmentbilladdress, Mobile) {
+ viewuseraddress(){
+  this.obj.GetUSeraddress().subscribe(resAddSlidersData => {
+    this.GetUSerAddress = resAddSlidersData;
+    this.total_GetUSeradress = resAddSlidersData['Total Result']
+    console.log(this.total_GetUSeradress, 'total')
 
+    console.log('User Id is:', this.GetUSerAddress);
+    this.ValueRec = true;
+  });
+ }
+  checkedviewadd(){
+    this.addnewaddress = true;
+    this.makeshippingaddress = false;
+  }
+  save(FName: string, Address: string, province: string, City: string, Area: string,default_shipment_address, default_bill_address, Mobile) {
+    console.log(FName, Address, province, City, Area, default_shipment_address, default_bill_address, Mobile)
     console.log('I am in 1 Component');
-
+    // fullname.value,address.value,province.value,city.value,area.value,default_shipment_address.value,default_bill_address.value,phone_no.value
     console.log('Successs')
-    this.httpService.Useraddressaddtocart(FName, Address, province, City, Area, Shipmentaddress, Shipmentbilladdress, Mobile).subscribe((response) => {
-      console.log(FName, Address, province, City, Area, Shipmentaddress, Shipmentbilladdress, Mobile)
+    this.httpService.Useraddressaddtocart(FName, Address, province, City, Area, this.default_shipment_address, this.default_bill_address, Mobile).subscribe((response) => {
+      console.log(FName, Address, province, City, Area, this.default_shipment_address, this.default_bill_address, Mobile)
 
       this.obj.GetUSeraddress().subscribe(resAddSlidersData => {
         this.GetUSerAddress = resAddSlidersData;
@@ -94,7 +105,7 @@ export class UsershipmentComponent implements OnInit {
   getid;
   getcity;
 
-  Getallbuynowproductsdetail(val1, val2, val3, val4, val5, val6, val7, val8, val9) {
+  Getallbuynowproductsdetail(val1, val2, val3, val4, val5, val6, val7, val8, val9,val10) {
     this.getid = val1;
     this.getfullname = val2;
     this.getphone_no = val3;
@@ -104,14 +115,71 @@ export class UsershipmentComponent implements OnInit {
     this.getprovince = val7;
 
     this.getdefault_shipment_address = val8;
+    this.getdefault_bill_address = val9
     // this.getdefault_bill_address = val8; 
-    this.getuser_id = val9;
-    console.log('fullname', val1, val2, val3, val4, val5, val6, val7, val8)
+    this.getuser_id = val10;
+    console.log('fullname', val1, val2, val3, val4, val5, val6, val7, val8,val9,val10)
+  }
+  checked90(){
+    this.makeshippingaddress = true;
+    
+    this.addnewaddress = false;
+    this.default_shipment_address = true;
+    this.check= false
+  }
+  checked91(){
+    this.makebilladdress = true;
+    this.addnewaddress = false;
+    this.default_bill_address = true
+    this.check= false
+  }
+  MakeDefluatShippment() {
+   console.log('Successs')
+       this.obj.GetUSerdetailsByUserIdupdate(this.getid,this.getfullname,this.getaddress,this.getprovince,this.getdefault_bill_address,this.getcity,this.getarea,this.default_shipment_address,this.getphone_no).subscribe((response) => {
+      // this.obj.GetUSerdetailsByUserIdupdate(id, fullname, address, province, city, area, default_shipment_address, phone_no).subscribe((response) => {
+
+     this.viewuseraddress();
+     this.makebilladdress =false;
+     this.makeshippingaddress=false;
+     this.check= true;
+
+    },
+      error => {
+        console.log(error);
+      });
 
 
 
+    () => {
+
+
+    }
 
   }
+  MakeDefluatbill() {
+    console.log('Successs')
+        this.obj.GetUSerdetailsByUserIdupdate(this.getid,this.getfullname,this.getaddress,this.getprovince,this.default_bill_address,this.getcity,this.getarea,this.getdefault_shipment_address,this.getphone_no).subscribe((response) => {
+       // this.obj.GetUSerdetailsByUserIdupdate(id, fullname, address, province, city, area, default_shipment_address, phone_no).subscribe((response) => {
+ 
+       
+       this.viewuseraddress();
+       this.makebilladdress =false;
+     this.makeshippingaddress=false;
+     this.check= true;
+ 
+     },
+       error => {
+         console.log(error);
+       });
+ 
+ 
+ 
+     () => {
+ 
+ 
+     }
+ 
+   }
   checked7(event, i) {
     if (event.target.checked == true) {
         console.log(event.target.checked)
@@ -167,14 +235,14 @@ checked8(event, i) {
       });
   }
 
-  save2(id, fullname: string, address: string, province: string, city: string, area: string, default_shipment_address: string, phone_no: string) {
+  save2(id, fullname: string, address: string, province: string, default_bill_address:string, city: string, area: string, default_shipment_address: string, phone_no: string) {
 
     this.Waitcall = true;
     console.log('I am in 1 Component');
 
     console.log('Successs')
 
-    this.obj.GetUSerdetailsByUserIdupdate(id, fullname, address, province, city, area, default_shipment_address, phone_no).subscribe((response) => {
+    this.obj.GetUSerdetailsByUserIdupdate(id, fullname, address, province,default_bill_address ,city, area, default_shipment_address, phone_no).subscribe((response) => {
       this.Error = false;
       this.Waitcall = false;
 
@@ -191,6 +259,7 @@ checked8(event, i) {
     }
 
   }
+ 
 
 
   clearSessionstoreage() {

@@ -5,6 +5,7 @@ import {SellerUserDetailComponent} from "./seller-user-detail.component";
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {TextMaskModule} from "angular2-text-mask";
 import {HeaderModule} from "../header/header.module";
+import { MaterialModule } from '../app.module';
 const loginRoutes: Routes = [
   { path: '', component: SellerUserDetailComponent }
 ];
@@ -20,8 +21,12 @@ const loginRoutes: Routes = [
     HeaderModule,
     FormsModule,
     TextMaskModule,
-    // ReactiveFormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)
+    // CommonModule,
+    // FormsModule,
+    // ReactiveFormsModule
   ],
 
   providers: [],

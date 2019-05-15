@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {HeaderModule} from "../header/header.module";
 import {CategoryDetailComponent} from '../category-detail/category-detail.component';
 import {SingleProductComponent} from '../single-product/single-product.component';
- 
+import { CountdownModule } from "ng2-countdown-timer";
 import {ImageZoomModule} from 'angular2-image-zoom';
 import {NewModule} from './new.module';
 import {PreloaderFullModule} from '../components/preloader-full/preloader-full.module';
@@ -30,7 +30,7 @@ const loginRoutes: Routes = [
     NewModule,
     SlickModule,
     PreloaderFullModule,
- 
+ CountdownModule,
     ImageZoomModule,
     FormsModule,
     ReactiveFormsModule,

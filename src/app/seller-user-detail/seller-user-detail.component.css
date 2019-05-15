@@ -3,11 +3,45 @@
     border-bottom: 1px solid grey;
     width: 100%;
     padding: 20px 5px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
+    text-transform: capitalize;
+    color:#0A0A0A
 }
-
 .span-mad{
 
     color: red
 }
+::-webkit-input-placeholder {
+    font-size: 25px!important }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 25px;
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 25px;
+ }
+ 
+ /* Overriding styles */
+ 
+ ::-webkit-input-placeholder {
+    font-size: 13px!important;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 13px!important;
+ }
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 13px!important;
+ }
+ /* .mat-form-field-infix {
+      display: block;
+      position: relative;
+      flex: auto;
+      min-width: 0;
+      width: 321px!important
+  } */
+  .update-btn{
+        margin-right: 80px
+  }

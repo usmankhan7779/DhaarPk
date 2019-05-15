@@ -13,13 +13,15 @@
         <div class="shop-inner">
 
           <div class="category-description">
-            <div class="slider-items-products">
+            <!-- <div class="slider-items-products">
               <div id="category-slider" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4">
                   <a href="#"><img class="adv-img" src="assets/images/cat/{{ CoverPix }}.JPG" alt="banner"></a>
-                  <!--<a href="#"><img src="assets/images/cat-img1.jpg" alt="banner"></a>-->
-                </div></div></div>
-
+                  
+                </div>
+              </div>
+            </div> -->
+<!--<a href="#"><img src="assets/images/cat-img1.jpg" alt="banner"></a>-->
           </div>
           <div class="page-title">
             <h2>{{CatName}}  </h2>
@@ -32,18 +34,18 @@
               <!--</ul>-->
             <!--</div>-->
             <div class="sorter">
-              <!-- <div class="col-lg-8"> -->
+              <div class="col-lg-8">
 
-                <!--<span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>-->
+                <!-- <span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span> -->
 
-                 <!-- <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
+                 <span *ngIf="AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >All Listings</span>
                  <span *ngIf="!AllListing" (click)="AllListingFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >All Listings</span>
 
                 <span *ngIf="BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Buy It Now</span>
                 <span *ngIf="!BuyItNow" (click)="BuyItNowFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Buy It Now</span>
 
                 <span *ngIf="thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Auction</span>
-                <span *ngIf="!thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span> -->
+                <span *ngIf="!thisAuction" (click)="thisAuctionFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555; font-family: Hind,sans-serif;"   >Auction</span>
 
 
                 <!--<span *ngIf="AcceptOffer" (click)="AcceptOfferFuc()" onmouseleave="this.style='font-size: 15px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 15px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 15px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white; font-family: Hind,sans-serif;" >Accept Offers</span>-->
@@ -56,16 +58,16 @@
                 <!--<option>List <span class="fa fa-list" aria-hidden="true"></span> </option>-->
 
                 <!--</select>-->
-              <!-- </div> -->
+              </div>
               <div class="short-by page">
                 <label>View:</label>
 
                 <!--<span (click)="listView()"  onmouseleave="this.style='border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>-->
-                <span *ngIf="View" (click)="listView()"  onmouseleave="this.style='font-size: 20px; border: 1px #555 solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white" >List - <span class="fa fa-list" ></span></span>
-                <span *ngIf="!View" (click)="listView()"  onmouseleave="this.style='font-size: 20px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>
+                <span *ngIf="View" (click)="listView()"  onmouseleave="this.style='font-size: 20px;  solid;  background-color:#ed2424; padding: 5px; color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; background-color:#ed2424; cursor:pointer; color: white" >List - <span class="fa fa-list" ></span></span>
+                <span *ngIf="!View" (click)="listView()"  onmouseleave="this.style='font-size: 20px;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424;  color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555" >List - <span class="fa fa-list" ></span></span>
 
-                <span *ngIf="!View" (click)="GridView()" onmouseleave="this.style='font-size: 20px; border: 1px #555 solid;  padding: 5px;  background-color:#ed2424;  color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; background-color:#ed2424; color: white"   >Grid - <span class="fa fa-th" ></span></span>
-                <span *ngIf="View" (click)="GridView()" onmouseleave="this.style='font-size: 20px; border: 1px #555 solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555"   >Grid - <span class="fa fa-th" ></span></span>
+                <span *ngIf="!View" (click)="GridView()" onmouseleave="this.style='font-size: 20px;  solid;  padding: 5px;  background-color:#ed2424;  color: white; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; background-color:#ed2424; color: white"   >Grid - <span class="fa fa-th" ></span></span>
+                <span *ngIf="View" (click)="GridView()" onmouseleave="this.style='font-size: 20px; solid;  padding: 5px; color: #555; cursor:pointer;';"  onmouseover="this.style='font-size: 20px; background-color:#ed2424; color border: 1px #555 solid; color: white;  padding: 5px; cursor:pointer;';" style="font-size: 20px; border: 1px #555 solid;  padding: 5px; cursor:pointer; color: #555"   >Grid - <span class="fa fa-th" ></span></span>
                 <label>&nbsp;</label>
                 <!--<select>-->
                   <!--<option selected="selected">Grid<span class="fa fa-list" ></span></option>-->
@@ -74,6 +76,7 @@
                 <!--</select>-->
               </div>
             </div>
+            
           </div>
 
           <div *ngIf="Waitcall" class="alert  alert-info">
@@ -87,7 +90,7 @@
             <ul class="products-grid">
               <ng-container *ngFor="let phoneProducts of Trend">
               <!-- <ng-container *ngIf="phoneProducts.Active"> -->
-                <li class="item col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="item-inner">
                     <div class="product-thumbnail">
@@ -172,10 +175,10 @@
                 <!-- <ng-container *ngIf="phoneProducts.Active"> -->
                   <li>
                     <div class="row">
-                      <div class="col-md-2 col-sm-4">
+                      <div class="col-md-3 col-sm-4">
                         <div class=""><img src="{{phoneProducts.Pic  }}" onerror="this.src='../../assets/images/Check-Resolution.png'"  alt="Ad Name"></div>
                       </div>
-                      <div class="col-md-10 col-sm-8">
+                      <div class="col-md-9 col-sm-8">
                         <div class="jobinfo">
                           <div class="row">
                             <div class="col-md-8 col-sm-7">
@@ -190,13 +193,22 @@
 
                               <div class="listbtn"><a [routerLink]="['/single-product']" [queryParams]="{ ProID:  phoneProducts.ProductID, CatName: phoneProducts.Cat_Name }">View Details</a></div>
                             </div>
-                            <div class="col-md-4 col-sm-5 text-right">
-                              <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
-                              <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div>
+                            <div class="col-md-4 col-sm-5 ">
+                              <!-- <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
+                              <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div> -->
                               <!--<a href="#" class="editad"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit this ad</a> <span class="pendingad">Pending</span> -->
+                              <div class="biddong-time">
+                                <ul style="list-style: none">
+                              <li><span>0 bids</span><br></li>
+                              <li><span>3d 4h</span></li>
+                            </ul>
+                            </div>
                             </div>
                           </div>
                         </div>
+                        <div *ngIf="phoneProducts.Auction === true " class="adprice">Rs {{ phoneProducts.MaxBidPrice | number:'.0-0'}}</div>
+                        <div *ngIf="phoneProducts.Auction === false " class="adprice">Rs {{ phoneProducts.FixedPrice | number:'.0-0'}}</div>
+
                       </div>
                     </div>
                   </li>
@@ -419,9 +431,9 @@
       </aside>
     </div>
   </div>
-  <div class="col-md-6"></div>
   <!-- <div class="col-md-6"></div> -->
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3">
+  <!-- <div class="col-md-6"></div> -->
+  <!-- <ul *ngIf="pager.pages && pager.pages.length" class="pagination col-md-3"> -->
     <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
       <a (click)="showallproducts(1)" class="btn btn-fill">First</a>
     </li> -->
@@ -431,14 +443,25 @@
     <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
       <a (click)="showallproducts(page)" class="btn btn-fill">{{page}}</a>
     </li> -->
-    <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+    <!-- <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
       <a (click)="showallproducts(pager.currentPage + 1)" class="btn btn-fill" type="Next">Load More</a>
-    </li>
+    </li> -->
     <!-- <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
       <a (click)="showallproducts(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
     </li> -->
-  </ul>
-  <div class="col-md-3"></div>
+  <!-- </ul> -->
+  <div class="ShowMore ng-star-inserted" *ngIf="pager.pages && pager.pages.length" >
+      <div [ngClass]="{hide:pager.currentPage === pager.totalPages}" >
+    <div></div>
+      <a (click)="showallproducts(pager.currentPage + 1)" type="Next">
+          <img  class="show-more-img" alt="showmore" src="https://cdn1.iconfinder.com/data/icons/general-9/500/more-512.png">
+          <h6 class="show-more-text" >SHOW MORE</h6>
+        </a>
+
+     
+    </div>
+    </div>
+  <!-- <div class="col-md-3"></div> -->
 
 </div>
 <!-- Main Container End -->

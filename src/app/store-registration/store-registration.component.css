@@ -4,18 +4,62 @@
 
 .form-control{
     border: 1px solid white!important;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 600;
     padding: 0px 5px;
     border-top: none;
+    color: #000000
 }
 
 .form-control:focus{
 
     border-color: #ed2424!important
 }
+.upper{
+    text-transform: capitalize
+}
 
 .btn-black{
     float: right;
     margin-top: -35px;
+}
+::-webkit-input-placeholder {
+    font-size: 25px!important }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 25px;
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 25px;
+ }
+ 
+ /* Overriding styles */
+ 
+ ::-webkit-input-placeholder {
+    font-size: 13px!important;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+       font-size: 13px!important;
+ }
+ ::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 13px!important;
+ }
+ .mat-input{
+padding: 0px!important
+ }
+ 
+element.style {
+}
+.mat-input[_ngcontent-universal-demo-v5-c4] {
+    padding: 0px!important;
+}
+.from-setting input{
+    margin: 0
+}
+.from-setting label {
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: block;
 }

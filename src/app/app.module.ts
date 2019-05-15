@@ -2,24 +2,25 @@
 import { AppComponent } from './app.component';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DatePipe } from '@angular/common';
+// import { JwtHelper } from 'angular2-jwt';
 import { Routing, AppRoutingProvider } from './app.routing';
-import { SocialLoginModule } from 'angular4-social-login';
-import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { SocialLoginModule } from 'angular5-social-login';
+import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ImageViewerModule } from 'ngx-image-viewer';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com')
+    provider: new GoogleLoginProvider('142528311372-9qujkvuco9cgilud7bhicicnmlv3l0vq.apps.googleusercontent.com')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('886122871552158')
+    provider: new FacebookLoginProvider('2421913111163728')
   }
 ]);
 export function provideConfig() {
@@ -41,6 +42,40 @@ import { XHRBackend, RequestOptions } from '@angular/http';
 export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestOptions, preloaderService: PreloaderService) {
   return new HttpService(backend, defaultOptions, preloaderService);
 }
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+  MatFormFieldModule,
+} from '@angular/material';
 import { HttpService } from './services/http-service';
 import { PreloaderService } from './services/preloader-service';
 import { PostService } from './services/post-service';
@@ -58,7 +93,46 @@ import { SlickModule } from 'ngx-slick';
 import { PagerService } from './pager.service';
 import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-masters/seller-dashboard-masters.component';
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
-
+import { AuthInterceptor } from './auth-guard/auth.interceptor';
+@NgModule({
+  exports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    FormsModule,
+    MatFormFieldModule
+  ],
+  declarations: [],
+})
+export class MaterialModule { }
 // import { BuyerDashboardMastersComponent } from './layouts/buyer-dashboard-masters/buyer-dashboard-masters.component';
 @NgModule({
   declarations: [
@@ -108,12 +182,18 @@ import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/us
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    },
+    }
+    ,
     {
       provide: HttpService,
       useFactory: httpServiceFactory,
       deps: [XHRBackend, RequestOptions, PreloaderService]
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent],
   schemas: [

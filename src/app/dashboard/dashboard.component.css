@@ -33,14 +33,16 @@ input.upload-input {
 }
 
 .panel-info2{
-    margin-top: -8px!important;
+    margin-top: 25px!important;
+    border: 1px solid
 }
 
 .panel-heading2{
-    margin-top: -20px!important;
+    margin-top: -15px!important;
     margin-right: 25px!important;
     margin-left: 25px!important;
-    border-radius: 5px
+    border-radius: 5px;
+    background-color: #000
 }
 
 

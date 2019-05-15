@@ -19,6 +19,7 @@ declare const $: any;
 
 })
 export class SingleProductComponent implements OnInit {
+
   config: ImageViewerConfig = { customBtns: [{ name: 'print', icon: 'fa fa-print' }] };
   // , {name: 'link', icon: 'fa fa-link'}
   imageIndexOne = 0;
@@ -264,7 +265,7 @@ export class SingleProductComponent implements OnInit {
       this.GetallProductReview = resSlidersData.Results;
  
       this.getusername = this.GetallProductReview.user.username;
-      alert(this.getusername)
+      // alert(this.getusername)
       console.log(this.getusername)
   
 
@@ -307,8 +308,15 @@ export class SingleProductComponent implements OnInit {
 
   IndexChange(index) {
     this.imageIndexOne = index;
+    
   }
-
+ pics;
+ myThumbnail;
+ myFullresImage;
+ ChangeImage(index) {
+  this.myThumbnail = this.ProPics[index]
+  this.myFullresImage = this.ProPics[index]
+}
   PhoneTablet() {
     this.GetAdd.get_PhoneAndTabletProduct_ProductById(this.ProID).subscribe(resSlidersData => {
       this.resultProduct = resSlidersData;
@@ -319,13 +327,24 @@ export class SingleProductComponent implements OnInit {
       this.ProPDes = this.resultProduct['P_Des'].split('\n');
 
       this.ProPics = this.resultProduct['Pic'].split(',');
+      this.pics = this.ProPics[0];
+      alert(this.ProPics[0])
       console.log(this.ProPics[0])
 
       this.selectedImage = this.ProPics[0];
       console.log(this.selectedImage);
+    
       for (let i = 0; i < this.ProPics.length - 1; i++) {
         this.PicList[i] = this.ProPics[i + 1];
+
+       console.log (this.PicList[i] = this.ProPics[i + 1])
+        // console.log()
       }
+      this.myThumbnail = this.ProPics[0]
+      
+
+      this.myFullresImage = this.ProPics[0]
+
 
       console.log('Pics Before:', this.ProPics);
       console.log('Pics after:', this.PicList);

@@ -1,73 +1,125 @@
 .donate-form-area h3{margin:0}input{border-radius:5px}#stay{margin-right:-20px}.fontAwesome{font-family:Helvetica,FontAwesome,sans-serif}.donate-form-area{height:730px!important}
 ::-webkit-input-placeholder {
-    font-size: 25px!important }
+    font-size: 16px!important;
+      font-weight: bold;
+}
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 25px;
+       font-size: 16px;
+       font-weight: bold;
  }
  
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 25px;
+       font-size: 16px;
+       font-weight: bold;
  }
  
  /* Overriding styles */
  
  ::-webkit-input-placeholder {
-    font-size: 13px!important;
+    font-size: 16px!important;
+    font-weight: bold;
  }
  
  :-moz-placeholder { /* Firefox 18- */
-       font-size: 13px!important;
+       font-size: 16px!important;
+       font-weight: bold;
  }
  ::-moz-placeholder {  /* Firefox 19+ */
-       font-size: 13px!important;
+       font-size: 16px!important;
+       font-weight: bold;
+ }    
+ .mat-input{
+       padding: 0 0 5px;
  }
- 
-
-
-
-
-
-
- .form-group.input-material {
+ .mat-label{
+      font-size: 16px;
+      color: #616161!important;
+      font-weight: bold;
+      transition: ease-in-out .5s;
+ }
+ .is-completed .mat-label {
+      font-size: 12px !important;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      transition: ease-in-out .5s;
+  }
+ .field-icon {
+      font-weight: 900;
+      position: absolute;
+      right: 4px;
+      top: 28px;
+      color: #616161;
+  }
+  .formpanel .formrow a{
+        display: block;
+  }
+  /* Start  Slide toggle */
+  .switch {
       position: relative;
-      margin-top: 50px;
-      margin-bottom: 50px; }
-      .form-group.input-material label {
-        color: #b1bbc4;
-        font-size: 16px;
-        font-weight: normal;
-        position: absolute;
-        pointer-events: none;
-        left: 5px;
-        top: 7px;
-        transition: 0.1s ease all;
-        -moz-transition: 0.1s ease all;
-        -webkit-transition: 0.1s ease all; }
-      .form-group.input-material .form-control {
-        border: none;
-        border-bottom: 2px solid #ced4da;
-        border-radius: 0px;
-        background: transparent;
-        padding-left: 5px;
-        box-shadow: none;
-        /* active state */
-        /* invalid state */ }
-        .form-group.input-material .form-control:focus, .form-group.input-material .form-control[value]:not([value=""]) {
-          border-bottom-color: #007bff;
-          color: #000; }
-        .form-group.input-material .form-control:focus ~ label, .form-group.input-material .form-control[value]:not([value=""]) ~ label {
-          top: -25px;
-          font-size: 14px;
-          color: #007bff;
-          font-weight: 500; }
-        .form-group.input-material .form-control:focus.invalid, .form-group.input-material .form-control.invalid, .form-group.input-material .form-control:focus.parsley-error, .form-group.input-material .form-control[value]:not([value=""]).parsley-error {
-          border-bottom-color: #dc3545; }
-        .form-group.input-material .form-control:focus.invalid ~ label, .form-group.input-material .form-control.invalid ~ label, .form-group.input-material .form-control:focus.parsley-error ~ label, .form-group.input-material .form-control[value]:not([value=""]).parsley-error ~ label {
-          color: #dc3545; }
-      .form-group.input-material .parsley-errors-list {
-        color: #dc3545;
-        list-style: none;
-        font-size: 0.7em;
-        padding-left: 5px; }
+      display: inline-block;
+      width: 45px;
+      height: 18px;
+    }
     
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 0px;
+      bottom: -2px;
+      background-color: white;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #ccc;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #ccc;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+      background: black;
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    .checked-box{
+      margin: 10px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+/* End slide Toggle */
+.terms-box a{
+      margin: 0 20px;
+}

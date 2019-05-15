@@ -2,11 +2,12 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../log-in/log-in.services';
+import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms'
  
 import Swal from 'sweetalert2';
 import { UploadItemService } from '../file-uploads/upload-item-service';
 import { Observable } from 'rxjs';
-
+declare const $: any;
 @Component({
   selector: 'app-seller-user-detail',
   templateUrl: './seller-user-detail.component.html',
@@ -14,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class SellerUserDetailComponent implements OnInit {
   model: any = {};
- 
+  signupForm: FormGroup;
   public mask = [  /\d/, /\d/, /\d/, /\d/, '-' , /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
   step1 = true;
   step2 = false;
@@ -58,11 +59,24 @@ filetoup: FileList;
   picname:any;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private obj: LoginService,
+              private fb: FormBuilder,
               private _nav: Router,
               private Profile: LoginService,
               private itemUploadService: UploadItemService) { }
 
   ngOnInit() {
+ 
+    this.signupForm = this.fb.group({
+
+      'FName': [''],
+      'Lname': [''],
+      'City': [''],
+      'Zip': [''],
+      'personal': [''],
+      'address': [''],
+      'Country': [''],
+      'State': [''],
+    })
     if (isPlatformBrowser(this.platformId)) {
       this.SessionstoreName = localStorage.getItem('StoreName');
     //  this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
@@ -83,6 +97,17 @@ filetoup: FileList;
 
   }
 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      // console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
   OnEmailChangeEvent() {
     this.EmailExist = false;
     this.Emailok = false;
@@ -176,8 +201,8 @@ uploadItemsToActivity() {
         data => {
          // this.Profile.UserDetailsUpdatePic(localStorage.getItem('UserID') ,this.fileName).subscribe();
           console.log('Successs' )
-          this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => {
-         console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete,this.ISConfirmed)
+          this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID).subscribe((response) => {
+         console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.fileName, this.USerNameID,this.complete)
           this.Error = false;
           this.Waitcall = false;
           this.Right = true;
@@ -201,9 +226,9 @@ uploadItemsToActivity() {
       );
     } else {
       this.Waitcall = true;
-      this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed).subscribe((response) => 
+      this.obj.UserDetailsUpdate(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID).subscribe((response) => 
       {
-        console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete,this.ISConfirmed)
+        console.log(this.id,FName, Lname, Country, State, City, Zip, Mobile, Address, this.Vendor,this.picname, this.USerNameID,this.complete)
          this.Error = false;
          this.Waitcall = false;
          this.Right = true;

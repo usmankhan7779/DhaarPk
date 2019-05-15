@@ -29,9 +29,9 @@ a.meanmenu-reveal{display:none}
 .main-menu ul li .mega-menu li a{color:#333;display:inline-block;font-size:17px;font-weight:500;letter-spacing:0.5px;padding:0px;text-transform:capitalize;transition:all 0.3s ease 0s;}
 .main-menu ul li .mega-menu:hover li a{background-color:inherit;}
 .main-menu nav > ul > li:last-child > a::before{display:none;}
-.main-menu ul li:hover > a{color:#fff;background-color:#ed2424;}
+.main-menu ul li:hover > a{color:#C00;}
 .main-menu ul li.active > a{color:#fff;background-color:#ed2424;}
-.main-menu > ul > li:hover > a > i{color:#fff;}
+.main-menu > ul > li:hover > a > i{color:#C00;}
 .main-menu ul li .mega-menu{background-color:#fff;left:0;padding:20px;position:absolute;box-shadow:2px 0 7px 0 rgba(0, 0, 0, 0.13);opacity:0;top:135%;transition:all 0.3s ease 0s;width:200px;visibility:hidden;z-index:999999;text-align:left;border:1px solid #c1c1c1;}
 .main-menu ul li ul.dropdown{background-color:#fff;left:0;padding:20px 20px 10px 20px;position:absolute;box-shadow:2px 0 7px 0 rgba(0, 0, 0, 0.13);opacity:0;top:135%;transition:all 0.3s ease 0s;width:200px;visibility:hidden;z-index:999999;text-align:left;border:1px solid #c1c1c1;border-top:2px solid #ed2424;}
 .main-menu ul li ul.dropdown li{display:block;background:none;}

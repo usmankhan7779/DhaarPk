@@ -38,7 +38,7 @@ export class BuyerDashboardServices {
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'Token ' +  this.authentication);
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     // return this._http.post(this.saleServerUrl + 'GetallInvoiceIDByUser/', {
     //   'que': proID
     // },{headers:headers})
@@ -78,7 +78,7 @@ export class BuyerDashboardServices {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      // console.log('pofile', localStorage.getItem('Authorization'));
+      // // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get( this.saleServerUrl + 'inovice_detail/' ,{headers :headers} ).map(response => response.json());
   }
   GetallIDByUser( PId: any) {
@@ -87,7 +87,7 @@ export class BuyerDashboardServices {
       headers.append('Content-Type', 'application/json');
       // headers.append('Authorization', 'Token ' +  this.authentication);
       headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-      console.log('pofile', localStorage.getItem('Authorization'));
+      // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get( this.ServerUrl + 'InsertUserReview/' + PId ,{headers:headers}).map(response => response.json());
 
       // return this._http.get( this.saleServerUrl + 'ActiveReviewsByUserId/' + PId + '/' + UserID ).map(response => response.json());
@@ -116,7 +116,7 @@ export class BuyerDashboardServices {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     if (isPlatformBrowser(this.platformId)){
 
     return this._http.get(this.ServerUrl + 'watchList/' ,{headers:headers}).map(response => response.json());
@@ -145,7 +145,7 @@ export class BuyerDashboardServices {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.post(this.saleServerUrl + 'AddcustomerInvoice', {
       // 'InvoicesID': invID,
       'InvoicesBalance': invBalance,
@@ -181,7 +181,7 @@ export class BuyerDashboardServices {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     if (isPlatformBrowser(this.platformId)){
       // this.posturl+
       return this._http.post(this.saleServerUrl+'payementpost/',
@@ -221,7 +221,7 @@ export class BuyerDashboardServices {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     if (isPlatformBrowser(this.platformId)) {
       return this._http.post(this.saleServerUrl + 'AddcustomerInvoiceProduct', {
         'InvoicesID': invID,
@@ -243,11 +243,60 @@ export class BuyerDashboardServices {
         });
     }
   }
+
+  // Updatequantity(user: any,Quantity,product) {
+  //   const headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+  //   // // console.log('pofile', localStorage.getItem('Authorization'));
+  //   return this._http.put(this.ServerUrl + 'Checkout_Edit/' + user +'/',
+  //     {
+  //       'Quantity': Quantity,
+  //       'product':product
+  //     },{headers:headers}).map((res: Response) => {
+  //       if (res) {
+  //         // console.log('abc');
+  //         if (res.status === 200) {
+  //           // const responce_data = res.json();
+  //           return res.json()
+  //           // return responce_data();
+  //           // return [{ status: res.status, json: res }];
+  //         }
+  //       }
+  //     }).catch((error: any) => {
+  //       return Observable.throw(new Error(error.status));
+  //     });
+  // }
+  Updatequantity(user: any,Quantity) {    // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
+ 
+    const headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'Token ' +  this.authentication);
+    headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
+    return this._http.put(this.ServerUrl + 'Checkout_Edit/' + user ,
+      {
+        'Quantity': Quantity,
+              // 'product':product
+
+
+      }, {headers:headers})
+      .map((res: Response) => {
+        if (res) {
+          if (res.status === 200) {
+            const responce_data = res.json();
+            return responce_data;
+          }
+        }
+      }) 
+  }
+
 proceesedtocheckout(bill,list:any,ShipmentID){
   const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     // http://192.168.30.189:7000/sale/OrderEmail/
     // this.saleServerUrl +this.saleServerUrl +
     return this._http.post( this.saleServerUrl+'addcustominvoice/', {
@@ -255,6 +304,7 @@ proceesedtocheckout(bill,list:any,ShipmentID){
       "list":list,
 // "list": [{"ProductID": "123","UserID":"338","Qty":"1","sellerid":"hassan"}, {"ProductID": "321","UserID":"338","Qty":"2","sellerid":"hassan"}],
 "ShipmentID":ShipmentID
+
 
     },{headers:headers})
       .map((res: Response) => {
@@ -274,7 +324,7 @@ proceesedtocheckout(bill,list:any,ShipmentID){
       const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     // http://192.168.30.189:7000/sale/OrderEmail/
     // this.saleServerUrl +
     return this._http.post( this.saleServerUrl +'OrderEmail/', {
@@ -301,7 +351,7 @@ proceesedtocheckout(bill,list:any,ShipmentID){
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    console.log('pofile', localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.post(this.saleServerUrl + 'AddcustomerInvoiceShippingAddrres', {
       'InvoicesID': invID, 'ShipmentID': shipmentid,
       // 'InvoicesID': invID, 'First_Name': fname, 'Last_Name': lname
