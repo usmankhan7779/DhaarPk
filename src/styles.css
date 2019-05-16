@@ -4321,10 +4321,10 @@ margin-top: 12px;
     display: block
 }
 
-.uploadphotobx h4 {
+/* .uploadphotobx h4 {
     font-size: 30px;
     color: #777
-}
+} */
 
 .uploadphotobx p {
     font-size: 18px;
@@ -4386,13 +4386,12 @@ margin-top: 12px;
     text-align: center
 }
 
-.uploadimg .img-box {
+/* .uploadimg .img-box {
     position: relative;
     width: 30%;
-    /* margin: 0 auto 10px; */
     float: left;
     padding: 11px;
-}
+} */
 
 .img-box i {
     position: absolute;
