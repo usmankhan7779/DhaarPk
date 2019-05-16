@@ -2,6 +2,24 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.bid-timer--value .countdown{
+    margin-left: 8px;
+}
+.bid-timer--value .measurements{
+    margin: 0px 5px;
+}
+.bid-timer--value .measurements-number{
+    margin: 0;
+    font-weight: bold;
+}
+.bid-timer--value .measurements-text{
+    margin: 0;
+    font-weight: bold;
+}
+
+
 /* responsive.css */
 @media only screen and (min-width:280px) and (max-width:479px) {
     .modal-dialog.newsletter-popup {
@@ -3112,7 +3130,7 @@ a.wit-btn {
     background: #fff;
     padding: 20px;
     margin-bottom: 30px;
-    margin-left: -90px
+    /* margin-left: -90px */
 }
 
 .sidebar .widget {
@@ -3228,7 +3246,7 @@ a.wit-btn {
 
 .searchList li:hover {
     box-shadow: 1px 1px 5px 1px #ebebeb;
-    transform: translate(2px, 2px);
+    transform: scale(1.04);
 }
 
 .searchList li .adimg {
@@ -3249,16 +3267,20 @@ a.wit-btn {
 text-decoration: underline;
 }
 .searchList li h3 a {
-    font-size: 14px;
+    font-size: 15px;
     /* font-weight: 600; */
     color: #000
 }
-
+.searchList li .adprice{
+    font-weight: bold;
+}
 .searchList li .cateName {
     color: #969595;
     text-align: left;
 }
-
+.biddong-time{
+    font-weight: bold;
+}
 .searchList li .cateName a {
     color: #969595
 }
@@ -3322,7 +3344,19 @@ text-decoration: underline;
 .searchList li .listbtn {
     display: inline-block
 }
-
+.searchList li .listView-img{
+    width: 100%;
+    height: 121px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchList li .listView-img img{
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
 .searchList li .listbtn a {
     display: inline-block;
     border-radius: 0;
@@ -3331,7 +3365,7 @@ text-decoration: underline;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
-    margin: 0 5px
+    margin: 0;
 }
 
 .searchList li .listbtn a:hover {
@@ -3341,7 +3375,7 @@ text-decoration: underline;
 
 .searchList li p {
     color: #fff;
-    margin: 0;
+    margin: 5px 0;
     float: left;
     padding: 5px;
     width: fit-content;
@@ -4321,10 +4355,10 @@ margin-top: 12px;
     display: block
 }
 
-.uploadphotobx h4 {
+/* .uploadphotobx h4 {
     font-size: 30px;
     color: #777
-}
+} */
 
 .uploadphotobx p {
     font-size: 18px;
@@ -4386,13 +4420,12 @@ margin-top: 12px;
     text-align: center
 }
 
-.uploadimg .img-box {
+/* .uploadimg .img-box {
     position: relative;
     width: 30%;
-    /* margin: 0 auto 10px; */
     float: left;
     padding: 11px;
-}
+} */
 
 .img-box i {
     position: absolute;
@@ -8873,46 +8906,6 @@ ul#cart-sidebar {
     width: 100%;
     height: 400px
 }
-.homeSlider .item {
-    position: relative;
-    padding: 0 10px;
-    border-radius: 10px !important;
-}
-.homeSlider .item .image {
-    /* padding: 0 20px 0 20px; */
-    position: relative;
-    z-index: 1;
-    border-radius: 10px;
-    overflow: hidden
-}
-.homeSlider .item .image .img {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto
-}
-.item.slick-slide {
-    border: solid 1px #222;
-    min-height: 130px;
-    padding: 10px;
-    border-radius: 4px;
-    background: #0000004f;
-    margin-right: 10px;
-    cursor: pointer
-}
-.item.slick-slide:hover {
-    background: 0 0;
-    border: none
-}
-
-.item.slick-slide:hover .slider-img {
-    background-color: #c00;
-    color: white!important
-}
-.item.slick-slide a {
-    position: relative;
-    top: 10px;
-    font-size: 15px
-}
 .top-cart-content li.item {
     width: 272px;
     margin: 5px 0;
@@ -8986,9 +8979,13 @@ ul#cart-sidebar {
 .product-item .item-inner .product-thumbnail {
     position: relative;
     text-align: center;
-    float: left;
+    /* float: left; */
     width: 100%;
-    min-height: 206px
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .product-item .item-inner .product-thumbnail .btn-quickview {
@@ -9047,7 +9044,8 @@ ul#cart-sidebar {
 }
 
 .product-item .item-inner .product-thumbnail .product-item-photo .product-image-photo {
-    width: 250px
+    width: 100%;
+    height: auto;
 }
 
 .product-item .item-inner .pro-box-info {
@@ -9058,7 +9056,7 @@ ul#cart-sidebar {
 
 .product-item .item-inner .pro-box-info .box-hover {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     position: relative;
     overflow: hidden
 }
@@ -9181,7 +9179,6 @@ ul#cart-sidebar {
 .product-item .item-inner .item-info .item-title {
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 5px
 }
 
 .product-item .item-inner .item-info .item-title h4 {
@@ -9193,7 +9190,7 @@ ul#cart-sidebar {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0;
-    font-size: 12px;
+    font-size: 15px;
     text-transform: none;
     height: 38px;
     line-height: normal
@@ -9201,6 +9198,12 @@ ul#cart-sidebar {
 .product-item .item-inner .item-info .item-title a:hover {
     color: #ed2424
 }
+.product-item .item-inner .item-info .item-content .price-box{
+    height: 40px;
+}
+
+
+
 .best-selling-slider .product-item .item-inner,
 .featured-products-slider .product-item .item-inner {
     margin-bottom: 0;
@@ -9607,8 +9610,8 @@ all and (min-width:992px) and (-webkit-transform-3d) {
 }
 
 .product-flexslider {
-    margin: 30px -12px;
-    margin-top: 20px
+    margin:0;
+    /* margin-top: 20px */
 }
 
 .owl-theme .owl-controls .owl-buttons div {
@@ -11484,11 +11487,12 @@ nav {
 }
 
 .toolbar label {
-    color: #666;
-    font-size: 14px;
-    font-weight: 300;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 30px;
-    text-transform: capitalize
+    text-transform: capitalize;
+    margin-right: 10px;
 }
 
 .sorter .short-by select {
@@ -12561,8 +12565,8 @@ button.button.button-clear:hover {
     font-size: 18px;
     letter-spacing: 1px;
     line-height: normal;
-    /* margin: 0 0 10px; */
-    margin: 0px;
+    margin: 0 0 10px;
+    /* margin: 0px; */
     outline: medium none;
     padding: 0;
     position: relative;
@@ -16080,7 +16084,7 @@ label[for=rememberme] {
 }
 
 .homeSlider.slick-initialized.slick-slider {
-    margin-top: -165px
+    margin-top: -132px
 }
 
 /* .homeSlider .item {
@@ -16607,12 +16611,6 @@ ngx-image-viewer .img-container {
         height: 30px;
         width: 30px;
         line-height: 30px;
-    }
-    .sidebar {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 30px;
-        margin-left: -5px
     }
     #search button{
         margin-left: -92px

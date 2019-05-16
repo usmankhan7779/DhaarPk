@@ -7,7 +7,7 @@
         <ng-template matStepLabel>Photo</ng-template>
 
         <div class="  col-md-12 uploadimg">
-          <div class="formrow">
+          <div class="formrow-1">
 
             <div class="uploadphotobx"> <i class="fas fa-cloud-upload-alt"></i>
               <h4>Upload Product photos</h4>
@@ -38,10 +38,11 @@
             <textarea rows="8" cols="60" matInput name="Title" placeholder="Product Title" [(ngModel)]="model.Title"
               #Title="ngModel" required></textarea>
           </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
         </div>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
+      
      
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
@@ -92,20 +93,24 @@
 
         </div>
          
-        <div class="col-md-4">
+        <div class="col-md-12">
           <div class="formrow">
-            <mat-form-field>
-              <textarea rows="8" matInput cols="60" style="font-size: 20px !important;" maxlength="2000"
-                class="mat-input Ad-details text-capitl" name="Addetail" [(ngModel)]="model.Addetail"
-                #Addetail="ngModel" required></textarea>
-         
+            <mat-form-field class="Ad-details">
+              <textarea rows="8" matInput cols="100" maxlength="2000"
+                class="mat-input  text-capitl Ad-details-text-area" name="Addetail" [(ngModel)]="model.Addetail"
+                #Addetail="ngModel"  matInput placeholder="Add Detail" required></textarea>
+      
             </mat-form-field>
           </div>
+          <div class="Ad-button">
+            <button mat-button matStepperPrevious class="back-button">Back</button>
+            <button mat-button matStepperNext class="Reset-button">Next</button>
+          </div>
         </div>
-        <div class="Ad-button">
+        <!-- <div class="Ad-button">
           <button mat-button matStepperPrevious class="back-button">Back</button>
           <button mat-button matStepperNext class="Reset-button">Next</button>
-        </div>
+        </div> -->
   
     </mat-step>
     <mat-step>
@@ -139,17 +144,16 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="Icon"><img alt=""
                       src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
-                      width="25"><span class="Aution-heading">List Indefinitely</span>
+                      width="25"><span class="automatic-rel">List Indefinitely</span>
                     <span class="slide-bar-2">
                       <mat-slide-toggle (click)="List_Indefinitely()"></mat-slide-toggle>
                     </span></div>
                
                   <div *ngIf="list == false" class="Icon"><img alt=""
-                      src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span
-                      class="Aution-heading">Listing Duration</span>
+                      src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="automatic-rel" >Listing Duration</span>
                     <span class="list">
                       <mat-form-field class=Days>
-                        <mat-label>Select Your Listing</mat-label>
+                        <mat-label >Select Your Listing</mat-label>
                         <mat-select disableRipple matNativeControl required [(ngModel)]="model.List"
                           name="list">
                           <mat-option value="15" selected>15 Days</mat-option>
@@ -163,7 +167,7 @@
                   </div>
                   <div *ngIf="list == false" class="Icon"><img alt=""
                       src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
-                    <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2">
+                    <span class="automatic-rel">Automatic Relisting</span><span class="slide-bar-3">
                       <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
                         (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
                     </span>
@@ -171,7 +175,7 @@
                   <div class="Icon">
                     <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
                       width="25">
-                    <span class="Aution-heading">Discount Offer</span>
+                    <span class="discount-offer-1" >Discount Offer</span>
                     <span class="slide-bar-2">
                       <mat-slide-toggle (click)="showdiscount()"></mat-slide-toggle>
                     </span>
@@ -307,7 +311,7 @@
                 </div>
                 <div class="Icon"><img alt=""
                     src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
-                  <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-2">
+                  <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-5">
                     <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
                       (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
                   </span>

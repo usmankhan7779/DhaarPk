@@ -81,6 +81,7 @@ export class PostAdComponent implements OnInit {
   product_ad_active = "False";
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup :FormGroup;
 
   
 
@@ -112,6 +113,9 @@ export class PostAdComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      thirdctrl: ['', Validators.required]
     });
     // [stepControl]="secondFormGroup"
 

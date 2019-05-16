@@ -8,7 +8,199 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
+        <aside class="sidebar col-sm-3 col-xs-12">
+
+            <div class="block shop-by-side">
+              <div class="sidebar-bar-title">
+                <h3>Product Type</h3>
+              </div>
+              <div class="block-content">
+    
+                <br/>
+                <div class="layered-Category">
+                  <div class="layered-content">
+                    <ul class="check-box-list">
+                      <li>
+                        <input (click)="acution_check('true')" type="radio" id="jtv1"  name="jtvc">
+                        <label for="jtv1"> <span class="button"></span> Auction Products </label>
+                      </li>
+                      <li>
+                        <input (click)="fixed_check('false')" type="radio" id="jtv2" name="jtvc">
+                        <label for="jtv2"> <span class="button"></span> Fixed Products </label>
+                      </li>
+                      <li>
+                        <input (click)="above_check()" type="radio" id="jtv3" name="jtvc">
+                        <label for="jtv3"> <span class="button"></span> Both Above</label>
+                      </li>
+                      <li>
+    
+                    </ul>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+            <div class="block product-price-range ">
+              <div class="sidebar-bar-title">
+                <h3>Price</h3>
+              </div>
+              <div class="block-content">
+                <div class="slider-range">
+                  <!--<div data-label-reasult="Range:" data-min="0" data-max="500" data-unit="Rs" class="slider-range-price" data-value-min="50" data-value-max="350"></div>-->
+                  <!--<div class="amount-range-price">Range: Rs10 - Rs550</div>-->
+                  <ul class="check-box-list">
+                    <li>
+                      <input (click)="ProductPrice(1,1000)" type="radio" id="p1" name="cc" />
+                      <label for="p1"> <span class="button"></span> Rs 1 < Rs 1,000 </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(1001,5000)" type="radio" id="p2" name="cc" />
+                      <label for="p2"> <span class="button"></span> Rs 1,001 - Rs 5,000  </label>
+                    </li>
+                                   <li>
+                      <input (click)="ProductPrice(5001,10000)" type="radio" id="p3" name="cc" />
+                      <label for="p3"> <span class="button"></span> Rs 5,001 - Rs 10,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(10001,15000)" type="radio" id="p5" name="cc" />
+                      <label for="p5"> <span class="button"></span> Rs 10,001 - Rs 15,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(15001,25000)" type="radio" id="p6" name="cc" />
+                      <label for="p6"> <span class="button"></span> Rs 15,001 - Rs 25,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(25001,35000)" type="radio" id="p7" name="cc" />
+                      <label for="p7"> <span class="button"></span> Rs 25,001 - Rs 35,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(35001,50000)" type="radio" id="p9" name="cc" />
+                      <label for="p9"> <span class="button"></span> Rs 35,001 - Rs 50,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(50001,70000)" type="radio" id="p10" name="cc" />
+                      <label for="p10"> <span class="button"></span> Rs 50,001 - Rs 70,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(70001,100000)" type="radio" id="p11" name="cc" />
+                      <label for="p11"> <span class="button"></span> Rs 70,001 - Rs 1,00,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(100001,200000)"  type="radio" id="p12" name="cc" />
+                      <label for="p12"> <span class="button"></span> Rs 1,00,001 - Rs 2,00,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(200001,400000)" type="radio" id="p13" name="cc" />
+                      <label for="p13"> <span class="button"></span> Rs 2,00,001 - Rs 4,00,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(400001,500000)"  type="radio" id="p14" name="cc" />
+                      <label for="p14"> <span class="button"></span> Rs 4,00,001 - Rs 5,00,000  </label>
+                    </li>
+                    <li>
+                      <input (click)="ProductPrice(500001,999999)" type="radio" id="p15" name="cc" />
+                      <label for="p15"> <span class="button"></span> Rs 5,00,001 < ... </label>
+                    </li>
+                    <!-- <li>
+                      <input (click)="ProductPrice(All,All)" type="radio" id="p16" name="cc" />
+                      <label for="p16"> <span class="button"></span> All Prices</label>
+                    </li> -->
+    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- <div *ngIf="View" class="product-grid-area"></div> -->
+            <ng-container *ngIf="Vendor "  >
+            <div class="block sidebar-cart">
+              <div class="sidebar-bar-title">
+                <h3>My Cart</h3>
+              </div>
+              <div class="block-content">
+                <ng-container *ngIf="!Cart" >
+                <p class="amount">There are <a href="">{{ CartedProduct.Results?.length }} items</a> in your cart.</p>
+                <ul>
+                  <ng-container *ngFor="let abc of CartedProduct.Results ">
+                  <li class="item"> <a  title="Sample Product" class="product-image"><img src="{{abc.product.Pic }}" onerror="this.src='../../assets/images/Check-Resolution.png'" alt="Sample Product "></a>
+                    <div class="product-details">
+                      <div class="access"> <a (click)="TrashcartElement(abc.ProductID)" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a></div>
+                      <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
+                      <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
+                      <strong>{{  abc.Quantity }}</strong> x <span class="price">Rs: {{ abc.product.FixedPrice | number:'.0-0' }}</span> </div>
+                  </li>
+    
+                  </ng-container>
+                </ul>
+                <div class="summary">
+                  <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">Rs: {{Total | number:'.0-0' }}</span> </p>
+                </div>
+                <div class="cart-checkout">
+                    <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span  class="checkouts">Checkout</span></button>
+                </div>
+                </ng-container>
+                <p *ngIf="Cart" class="amount">There are <a href="">0 items</a> in your cart.</p>
+              </div>
+            </div>
+          </ng-container>
+    
+            <div class="single-img-add sidebar-add-slider ">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+    
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active"> <img src="assets/images/add-slide1.jpg" alt="slide1">
+                    <div class="carousel-caption">
+                      <h3><a href="single_product.html" title=" Sample Product">Sale Up to 50% off</a></h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <a href="#" class="info">shopping Now</a> </div>
+                  </div>
+                  <div class="item"> <img src="assets/images/add-slide2.jpg" alt="slide2">
+                    <div class="carousel-caption">
+                      <h3><a href="single_product.html" title=" Sample Product">Fancywatch Collection</a></h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <a href="#" class="info">All Collection</a> </div>
+                  </div>
+                  <div class="item"> <img src="assets/images/add-slide3.jpg" alt="slide3">
+                    <div class="carousel-caption">
+                      <h3><a href="single_product.html" title=" Sample Product">Summer Sale</a></h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> 
+              </div>
+            </div>
+    
+            <div class="block popular-tags-area ">
+              <div class="sidebar-bar-title">
+                <h3>Popular Tags</h3>
+              </div>
+              <div class="tag">
+                <ul>
+                  <li><a href="#">Boys</a></li>
+                  <li><a href="#">Camera</a></li>
+                  <li><a href="#">good</a></li>
+                  <li><a href="#">Computers</a></li>
+                  <li><a href="#">Phone</a></li>
+                  <li><a href="#">clothes</a></li>
+                  <li><a href="#">girl</a></li>
+                  <li><a href="#">shoes</a></li>
+                  <li><a href="#">women</a></li>
+                  <li><a href="#">accessoties</a></li>
+                  <li><a href="#">View All Tags</a></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+      <div class="col-main col-sm-9 col-xs-12">
 
         <div class="shop-inner">
 
@@ -238,198 +430,7 @@
         </div>
 
       </div>
-      <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
-
-        <div class="block shop-by-side">
-          <div class="sidebar-bar-title">
-            <h3>Product Type</h3>
-          </div>
-          <div class="block-content">
-
-            <br/>
-            <div class="layered-Category">
-              <div class="layered-content">
-                <ul class="check-box-list">
-                  <li>
-                    <input (click)="acution_check('true')" type="radio" id="jtv1"  name="jtvc">
-                    <label for="jtv1"> <span class="button"></span> Auction Products </label>
-                  </li>
-                  <li>
-                    <input (click)="fixed_check('false')" type="radio" id="jtv2" name="jtvc">
-                    <label for="jtv2"> <span class="button"></span> Fixed Products </label>
-                  </li>
-                  <li>
-                    <input (click)="above_check()" type="radio" id="jtv3" name="jtvc">
-                    <label for="jtv3"> <span class="button"></span> Both Above</label>
-                  </li>
-                  <li>
-
-                </ul>
-              </div>
-            </div>
-           
-          </div>
-        </div>
-        <div class="block product-price-range ">
-          <div class="sidebar-bar-title">
-            <h3>Price</h3>
-          </div>
-          <div class="block-content">
-            <div class="slider-range">
-              <!--<div data-label-reasult="Range:" data-min="0" data-max="500" data-unit="Rs" class="slider-range-price" data-value-min="50" data-value-max="350"></div>-->
-              <!--<div class="amount-range-price">Range: Rs10 - Rs550</div>-->
-              <ul class="check-box-list">
-                <li>
-                  <input (click)="ProductPrice(1,1000)" type="radio" id="p1" name="cc" />
-                  <label for="p1"> <span class="button"></span> Rs 1 < Rs 1,000 </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(1001,5000)" type="radio" id="p2" name="cc" />
-                  <label for="p2"> <span class="button"></span> Rs 1,001 - Rs 5,000  </label>
-                </li>
-                               <li>
-                  <input (click)="ProductPrice(5001,10000)" type="radio" id="p3" name="cc" />
-                  <label for="p3"> <span class="button"></span> Rs 5,001 - Rs 10,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(10001,15000)" type="radio" id="p5" name="cc" />
-                  <label for="p5"> <span class="button"></span> Rs 10,001 - Rs 15,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(15001,25000)" type="radio" id="p6" name="cc" />
-                  <label for="p6"> <span class="button"></span> Rs 15,001 - Rs 25,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(25001,35000)" type="radio" id="p7" name="cc" />
-                  <label for="p7"> <span class="button"></span> Rs 25,001 - Rs 35,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(35001,50000)" type="radio" id="p9" name="cc" />
-                  <label for="p9"> <span class="button"></span> Rs 35,001 - Rs 50,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(50001,70000)" type="radio" id="p10" name="cc" />
-                  <label for="p10"> <span class="button"></span> Rs 50,001 - Rs 70,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(70001,100000)" type="radio" id="p11" name="cc" />
-                  <label for="p11"> <span class="button"></span> Rs 70,001 - Rs 1,00,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(100001,200000)"  type="radio" id="p12" name="cc" />
-                  <label for="p12"> <span class="button"></span> Rs 1,00,001 - Rs 2,00,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(200001,400000)" type="radio" id="p13" name="cc" />
-                  <label for="p13"> <span class="button"></span> Rs 2,00,001 - Rs 4,00,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(400001,500000)"  type="radio" id="p14" name="cc" />
-                  <label for="p14"> <span class="button"></span> Rs 4,00,001 - Rs 5,00,000  </label>
-                </li>
-                <li>
-                  <input (click)="ProductPrice(500001,999999)" type="radio" id="p15" name="cc" />
-                  <label for="p15"> <span class="button"></span> Rs 5,00,001 < ... </label>
-                </li>
-                <!-- <li>
-                  <input (click)="ProductPrice(All,All)" type="radio" id="p16" name="cc" />
-                  <label for="p16"> <span class="button"></span> All Prices</label>
-                </li> -->
-
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- <div *ngIf="View" class="product-grid-area"></div> -->
-        <ng-container *ngIf="Vendor "  >
-        <div class="block sidebar-cart">
-          <div class="sidebar-bar-title">
-            <h3>My Cart</h3>
-          </div>
-          <div class="block-content">
-            <ng-container *ngIf="!Cart" >
-            <p class="amount">There are <a href="">{{ CartedProduct.Results?.length }} items</a> in your cart.</p>
-            <ul>
-              <ng-container *ngFor="let abc of CartedProduct.Results ">
-              <li class="item"> <a  title="Sample Product" class="product-image"><img src="{{abc.product.Pic }}" onerror="this.src='../../assets/images/Check-Resolution.png'" alt="Sample Product "></a>
-                <div class="product-details">
-                  <div class="access"> <a (click)="TrashcartElement(abc.ProductID)" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a></div>
-                  <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
-                  <p class="product-name"> <a href="shopping_cart.html">{{ abc.product.P_Title }}{{ abc.product.P_Title }}</a> </p>
-                  <strong>{{  abc.Quantity }}</strong> x <span class="price">Rs: {{ abc.product.FixedPrice | number:'.0-0' }}</span> </div>
-              </li>
-
-              </ng-container>
-            </ul>
-            <div class="summary">
-              <p class="subtotal"> <span class="label">Cart Subtotal:</span> <span class="price">Rs: {{Total | number:'.0-0' }}</span> </p>
-            </div>
-            <div class="cart-checkout">
-                <button (click)="ClickCheckOut()" class="button button-checkout"  title="Submit"><i class="fa fa-check"></i> <span  class="checkouts">Checkout</span></button>
-            </div>
-            </ng-container>
-            <p *ngIf="Cart" class="amount">There are <a href="">0 items</a> in your cart.</p>
-          </div>
-        </div>
-      </ng-container>
-
-        <div class="single-img-add sidebar-add-slider ">
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active"> <img src="assets/images/add-slide1.jpg" alt="slide1">
-                <div class="carousel-caption">
-                  <h3><a href="single_product.html" title=" Sample Product">Sale Up to 50% off</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="#" class="info">shopping Now</a> </div>
-              </div>
-              <div class="item"> <img src="assets/images/add-slide2.jpg" alt="slide2">
-                <div class="carousel-caption">
-                  <h3><a href="single_product.html" title=" Sample Product">Fancywatch Collection</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="#" class="info">All Collection</a> </div>
-              </div>
-              <div class="item"> <img src="assets/images/add-slide3.jpg" alt="slide3">
-                <div class="carousel-caption">
-                  <h3><a href="single_product.html" title=" Sample Product">Summer Sale</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> 
-          </div>
-        </div>
-
-        <div class="block popular-tags-area ">
-          <div class="sidebar-bar-title">
-            <h3>Popular Tags</h3>
-          </div>
-          <div class="tag">
-            <ul>
-              <li><a href="#">Boys</a></li>
-              <li><a href="#">Camera</a></li>
-              <li><a href="#">good</a></li>
-              <li><a href="#">Computers</a></li>
-              <li><a href="#">Phone</a></li>
-              <li><a href="#">clothes</a></li>
-              <li><a href="#">girl</a></li>
-              <li><a href="#">shoes</a></li>
-              <li><a href="#">women</a></li>
-              <li><a href="#">accessoties</a></li>
-              <li><a href="#">View All Tags</a></li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+      
     </div>
   </div>
   <!-- <div class="col-md-6"></div> -->
