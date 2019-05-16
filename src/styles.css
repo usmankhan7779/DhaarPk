@@ -3112,7 +3112,7 @@ a.wit-btn {
     background: #fff;
     padding: 20px;
     margin-bottom: 30px;
-    margin-left: -90px
+    /* margin-left: -90px */
 }
 
 .sidebar .widget {
@@ -8872,46 +8872,6 @@ ul#cart-sidebar {
 #main-bg-slider .item img {
     width: 100%;
     height: 400px
-}
-.homeSlider .item {
-    position: relative;
-    padding: 0 10px;
-    border-radius: 10px !important;
-}
-.homeSlider .item .image {
-    /* padding: 0 20px 0 20px; */
-    position: relative;
-    z-index: 1;
-    border-radius: 10px;
-    overflow: hidden
-}
-.homeSlider .item .image .img {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto
-}
-.item.slick-slide {
-    border: solid 1px #222;
-    min-height: 130px;
-    padding: 10px;
-    border-radius: 4px;
-    background: #0000004f;
-    margin-right: 10px;
-    cursor: pointer
-}
-.item.slick-slide:hover {
-    background: 0 0;
-    border: none
-}
-
-.item.slick-slide:hover .slider-img {
-    background-color: #c00;
-    color: white!important
-}
-.item.slick-slide a {
-    position: relative;
-    top: 10px;
-    font-size: 15px
 }
 .top-cart-content li.item {
     width: 272px;
@@ -16080,7 +16040,7 @@ label[for=rememberme] {
 }
 
 .homeSlider.slick-initialized.slick-slider {
-    margin-top: -165px
+    margin-top: -132px
 }
 
 /* .homeSlider .item {
@@ -16607,12 +16567,6 @@ ngx-image-viewer .img-container {
         height: 30px;
         width: 30px;
         line-height: 30px;
-    }
-    .sidebar {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 30px;
-        margin-left: -5px
     }
     #search button{
         margin-left: -92px
