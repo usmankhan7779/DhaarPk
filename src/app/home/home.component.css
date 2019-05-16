@@ -19,6 +19,8 @@
     transition: all .5s ease-in-out;
     border-radius: 3px;
     letter-spacing: 1px;
+    margin: 10px 0 0;
+    font-weight: bold;
 }
 
 .homeSlider .item {
