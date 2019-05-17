@@ -1,9 +1,17 @@
+
 <form role="form" class="login-form" #f="ngForm" novalidate>
+    <div class="">
+        <label class="control-label label-set">Product Type: </label> <span
+          style="color: #CC0000; font-size: 16px;font-weight: bold"> <u style="cursor: sty;">{{ CatName }}</u>
+        </span> <a class="label-set" (click)="routetopostad()">Change</a>
+      </div>
   <!-- (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate -->
-  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <!-- (ngSubmit)="onSubmit(f)" #f="ngForm"  -->
+  <mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
     <mat-step [stepControl]="firstFormGroup">
 
       <!-- <form [formGroup]="firstFormGroup"> -->
+      <div [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Photo</ng-template>
 
         <div class="  col-md-12 uploadimg">
@@ -25,60 +33,73 @@
           <ng-container *ngFor="let img of url; let i=index">
             <div class="img-box">
               <i class="fas fa-times" (click)="removepic(i)"></i>
-             
+
               <img [src]="img">
             </div>
-            
+
           </ng-container>
         </div>
         <div class="col-lg-10  text-center selling">
           <mat-form-field class="what-selling">
 
             <!-- <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required> -->
-            <textarea rows="8" cols="60" matInput name="Title" placeholder="Product Title" [(ngModel)]="model.Title"
-              #Title="ngModel" required></textarea>
+            <textarea rows="8" cols="60" matInput name="Title" placeholder="Product Title"
+              formControlName="Producttitle" [(ngModel)]="model.Title" required></textarea>
+            <mat-error
+              *ngIf="firstFormGroup.controls['Producttitle'].value == '' || !firstFormGroup.controls['Producttitle'].value">
+              <strong>Please Enter the Product Title</strong></mat-error>
+
           </mat-form-field>
           <div>
             <button mat-button matStepperNext>Next</button>
           </div>
         </div>
-      
-     
+
+      </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
- 
+      <div [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Detail</ng-template>
-         
+
         <div class="col-md-4">
-      
+
           <mat-form-field>
             <mat-label>Select Your Store</mat-label>
-            <mat-select [(ngModel)]="model.StoreName" class="col-md-push-6" name="SessionstoreName" (change)="storess()">
+            <mat-select [(ngModel)]="model.StoreName" class="col-md-push-6" name="SessionstoreName" (change)="storess()"
+              formControlName="storeName">
               <mat-option *ngFor="let data of StoreNamess" [value]="data.StoreName">
                 {{data.StoreName}}
               </mat-option>
             </mat-select>
+            <mat-error
+              *ngIf="secondFormGroup.controls['storeName'].value == '' || !secondFormGroup.controls['storeName'].value">
+              <strong>Please Select the StoreName</strong></mat-error>
+
           </mat-form-field>
         </div>
-     
+
         <div class="col-md-4">
 
-          
+
 
           <mat-form-field>
             <mat-label>Product condition</mat-label>
-            <mat-select [(ngModel)]="model.condition" matNativeControl name="Subcat"  >
+            <mat-select [(ngModel)]="model.condition" matNativeControl name="Subcat" formControlName="conditionproduct">
               <mat-option value="New" selected>New</mat-option>
               <mat-option value="Used">Used</mat-option>
             </mat-select>
+            <mat-error
+              *ngIf="secondFormGroup.controls['conditionproduct'].value == '' || !secondFormGroup.controls['conditionproduct'].value">
+              <strong>Please Select the Product Condition</strong></mat-error>
+
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <div class="formrow">
             <mat-form-field>
               <mat-label>Select Sub Catgory</mat-label>
-              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat" (click)="sunb()">
-                <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}" (click)="sunb()">
+              <mat-select [(ngModel)]="model.subcat" class="col-md-push-6" name="Subcat" formControlName="subcategory">
+                <mat-optgroup *ngFor="let item of GetAllSubCat" label="{{ item.Sub_Cat_Name}}">
                   <ng-container *ngFor="let item_sub of GetAllSubSubCat">
                     <mat-option *ngIf="item.Sub_Cat_Name == item_sub.Sub_Cat_ID"
                       [value]="item.Sub_Cat_Name +'!' +item.id+ '!'+item_sub.Sub_Sub_Cat_Name+ '!' + item_sub.id">
@@ -88,18 +109,26 @@
 
 
               </mat-select>
+              <mat-error
+                *ngIf="secondFormGroup.controls['subcategory'].value == '' || !secondFormGroup.controls['subcategory'].value">
+                <strong>Please Select the Product Category</strong></mat-error>
+
             </mat-form-field>
           </div>
 
         </div>
-         
+
         <div class="col-md-12">
           <div class="formrow">
             <mat-form-field class="Ad-details">
               <textarea rows="8" matInput cols="100" maxlength="2000"
                 class="mat-input  text-capitl Ad-details-text-area" name="Addetail" [(ngModel)]="model.Addetail"
-                #Addetail="ngModel"  matInput placeholder="Add Detail" required></textarea>
-      
+                matInput placeholder="Add Detail" formControlName="description" required></textarea>
+              <mat-error
+                *ngIf="secondFormGroup.controls['description'].value == '' || !secondFormGroup.controls['description'].value">
+                <strong>Please Select enter the products description</strong></mat-error>
+
+
             </mat-form-field>
           </div>
           <div class="Ad-button">
@@ -107,244 +136,285 @@
             <button mat-button matStepperNext class="Reset-button">Next</button>
           </div>
         </div>
-        <!-- <div class="Ad-button">
-          <button mat-button matStepperPrevious class="back-button">Back</button>
-          <button mat-button matStepperNext class="Reset-button">Next</button>
-        </div> -->
-  
+
+      </div>
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Price</ng-template>
+    <!-- <mat-step> -->
+    <mat-step [stepControl]="thirdFormGroup">
+      <div [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Price</ng-template>
 
 
-      <mat-tab-group mat-align-tabs="center">
-        <img alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png"
-          width="30px">
+        <mat-tab-group mat-align-tabs="center">
+          <img alt="" src="https://cdn2.iconfinder.com/data/icons/shopping-e-commerce-3/512/hand-ipad-512.png"
+            width="30px">
           <mat-tab label="BUY NOW">
-              <div id="wbuy" class="formpanel tab-pane fade in">
-              
-                <div class=" col-md-offset-4 col-md-2">
-                  <mat-form-field class="price">
-                   
-                    <input matInput type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice" class="example-right-align"
-                    placeholder="Price">
-                    <span matPrefix>$&nbsp;</span>
-                    <span matSuffix>.00</span>
-                  </mat-form-field>
-                </div>
-                <div class=" col-md-3">
-                  <mat-form-field class="price">
-                   
-                    <input matInput type="number" [(ngModel)]="model.Quantity" name="Quantity" class="example-right-align"
-                    placeholder="Quantity">
-                    <span matPrefix>$&nbsp;</span>
-                    <span matSuffix>.00</span>
-                  </mat-form-field>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="Icon"><img alt=""
-                      src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
-                      width="25"><span class="automatic-rel">List Indefinitely</span>
-                    <span class="slide-bar-2">
-                      <mat-slide-toggle (click)="List_Indefinitely()"></mat-slide-toggle>
-                    </span></div>
-               
-                  <div *ngIf="list == false" class="Icon"><img alt=""
-                      src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span class="automatic-rel" >Listing Duration</span>
-                    <span class="list">
-                      <mat-form-field class=Days>
-                        <mat-label >Select Your Listing</mat-label>
-                        <mat-select disableRipple matNativeControl required [(ngModel)]="model.List"
-                          name="list">
-                          <mat-option value="15" selected>15 Days</mat-option>
-                          <mat-option value="12">12 Days</mat-option>
-                          <mat-option value="7">7 Days</mat-option>
-                          <mat-option value="5">5 Days</mat-option>
-                          <mat-option value="3">3 Days</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    </span>
-                  </div>
-                  <div *ngIf="list == false" class="Icon"><img alt=""
-                      src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
-                    <span class="automatic-rel">Automatic Relisting</span><span class="slide-bar-3">
-                      <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
-                        (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
-                    </span>
-                  </div>
-                  <div class="Icon">
-                    <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
-                      width="25">
-                    <span class="discount-offer-1" >Discount Offer</span>
-                    <span class="slide-bar-2">
-                      <mat-slide-toggle (click)="showdiscount()"></mat-slide-toggle>
-                    </span>
-                  </div>
-                  <div *ngIf="discount == true" class="Icon">
-                    <span class="Aution-heading">Discount Percentage</span>
-                    <span class="listing">
-                      <mat-form-field class="example-full-width">
-                          <input matInput  class="example-right-align"  type="number" name="discount_percentage" placeholder="Percentage" [(ngModel)]="model.discount_percentage"
-                          #discount_percentage="ngModel" required>
-                      
-                      </mat-form-field>
-                    </span>
-                  </div>
-                  <div *ngIf="discount == true" class="Icon">
-                    <span class="Aution-heading">Discount Price</span>
-                    <span class="listing">
-                      <mat-form-field>
-                      
-                        <input matInput  class="example-right-align"  type="number" name="discount_amount" placeholder="Discount Amount" [(ngModel)]="model.discount_amount"
-                        #discount_amount="ngModel" required>
-                        <span matPrefix>$&nbsp;</span>
-                        <span matSuffix>.00</span>
-                      </mat-form-field>
-                    </span>
-                  </div>
-                 
-                  <div class="Icon"><img alt=""
-                      src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Ok_check_yes_tick_accept_success_green_correct.png"
-                      width="25">
-                    <span class="Aution-heading">Accept Offers</span>
-                    <span class="slide-bar-2">
-                      <mat-slide-toggle></mat-slide-toggle>
-                    </span>
-                  </div>
-    
-    
-                  <div class="Icon">
-                    <mat-slide-toggle></mat-slide-toggle>
-                    <span class="Aution-heading">Automatically accept offers of at least</span>
-                    <span class="listing">
-                      <mat-form-field class="example-full-width">
-                       
-                        <input matInput  name="auto_accept" placeholder="Automatically accept offers of at least" [(ngModel)]="model.atleastprcieaccept"
-                        #atleastprcieaccept="ngModel" required>
-                      </mat-form-field>
-                    </span>
-                  </div>
-    
-                  <div class="Icon">
-                    <mat-slide-toggle></mat-slide-toggle>
-                    <span class="Aution-heading">Automatically decline offers lower than</span>
-                    <span class="listing">
-                      <mat-form-field class="example-full-width">
-                    
-                        <input matInput  name="auto_decline" placeholder="Automatically decline Offers lower than" [(ngModel)]="model.declineprice"
-                        #declineprice="ngModel" required>
-                      </mat-form-field>
-                    </span>
-                  </div>
-    
-                </div>
-    
+            <div id="wbuy" class="formpanel tab-pane fade in">
+
+              <div class=" col-md-offset-4 col-md-2">
+                <mat-form-field class="price">
+
+                  <input matInput type="number" [(ngModel)]="model.FixedPrice" name="FixedPrice"
+                    class="example-right-align" placeholder="Price" formControlName="FixedPrice">
+                  <span matPrefix>$&nbsp;</span>
+                  <span matSuffix>.00</span>
+                  <mat-error
+                    *ngIf="thirdFormGroup.controls['FixedPrice'].value == '' || !thirdFormGroup.controls['FixedPrice'].value">
+                    <strong>Please Select enter the products description</strong></mat-error>
+
+                </mat-form-field>
               </div>
-              
-    
-    
-    
-    
-    
-    
-    
-             
-            </mat-tab>
+              <div class=" col-md-3">
+                <mat-form-field class="price">
 
-        <mat-tab label="Auction">
-            <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png"
-              width="25">
-            <span class="Aution-heading">List for AuctionListing</span><span class="slide-bar">
-              <mat-slide-toggle (click)="showauctionlist()"></mat-slide-toggle>
-            </span></div>
-<div *ngIf="viewacutionlist == true">
+                  <input matInput type="number" [(ngModel)]="model.Quantity" name="Quantity" class="example-right-align"
+                    placeholder="Quantity" formControlName="Quantity">
+                  <span matPrefix>$&nbsp;</span>
+                  <span matSuffix>.00</span>
+                  <mat-error
+                    *ngIf="thirdFormGroup.controls['Quantity'].value == '' || !thirdFormGroup.controls['Quantity'].value">
+                    <strong>Please Select enter the products description</strong></mat-error>
 
-
-          <div id="wsell" class="formpanel tab-pane fade in active">
-
-
-           
-            <div class="form">
-              <div class="col-md-offset-4 col-md-8">
-                 
-                  <mat-form-field>
-                    
-              <input matInput type="number" name="name1" class="example-right-align" placeholder="Starting Price"
-              [(ngModel)]="model.Starting_Price" #Starting_Price="ngModel">
-                    
-                    <span matPrefix>$&nbsp;</span>
-                    <span matSuffix>.00</span>
-                  </mat-form-field>
-
-
-                 
+                </mat-form-field>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png"
-                    width="25">
-                  <span class="Aution-heading">Reserve Auction/No Reserve Auction</span><span class="slide-bar">
-                    <mat-slide-toggle (click)="AddReservePriceFun()"></mat-slide-toggle>
-                  </span></div>
-                <div *ngIf="ReservePrice == true" class="formrow">
-                  <input type="number" [(ngModel)]="model.ReservePrice" name="name3" class="form-control"
-                    placeholder="Reserve Price">
-                </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="Icon"><img alt=""
+                    src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
+                    width="25"><span class="automatic-rel">List Indefinitely</span>
+                  <span class="slide-bar-2">
+                    <mat-slide-toggle (click)="List_Indefinitely()"></mat-slide-toggle>
+                  </span></div>
+
+                <div *ngIf="list == false" class="Icon"><img alt=""
                     src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png" width="25"><span
-                    class="Aution-heading">Listing Duration</span>
-
-
-                  <span class="listing">
-                     
-                    <mat-form-field class="Days-2">
+                    class="automatic-rel">Listing Duration</span>
+                  <span class="list">
+                    <mat-form-field class=Days>
                       <mat-label>Select Your Listing</mat-label>
-                      <mat-select disableRipple matNativeControl required [(ngModel)]="model.AuctionListing"
-                        name="listing">
+                      <mat-select disableRipple matNativeControl formControlName="list" [(ngModel)]="model.List"
+                        name="list">
                         <mat-option value="15" selected>15 Days</mat-option>
                         <mat-option value="12">12 Days</mat-option>
                         <mat-option value="7">7 Days</mat-option>
                         <mat-option value="5">5 Days</mat-option>
                         <mat-option value="3">3 Days</mat-option>
                       </mat-select>
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['list'].value == '' || !thirdFormGroup.controls['list'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
                     </mat-form-field>
                   </span>
                 </div>
-                <div class="Icon"><img alt=""
+                <div *ngIf="list == false" class="Icon"><img alt=""
                     src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
-                  <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-5">
+                  <span class="automatic-rel">Automatic Relisting</span><span class="slide-bar-3">
                     <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
                       (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
                   </span>
                 </div>
+                <div class="Icon">
+                  <img alt="" src="https://cdn2.iconfinder.com/data/icons/flaturici-set-6/512/bar_code_price-512.png"
+                    width="25">
+                  <span class="discount-offer-1">Discount Offer</span>
+                  <span class="slide-bar-2">
+                    <mat-slide-toggle (click)="showdiscount()"></mat-slide-toggle>
+                  </span>
+                </div>
+                <div *ngIf="discount == true" class="Icon">
+                  <span class="Aution-heading">Discount Percentage</span>
+                  <span class="listing">
+                    <mat-form-field class="example-full-width">
+                      <input matInput class="example-right-align" type="number" name="discount_percentage"
+                        placeholder="Percentage" formControlName="discount_percentage"
+                        [(ngModel)]="model.discount_percentage">
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['discount_percentage'].value == '' || !thirdFormGroup.controls['discount_percentage'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
+
+                    </mat-form-field>
+                  </span>
+                </div>
+                <div *ngIf="discount == true" class="Icon">
+                  <span class="Aution-heading">Discount Price</span>
+                  <span class="listing">
+                    <mat-form-field>
+
+                      <input matInput class="example-right-align" type="number" name="discount_amount"
+                        placeholder="Discount Amount" formControlName="discount_amount"
+                        [(ngModel)]="model.discount_amount">
+                      <span matPrefix>$&nbsp;</span>
+                      <span matSuffix>.00</span>
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['discount_amount'].value == '' || !thirdFormGroup.controls['discount_amount'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
+                    </mat-form-field>
+                  </span>
+                </div>
+
+                <div class="Icon"><img alt=""
+                    src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Ok_check_yes_tick_accept_success_green_correct.png"
+                    width="25">
+                  <span class="Aution-heading">Accept Offers</span>
+                  <span class="slide-bar-2">
+                    <mat-slide-toggle></mat-slide-toggle>
+                  </span>
+                </div>
+
+
+                <div class="Icon">
+                  <mat-slide-toggle></mat-slide-toggle>
+                  <span class="Aution-heading">Automatically accept offers of at least</span>
+                  <span class="listing">
+                    <mat-form-field class="example-full-width">
+
+                      <input matInput name="auto_accept" placeholder="Automatically accept offers of at least"
+                        [(ngModel)]="model.atleastprcieaccept" formControlName="atleastprcieaccept">
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['atleastprcieaccept'].value == '' || !thirdFormGroup.controls['atleastprcieaccept'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
+                    </mat-form-field>
+                  </span>
+                </div>
+
+                <div class="Icon">
+                  <mat-slide-toggle></mat-slide-toggle>
+                  <span class="Aution-heading">Automatically decline offers lower than</span>
+                  <span class="listing">
+                    <mat-form-field class="example-full-width">
+
+                      <input matInput name="auto_decline" placeholder="Automatically decline Offers lower than"
+                        [(ngModel)]="model.declineprice" formControlName="declineprice">
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['declineprice'].value == '' || !thirdFormGroup.controls['declineprice'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
+                    </mat-form-field>
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+          </mat-tab>
+
+          <mat-tab label="Auction">
+            <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png"
+                width="25">
+              <span class="Aution-heading">List for AuctionListing</span><span class="slide-bar">
+                <mat-slide-toggle (click)="showauctionlist()"></mat-slide-toggle>
+              </span></div>
+            <div *ngIf="viewacutionlist == true">
+
+
+              <div id="wsell" class="formpanel tab-pane fade in active">
+
+
+
+                <div class="form">
+                  <div class="col-md-offset-4 col-md-8">
+
+                    <mat-form-field>
+
+                      <input matInput type="number" name="name1" class="example-right-align"
+                        placeholder="Starting Price" [(ngModel)]="model.Starting_Price"
+                        formControlName="Starting_Price">
+
+                      <span matPrefix>$&nbsp;</span>
+                      <span matSuffix>.00</span>
+                      <mat-error
+                        *ngIf="thirdFormGroup.controls['Starting_Price'].value == '' || !thirdFormGroup.controls['Starting_Price'].value">
+                        <strong>Please Select enter the products description</strong></mat-error>
+
+                    </mat-form-field>
+
+
+
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="Icon"><img alt="" src="https://images-na.ssl-images-amazon.com/images/I/41J0dEV6q-L.png"
+                        width="25">
+                      <span class="Aution-heading">Reserve Auction/No Reserve Auction</span><span class="slide-bar">
+                        <mat-slide-toggle (click)="AddReservePriceFun()"></mat-slide-toggle>
+                      </span></div>
+                    <div *ngIf="ReservePricestatus == true" class="formrow">
+                      <mat-form-field>
+                        <input matInput type="number" [(ngModel)]="model.ReservePrice" name="name3"
+                          class="example-right-align" placeholder="Reserve Price " formControlName="ReservePrice">
+                        <mat-error
+                          *ngIf="thirdFormGroup.controls['ReservePrice'].value == '' || !thirdFormGroup.controls['ReservePrice'].value">
+                          <strong>Please Select enter the products description</strong></mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="Icon"><img alt=""
+                        src="https://i.pinimg.com/originals/e6/14/a3/e614a3c7a9109a3ee9b6705461cc6425.png"
+                        width="25"><span class="Aution-heading">Listing Duration</span>
+
+
+                      <span class="listing">
+
+                        <mat-form-field class="Days-2">
+                          <mat-label>Select Your Listing</mat-label>
+                          <mat-select disableRipple matNativeControl [(ngModel)]="model.AuctionListing" name="listing"
+                            formControlName="AuctionListing">
+                            <mat-option value="15" selected>15 Days</mat-option>
+                            <mat-option value="12">12 Days</mat-option>
+                            <mat-option value="7">7 Days</mat-option>
+                            <mat-option value="5">5 Days</mat-option>
+                            <mat-option value="3">3 Days</mat-option>
+                          </mat-select>
+                          <mat-error
+                            *ngIf="thirdFormGroup.controls['AuctionListing'].value == '' || !thirdFormGroup.controls['AuctionListing'].value">
+                            <strong>Please Select enter the products description</strong></mat-error>
+
+                        </mat-form-field>
+                      </span>
+                    </div>
+                    <div class="Icon"><img alt=""
+                        src="http://sandiegopaintpros.com/wp-content/uploads/2017/04/task-done-flat.png" width="25">
+                      <span class="Aution-heading">Automatic Relisting</span><span class="slide-bar-5">
+                        <mat-slide-toggle name="Automatic_Relisting" [(ngModel)]="model.Automatic_Relisting"
+                          (click)="AddAutomatic_Relisting()"></mat-slide-toggle>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
               </div>
             </div>
 
-            
-           
+          </mat-tab>
 
 
-
-          </div>
-          </div>
-
-        </mat-tab>
-       
-        
-      </mat-tab-group>
+        </mat-tab-group>
 
 
 
 
-      <div class="Ad-button">
-        <button mat-button class="back-button" matStepperPrevious>Back</button>
-        <button mat-button (click)=" save(f)" class="Reset-button">Finish</button>
-        
+        <div class="Ad-button">
+          <button mat-button class="back-button" matStepperPrevious>Back</button>
+          <button mat-button (click)=" save(f)" class="Reset-button">Finish</button>
+
+        </div>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
 </form>
 <!-- f.form.valid || -->
-
-
-     
- 

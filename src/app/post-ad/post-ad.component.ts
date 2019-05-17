@@ -42,7 +42,7 @@ export class PostAdComponent implements OnInit {
   uploadFile: any;
   Buyitnow = false;
   CatNumber: number;
-  ReservePrice ;
+  ReservePricestatus ;
   viewacutionlist = false;
   list = false;
   discount = false;
@@ -83,7 +83,7 @@ export class PostAdComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup :FormGroup;
 
-  
+  isLinear = true;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -92,43 +92,50 @@ export class PostAdComponent implements OnInit {
     private Profile: LoginService,
     private route: ActivatedRoute,
     private PostAdd: AdService,
-
+     
     private itemUploadService: UploadItemService,
     private router: Router) { }
 
   ngOnInit() {
-    // $(".mat-input").focus(function(){
-    //   $(this).parent().addClass("is-active is-completed");
-    // });
-
-    // $(".mat-input").focusout(function(){
-    //   if($(this).val() === "")
-    //     $(this).parent().removeClass("is-completed");
-    //   $(this).parent().removeClass("is-active");
-    // })
-    // this.AddAutomatic_Relisting();
-    // this. showauctionlist()
+     
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      Producttitle: ['',  Validators.compose([Validators.required])]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      storeName: ['',  Validators.compose([Validators.required])],
+      conditionproduct: ['',  Validators.compose([Validators.required])],
+      subcategory: ['',  Validators.compose([Validators.required])],
+      description: ['',  Validators.compose([Validators.required])]
+
+
+
+      
     });
     this.thirdFormGroup = this._formBuilder.group({
-      thirdctrl: ['', Validators.required]
+      FixedPrice: ['', Validators.compose([Validators.required])],
+      Quantity: ['', Validators.compose([Validators.required])],
+      list: [''],
+      discount_percentage: [''],
+      discount_amount: [''],
+      atleastprcieaccept:[''],
+      declineprice:[''],
+      Starting_Price:[''],
+      AuctionListing:[''],
+      ReservePrice:['']
+
     });
-    // [stepControl]="secondFormGroup"
+ 
 
     if (isPlatformBrowser(this.platformId)) {
 
       this.sub = this.route
         .queryParams
         .subscribe(params => {
-          // Defaults to 0 if no query param provided.
+       
           this.CatName = params['CatName'] || '0';
           this.CatId = params['CatId'] || '0';
           this.User_ID = localStorage.getItem('UserID');
-          // console.log('this.User_ID is',this.User_ID);
+       
 
 
         });
@@ -239,8 +246,8 @@ export class PostAdComponent implements OnInit {
 
 
   AddReservePriceFun() {
-    this.ReservePrice = ! this.ReservePrice
-    console.log(this.ReservePrice)
+    this.ReservePricestatus = ! this.ReservePricestatus
+    console.log(this.ReservePricestatus)
     // if (this.ReservePrice === true) {
     //   this.ReservePrice = true;
     // } else {
@@ -372,7 +379,7 @@ export class PostAdComponent implements OnInit {
             this.model.FixedPrice, this.model.AddBestOffer, 
             this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
             this.model.declineprice,
-            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePricestatus
             ,this.list 
           )
         // console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
@@ -391,7 +398,7 @@ export class PostAdComponent implements OnInit {
             this.model.FixedPrice, this.model.AddBestOffer, 
             this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
             this.model.declineprice,
-            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePrice
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePricestatus
             ,this.list).subscribe();
 
       // } 
