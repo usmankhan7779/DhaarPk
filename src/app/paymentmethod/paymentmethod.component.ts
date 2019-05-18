@@ -26,6 +26,7 @@ export class PaymentmethodComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
+  isright;
   constructor(private fb: FormBuilder) {  }
   signupForm: FormGroup;
   ngOnInit() {

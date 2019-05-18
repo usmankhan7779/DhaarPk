@@ -10,9 +10,10 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class UploadItemService {
 
-  ServerUrl = 'http://192.168.29.132:8000/products/';
+  ServerUrl = 'https://apis.dhaar.pk/products/';
 
   constructor(private _http : HttpClient) {
+       
 
   }
 
