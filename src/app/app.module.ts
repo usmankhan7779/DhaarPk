@@ -94,6 +94,7 @@ import { PagerService } from './pager.service';
 import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-masters/seller-dashboard-masters.component';
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
 import { AuthInterceptor } from './auth-guard/auth.interceptor';
+import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
 @NgModule({
   exports: [
     MatAutocompleteModule,

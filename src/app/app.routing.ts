@@ -34,7 +34,7 @@ const appRoutes: Routes = [
       //  { path: 'user-shipment', loadChildren: './usershipment/usershipment.module#UserShipmentModule', canActivate: [AuthGuard] },
       // usershipmentupdate
       { path: 'user-shipment-create', loadChildren: './usershipmentupdate/usershipmentupdate.module#UserShipmentUpdateModule', canActivate: [AuthGuard] },
-      // { path: 'seller-user-detail', loadChildren: './seller-user-detail/seller-user-detail.module#SellerUserDetailModule', canActivate: [AuthGuard]},
+     { path: 'payment', loadChildren: './paymentmethod/paymentmethod.module#paymentModule'},
       //  { path: 'store-registration', loadChildren: './store-registration/store-registration.module#StoreRegistrationModule', canActivate: [AuthGuard] },
 
       { path: 'store-view', loadChildren: './store-all-details/store-all-details.module#StoreAllDetailsModule', canActivate: [AuthGuard] },
