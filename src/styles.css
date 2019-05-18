@@ -2001,7 +2001,7 @@ h6 {
 
 .navbar-nav>li {
     padding:0;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 .navbar-nav>li>a {
@@ -2063,7 +2063,7 @@ h6 {
 .navbar-collapse.in {
     overflow: inherit;
     height: auto;
-    padding: 0 15px
+    padding: -1px 15px
 }
 
 .navbar-nav li.postad,
@@ -13359,12 +13359,12 @@ button.button.pro-add-to-cart span {
     padding: 0 20px
 }
 
-.product-tabs li.active a {
+/* .product-tabs li.active a {
     border: 1px solid #ed2424;
     border-radius: 0;
     background: #ed2424;
     color: #000
-}
+} */
 
 #product-detail-tab.nav-tabs>li {
     float: none;
@@ -16616,12 +16616,13 @@ ngx-image-viewer .img-container {
         margin-left: -92px
     }
    
+   
 }
 
 @media (max-width:991px) {
     .navbar-nav {
         width: 752px;
-        padding: 20px 0 0 20px
+        padding: 20px 0 0 15px
     }
     .search-box {
         width: 50%

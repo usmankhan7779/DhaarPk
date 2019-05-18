@@ -457,17 +457,60 @@
 
 
                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                  <li class="active"> <a href="#description" data-toggle="tab"> Description </a> 
+                  <li class="active">
+                     <!-- <a href="#description" data-toggle="tab"> Description </a>  -->
                     
                     <div id="productTabContent" class="tab-content">
-                      <div class="tab-pane fade in active" id="description">
+                      <!-- <div class="tab-pane fade in active" id="description">
                         <div class="std">
                           <ng-container *ngFor="let Des of ProPDes">
                             <p>{{ Des}}</p>
                           </ng-container>
                         </div>
+                      </div> -->
+                      <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#reviews">
+                              Reviws ({{ GetallProductReview.length}})</a>
+                            </h4>
+                          </div>
+                          <div id="reviews" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                              <div class="reviews-content-left">
+                            <h2 style="font-size: 20px">Customer Reviews</h2>
+                            <ng-container *ngIf="noreview">No Review</ng-container>
+                            <ng-container *ngFor="let ProductReview of GetallProductReview">
+                              <div class="review-ratting">
+                                <div class="width50 pull-left">
+                                  <div class="user-image"><span>AT</span></div>
+                                  <div class="pull-left">
+                                    <p class="author"> {{ProductReview.Name}}
+                                      <small>(Posted on {{ProductReview.CreatedDate.substr(0,10)}})</small>
+                                    </p>
+                                    <p class="rating-user-name">{{ ProductReview.user.username }}</p>
+                                  </div>
+                                </div>
+                                <div class="width50 pull-right">
+                                  <div class="rating">
+                                    <ng-container *ngFor="let number of [0,1,2,3,4,5]">
+                                      <i *ngIf="number < ProductReview.Rating" class="fa fa-star"></i>
+                                      <i *ngIf="number > ProductReview.Rating" class="fa fa-star-o"></i>
+                                    </ng-container>
+                                  </div>
+                                  <p>{{ ProductReview.Reviews }}</p>
+                                </div>
+                              </div>
+                            </ng-container>
+    
+                          </div>
+                            </div>
+                          </div>
+                        </div>
+                      
                       </div>
-                      <div id="reviews" class="tab-pane fade">
+                      <!-- <div id="reviews" class="tab-pane fade">
                         <div class="col-md-6 col-sm-8 col-xs-12">
                           <div class="reviews-content-left">
                             <h2 style="font-size: 20px">Customer Reviews</h2>
@@ -508,8 +551,8 @@
                             </div>
                           </div>
                         </ng-container>
-                      </div>
-                      <div class="tab-pane fade " id="Bidhistory">
+                      </div> -->
+                      <!-- <div class="tab-pane fade " id="Bidhistory">
                         <div class="main container">
                           <div class="row">
     
@@ -566,12 +609,93 @@
                             </div>
                           </div>
                         </div>
+                      </div> -->
+                      <div class="panel-group" id="accordion">
+                       
+                        
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title"  *ngIf="resultProduct.Auction">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#Bidhistory">
+                                Bid History ({{BidingProduct.length}})</a>
+                            </h4>
+                          </div>
+                          <div id="Bidhistory" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <div class="main container">
+                                <div class="row">
+          
+                                  <div class="col-xs-10">
+                                    <div class="page-content checkout-page">
+                                      <div class="page-title">
+                                        <h2>Bidding History</h2>
+                                      </div>
+          
+                                    
+                                      <div class="box-border col-xs-offset-1">
+                                        <div class="table-responsive">
+                                          <table class="table table-bordered cart_summary">
+                                            <thead>
+                                              <tr>
+                                                <th>Sr.</th>
+                                                <th>Bidder</th>
+                                                <th>Bid Amount</th>
+                                                <th>BidTime</th>
+          
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <ng-container *ngFor="let abc of BidingProduct; let i = index">
+                                                <tr>
+                                                  <td>
+                                                    <span> {{ i+1 }} </span>
+                                                  </td>
+                                                  <td>
+                                                    <p> {{ abc.User_Id.substr(0, 2 ) }}****</p>
+                                                
+                                                  <td class="cart_avail"><span>Rs {{ abc.Price | number:'.0-0' }}</span></td>
+                                                  <td>{{ abc.CreatedDate.substr(0, 19 ) }}</td>
+                                                </tr>
+                                              </ng-container>
+                                            </tbody>
+                                            <tfoot>
+          
+                                              <tr>
+                                                <td colspan="2" rowspan="2">
+                                                  <span>If two people bid the same amount, the first bid has priority</span>
+                                                  <br />
+                                                  <button (click)="RefreshBids()" class="button"><span>Refresh</span></button>
+                                                </td>
+          
+          
+                                              </tr>
+          
+                                            </tfoot>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
+
+
+
+
+
                     </div>
                   </li>
-                  <li> <a href="#reviews" data-toggle="tab">Reviews ({{ GetallProductReview.length}})</a> </li>
+                  <!-- <li> <a href="#reviews" data-toggle="tab">Reviews ({{ GetallProductReview.length}})</a> </li>
                   <li *ngIf="resultProduct.Auction"> <a href="#Bidhistory" data-toggle="tab">Bid History ({{
-                      BidingProduct.length}})</a> </li>
+                      BidingProduct.length}})</a> </li> -->
 
                 </ul>
          
