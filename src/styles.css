@@ -4278,15 +4278,15 @@ text-decoration: underline;
     position:relative
 }
 
-.formpanel .formrow a {
+/* .formpanel .formrow a {
     color: #007dff;
     font-weight: 600
-}
+} */
 
 .help-block {
-margin-top: 12px;
+margin-top: 1px;
     color: #ff0000!important;
-    font-size: 13px
+    font-size: 14px
 }
 .formpanel .form-control {
   
@@ -4338,7 +4338,7 @@ margin-top: 12px;
     height: 250px
 }
 
-.formpanel .btn {
+/* .formpanel .btn {
     width: 89%;
     background: #000;
     color: #fff;
@@ -4350,7 +4350,7 @@ margin-top: 12px;
     box-shadow: 3px 2px 7px 2px #a7a3a3;
     margin: 39px auto 10px;
     display: block
-}
+} */
 .userAccount{
  
         background: #fff;

@@ -440,7 +440,7 @@
         <div class="tab-pane fade in active" id="#description">
             <div class="std">
               <ng-container *ngFor="let Des of ProPDes">
-                <p>{{ Des}}</p>
+                <p class="Description-para">{{ Des}}</p>
               </ng-container>
             </div>
           </div>
@@ -479,7 +479,7 @@
                           <div id="reviews" class="panel-collapse collapse in">
                             <div class="panel-body">
                               <div class="reviews-content-left">
-                            <h2 style="font-size: 20px">Customer Reviews</h2>
+                            <h2 >Customer Reviews</h2>
                             <ng-container *ngIf="noreview">No Review</ng-container>
                             <ng-container *ngFor="let ProductReview of GetallProductReview">
                               <div class="review-ratting">

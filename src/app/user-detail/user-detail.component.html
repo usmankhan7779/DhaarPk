@@ -60,13 +60,16 @@
                   <div class="row from-setting">
                     <div class="col-sm-6">
 
-                        <label for="FName" class="required">First Name(*)</label>
+                        <!-- <label for="FName" class="required">First Name(*)</label>
                     <input type="text" ng-Model="model.FName" #FName name="FName"
                                required class="input form-control"
                                placeholder="First Name"
                                id="FName"
-                               value="{{GetUSerdetails.Fname}}">
-
+                               value="{{GetUSerdetails.Fname}}"> -->
+                               <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="First Name"
+                                  type="text" ng-Model="model.FName" #FName name="FName" value="{{GetUSerdetails.Fname}}"  id="FName"  required>
+                                </mat-form-field>
 
 
                     </div>
@@ -74,29 +77,39 @@
 
 
 
-                        <label for="Lname" class="required">Last Name(*)</label>
+                        <!-- <label for="Lname" class="required">Last Name(*)</label> -->
 
-                        <input type="text" class="input form-control"
+                        <!-- <input type="text" class="input form-control"
                                required
                                placeholder="Last Name"
                                ng-Model="model.Lname" #Lname name="Lname"
                                id="Lname"
-                               value="{{GetUSerdetails.Lname}}">
-
+                               value="{{GetUSerdetails.Lname}}"> -->
+                               <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Last Name*" value="{{GetUSerdetails.Lname}}"   id="Lname">
+                                </mat-form-field>
 
                     </div>
                     <div class="col-sm-6">
 
-                        <label   class="required">Select Your Country(*) </label>
+                        <!-- <label   class="required">Select Your Country(*) </label>
                        <select  class="form-control"  ng-Model="model.Country" #Country name="Country" >
                          <option value="Pakistan" selected>Pakistan</option>
 
-                        </select>
+                        </select> -->
+                        <mat-form-field class="example-full-width" >
+                            <mat-label>Select Your Country* </mat-label>
+                            <mat-select [(value)]="selected"  ng-Model="model.Country" #Country name="Country">
+                              <mat-option>None</mat-option>
+                              <mat-option value="option1">pakistan</mat-option>
+                            
+                            </mat-select>
+                          </mat-form-field>
 
                       </div>
                     <div class="col-sm-6">
 
-                        <label  class="required">Select Your State/Province(*)</label>
+                        <!-- <label  class="required">Select Your State/Province(*)</label>
                         <select  class="form-control"  ng-Model="model.State" #State name="State" >
                           <option value="Punjab" selected>Punjab</option>
 
@@ -105,41 +118,66 @@
                           <option value="Khyber Pakhtunkhwa" >Khyber Pakhtunkhwa</option>
 
 
-                        </select>
+                        </select> -->
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Select Your State/Province*</mat-label>
+                            <mat-select [(value)]="selected">
+                              <mat-option>None</mat-option>
+                              <mat-option value="option1">Punjab</mat-option>
+                              <mat-option value="option2">Sindh</mat-option>
+                              <mat-option value="option3">Balochistan</mat-option>
+                              <mat-option value="option3">Khyber Pakhtunkhwa</mat-option>
+                            </mat-select>
+                          </mat-form-field>
 
                       </div>
                     <div class="col-sm-6">
 
-                        <label  class="required">Your City(*)</label>
+                        <!-- <label  class="required">Your City(*)</label>
 
                         <input class="input form-control"
                                 placeholder="Your City"
                                type="text" required
                                ng-Model="model.City" #City name="City"
-                               value="{{GetUSerdetails.City}}">
+                               value="{{GetUSerdetails.City}}"> -->
+
+                               <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Your City"  type="text"   ng-Model="model.City"
+                                   #City name="City" value="{{GetUSerdetails.City}}"  required>
+                                </mat-form-field>
                       </div>
                     <div class="col-sm-6">
 
-                        <label for="postal_code" class="required">Zip/Postal Code(*)</label>
+                        <!-- <label for="postal_code" class="required">Zip/Postal Code(*)</label>
                         <input class="input form-control" type="text"
                                pattern="([0-9])+$"
 
                                placeholder="55560"
                                required ng-Model="model.zipcode" #zipcode name="zipcode" id="postal_code"
-                               value="{{GetUSerdetails.Zip}}">
+                               value="{{GetUSerdetails.Zip}}"> -->
+                               <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Zip/Postal Code"  type="text"    pattern="([0-9])+$"    required ng-Model="model.zipcode" #zipcode name="zipcode" id="postal_code"
+                                   value="{{GetUSerdetails.Zip}}"  required>
+                                </mat-form-field>
+
                       </div>
                     <div class="col-sm-6">
 
-                        <label for="telephone" class="required">Owner Contact Number(*)</label>
+                        <!-- <label for="telephone" class="required">Owner Contact Number(*)</label> -->
 
-
+<!-- 
                         <input class="input form-control"
 
                                [textMask]="{mask: mask}"
                                placeholder="your contact number"
                                type="text" required ng-Model="model.personal" #personal name="personal"
                                id="telephone"
-                               value="{{GetUSerdetails.Mobile}}">
+                               value="{{GetUSerdetails.Mobile}}"> -->
+                               <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Owner Contact Number*" type="text"   ng-Model="model.personal" #personal name="personal"
+                                  id="telephone" value="{{GetUSerdetails.Mobile}}"  required>
+                                </mat-form-field>
                       </div>
                     <div class="col-sm-6">
 
@@ -147,7 +185,7 @@
 
                           <label for="telephone" class="required">Upload Your Profile Picture</label>
 
-                          <input type="file" #fileImportInput id="file1" name="file" class="file" data-preview-file-type="text" (change)="handleFileInput($event.target.files)"  multiple accept="image/*">
+                          <input type="file" #fileImportInput id="file1" name="file" class=" btn file" data-preview-file-type="text" (change)="handleFileInput($event.target.files)"  multiple accept="image/*">
 
 
                           <!-- <input class="file" (change)="onChange($event)" type="file" data-preview-file-type="text" id="file1" name="file" #Picture ng-files="getTheFiles($files)" /> -->
@@ -157,14 +195,19 @@
 
                       </div>
                     <div class="col-xs-12">
-
+<!-- 
                         <label for="address" class="required">Address(*)</label>
 
                         <input type="text" class="input form-control" required
                                placeholder="shop #, street# etc"
                                ng-Model="model.address"
                                #address name="address" id="address"
-                          value="{{GetUSerdetails.Address}}">
+                          value="{{GetUSerdetails.Address}}"> -->
+                          <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Shop #, street# etc*" type="text"    ng-Model="model.address" #address name="address" id="address"
+                              value="{{GetUSerdetails.Address}}"  required>
+                            </mat-form-field>
+
                     </div>
                   </div>
                 <div class="nav nav-tabs">
@@ -181,7 +224,7 @@
 
                     </p>
                   </div>
-                  <input (click)="save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)" type="button"    class="btn-black" value="Update">
+                  <input (click)="save(FName.value,Lname.value,Country.value,State.value,City.value, zipcode.value, personal.value, address.value)" type="button"    class="btn-black-5" value="Update">
                 </div>
               </div>
               </ng-container>

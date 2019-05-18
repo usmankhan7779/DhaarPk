@@ -424,3 +424,34 @@ textarea.form-control {
     // background: #ed2424;
     color: #000
 }
+.page-title h2 {
+    display: inline-block;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: normal;
+    margin: 0 0 10px;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 1;
+    // font-weight: 600;
+    text-align:center
+}
+.Description-para{
+    padding: 3px;
+}
+.product-tabs li a {
+    color: #000;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color .3s ease-in-out 0s, background-color .3s ease-in-out 0s, background-position .3s ease-in-out 0s;
+    padding: 0 4px
+}
+.formpanel .formrow a {
+    color:#23527c;
+  
+}

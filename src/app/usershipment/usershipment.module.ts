@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {TextMaskModule} from "angular2-text-mask";
 import {HeaderModule} from "../header/header.module";
 import { UsershipmentComponent } from './usershipment.component';
+import { MaterialModule } from '../app.module';
 const loginRoutes: Routes = [
   { path: '', component: UsershipmentComponent }
 ];
@@ -19,9 +20,10 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     HeaderModule,
-
     FormsModule,
     TextMaskModule,
+    MaterialModule,
+    ReactiveFormsModule,
 
     // ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)
