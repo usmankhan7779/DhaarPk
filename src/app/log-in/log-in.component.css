@@ -119,7 +119,22 @@
       font-size: 13px;
       font-weight: 600;
     }
+    .formpanel .btn {
+      width: 63%;
+      background: #000;
+      color: #fff;
+      border-radius: 50px;
+      padding: 7px 0;
+      font-size: 19px;
+      font-weight: 600;
+      text-transform: capitalize;
+      box-shadow: 3px 2px 7px 2px #a7a3a3;
+      margin: 39px auto 10px;
+      display: block
+    }
+  
 /* End slide Toggle */
 .terms-box a{
       margin: 0 20px;
 }
+

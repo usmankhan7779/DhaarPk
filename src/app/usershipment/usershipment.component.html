@@ -186,40 +186,57 @@
                 <div class="row from-setting padding-l-r-15">
                   <div class="col-sm-12">
                      
-                    <label for="fullname" class="required">Full Name(*)</label>
+                    <!-- <label for="fullname" class="required">Full Name(*)</label>
                     <input type="text" class="input form-control" ng-Model="model.fullname" #fullname name="fullname" required
-                       id="fullname" value="{{GetUSerAddress.fullname}}">
-
+                       id="fullname" value="{{GetUSerAddress.fullname}}"> -->
+                       <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Full Name*" type="text"   ng-Model="model.fullname" #fullname name="fullname" required
+                          id="fullname" value="{{GetUSerAddress.fullname}}"  required>
+                        </mat-form-field>
 
                   </div>
                   <div class="col-sm-6">
 
-                    <label for="telephone" class="required">Owner Contact Number(*)</label>
-
-
+                    <!-- <label for="telephone" class="required">Owner Contact Number(*)</label>
                     <input class="input form-control" [textMask]="{mask: mask}" placeholder="your contact number"
                       type="text" required ng-Model="model.phone_no" #phone_no name="phone_no" id="telephone"
-                      value="{{GetUSerAddress.phone_no}}">
+                      value="{{GetUSerAddress.phone_no}}"> -->
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Owner Contact Number*" type="text"    [textMask]="{mask: mask}" placeholder="your contact number"
+                          type="text" required ng-Model="model.phone_no" #phone_no name="phone_no" id="telephone"
+                          value="{{GetUSerAddress.phone_no}}">
+                        </mat-form-field>
+                  </div>
+                  <div class="col-sm-6">
+<!-- 
+                    <label class="required">Province (*)</label> -->
+
+                    <!-- <input class="input form-control" placeholder="Your province" type="text" required
+                      ng-Model="model.province" #province name="province" value="{{GetUSerAddress.province}}"> -->
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Your province" type="text"    required
+                        ng-Model="model.province" #province name="province" value="{{GetUSerAddress.province}}">
+                      </mat-form-field>
                   </div>
                   <div class="col-sm-6">
 
-                    <label class="required">Province (*)</label>
-
-                    <input class="input form-control" placeholder="Your province" type="text" required
-                      ng-Model="model.province" #province name="province" value="{{GetUSerAddress.province}}">
-                  </div>
-                  <div class="col-sm-6">
-
-                    <label class="required">Select Your Country(*) </label>
+                    <!-- <label class="required">Select Your Country(*) </label>
                     <select class="form-control" ng-Model="model.Country" #Country name="Country">
                       <option value="Pakistan" selected>Pakistan</option>
-
-                    </select>
-
+                    
+                    </select> -->
+                         <mat-form-field class="example-full-width">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select [(value)]="selected" ng-Model="model.Country" #Country name="Country">
+                          <mat-option>None</mat-option>
+                          <mat-option value="Pakistan">Pakistan</mat-option>
+                   
+                        </mat-select>
+                      </mat-form-field>
                   </div>
                   <div class="col-sm-6">
 
-                    <label class="required">Select Your State/Province(*)</label>
+                    <!-- <label class="required">Select Your State/Province(*)</label>
                     <select class="form-control" ng-Model="model.State" #State name="State">
                       <option value="Punjab" selected>Punjab</option>
 
@@ -228,38 +245,65 @@
                       <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
 
 
-                    </select>
+                    </select> -->
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Select Your State/Province</mat-label>
+                      <mat-select [(value)]="selected"  ng-Model="model.State" #State name="State" >
+                        <mat-option>None</mat-option>
+                        <mat-option value="Sindh">Sindh</mat-option>
+                        <mat-option value="Balochistan">Balochistan</mat-option>
+                        <mat-option value="option3">Khyber Pakhtunkhwa</mat-option>
+                      </mat-select>
+                    </mat-form-field>
 
                   </div>
                   <div class="col-sm-6">
 
-                    <label class="required">Your City(*)</label>
+                    <!-- <label class="required">Your City(*)</label>
 
                     <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.city"
-                      #city name="city" value="{{GetUSerAddress.city}}">
+                      #city name="city" value="{{GetUSerAddress.city}}"> -->
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Your City" type="text"   type="text" required ng-Model="model.city"
+                          #city name="city" value="{{GetUSerAddress.city}}">
+                        </mat-form-field>
                   </div>
                   <div class="col-sm-6">
 
-                    <label class="required">Your Area(*)</label>
+                    <!-- <label class="required">Your Area(*)</label>
 
                     <input class="input form-control" placeholder="Your City" type="text" required ng-Model="model.area"
-                      #area name="area" value="{{GetUSerAddress.area}}">
+                      #area name="area" value="{{GetUSerAddress.area}}"> -->
+                       <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Your Area" type="text"  required ng-Model="model.area"
+                          #area name="area" value="{{GetUSerAddress.area}}">
+                        </mat-form-field>
                   </div>
                   <div class="col-sm-6">
                     <br>
-                    <label class="required">Default shipment address(*)</label>
+                    <!-- <label class="required">Default shipment address(*)</label>
 
                     <input class="input form-control" placeholder="Default shipment addres" type="text" required
                       ng-Model="model.default_shipment_address" #default_shipment_address
-                      name="default_shipment_address" value="{{GetUSerAddress.default_shipment_address}}">
+                      name="default_shipment_address" value="{{GetUSerAddress.default_shipment_address}}"> -->
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Default shipment address" type="text" required
+                        ng-Model="model.default_shipment_address" #default_shipment_address
+                        name="default_shipment_address" value="{{GetUSerAddress.default_shipment_address}}">
+                      </mat-form-field>
                   </div>
                   <div class="col-sm-6">
                     <br>
-                    <label class="required">Default Bill address(*)</label>
+                    <!-- <label class="required">Default Bill address(*)</label>
 
                     <input class="input form-control" placeholder="Default Bill addres" type="text" required
                       ng-Model="model.default_bill_address" #default_bill_address name="default_bill_address"
-                      value="{{GetUSerAddress.default_bill_address}}">
+                      value="{{GetUSerAddress.default_bill_address}}"> -->
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Default Bill address" type="text"  required
+                        ng-Model="model.default_bill_address" #default_bill_address name="default_bill_address"
+                        value="{{GetUSerAddress.default_bill_address}}">
+                      </mat-form-field>
                   </div>
                   <!-- <div class="col-sm-6">
     
@@ -269,9 +313,12 @@
                             ng-Model="model.zipcode" #zipcode name="zipcode" id="postal_code" value="{{GetUSerAddress.Zip}}">
                         </div> -->
                   <div class="col-xs-12">
-                    <label for="address" class="required">Address(*)</label>
+                    <!-- <label for="address" class="required">Address(*)</label>
                     <input type="text" class="input form-control" required placeholder="shop #, street# etc"
-                      ng-Model="model.address" #address name="address" id="address" value="{{GetUSerAddress.address}}">
+                      ng-Model="model.address" #address name="address" id="address" value="{{GetUSerAddress.address}}"> -->
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Address" class="addres-btn" type="text" g-Model="model.address" #address name="address" id="address" value="{{GetUSerAddress.address}}" required >
+                      </mat-form-field>
                   </div>
                   <div class="col-xs-12">
                     <div *ngIf="Error" class="alert alert-danger">

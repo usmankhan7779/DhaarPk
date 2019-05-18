@@ -5,6 +5,7 @@ import {UserDetailComponent} from "./user-detail.component";
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {TextMaskModule} from "angular2-text-mask";
 import {HeaderModule} from "../header/header.module";
+import { MaterialModule } from '../app.module';
 const loginRoutes: Routes = [
   { path: '', component: UserDetailComponent }
 ];
@@ -21,7 +22,8 @@ const loginRoutes: Routes = [
 
     FormsModule,
     TextMaskModule,
-
+    MaterialModule,
+    ReactiveFormsModule,
     // ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)
   ],
