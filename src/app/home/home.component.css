@@ -86,3 +86,37 @@
 .item.slick-slide a:hover {
     background: none;
 }
+.play-store-wrapper{
+    position: relative;
+    margin: 0;
+}
+.play-store-img2{
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 36%;
+}
+.androidBadge{
+    max-width:28%
+}
+.play-store-img2 li {
+    display: inline;
+   
+}
+.iosBadge{
+    max-width: 25%;
+    position: relative;
+    top: -6px
+
+}
+@media (max-width:1024px){
+
+    .iosBadge {
+        max-width: 18%;
+        position: relative;
+        top: -6px;
+    }
+    .androidBadge {
+        max-width: 21%;
+    }
+}
