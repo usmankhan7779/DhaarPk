@@ -19,6 +19,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: bold;
 }
 
+/* Strat form Style  */
+.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label{
+    top: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #616161 !important;
+}
+.sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+    transform: translateY(-25px) scale(.75) perspective(100px) translateZ(.001px);
+    -ms-transform: translateY(-25px) scale(.75);
+}
+.sh-signup-form-fix .mat-select{
+    font-size: 24px;
+    font-weight: bold;
+}
+/* End form Style  */
+
+
+
+
+
 
 /* responsive.css */
 @media only screen and (min-width:280px) and (max-width:479px) {
@@ -1631,7 +1652,9 @@ select {
     font-size: 16px;
     font-weight: 600
 }
-
+.margin-t-minas4{
+    margin-top: -4px;
+}
 .margin-0 {
     margin: 0
 }

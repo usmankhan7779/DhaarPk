@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <div class="row checkout-select-box col-lg-8 col-md-9 col-sm-12">
+  <div class="row checkout-select-box">
     <div class="">
         <div id="section-pricing" class="text-center">
             <div class="pricing-tenure-switcher center" data-container="#pricing-switch"> <span
@@ -15,12 +15,13 @@
             </div>
             <div id="pricing-switch" class="">
                 <div class="col-md-12" *ngIf="!isright">
-                    <div class="col-lg-12 Saved-card-sel-list">
-                        <mat-form-field class="width-50per">
-                            <mat-select class="" placeholder="Select List" [(ngModel)]="model.defaultcard"
-                                [formControl]="Carddefault">
-                                <mat-option *ngFor="let card of res" [value]="card.id">
-                                    {{card.nickname}}</mat-option>
+                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix">
+                        <mat-form-field class="width50">
+                            <mat-label>Favorite food</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                {{food.viewValue}}
+                                </mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -36,20 +37,20 @@
                                             style="enable-background:new 0 0 47.834 47.834;" version="1.1"
                                             viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
                                             xmlns="http://www.w3.org/2000/svg" y="0px">
-                                            <g _ngcontent-c5="">
-                                                <g _ngcontent-c5=""></g>
+                                            <g >
+                                                <g ></g>
                                             </g>
                                         </svg></div>
                                     <div class="card-holder" style="top: 29px;left: 221px;"><label
-                                            _ngcontent-c5="">Cardholder</label>
-                                        <div _ngcontent-c5="">{{model.holdername}}</div>
+                                            >Cardholder</label>
+                                        <div >fsdfdsa</div>
                                     </div>
-                                    <div class="card-holder"><label _ngcontent-c5="">Card Number</label>
-                                        <div _ngcontent-c5="">{{model.cardNumber}}</div>
+                                    <div class="card-holder"><label >Card Number</label>
+                                        <div >fasdfas</div>
                                     </div>
-                                    <div class="card-expiration-date"><label _ngcontent-c5="">Expiry
+                                    <div class="card-expiration-date"><label >Expiry
                                             Date</label>
-                                        <div _ngcontent-c5="">{{model.expirationdate}}</div>
+                                        <div >dasd</div>
                                     </div>
                                 </div>
                                 <div class="back">
@@ -59,76 +60,84 @@
                                             style="enable-background:new 0 0 47.834 47.834;" version="1.1"
                                             viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
                                             xmlns="http://www.w3.org/2000/svg" y="0px">
-                                            <g _ngcontent-c5="">
-                                                <g _ngcontent-c5=""></g>
+                                            <g >
+                                                <g ></g>
                                             </g>
                                         </svg></div>
-                                    <div class="card-expiration-date"><label _ngcontent-c5="">Expiry
+                                    <div class="card-expiration-date"><label >Expiry
                                             Date</label>
-                                        <div _ngcontent-c5="">{{model.expirationdate}}</div>
+                                        <div >sadfas</div>
                                     </div>
-                                    <div class="ccv"><label _ngcontent-c5="">CCV</label>
-                                        <div _ngcontent-c5="">{{model.cardcod}}</div>
+                                    <div class="ccv"><label >CCV</label>
+                                        <div >qsadsad</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <form
-                            (ngSubmit)="!ExpiryDateForm.hasError('required') && !ExpiryDateForm.hasError('pattern') && CardCodeForm.hasError('minlength')&& !CardCodeForm.hasError('maxlength')&& !CardNumberForm.hasError('required') && !CardNumberForm.hasError('pattern') && onSubmit()"
-                            #f="ngForm" id="videoform" class="form-horizontal row sh-signup-form-fix"
-                            name="videoform" method="post">
+                        <form [formGroup]="signupForm" *ngIf="signupForm"  class="form-horizontal row sh-signup-form-fix">
                             <div class="col-lg-12 center-div col-md-12">
-                                <div *ngIf="totalcarts>0" class="contact_form">
+                                <div  class="contact_form">
                                     <div class="panel-body margin-top-145 padding-bottom-">
-                                        <mat-form-field
-                                            class="margin-bottom-10 col-sm-6 col-xs-12 mat-size">
-                                            <mat-select placeholder="Type Card" [(ngModel)]="model.cardtype"
-                                                [formControl]="CardtypeForm"
-                                                (change)="ShowButton(CardtypeForm.value)">
-                                                <mat-option *ngFor="let card_get_datat of card_opeation"
-                                                    [value]="card_get_datat.value">
-                                                    {{card_get_datat.viewValue}}</mat-option>
-                                            </mat-select>
+                                        <div class="col-lg-6 margin-t-minas4">
+                                            <mat-form-field class="example-full-width">
+                                                        <mat-label>Crad Type</mat-label>
+                                                        <mat-select [formControl]="signupForm.controls['FName']">
+                                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                            {{food.viewValue}}
+                                                        </mat-option>
+                                                        </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Card Holder Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Nick Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Cradit Card Number" [formControl]="signupForm.controls['FName']" required #FName>
                                         </mat-form-field>
-                                        <mat-form-field
-                                            class="margin-bottom-10 col-sm-6 col-xs-12 mat-size"> <input
-                                                matInput placeholder="Credit Card Number"
-                                                [textMask]="{mask: cardmask}" [formControl]="CardNumberForm"
-                                                [(ngModel)]="model.cardNumber" required>
-                                            <mat-error *ngIf="CardNumberForm.hasError('pattern')"> Please
-                                                enter a valid card number. Only Numerics are Allowed.
-                                            </mat-error>
-                                            <mat-error *ngIf="CardNumberForm.hasError('required')"> Card
-                                                number is <strong>required</strong> </mat-error>
+                                        </div>
+                                        <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="CVV" [formControl]="signupForm.controls['FName']" required #FName>
                                         </mat-form-field>
-                                        <mat-form-field
-                                            class="margin-bottom-10 col-sm-6 col-xs-12 mat-size"> <input
-                                                matInput placeholder="Expiry Date"
-                                                [formControl]="ExpiryDateForm"
-                                                [(ngModel)]="model.expirationdate" [textMask]="{mask: mask}"
-                                                #exp (change)="chek(exp.value)" required>
-                                            <mat-error *ngIf="ExpiryDateForm.hasError('required')"> Expiry
-                                                Date is <strong>required</strong> </mat-error>
-                                            <mat-error *ngIf="ExpiryDateForm.hasError('pattern')"> Expiry
-                                                Date should in <strong>mm/yy</strong> </mat-error> <span
-                                                class="card-error" *ngIf="expirydate <='18'"> Invalid Expiry
-                                                Date </span>
-                                        </mat-form-field>
-                                        <mat-form-field
-                                            class="margin-bottom-10 col-sm-6 col-xs-12 mat-size"> <input
-                                                matInput placeholder="CardCode" [formControl]="CardCodeForm"
-                                                [(ngModel)]="model.cardcod" required
-                                                [textMask]="{mask: ccvmask}">
-                                            <mat-error *ngIf="CardCodeForm.hasError('minlength')"> Maximum
-                                                Length of <strong>CardCode can be 3 characters</strong>
-                                            </mat-error>
-                                            <mat-error *ngIf="CardCodeForm.hasError('maxlength')"> Maximum
-                                                Length of <strong>CardCode can be 4 characters</strong>
-                                            </mat-error>
-                                        </mat-form-field>
-                                        <mat-form-field class="col-sm-6 col-xs-12 mat-size"> <input matInput
-                                                placeholder="Card Holder" [formControl]="Holdername"
-                                                [(ngModel)]="model.holdername" required> </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Zip Code" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Street" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="City" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="State" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <mat-form-field class="example-full-width">    
+                                                <input matInput placeholder="Country" [formControl]="signupForm.controls['FName']" required #FName>
+                                            </mat-form-field>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +147,9 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-sm-12"> <button type="submit" class="btn-file pull-right"
-            (click)="onSubmit()">Place Order</button> </div>
+    <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-fill"
+            (click)="onSubmit()">Place Order</button> 
+        </div>
 </div>
 </div>
