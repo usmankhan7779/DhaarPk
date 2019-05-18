@@ -1,7 +1,7 @@
 .checkout-select-box{
-    width: 750px;
-    max-width: 750px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 730px;
+    margin: 0 auto 20px;
     padding: 0 0 10px;
     box-shadow: 1px 1px 7px 2px #ccc;
     border-radius: 5px;
@@ -14,7 +14,36 @@
     font-weight: bold;
     border-radius: 30px;
 }
-
+.pay-tabs{
+    width: 100%;
+    max-width: 730px;
+    margin: 20px auto 0;
+}
+.pay-tabs li a{
+    padding: 10px 97px;
+    font-size: 18px;
+}
+.pay-tabs >li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background: #000;
+}
+.tab-content{
+    margin: 0;
+}
+.tab-content>.active{
+    margin: 0;
+}
+.header-label{
+    position: relative;
+    margin-bottom: 10px;
+    padding: 18px;
+    background: #f4f4f7;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.delivery-box{
+    padding: 0 10px 0;
+}
 
 .cart-body,
 .checkout,

@@ -34,6 +34,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 24px;
     font-weight: bold;
 }
+.sh-signup-form-fix .mat-select-panel .mat-option{
+    height: 1.5em !important;
+}
 /* End form Style  */
 
 

@@ -1,155 +1,206 @@
 <app-header></app-header>
 <div class="container">
-  <div class="row checkout-select-box">
-    <div class="">
-        <div id="section-pricing" class="text-center">
-            <div class="pricing-tenure-switcher center" data-container="#pricing-switch"> <span
-                    class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span
-                    class="pts-left" *ngIf="isright">Saved Cards</span>
-                <div class="pts-switcher">
-                    <div class="switch"> <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
-                            class="switch-toggle switch-toggle-round" type="checkbox"> <label
-                            for="switch-toggle-pricing-tenure"></label> </div>
-                </div><span class="pts-right" *ngIf="!isright">Add New Card</span> <span class="pts-right"
-                    *ngIf="isright" style="color: black">Add New Card</span>
-            </div>
-            <div id="pricing-switch" class="">
-                <div class="col-md-12" *ngIf="!isright">
-                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix">
-                        <mat-form-field class="width50">
-                            <mat-label>Favorite food</mat-label>
-                            <mat-select>
-                                <mat-option *ngFor="let food of foods" [value]="food.value">
-                                {{food.viewValue}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="col-md-12" *ngIf="isright">
-                    <div class="cart-body">
-                        <div class="credit-card-box">
-                            <div class="flip">
-                                <div class="front">
-                                    <div class="chip"></div>
-                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            height="47.834px" id="visa"
-                                            style="enable-background:new 0 0 47.834 47.834;" version="1.1"
-                                            viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
-                                            xmlns="http://www.w3.org/2000/svg" y="0px">
-                                            <g >
-                                                <g ></g>
-                                            </g>
-                                        </svg></div>
-                                    <div class="card-holder" style="top: 29px;left: 221px;"><label
-                                            >Cardholder</label>
-                                        <div >fsdfdsa</div>
-                                    </div>
-                                    <div class="card-holder"><label >Card Number</label>
-                                        <div >fasdfas</div>
-                                    </div>
-                                    <div class="card-expiration-date"><label >Expiry
-                                            Date</label>
-                                        <div >dasd</div>
+
+
+        
+    
+    
+    
+    
+    
+    
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <ul class="nav nav-pills pay-tabs">
+                    <li class="active">
+                        <a data-toggle="pill" href="#card">
+                            <i class="fas fa-credit-card"></i>
+                            Cradit/Debit Card
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" href="#menu1">
+                            <i class="fas fa-money-bill-alt"></i>
+                            Cash on Delivery
+                        </a>
+                    </li>
+            </ul>
+            <div class="tab-content">
+                <div class="row checkout-select-box tab-pane fade in active " id="card">
+                    <div class="">
+                        <div id="section-pricing" class="text-center">
+                            <div class="pricing-tenure-switcher center" data-container="#pricing-switch"> <span
+                                    class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span
+                                    class="pts-left" *ngIf="isright">Saved Cards</span>
+                                <div class="pts-switcher">
+                                    <div class="switch"> <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
+                                            class="switch-toggle switch-toggle-round" type="checkbox"> <label
+                                            for="switch-toggle-pricing-tenure"></label> </div>
+                                </div><span class="pts-right" *ngIf="!isright">Add New Card</span> <span class="pts-right"
+                                    *ngIf="isright" style="color: black">Add New Card</span>
+                            </div>
+                            <div id="pricing-switch" class="">
+                                <div class="col-md-12" *ngIf="!isright">
+                                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix">
+                                        <mat-form-field class="width50">
+                                            <mat-label>Favorite food</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                {{food.viewValue}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
                                     </div>
                                 </div>
-                                <div class="back">
-                                    <div class="strip"></div>
-                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            height="47.834px" id="visa"
-                                            style="enable-background:new 0 0 47.834 47.834;" version="1.1"
-                                            viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
-                                            xmlns="http://www.w3.org/2000/svg" y="0px">
-                                            <g >
-                                                <g ></g>
-                                            </g>
-                                        </svg></div>
-                                    <div class="card-expiration-date"><label >Expiry
-                                            Date</label>
-                                        <div >sadfas</div>
-                                    </div>
-                                    <div class="ccv"><label >CCV</label>
-                                        <div >qsadsad</div>
+                                <div class="col-md-12" *ngIf="isright">
+                                    <div class="cart-body">
+                                        <div class="credit-card-box">
+                                            <div class="flip">
+                                                <div class="front">
+                                                    <div class="chip"></div>
+                                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            height="47.834px" id="visa"
+                                                            style="enable-background:new 0 0 47.834 47.834;" version="1.1"
+                                                            viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
+                                                            xmlns="http://www.w3.org/2000/svg" y="0px">
+                                                            <g >
+                                                                <g ></g>
+                                                            </g>
+                                                        </svg></div>
+                                                    <div class="card-holder" style="top: 29px;left: 221px;"><label
+                                                            >Cardholder</label>
+                                                        <div >fsdfdsa</div>
+                                                    </div>
+                                                    <div class="card-holder"><label >Card Number</label>
+                                                        <div >fasdfas</div>
+                                                    </div>
+                                                    <div class="card-expiration-date"><label >Expiry
+                                                            Date</label>
+                                                        <div >dasd</div>
+                                                    </div>
+                                                </div>
+                                                <div class="back">
+                                                    <div class="strip"></div>
+                                                    <div class="logo"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            height="47.834px" id="visa"
+                                                            style="enable-background:new 0 0 47.834 47.834;" version="1.1"
+                                                            viewBox="0 0 47.834 47.834" width="47.834px" x="0px"
+                                                            xmlns="http://www.w3.org/2000/svg" y="0px">
+                                                            <g >
+                                                                <g ></g>
+                                                            </g>
+                                                        </svg></div>
+                                                    <div class="card-expiration-date"><label >Expiry
+                                                            Date</label>
+                                                        <div >sadfas</div>
+                                                    </div>
+                                                    <div class="ccv"><label >CCV</label>
+                                                        <div >qsadsad</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form [formGroup]="signupForm" *ngIf="signupForm"  class="form-horizontal row sh-signup-form-fix">
+                                            <div class="col-lg-12 center-div col-md-12">
+                                                <div  class="contact_form">
+                                                    <div class="panel-body margin-top-145 padding-bottom-">
+                                                        <div class="col-lg-6 margin-t-minas4">
+                                                            <mat-form-field class="example-full-width">
+                                                                        <mat-label>Crad Type</mat-label>
+                                                                        <mat-select [formControl]="signupForm.controls['FName']">
+                                                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                                            {{food.viewValue}}
+                                                                        </mat-option>
+                                                                        </mat-select>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Card Holder Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Nick Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                        <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Cradit Card Number" [formControl]="signupForm.controls['FName']" required #FName>
+                                                        </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                        <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="CVV" [formControl]="signupForm.controls['FName']" required #FName>
+                                                        </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Zip Code" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Street" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="City" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="State" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Country" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <form [formGroup]="signupForm" *ngIf="signupForm"  class="form-horizontal row sh-signup-form-fix">
-                            <div class="col-lg-12 center-div col-md-12">
-                                <div  class="contact_form">
-                                    <div class="panel-body margin-top-145 padding-bottom-">
-                                        <div class="col-lg-6 margin-t-minas4">
-                                            <mat-form-field class="example-full-width">
-                                                        <mat-label>Crad Type</mat-label>
-                                                        <mat-select [formControl]="signupForm.controls['FName']">
-                                                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                                                            {{food.viewValue}}
-                                                        </mat-option>
-                                                        </mat-select>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Card Holder Name" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Nick Name" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                        <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Cradit Card Number" [formControl]="signupForm.controls['FName']" required #FName>
-                                        </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                        <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="CVV" [formControl]="signupForm.controls['FName']" required #FName>
-                                        </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Zip Code" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Street" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="City" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="State" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <mat-form-field class="example-full-width">    
-                                                <input matInput placeholder="Country" [formControl]="signupForm.controls['FName']" required #FName>
-                                            </mat-form-field>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-fill"
+                            (click)="onSubmit()">Place Order</button> 
+                        </div>
+                </div>
+
+                <div class="tab-pane fade" id="menu1">
+                    <div class="checkout-select-box">
+                        <div class="header-label">
+                                Cash on Delivery
+                        </div>
+                        <div class="delivery-box">
+                            <p>You can pay in cash to our courier when you receive the goods at your doorstep.</p>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-fill"
+                                (click)="onSubmit()">Confirm Order</button>
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
-    <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-fill"
-            (click)="onSubmit()">Place Order</button> 
+        <div class="col-lg-4">
+            
         </div>
-</div>
+    </div>
+
 </div>
