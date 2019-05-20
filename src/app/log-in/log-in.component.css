@@ -105,7 +105,12 @@
       transform: translateX(26px);
       background: black;
     }
-    
+  .color-blue{
+    color: blue;
+  }
+  .color-blue:hover{
+    color: #c00;
+  }
     /* Rounded sliders */
     .slider.round {
       border-radius: 34px;

@@ -2082,8 +2082,8 @@ h6 {
 }
 
 .dropdown-menu>li>a:hover {
-    background: #ed2424;
-    color: #fff
+    background: #fff;
+    color: #c00;
 }
 
 .navbar-collapse.in {
@@ -11286,7 +11286,7 @@ footer .phone .fa-phone:before {
     display: inline-block;
 }
 .ios{
-    margin-left: 130px
+    margin-left: 30px;
 }
 
 .footer-newsletter .email {
@@ -11422,7 +11422,7 @@ button.subscribe:before {
     padding: 0;
     margin: auto;
     float: right;
-    margin-right: 71px
+    margin: 15px 69px 0 0;
 
 }
 
@@ -11443,14 +11443,14 @@ button.subscribe:before {
 }
 
 .footer-coppyright {
-    padding-bottom: 8px;
+    /* padding-bottom: 8px; */
     /* margin-top: 20px; */
     background-color: #1d1d1d
 }
 
 .coppyright {
-    padding-top: 14px;
-    text-align: center;
+    padding: 31px 26px 0;
+    text-align: left;
     color: #ccc;
     /* width: calc(75% - -26px); */
 }
