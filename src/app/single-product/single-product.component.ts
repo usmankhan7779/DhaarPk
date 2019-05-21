@@ -328,7 +328,7 @@ export class SingleProductComponent implements OnInit {
 
       this.ProPics = this.resultProduct['Pic'].split(',');
       this.pics = this.ProPics[0];
-      alert(this.ProPics[0])
+      
       console.log(this.ProPics[0])
 
       this.selectedImage = this.ProPics[0];
