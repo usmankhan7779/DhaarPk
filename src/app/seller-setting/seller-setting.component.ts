@@ -4,8 +4,9 @@ import { isPlatformBrowser } from '@angular/common';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../log-in/log-in.services';
- 
+import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { PasswordValidation } from './password-validator.component';
 
 @Component({
   selector: 'app-seller-setting',
@@ -13,7 +14,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./seller-setting.component.css']
 })
 export class SellerSettingComponent implements OnInit {
-  
+  hide = true;
+  hide1 =true;
+  hide2=true;
   match = true;
   Right = false;
   Error = false;
@@ -21,27 +24,24 @@ export class SellerSettingComponent implements OnInit {
   Waitcall = false;
   USerNameID: any;
   SessionstoreName: any;
+  signupForm: FormGroup;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
-              private obj: LoginService,
+              private obj: LoginService,private fb: FormBuilder,
               private _nav: Router) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.SessionstoreName = localStorage.getItem('StoreName');
-      // this.obj.verify_token().subscribe((response) => {
-      // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
+      this.signupForm = this.fb.group({
+        'old': ['', Validators.compose([Validators.required])],
+        'new1': ['', Validators.compose([Validators.required])],
+        'new2': ['', Validators.compose([Validators.required])],
+  
+      },{
+        validator: PasswordValidation.MatchPassword // your validation method
+      });
 
-      console.log('Authorization is:',this.USerNameID);
-      //
-      //
-      //   },
-      //   (err) => {
-      //     console.log('ERROR:' + err);
-      //     this._nav.navigate(['/login']);
-      //   },
-      //   () => {
-      //   }
-      // );
+      
+  
     }
   }
 

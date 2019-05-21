@@ -27,7 +27,7 @@ const loginRoutes: Routes = [
     // FormsModule,
     // CountdownModule,
     // TextMaskModule,
-    // CountdownModule,
+    CountdownModule,
     // ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)
   ],

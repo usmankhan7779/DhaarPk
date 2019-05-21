@@ -14,7 +14,9 @@
  ::-webkit-input-placeholder {
     font-size: 13px!important;
  }
- 
+ .border-bottom-no{
+      border-bottom: none !important;
+    }
  :-moz-placeholder { /* Firefox 18- */
        font-size: 13px!important;
  }
