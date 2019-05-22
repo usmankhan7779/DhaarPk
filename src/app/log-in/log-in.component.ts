@@ -95,16 +95,7 @@ export class LogInComponent implements OnInit {
     // });
     if (isPlatformBrowser(this.platformId)) {
 
-    //     if(localStorage.getItem('UserID'))
-    //     {
-    //       this._nav.navigate(['/dashboard']);
-      
-    //   } else {
-      // this.authService.authState.subscribe((user) => {
-      //   this.user = user;
-      //   console.log('Name of user', this.user);
-      // });
-    // }
+     
     this.staySignedIn = true;
     this.login = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
