@@ -64,7 +64,7 @@
               (ngSubmit)="f.form.valid && captcha && register()" #f="ngForm"  >
 
                 
-                  <div class="formrow label-overlay">
+                  <div class="formrow label-overlay form-group">
                       <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !FName.valid }"> -->
                           <!-- <div class="mat-div">
                               <label for="first-name" class="mat-label">First Name</label>
@@ -72,7 +72,7 @@
                                #FName="ngModel"
                              required>
                             </div> -->
-                            <mat-form-field>
+                            <mat-form-field class="width100">
                                 <input matInput placeholder="First Name"   
                                  required   name="FName"
                                  [(ngModel)]="model.FName" #FName="ngModel" >
@@ -93,7 +93,7 @@
           
                     
                 
-                <div class="formrow label-overlay">
+                <div class="formrow label-overlay form-group">
                     <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LName.valid }"> -->
                         <!-- <div class="mat-div">
                             <label for="first-name" class="mat-label">Last name</label>
@@ -101,7 +101,7 @@
                             [(ngModel)]="model.LName" #LName="ngModel"
                            required>
                           </div> -->
-                          <mat-form-field>
+                          <mat-form-field class="width100">
                               <input matInput placeholder="Last name"   
                                required   name="LName"
                                [(ngModel)]="model.LName" #LName="ngModel">
@@ -111,7 +111,7 @@
                        <!-- <div *ngIf="f.submitted && !LName.valid" class="help-block">Last Name is required</div> -->
                     <!-- </div>  -->
                   </div>
-                  <div class="formrow label-overlay">
+                  <div class="formrow label-overlay form-group">
                       <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Mobile.valid }"> -->
                           <!-- <div class="mat-div">
                               <label for="first-name" class="mat-label">Mobile Number</label>
@@ -119,7 +119,7 @@
                               [(ngModel)]="model.Mobile" #Mobile="ngModel"
                              required>
                             </div> -->
-                            <mat-form-field>
+                            <mat-form-field class="width100">
                                 <input matInput placeholder="Mobile Number"   
                                  required   name="Mobile" [textMask]="{mask: mask}"
                                  [(ngModel)]="model.Mobile" #Mobile="ngModel">
@@ -130,7 +130,7 @@
                       <!-- </div>  -->
                        
                     </div>
-                <div class="formrow label-overlay form-group has-feedback">
+                <div class="formrow label-overlay form-group">
                   <!-- <div class="formrow" [ngClass]="{ 'has-error': f.submitted && !Username.valid }"> -->
                       <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Username</label>
@@ -138,7 +138,7 @@
                           (focusout)="onChange(Username.value)" #Username="ngModel" 
                          required>
                         </div> -->
-                        <mat-form-field>
+                        <mat-form-field class="width100">
                         <input matInput placeholder="Username"   
                         required   name="Username"  (ngModelChange)="onChange(Username.value)"
                         [(ngModel)]="model.Username" #Username="ngModel">
@@ -158,7 +158,7 @@
             
 
 
-                <div class="formrow label-overlay form-group has-feedback"  tabindex="-1" >
+                <div class="formrow label-overlay form-group"  tabindex="-1" >
                   <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }"> -->
                       <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Email</label>
@@ -167,7 +167,7 @@
                           (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)" #Email="ngModel"
                          required>
                         </div> -->
-                        <mat-form-field>
+                        <mat-form-field class="width100">
                             <input matInput placeholder="Email"   
                             required   name="Email"  (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)"
                             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  
@@ -185,7 +185,7 @@
                   </div><!-- End .form-group -->
                 <!-- </div> -->
 
-                <div class="formrow label-overlay">
+                <div class="formrow label-overlay form-group">
                   <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }"> -->
                       <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Password</label>
@@ -193,7 +193,7 @@
                            (ngModelChange)="OnPassReset()" [(ngModel)]="model.Password" #Password="ngModel"
                          required>
                         </div> -->
-                        <mat-form-field>
+                        <mat-form-field class="width100">
                             <input matInput placeholder="password"   
                             required  [type]="hide ? 'password' : 'text'"  
                              name="password" type="password"  
@@ -224,7 +224,7 @@
                             character and one upper case character</mat-error>
                     </mat-form-field>
                 </div> -->
-                <div class="formrow label-overlay">
+                <div class="formrow label-overlay form-group">
                   <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RePassword.valid}"> -->
                       <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Confirm password</label>
@@ -236,7 +236,7 @@
                            [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel"
                          required>
                         </div> -->
-                        <mat-form-field>
+                        <mat-form-field class="width100">
                             <input matInput placeholder="Confrim password"   
                             required  [type]="hide ? 'password' : 'text'"  
                              name="RePassword" type="password"  
@@ -253,7 +253,7 @@
                   </div><!-- End .form-group -->
                 <!-- </div> -->
 
-              <div class="formrow label-overlay">
+              <div class="formrow label-overlay ">
 
                 <input type="checkbox" name="Agree" [(ngModel)]="model.Agree" #Agree="ngModel"> I have read and agree to the <a [routerLink]="['/terms-use']"> Terms of Use</a><!-- End .form-group -->
                 <!--[textMask]="{mask: mask}"-->
