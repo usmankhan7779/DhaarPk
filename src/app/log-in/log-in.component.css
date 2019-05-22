@@ -34,7 +34,7 @@
  }
  .mat-label{
       font-size: 16px;
-      color: #616161!important;
+      color: rgba(0, 0, 0, .54) !important;
       font-weight: bold;
       transition: ease-in-out .5s;
  }
@@ -53,6 +53,8 @@
   }
   .formpanel .formrow a{
         display: block;
+        font-size: 14px;
+        margin-top: 5px;
   }
   /* Start  Slide toggle */
   .switch {
@@ -60,6 +62,7 @@
       display: inline-block;
       width: 45px;
       height: 18px;
+      margin-right: 5px;
     }
     
     .switch input { 
@@ -123,6 +126,7 @@
       margin: 10px 0 0;
       font-size: 13px;
       font-weight: 600;
+      font-family: Roboto,"Helvetica Neue",sans-serif;
     }
     .formpanel .btn {
       width: 63%;
