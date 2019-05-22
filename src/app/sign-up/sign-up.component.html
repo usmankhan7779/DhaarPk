@@ -60,50 +60,91 @@
               <strong>Error!</strong> Invalid email format.
             </div>
             <div id="wsell" class="formpanel tab-pane fade in active">
-              <form role="form" class="login-form" (ngSubmit)="f.form.valid && captcha && register()" #f="ngForm" novalidate>
+              <form role="form" class="login-form"   
+              (ngSubmit)="f.form.valid && captcha && register()" #f="ngForm"  >
 
                 
                   <div class="formrow label-overlay">
-                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !FName.valid }">
-                          <div class="mat-div">
+                      <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !FName.valid }"> -->
+                          <!-- <div class="mat-div">
                               <label for="first-name" class="mat-label">First Name</label>
-                              <input type="text" class="mat-input text-capitl" name="FName"  [(ngModel)]="model.FName" #FName="ngModel"
+                              <input type="text" class="mat-input text-capitl" name="FName" [(ngModel)]="model.FName"
+                               #FName="ngModel"
                              required>
-                            </div>
-                        <!-- <input type="text" class="form-control text-capitl" name= "FName" placeholder="First Name" [(ngModel)]="model.FName" #FName="ngModel" required> -->
+                            </div> -->
+                            <mat-form-field>
+                                <input matInput placeholder="First Name"   
+                                 required   name="FName"
+                                 [(ngModel)]="model.FName" #FName="ngModel" >
+                                <!-- <mat-icon matSuffix (click)="hide = !hide" >account_box</mat-icon> -->
+                                <mat-error *ngIf="signupForm.controls['FName'].value == '' || !signupForm.controls['FName'].value"><strong>This Field cannot be empty</strong></mat-error>
+                              </mat-form-field>
                         <div *ngIf="f.submitted && !FName.valid" class="help-block">First Name is required</div>
-                      </div><!-- End .form-group -->
+                      <!-- </div>  -->
                 </div>
+                
+                      <!-- <mat-form-field>
+                        <input matInput placeholder="Contact Name"   
+                         required   name="FName"
+                         [(ngModel)]="model.FName">
+                        <mat-icon matSuffix (click)="hide = !hide" >account_box</mat-icon>
+                        <mat-error *ngIf="signupForm.controls['FName'].value == '' || !signupForm.controls['FName'].value"><strong>This Field cannot be empty</strong></mat-error>
+                      </mat-form-field> -->
+          
+                    
+                
                 <div class="formrow label-overlay">
-                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LName.valid }">
-                        <div class="mat-div">
+                    <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LName.valid }"> -->
+                        <!-- <div class="mat-div">
                             <label for="first-name" class="mat-label">Last name</label>
-                            <input type="text" class="mat-input text-capitl" name="LName"  [(ngModel)]="model.LName" #LName="ngModel"
+                            <input type="text" class="mat-input text-capitl" name="LName"  
+                            [(ngModel)]="model.LName" #LName="ngModel"
                            required>
-                          </div>
-                      <!-- <input type="text" class="form-control text-capitl" name="LName" placeholder="Last Name" [(ngModel)]="model.LName" #LName="ngModel" required> -->
-                      <div *ngIf="f.submitted && !LName.valid" class="help-block">Last Name is required</div>
-                    </div><!-- End .form-group -->
+                          </div> -->
+                          <mat-form-field>
+                              <input matInput placeholder="Last name"   
+                               required   name="LName"
+                               [(ngModel)]="model.LName" #LName="ngModel">
+                              
+                              <mat-error *ngIf="signupForm.controls['LName'].value == '' || !signupForm.controls['LName'].value"><strong>This Field cannot be empty</strong></mat-error>
+                            </mat-form-field>
+                       <!-- <div *ngIf="f.submitted && !LName.valid" class="help-block">Last Name is required</div> -->
+                    <!-- </div>  -->
                   </div>
                   <div class="formrow label-overlay">
-                      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Mobile.valid }">
-                          <div class="mat-div">
+                      <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Mobile.valid }"> -->
+                          <!-- <div class="mat-div">
                               <label for="first-name" class="mat-label">Mobile Number</label>
-                              <input type="text" class="mat-input" name="Mobile"  [textMask]="{mask: mask}" [(ngModel)]="model.Mobile" #Mobile="ngModel"
+                              <input type="text" class="mat-input" name="Mobile"  [textMask]="{mask: mask}" 
+                              [(ngModel)]="model.Mobile" #Mobile="ngModel"
                              required>
-                            </div>
-                        <!-- <input type="text" class="form-control" name="Mobile" placeholder="Mobile Number" [textMask]="{mask: mask}" [(ngModel)]="model.Mobile" #Mobile="ngModel" required> -->
-                        <div *ngIf="f.submitted && !Mobile.valid" class="help-block">Mobile is required</div>
-                      </div><!-- End .form-group -->
-                      <!--[textMask]="{mask: mask}"-->
+                            </div> -->
+                            <mat-form-field>
+                                <input matInput placeholder="Mobile Number"   
+                                 required   name="Mobile" [textMask]="{mask: mask}"
+                                 [(ngModel)]="model.Mobile" #Mobile="ngModel">
+                                <!-- <mat-icon matSuffix (click)="hide = !hide" >account_box</mat-icon> -->
+                                <mat-error *ngIf="signupForm.controls['Mobile'].value == '' || !signupForm.controls['Mobile'].value"><strong>This Field cannot be empty</strong></mat-error>
+                              </mat-form-field>
+                         <!-- <div *ngIf="f.submitted && !Mobile.valid" class="help-block">Mobile is required</div> -->
+                      <!-- </div>  -->
+                       
                     </div>
                 <div class="formrow label-overlay form-group has-feedback">
-                  <div class="formrow" [ngClass]="{ 'has-error': f.submitted && !Username.valid }">
-                      <div class="mat-div">
+                  <!-- <div class="formrow" [ngClass]="{ 'has-error': f.submitted && !Username.valid }"> -->
+                      <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Username</label>
-                          <input type="text" class="mat-input" name="Username" [(ngModel)]="model.Username" (focusout)="onChange(Username.value)" #Username="ngModel" 
+                          <input type="text" class="mat-input" name="Username" [(ngModel)]="model.Username" 
+                          (focusout)="onChange(Username.value)" #Username="ngModel" 
                          required>
-                        </div>
+                        </div> -->
+                        <mat-form-field>
+                        <input matInput placeholder="Username"   
+                        required   name="Username"  (ngModelChange)="onChange(Username.value)"
+                        [(ngModel)]="model.Username" #Username="ngModel">
+                       
+                       <mat-error *ngIf="signupForm.controls['Username'].value == '' || !signupForm.controls['Username'].value"><strong>This Field cannot be empty</strong></mat-error>
+                     </mat-form-field>
                     <!-- <input type="text" class="form-control" name="Username" placeholder="Username" [(ngModel)]="model.Username" (focusout)="onChange(Username.value)" #Username="ngModel" required> -->
                     <div *ngIf="f.submitted && !Username.valid" class="help-block">Username is required</div>
                     <span *ngIf="Userloading == true && UserTyping == true" style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate form-control-feedback"></span>
@@ -111,26 +152,29 @@
 
                     <span *ngIf="UserError == false && UserTyping == true && Userloading == false" style="color: red"  class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
 
-                  </div><!-- End .form-group -->
+                  <!-- </div>  -->
                 </div>
 
-                <!--<div class="form-group has-feedback">-->
-                  <!--<label class="control-label" for="inputSuccess4"></label>-->
-                  <!--<input  type="text" class="form-control" id="inputSuccess4">-->
-                  <!--<span *ngIf="UserError == true && UserTyping == true" style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>-->
-
-                  <!--<span *ngIf="UserError == false && UserTyping == true" style="color: red"  class="glyphicon glyphicon-remove-sign form-control-feedback"></span>-->
-                <!--</div>-->
-
+            
 
 
                 <div class="formrow label-overlay form-group has-feedback"  tabindex="-1" >
-                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
-                      <div class="mat-div">
+                  <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }"> -->
+                      <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Email</label>
-                          <input type="text" class="mat-input" name="Email"  [(ngModel)]="model.Email"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)" #Email="ngModel"
+                          <input type="text" class="mat-input" name="Email"  [(ngModel)]="model.Email"  
+                          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  
+                          (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)" #Email="ngModel"
                          required>
-                        </div>
+                        </div> -->
+                        <mat-form-field>
+                            <input matInput placeholder="Email"   
+                            required   name="Email"  (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)"
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  
+                            [(ngModel)]="model.Email" #Email="ngModel">
+                           
+                           <mat-error *ngIf="signupForm.controls['Email'].value == '' || !signupForm.controls['Email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                         </mat-form-field>
 
                     <!-- <input type="email" class="form-control" name="Email" placeholder="Email" [(ngModel)]="model.Email"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  (ngModelChange)="OnEmailChangeEvent()" (focusout)="checkEmail(Email.value)" #Email="ngModel" required> -->
                     <div *ngIf="f.submitted && !Email.valid" class="help-block">Email is required</div>
@@ -139,32 +183,75 @@
                     <!--<div *ngIf="f.submitted && !username.valid" class="help-block">Email is required</div>-->
 
                   </div><!-- End .form-group -->
-                </div>
+                <!-- </div> -->
 
                 <div class="formrow label-overlay">
-                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }">
-                      <div class="mat-div">
+                  <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Password.valid }"> -->
+                      <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Password</label>
-                          <input type="password" class="mat-input" name="password" minlength="5"  (ngModelChange)="OnPassReset()" [(ngModel)]="model.Password" #Password="ngModel"
+                          <input type="password" class="mat-input" name="password" minlength="5" 
+                           (ngModelChange)="OnPassReset()" [(ngModel)]="model.Password" #Password="ngModel"
                          required>
-                        </div>
-                    <!-- <input type="Password" class="form-control" minlength="5" (ngModelChange)="OnPassReset()" name="Password" placeholder="Password" [(ngModel)]="model.Password" #Password="ngModel" required> -->
-                    <div *ngIf="f.submitted && !Password.valid" class="help-block">Please enter Password.</div>
-                  </div><!-- End .form-group -->
-                </div>
-
+                        </div> -->
+                        <mat-form-field>
+                            <input matInput placeholder="password"   
+                            required  [type]="hide ? 'password' : 'text'"  
+                             name="password" type="password"  
+                            [(ngModel)]="model.Password" #password="ngModel">
+ 
+                            <mat-icon   data-toggle="tooltip"  
+                           matSuffix (click)="hide=!hide">{{hide? 'visibility_off' : 'visibility'}}</mat-icon>
+                       <mat-error *ngIf="signupForm.controls.password.value==''"> <strong>New Password cannot be
+                               empty</strong> </mat-error>
+                       <mat-error *ngIf="signupForm.controls.password.hasError('pattern')">Password must be at
+                           least 8 characters long, have at least one number, one special character,one lower case
+                           character and one upper case character</mat-error>
+                          </mat-form-field>
+                     <!-- <div *ngIf="f.submitted && !Password.valid" class="help-block">Please enter Password.</div> -->
+                  </div> 
+                <!-- </div> -->
+                <!-- <div [ngClass]="displayFieldCss(changepass, 'newPassword')">
+                    <mat-form-field> 
+                        <input matInput [type]="hide2 ? 'password' : 'text'" #password type="password"
+                            placeholder="New Password" name=newpassword name="newPassword"  
+                            [(ngModel)]="newPassword">
+                        <mat-icon class="pointer" data-toggle="tooltip" title="{{hide2? 'Show':'Hide'}}Password"
+                            matSuffix (click)="hide2=!hide2">{{hide2? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="changepass.controls.newPassword.value==''"> <strong>New Password cannot be
+                                empty</strong> </mat-error>
+                        <mat-error *ngIf="changepass.controls.newPassword.hasError('pattern')">Password must be at
+                            least 8 characters long, have at least one number, one special character,one lower case
+                            character and one upper case character</mat-error>
+                    </mat-form-field>
+                </div> -->
                 <div class="formrow label-overlay">
-                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RePassword.valid}">
-                      <div class="mat-div">
+                  <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !RePassword.valid}"> -->
+                      <!-- <div class="mat-div">
                           <label for="first-name" class="mat-label">Confirm password</label>
-                          <input type="password" class="mat-input" name="RePassword" minlength="5" (ngModelChange)="OnPassReset()" (ngModelChange)="OnPassReset()" (blur)="checkPassowed(RePassword.value, Password.value)"  [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel"
+                          <input type="password" class="mat-input" 
+                          name="RePassword" minlength="5"
+                           (ngModelChange)="OnPassReset()" 
+                           (ngModelChange)="OnPassReset()" 
+                           (blur)="checkPassowed(RePassword.value, Password.value)"  
+                           [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel"
                          required>
-                        </div>
+                        </div> -->
+                        <mat-form-field>
+                            <input matInput placeholder="Confrim password"   
+                            required  [type]="hide ? 'password' : 'text'"  
+                             name="RePassword" type="password"  
+                            [(ngModel)]="model.RePassword" #RePassword="ngModel">
+ 
+                            <mat-icon   data-toggle="tooltip"  
+                           matSuffix (click)="hide1=!hide1">{{hide1? 'visibility_off' : 'visibility'}}</mat-icon>
+                           <mat-error *ngIf="(signupForm.controls.RePassword.value !=signupForm.controls.password.value) || signupForm.controls.RePassword.value==''">
+                              <strong>Password must match </strong> </mat-error>
+                          </mat-form-field>
                     <!-- <input type="Password" class="form-control" (ngModelChange)="OnPassReset()" name="RePassword" (blur)="checkPassowed(RePassword.value, Password.value)" placeholder="Confirm Password" [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel" required> -->
-                    <div *ngIf="f.submitted && !Password.valid" class="help-block">Please re-enter Password.</div>
-                    <div *ngIf=" PassMatch == false "  class="help-block">Password Not Matched.</div>
+                    <!-- <div *ngIf="f.submitted && !Password.valid" class="help-block">Please re-enter Password.</div>
+                    <div *ngIf=" PassMatch == false "  class="help-block">Password Not Matched.</div> -->
                   </div><!-- End .form-group -->
-                </div>
+                <!-- </div> -->
 
               <div class="formrow label-overlay">
 
