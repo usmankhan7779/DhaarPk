@@ -35,6 +35,7 @@ export class LogInComponent implements OnInit {
   @ViewChild(RecapchaComponent) captcha: RecapchaComponent;
   user: SocialUser;
   model: any = {};
+  password;
   private sub: any;
   loading = false;
   SignUpDOne = false;
