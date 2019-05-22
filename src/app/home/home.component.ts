@@ -156,7 +156,7 @@ export class HomeComponent implements OnInit {
 
       // setInterval(() => {
       //   this.timer1(this.element);
-      //   // console.log(this.timer1(this.element));
+      //   // //console.log(this.timer1(this.element));
       //   // alert('dd');
       // }, 1000);
 
@@ -187,23 +187,23 @@ export class HomeComponent implements OnInit {
   //     this.Title = this.resultProduct['P_Title']
   //     // alert(this.resultProduct.inWishList)
   //     // this.ourproduct = true;
-  //     console.log('Description of product is:', this.resultProduct['P_Des']);
+  //     //console.log('Description of product is:', this.resultProduct['P_Des']);
   //     this.ProPDes = this.resultProduct['P_Des'].split('\n');
 
   //     this.ProPics = this.resultProduct['Pic'].split(',');
-  //     console.log(this.ProPics[0])
+  //     //console.log(this.ProPics[0])
 
   //     this.selectedImage = this.ProPics[0];
-  //     console.log(this.selectedImage);
+  //     //console.log(this.selectedImage);
   //     for (let i = 0; i < this.ProPics.length - 1; i++) {
   //       this.PicList[i] = this.ProPics[i + 1];
   //     }
 
-  //     console.log('Pics Before:', this.ProPics);
-  //     console.log('Pics after:', this.PicList);
+  //     //console.log('Pics Before:', this.ProPics);
+  //     //console.log('Pics after:', this.PicList);
 
 
-  //     console.log('Pics are:', this.ProPics);
+  //     //console.log('Pics are:', this.ProPics);
   //     //  alert(this.resultProduct['StoreName'])
   //     //  alert(localStorage.getItem('StoreName'))
   //     // if (this.resultProduct['StoreName'] === localStorage.getItem('StoreName') ) {
@@ -214,23 +214,23 @@ export class HomeComponent implements OnInit {
   //     if (this.resultProduct.Quantity <= 0) {
   //       this.soldfix = true;
   //     }
-  //     console.log('Product attributes', this.resultProduct);
+  //     //console.log('Product attributes', this.resultProduct);
   //     this.LocalStoreName = this.resultProduct.StoreName;
   //     this.MinimumbestOffer = this.resultProduct.Addbestoffer;
   //     if (this.resultProduct.Auction) {
   //       this.DbDate = this.resultProduct.CreatedDate;
   //       this.AuctionDayDB = this.resultProduct.AuctionListing;
   //       const auctiondays = +this.AuctionDayDB * 86400000;
-  //       console.log('Auction days:', auctiondays);
+  //       //console.log('Auction days:', auctiondays);
   //       const time0 = new Date();
-  //       console.log('time0:', time0);
+  //       //console.log('time0:', time0);
   //       const time1 = new Date(this.DbDate);
-  //       console.log('time1:', time1);
+  //       //console.log('time1:', time1);
   //       const time3 = ((time1.getTime() - time0.getTime()) + auctiondays);
-  //       console.log('time3:', time3);
-  //       console.log('Bidding Products Are:', this.BidingProduct)
+  //       //console.log('time3:', time3);
+  //       //console.log('Bidding Products Are:', this.BidingProduct)
   //       if (time3 <= 0 && this.BidingProduct.length !== 0) {
-  //         console.log('This Bidder wins:', this.BidingProduct[0]);
+  //         //console.log('This Bidder wins:', this.BidingProduct[0]);
   //         this.user = this.BidingProduct[0]['User_Id']
   //         this.product = this.BidingProduct[0]['Product_Id']
   //         this.GetProducts.InsertwinnerBid(this.user, this.product).subscribe();
@@ -238,16 +238,16 @@ export class HomeComponent implements OnInit {
   //       // alert(time3.getDay() + '-' + time3.getMinutes() + '-' + time3.getSeconds());
   //       let x = time3 / 1000;
   //       this.seconds = Math.floor(x % 60);
-  //       console.log('Seconds are:', this.seconds);
+  //       //console.log('Seconds are:', this.seconds);
   //       x /= 60;
   //       this.minutes = Math.floor(x % 60);
-  //       console.log('Minutes are:', this.minutes);
+  //       //console.log('Minutes are:', this.minutes);
   //       x /= 60;
   //       this.hours = Math.floor(x % 24);
-  //       console.log('Hours are:', this.hours);
+  //       //console.log('Hours are:', this.hours);
   //       x /= 24;
   //       this.days = Math.floor(x);
-  //       console.log('Days are:', this.days);
+  //       //console.log('Days are:', this.days);
 
 
   //     }
@@ -320,7 +320,7 @@ export class HomeComponent implements OnInit {
 
         for (let prods of demoprods) {
           this.GetALLProductss.push(prods.product);
-          // console.log(prods.product.EndbidTime)
+          // //console.log(prods.product.EndbidTime)
           // this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
 
         }
@@ -468,7 +468,7 @@ export class HomeComponent implements OnInit {
       let demoactuprods;
       demoactuprods = resSlidersData.Results;
       //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demoactuprods)
+      // //console.log(demoactuprods)
       for (let prods of demoactuprods) {
         this.GetALLLikeforyou.push(prods.product);
         // }
@@ -484,7 +484,7 @@ export class HomeComponent implements OnInit {
       let demoactuprods;
       demoactuprods = resSlidersData.Results;
       //this.GetALLProductss= resSlidersData.Results;
-      // console.log(demoactuprods)
+      // //console.log(demoactuprods)
       for (let prods of demoactuprods) {
         this.GetALLLikeforyou.push(prods.product);
         // }
@@ -507,7 +507,7 @@ export class HomeComponent implements OnInit {
           this.GetALLFeaturedProductss.push(prods.product);
           this.pager = this.pagerService.getPager(resSlidersData['Results'], page, 10);
         }
-        console.log(this.GetALLFeaturedProductss);
+        //console.log(this.GetALLFeaturedProductss);
 
 
       });
@@ -539,7 +539,7 @@ export class HomeComponent implements OnInit {
         for (let prods of demofreprods) {
           this.GetALLFeaturedProductss.push(prods.product);
         }
-        console.log(this.GetALLFeaturedProductss);
+        //console.log(this.GetALLFeaturedProductss);
 
 
       });
@@ -633,7 +633,7 @@ export class HomeComponent implements OnInit {
   CategorySlider() {
     this.GetCat.GetAllCategories().subscribe(data => {
       this.GetallCat = data;
-      console.log('Categories Are:', this.GetallCat);
+      //console.log('Categories Are:', this.GetallCat);
 
       $('.homeSlider').fadeOut(0);
       if (this.GetallCat) {
@@ -726,7 +726,7 @@ export class HomeComponent implements OnInit {
   ViewedItemSlider() {
     this.ViewedProducts = JSON.parse(localStorage.getItem('ViewedItem'));
     if (this.ViewedProducts === null) {
-      console.log('Viewed Products Are:', this.ViewedProducts);
+      //console.log('Viewed Products Are:', this.ViewedProducts);
     } else if (this.ViewedProducts !== null) {
       for (const tmp1 of this.ViewedProducts['products']) {
         tmp1['Pic'] = tmp1['Pic'].split(',')[0];
@@ -825,23 +825,23 @@ export class HomeComponent implements OnInit {
 
 
   CheckFOrDifferent(ProID: string) {
-    console.log('PrOID: ' + ProID);
+    //console.log('PrOID: ' + ProID);
     if (this.Tmp_ProID_Array.length === 0) {
-      console.log('this.Tmp_ProID_Array.length' + this.Tmp_ProID_Array.length);
+      //console.log('this.Tmp_ProID_Array.length' + this.Tmp_ProID_Array.length);
       this.Tmp_ProID_Array.push(ProID);
 
       // this.Tmp_ProID = ProID;
       this.AuctionTest = true;
       return true;
     } else if (this.Tmp_ProID_Array.indexOf(ProID) > -1) {
-      console.log('this.exist' + this.Tmp_ProID_Array.indexOf(ProID));
+      //console.log('this.exist' + this.Tmp_ProID_Array.indexOf(ProID));
       this.AuctionTest = false;
       return false;
     } else {
 
-      console.log('this.Tmp_ProID_Array.length beofre: ' + this.Tmp_ProID_Array.length);
+      //console.log('this.Tmp_ProID_Array.length beofre: ' + this.Tmp_ProID_Array.length);
       this.Tmp_ProID_Array.push(ProID);
-      console.log('this.Tmp_ProID_Array.length after: ' + this.Tmp_ProID_Array.length);
+      //console.log('this.Tmp_ProID_Array.length after: ' + this.Tmp_ProID_Array.length);
 
       this.AuctionTest = true;
       return true;
@@ -852,7 +852,7 @@ export class HomeComponent implements OnInit {
 
     if (!this.Timeclose) {
       // alert(this.Timeclose)
-      console.log(this.Timeclose)
+      //console.log(this.Timeclose)
       this.seconds -= 1;
       if (this.seconds <= 0) {
         this.seconds = 59

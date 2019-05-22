@@ -2,7 +2,9 @@ import { Component, OnInit, Inject, PLATFORM_ID, ViewChild } from '@angular/core
 import { isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from './log-in.services';
-import {FormControl, NgModel, Validators, FormGroup} from '@angular/forms';
+// import {FormControl, NgModel, Validators, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+
 import {NgForm} from '@angular/forms';
 import {HttpService} from '../services/http-service';
 import {Headers, Response} from '@angular/http';
@@ -13,7 +15,17 @@ import Swal from 'sweetalert2';
 import { JwtHelper } from "angular2-jwt";
 declare const $: any;
 
-       
+declare interface User {
+  username?: string; // required, must be 5-8 characters
+  email?: string; // required, must be valid email format
+  password?: string; // required, value must be equal to confirm password.
+  confirmPassword?: string; // required, value must be equal to password.
+  number?: number; // required, value must be equal to password.
+  url?: string;
+  idSource?: string;
+  idDestination?: string;
+  optionsCheckboxes?: boolean;
+}   
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -30,6 +42,7 @@ export class LogInComponent implements OnInit {
   login_error = false;
   Waitcall = false;
   logout: string;
+  hide = true;
   fb_id: any;
   jwtHelper: JwtHelper = new JwtHelper();
   fb_name: any;
@@ -39,7 +52,7 @@ export class LogInComponent implements OnInit {
   ProID: string;
   RedirectFromlogin: string;
   CatName: string;
-
+  login: FormGroup;
   checkout: string;
   returnUrl: string;
   // captcha = false;
@@ -55,29 +68,30 @@ export class LogInComponent implements OnInit {
               private authService: AuthService,
               private obj: LoginService,
               private _nav: Router,
+              private formBuilder: FormBuilder,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    $(".mat-input").focus(function () {
-      $(this).parent().addClass("is-active is-completed");
-    });
+    // $(".mat-input").focus(function () {
+    //   $(this).parent().addClass("is-active is-completed");
+    // });
 
-    $(".mat-input").focusout(function () {
-      if ($(this).val() === "")
-        $(this).parent().removeClass("is-completed");
-      $(this).parent().removeClass("is-active");
-    })
-    $(".toggle-password").click(function() {
+    // $(".mat-input").focusout(function () {
+    //   if ($(this).val() === "")
+    //     $(this).parent().removeClass("is-completed");
+    //   $(this).parent().removeClass("is-active");
+    // })
+    // $(".toggle-password").click(function() {
 
-      $(this).toggleClass("fa-eye fa-eye-slash");
-      var input = $($(this).attr("toggle"));
-      if (input.attr("type") == "password") {
-        input.attr("type", "text");
-      } else {
-        input.attr("type", "password");
-      }
-    });
+    //   $(this).toggleClass("fa-eye fa-eye-slash");
+    //   var input = $($(this).attr("toggle"));
+    //   if (input.attr("type") == "password") {
+    //     input.attr("type", "text");
+    //   } else {
+    //     input.attr("type", "password");
+    //   }
+    // });
     if (isPlatformBrowser(this.platformId)) {
 
     //     if(localStorage.getItem('UserID'))
@@ -90,6 +104,14 @@ export class LogInComponent implements OnInit {
       //   console.log('Name of user', this.user);
       // });
     // }
+    this.login = this.formBuilder.group({
+      // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
+      username: ['', Validators.compose([Validators.required])],
+      // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
+      password: ['', Validators.compose([Validators.required])],
+      Email: ['', Validators.compose([])],
+      staySignedIn: ['', Validators.compose([])],
+    });
       this.sub = this.route
         .queryParams
         .subscribe(params => {
@@ -122,7 +144,16 @@ export class LogInComponent implements OnInit {
       // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/profile';
     }
   }
+  isFieldValid(form: FormGroup, field: string) {
+    return !form.get(field).valid && form.get(field).touched;
+  }
 
+  displayFieldCss(form: FormGroup, field: string) {
+    return {
+      'has-error': this.isFieldValid(form, field),
+      'has-feedback': this.isFieldValid(form, field)
+    };
+  }
 
   
   // signInWithGoogle(): void {
@@ -174,9 +205,9 @@ export class LogInComponent implements OnInit {
   //     'has-feedback': this.isFieldValid(form, field)
   //   };
   // }
-  loged_in(username: any, password: any) {
+  loged_in() {
     if (this.recha.check()) {
-    this.obj.loged_in(username, password, this.CatName, this.ProID, this.checkout).subscribe((response) => {
+    this.obj.loged_in(this.login.value.username, this.login.value.password, this.CatName, this.ProID, this.checkout).subscribe((response) => {
         /* this function is executed every time there's a new output */
         // console.log("VALUE RECEIVED: "+response);
         

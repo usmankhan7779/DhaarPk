@@ -1150,15 +1150,70 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
       });
   }
 
-  changepass(username: string, currPass: string, pass1: string, pass2: string) {
+  changepass( currPass: string, pass1: string, pass2: string) {
 
     return this.httpclient.post(this.ServerUrl + 'ChangePassword', {
       // 'email': username,
       'current': currPass,
       'pass1': pass1,
       'pass2': pass2
-    }).map((response: Response) => response.json());
+    })  .map((res: Response) => {
+
+      if (res) {
+        if (res.status === 201 || res.status === 200) {
+          const responce_data = res.json();
+          return responce_data;
+        }
+      }
+    }).catch((error: any) => {
+
+      if (error.status !== 404) {
+        if (error.status === 401) {
+          console.log(error);
+
+          return Observable.throw(new Error(error.status));
+        }
+
+
+      } else {
+        console.log(error);
+        //   this._nav.navigate(['/login']);
+
+        return Observable.throw(new Error(error.status));
+      }
+    }); 
   }
+
+  // reset_service(email) {
+  //   console.log(email);
+  //   return this._http.post(this.ServerUrl + 'forget_password_customer/', {
+  //     'user': email
+  //   })    .map((res: Response) => {
+
+  //     if (res) {
+  //       if (res.status === 201 || res.status === 200) {
+  //         const responce_data = res.json();
+  //         return responce_data;
+  //       }
+  //     }
+  //   }).catch((error: any) => {
+
+  //     if (error.status !== 404) {
+  //       if (error.status === 401) {
+  //         console.log(error);
+
+  //         return Observable.throw(new Error(error.status));
+  //       }
+
+
+  //     } else {
+  //       console.log(error);
+  //       //   this._nav.navigate(['/login']);
+
+  //       return Observable.throw(new Error(error.status));
+  //     }
+  //   });
+  // }
 
   UserConfirm(key: any) {
     return this._http.post(this.ServerUrl + 'activate_account/', {
@@ -1194,11 +1249,12 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
     console.log(email);
     return this._http.post(this.ServerUrl + 'forget_password_customer/', {
       'user': email
-    }).map((res: Response) => {
+    })    .map((res: Response) => {
 
       if (res) {
-        if (res.status === 201 || res.status === 200 || res.status === 202) {
-          console.log('Yahoooooo Status MAtch');
+        if (res.status === 201 || res.status === 200) {
+          const responce_data = res.json();
+          return responce_data;
         }
       }
     }).catch((error: any) => {

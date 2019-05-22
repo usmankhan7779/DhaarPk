@@ -18,8 +18,7 @@ export class SellerSettingComponent implements OnInit {
   hide1 =true;
   hide2=true;
   match = true;
-  Right = false;
-  Error = false;
+ 
   notsame = false;
   Waitcall = false;
   USerNameID: any;
@@ -47,45 +46,45 @@ export class SellerSettingComponent implements OnInit {
 
 
   updatePassword(old: string, new1: string, new2: string) {
-    this.Error = false;
-    this.Right = false;
+     
 
-    if (old === new1 || old === new2) {
-        this.notsame = true;
-    } else {
-    if (new1 === new2) {
-      this.match = true;
-      this.Waitcall = true;
-      this.obj.changepass(this.USerNameID, old, new1, new2).subscribe((response) => {
+ 
+      this.obj.changepass(old, new1, new2).subscribe((data) => {
           /* this function is executed every time there's a new output */
-          // console.log("VALUE RECEIVED: "+response);
-          this.Error = false;
-          this.Waitcall = false;
-          this.Right = true;
-
-
-        },
-        (err) => {
-          this.Right = false;
-          this.Waitcall = false;
-          this.Error = true;
-          /* this function is executed when there's an ERROR */
-          //   console.log("ERROR: "+err);
-        },
-        () => {
-
-          /* this function is executed when the observable ends (completes) its stream */
-          //   console.log("COMPLETED");
+          console.log("VALUE RECEIVED: "+data['msg']);
+        //   // if(response.json() == "PasswordChanged"){  
+        //     return Response({'msg':'PasswordChanged'},status=status.HTTP_200_OK)
+        // else:
+        //     return Response({'msg':'something went wrong'},status=status.HTTP_400_BAD_REQUEST)  
+        if ( data.msg == "PasswordChanged") { 
+          Swal.fire({
+            title: 'You have been successfully update your passwrod',
+            type: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          })
+                // Swal.fire('You have been successfully update your passwrod.','','success');
         }
-      );
+        else if (data.msg == "something went wrong"){
+          Swal.fire({
+            title: 'Something Went Wrong',
+            type: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          })
+          // Swal.fire('You have been successfully update your passwrod.','','success');
+
+        }
+          // }
+          // else {
+          // }
+        }
+        );        
+      
 
 
 
-    } else {
-
-      this.match = false;
-    }
-    }
+     
 
   }
 
