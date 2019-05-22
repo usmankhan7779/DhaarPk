@@ -34,7 +34,7 @@
           <div *ngIf="login_error==true" class="alert alert-danger">
             <strong>Error!</strong> Invalid Login Details
           </div>
-          <form role="form" [formGroup]="login" class="login-form" (ngSubmit)="f.form.valid && captcha && loged_in()"
+          <form role="form" [formGroup]="login" class="sh-signup-form-fix login-form" (ngSubmit)="f.form.valid && captcha && loged_in()"
             #f="ngForm">
 
             <div class="formpanel">
@@ -50,7 +50,7 @@
                    
                     <div *ngIf="f.submitted && !username.valid" class="help-block">*Username is required</div>
                   </div> -->
-                  <mat-form-field class="margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
+                  <mat-form-field class="width100 margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
                     <input matInput id="username" placeholder="Enter Username" formControlName="username"
                       [(ngModel)]="username">
                     <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value">
@@ -71,7 +71,7 @@
               
                   <div *ngIf="f.submitted && !password.valid" class="help-block">*Password is required</div>
                 </div> -->
-                <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="">
+                <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="width100">
                   <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"
                     placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
