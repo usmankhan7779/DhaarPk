@@ -238,14 +238,17 @@
                         </div> -->
                         <mat-form-field class="width100">
                             <input matInput placeholder="Confrim password"   
-                            required  [type]="hide ? 'password' : 'text'"  
+                            required  [type]="hide1 ? 'Password' : 'text'"  
                              name="RePassword" type="password"  
                             [(ngModel)]="model.RePassword" #RePassword="ngModel">
  
                             <mat-icon   data-toggle="tooltip"  
                            matSuffix (click)="hide1=!hide1">{{hide1? 'visibility_off' : 'visibility'}}</mat-icon>
-                           <mat-error *ngIf="(signupForm.controls.RePassword.value !=signupForm.controls.password.value) || signupForm.controls.RePassword.value==''">
-                              <strong>Password must match </strong> </mat-error>
+                           <!-- <mat-error *ngIf="(signupForm.controls.RePassword.value !=signupForm.controls.password.value) || signupForm.controls.RePassword.value==''">
+                              <strong>Password must match </strong> </mat-error> -->
+                              <mat-error *ngIf="signupForm.controls['RePassword'].value == '' || !signupForm.controls['RePassword'].value"><strong>This Field cannot be empty</strong></mat-error>
+              <mat-error *ngIf="(signupForm.controls.RePassword.value != signupForm.controls.password.value) || signupForm.controls.RePassword.value == ''"><strong>Password must match
+             </strong></mat-error>
                           </mat-form-field>
                     <!-- <input type="Password" class="form-control" (ngModelChange)="OnPassReset()" name="RePassword" (blur)="checkPassowed(RePassword.value, Password.value)" placeholder="Confirm Password" [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel" required> -->
                     <!-- <div *ngIf="f.submitted && !Password.valid" class="help-block">Please re-enter Password.</div>
