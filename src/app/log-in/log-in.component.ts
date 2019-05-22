@@ -44,6 +44,7 @@ export class LogInComponent implements OnInit {
   logout: string;
   hide = true;
   fb_id: any;
+  staySignedIn: boolean = true;
   jwtHelper: JwtHelper = new JwtHelper();
   fb_name: any;
   fb_email: any;
@@ -104,6 +105,7 @@ export class LogInComponent implements OnInit {
       //   console.log('Name of user', this.user);
       // });
     // }
+    this.staySignedIn = true;
     this.login = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       username: ['', Validators.compose([Validators.required])],
@@ -155,7 +157,17 @@ export class LogInComponent implements OnInit {
     };
   }
 
-  
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      // console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
   // signInWithGoogle(): void {
   //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   //   console.log('HAhahahahaahahahah')
