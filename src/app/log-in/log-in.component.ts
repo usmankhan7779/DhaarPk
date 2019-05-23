@@ -12,7 +12,7 @@ import { RecapchaComponent } from '../recapcha/recapcha.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import { GoogleLoginProvider,AuthService,SocialUser, FacebookLoginProvider } from 'angular5-social-login';
 import Swal from 'sweetalert2';
-import { JwtHelper } from "angular2-jwt";
+ 
 declare const $: any;
 
 declare interface User {
@@ -46,7 +46,7 @@ export class LogInComponent implements OnInit {
   hide = true;
   fb_id: any;
   staySignedIn: boolean = true;
-  jwtHelper: JwtHelper = new JwtHelper();
+  // jwtHelper: JwtHelper = new JwtHelper();
   fb_name: any;
   fb_email: any;
   fb_photo_Url: any;
@@ -327,8 +327,8 @@ socialCallBack = (user) => {
 
     createUser.subscribe(data => {
         let user = { 
-         user_id: this.jwtHelper.decodeToken(data['token']).user_id,
-         username: this.jwtHelper.decodeToken(data['token']).username, 
+        //  user_id: this.jwtHelper.decodeToken(data['token']).user_id,
+        //  username: this.jwtHelper.decodeToken(data['token']).username, 
          token: data['token'] };
         if (user && user.token) {
           localStorage.setItem('loged_in', '1');
