@@ -20,7 +20,7 @@
 <div class="listpgWraper">
   <div class="container">
     <div class="row">
-      <div class="login-signup-page">
+      <div class="signup-page">
         <div class="userccount">
           <div class="login-form-1-header">
             <h3>Create Your Dhaar Account</h3>
@@ -60,7 +60,7 @@
               <strong>Error!</strong> Invalid email format.
             </div>
             <div id="wsell" class="formpanel tab-pane fade in active">
-              <form role="form" class="sh-signup-form-fix login-form"   
+              <form role="form" class="sh-signup-form-fix signup-form"   
               (ngSubmit)="f.form.valid && captcha && register()" #f="ngForm"  >
 
                 
@@ -268,7 +268,7 @@
 
                 <!--I have read and agree to the <a href="#" style="color: red"> Terms and Conditions</a>-->
               <!--</div>-->
-                <div class="form-group" >
+                <div class="form-group recapcha" >
                     <app-recapcha></app-recapcha>
                 <!-- <re-captcha  (resolved)="resolved($event)" siteKey="6LcMeE4UAAAAAORPbOfwjGczzxsz843f24BA92IN" required></re-captcha> -->
                 <!-- <div *ngIf="f.submitted && !captcha" class="help-block">Recaptcha is required</div> -->
