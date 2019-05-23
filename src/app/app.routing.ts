@@ -109,6 +109,9 @@ const appRoutes: Routes = [
       { path: 'user-shipment', loadChildren: './usershipment/usershipment.module#UserShipmentModule', canActivate: [AuthGuard] },
       { path: 'seller-purchasing-invoice', loadChildren: './seller-purchasing-invoice/seller-purchasing-invoice.module#SellerPurchasingInvoiceModule', canActivate: [AuthGuard] },
       { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
+      
+      { path: 'add-payment-method', loadChildren: './add-payment-method/add-payment-method.module#AddPaymentMethod', canActivate: [AuthGuard] },
+
       // SellerSettingStoreUpdateModule
 
     ]

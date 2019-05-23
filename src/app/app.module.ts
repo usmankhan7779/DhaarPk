@@ -95,6 +95,7 @@ import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-mast
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
 import { AuthInterceptor } from './auth-guard/auth.interceptor';
 import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
+import { AddPaymentMethodComponent } from './add-payment-method/add-payment-method.component';
 @NgModule({
   exports: [
     MatAutocompleteModule,
