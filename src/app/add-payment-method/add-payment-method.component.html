@@ -1,59 +1,13 @@
 <app-header></app-header>
 <div class="container">
-
-
-        
-    
-    
-    
-    
-    
-    
-    
     <div class="row">
-        <div class="col-lg-8">
-            <ul class="nav nav-pills pay-tabs">
-                    <li class="active">
-                        <a data-toggle="pill" href="#card">
-                            <i class="fas fa-credit-card"></i>
-                            Credit/Debit Card
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="pill" href="#menu1">
-                            <i class="fas fa-money-bill-alt"></i>
-                            Cash on Delivery
-                        </a>
-                    </li>
-            </ul>
+        <div class="col-lg-12">
+            
             <div class="tab-content">
-                <div class="row checkout-select-box tab-pane fade in active " id="card">
-                    <div class="">
-                        <div id="section-pricing" class="text-center">
-                            <div class="pricing-tenure-switcher center" data-container="#pricing-switch"> <span
-                                    class="pts-left" *ngIf="!isright" style="color: black">Saved Cards</span> <span
-                                    class="pts-left" *ngIf="isright">Saved Cards</span>
-                                <div class="pts-switcher">
-                                    <div class="switch"> <input [(ngModel)]="isright" id="switch-toggle-pricing-tenure"
-                                            class="switch-toggle switch-toggle-round" type="checkbox"> <label
-                                            for="switch-toggle-pricing-tenure"></label> </div>
-                                </div><span class="pts-right" *ngIf="!isright">Add New Card</span> <span class="pts-right"
-                                    *ngIf="isright" style="color: black">Add New Card</span>
-                            </div>
-                            <div id="pricing-switch" class="">
-                                <div class="col-md-12" *ngIf="!isright">
-                                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix">
-                                        <mat-form-field class="width50">
-                                            <mat-label>Favorite food</mat-label>
-                                            <mat-select>
-                                                <mat-option *ngFor="let food of foods" [value]="food.value">
-                                                {{food.viewValue}}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="col-md-12" *ngIf="isright">
+                <div class="row checkout-select-box" >
+                        <div  class="text-center padding-t-20">
+                                
+                                <div class="col-md-12" >
                                     <div class="cart-body">
                                         <div class="credit-card-box">
                                             <div class="flip">
@@ -171,58 +125,16 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
-                    </div>
                     <div class="col-md-12 text-center">
                         <button type="submit" class="btn btn-fill"
                             >Place Order</button> 
                         </div>
                 </div>
 
-                <div class="tab-pane fade" id="menu1">
-                    <div class="checkout-select-box">
-                        <div class="header-label">
-                                Cash on Delivery
-                        </div>
-                        <div class="delivery-box">
-                            <p>You can pay in cash to our courier when you receive the goods at your doorstep.</p>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-fill"
-                                >Confirm Order</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+               
 
             </div>
-        </div>
-        <div class="col-lg-4 summary-box">
-            <h3>Order Summary</h3>
-            <div class="sub-total">
-                <span class="label">Subtotal(1 items and shipping fee included)</span>
-                <span class="price">Rs: 338</span>
-            </div>
-            <div class="total">
-                <span class="label" >Total Amount</span>
-                <span class="price" >Rs: 338</span>
-            </div>
-            <ul class="brand-logos">
-                <li>
-                    <a><img src="../../assets/images/Norton_av_logo.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/logo-pci-dss-200.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/visa_PNG7.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/mastercard-securecode.png"></a>
-                </li>
-            </ul>
-
         </div>
     </div>
 
