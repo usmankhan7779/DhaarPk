@@ -12,7 +12,7 @@ import { Routing, AppRoutingProvider } from './app.routing';
 import { SocialLoginModule } from 'angular5-social-login';
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { ImageViewerModule } from 'ngx-image-viewer';
+ 
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -161,7 +161,7 @@ export class MaterialModule { }
     SlickModule,
     SocialLoginModule,
     RecaptchaModule.forRoot(),
-    ImageViewerModule.forRoot(),
+ 
     OwlModule,
     Routing
   ],
