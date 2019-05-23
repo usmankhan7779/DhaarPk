@@ -14,8 +14,8 @@
 }
 .bid-timer--value {
     font-size: 14px;
-    color: #222;
-    background: rgba(128,138,155,.08);
+    color: #fff;
+    background-image: -webkit-linear-gradient(243deg, red 8%, #000 128%);
     transition: all .5s ease-in-out;
     border-radius: 3px;
     letter-spacing: 1px;
