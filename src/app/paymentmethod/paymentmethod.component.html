@@ -68,9 +68,9 @@
                                                                 <g ></g>
                                                             </g>
                                                         </svg></div>
-                                                    <div class="card-holder" style="top: 29px;left: 221px;"><label
-                                                            >Cardholder</label>
-                                                        <div >fsdfdsa</div>
+                                                    <div class="card-holder" style="top: 29px;left: 221px;">
+                                                        <label> Card Holder  </label>
+                                                        <div >{{cardholdername}}  </div>
                                                     </div>
                                                     <div class="card-holder"><label >Card Number</label>
                                                         <div >fasdfas</div>
@@ -108,7 +108,7 @@
                                                         <div class="col-lg-6 margin-t-minas4">
                                                             <mat-form-field class="example-full-width">
                                                                         <mat-label>Crad Type</mat-label>
-                                                                        <mat-select [formControl]="signupForm.controls['FName']">
+                                                                        <mat-select  formControlName="card_type">
                                                                         <mat-option *ngFor="let food of foods" [value]="food.value">
                                                                             {{food.viewValue}}
                                                                         </mat-option>
@@ -117,67 +117,69 @@
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Card Holder Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Card Holder Name"  name="cardholdername" [(ngModel)]="cardholdername"  formControlName="cardholdername"  >
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Nick Name" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Nick Name"  formControlName="nickname"    >
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                         <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Cradit Card Number" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Cradit Card Number"  formControlName="cardNumber"   >
                                                         </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                         <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="CVV" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="CVV"  formControlName="ccv" >
                                                         </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Expiry Date (MM/YY)"  formControlName="expiry">
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Zip Code" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Country"  formControlName="country">
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Street" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="province"  formControlName="province" >
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="City" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="City"  formControlName="city">
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <mat-slide-toggle formControlName="default">defulat</mat-slide-toggle>
+                                                        <!-- <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="State"  formControlName="Producttitle" required #FName>
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="State" [formControl]="signupForm.controls['FName']" required #FName>
+                                                                <input matInput placeholder="Country"  formControlName="Producttitle" required #FName>
                                                             </mat-form-field>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Country" [formControl]="signupForm.controls['FName']" required #FName>
-                                                            </mat-form-field>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-12 text-center">
+                                                    <button (click)="save()"class="btn btn-fill"
+                                                        >Place Order</button> 
+                                                    </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-fill"
-                            >Place Order</button> 
-                        </div>
+                    
                 </div>
 
                 <div class="tab-pane fade" id="menu1">

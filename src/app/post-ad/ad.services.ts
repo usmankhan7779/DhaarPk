@@ -6,6 +6,8 @@ import {Observable} from 'rxjs/Rx';
 
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
+// import { HttpClient } from 'selenium-webdriver/http';
+import {HttpClient} from "@angular/common/http";
 
 
 
@@ -21,9 +23,11 @@ export class AdService {
   // ServerUrl = 'http://192.168.30.132:8000/products/';
   ServerUrlLocal = 'https://apis.dhaar.pk/products/';
   StoreUrl =  'https://apis.dhaar.pk/store/';
+  serverpayment ='https://apis.dhaar.pk/payment/';
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private _http: Http,
+              private httpclient:HttpClient,
               private _nav: Router) {
 
   }
@@ -71,7 +75,45 @@ export class AdService {
     // //console.log(this.CateDeatils)
   }
 
+  addpaymentmethod(from ) {
 
+
+    // //console.log(Pidd);
+
+
+    return this.httpclient.post(this.serverpayment+'carddeatailpost_get/',from
+      // {
+
+      //   'Cat_Name': cat ,
+      //   'Subcat_Name': sub_cat,
+      //   'Sub_Subcat_Name': Sub_Subcat,
+      //   'P_Title':  title,
+      //   'P_Des':  des,
+      //   'P_Condition':  con,
+      //   'Price': Price,
+      //   'AuctionDays': Day,
+      //   'Auction': Auction,       
+      // }
+      ).map((res: Response) => {
+      if (res) {
+        //console.log('abc');
+        if (res.status === 201) {
+          const responce_data = res.json();
+
+          //console.log('this is the id' + responce_data.id);
+          // this.ProductImages(Pic, responce_data.id).subscribe();
+          // localStorage.setItem('Authorization', res.json().token);
+
+          return [{ status: res.status, json: res }];
+        }
+      }
+    }).catch((error: any) => {
+      //console.log(error.toString());
+      return Observable.throw(new Error(error.status));
+    });
+
+
+  }
   Fixed_Product(Pic: any, Sub2_cat: any, title: any, User_ID: any, des: any, con: any, cat: any, sub_cat: any, Sub_Subcat: any, Price: any, Day: any, Auction: any ) {
 
 
