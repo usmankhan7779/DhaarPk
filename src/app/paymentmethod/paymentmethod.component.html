@@ -70,7 +70,7 @@
                                                         </svg></div>
                                                     <div class="card-holder" style="top: 29px;left: 221px;">
                                                         <label> Card Holder  </label>
-                                                        <div >{{cardholdername}}  </div>
+                                                        <div >{{signupForm.controls.cardholdername.value}}  </div>
                                                     </div>
                                                     <div class="card-holder"><label >Card Number</label>
                                                         <div >fasdfas</div>
@@ -117,7 +117,7 @@
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Card Holder Name"  name="cardholdername" [(ngModel)]="cardholdername"  formControlName="cardholdername"  >
+                                                                <input matInput placeholder="Card Holder Name"    formControlName="cardholdername"  >
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
