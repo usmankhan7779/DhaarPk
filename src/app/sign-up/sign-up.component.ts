@@ -50,7 +50,7 @@ export class SignUpComponent implements OnInit {
   useronly='[a-zA-Z0-9_.]+';
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$';
+   passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$';
   constructor( @Inject(PLATFORM_ID) private platformId: Object,
                private singup: LoginService,
                private route: ActivatedRoute,
@@ -73,7 +73,7 @@ export class SignUpComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/log-in';
 
-    }
+   
     this.signupForm = this.fb.group({
     
       'FName': ['', Validators.compose([Validators.required])],
@@ -91,6 +91,8 @@ export class SignUpComponent implements OnInit {
       }
       );
   }
+}
+   
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }

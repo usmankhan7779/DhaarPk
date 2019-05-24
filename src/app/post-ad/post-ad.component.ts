@@ -99,7 +99,7 @@ export class PostAdComponent implements OnInit {
   ngOnInit() {
      
     this.firstFormGroup = this._formBuilder.group({
-      Producttitle: ['',  Validators.compose([Validators.required])]
+      Producttitle: ['',  Validators.compose([Validators.required,Validators.minLength(6)])]
     });
     this.secondFormGroup = this._formBuilder.group({
       storeName: ['',  Validators.compose([Validators.required])],

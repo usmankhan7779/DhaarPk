@@ -39,12 +39,18 @@
 
           </ng-container>
         </div>
+        <br/>
+        <br/>
         <div class="col-lg-10  text-center selling">
           <mat-form-field class="what-selling">
 
             <!-- <input matInput placeholder="What are you Selling" formControlName="firstCtrl" required> -->
-            <textarea rows="8" cols="60" matInput name="Title" placeholder="Product Title"
-              formControlName="Producttitle" [(ngModel)]="model.Title" required></textarea>
+            <!-- <textarea  matInput name="Title" placeholder="Product Title"
+              formControlName="Producttitle" [(ngModel)]="model.Title" required></textarea> -->
+              <input matInput #input maxlength="1000" name="Title" placeholder="Product Title"
+              formControlName="Producttitle" [(ngModel)]="model.Title" required>
+              <mat-hint align="end">{{input.value?.length || 0}}/1000</mat-hint>
+              
             <mat-error
               *ngIf="firstFormGroup.controls['Producttitle'].value == '' || !firstFormGroup.controls['Producttitle'].value">
               <strong>Please Enter the Product Title</strong></mat-error>

@@ -196,7 +196,7 @@
                         <mat-form-field class="width100">
                             <input matInput placeholder="password"   
                             required  [type]="hide ? 'password' : 'text'"  
-                             name="password" type="password"  
+                             name="password" type="password"   
                             [(ngModel)]="model.Password" #password="ngModel">
  
                             <mat-icon   data-toggle="tooltip"  
@@ -247,7 +247,7 @@
                            <!-- <mat-error *ngIf="(signupForm.controls.RePassword.value !=signupForm.controls.password.value) || signupForm.controls.RePassword.value==''">
                               <strong>Password must match </strong> </mat-error> -->
                               <mat-error *ngIf="signupForm.controls['RePassword'].value == '' || !signupForm.controls['RePassword'].value"><strong>This Field cannot be empty</strong></mat-error>
-              <mat-error *ngIf="(signupForm.controls.RePassword.value != signupForm.controls.password.value) || signupForm.controls.RePassword.value == ''"><strong>Password must match
+              <mat-error *ngIf="(signupForm.controls.password.value != signupForm.controls.RePassword.value) || signupForm.controls.RePassword.value == ''"><strong>Password must match
              </strong></mat-error>
                           </mat-form-field>
                     <!-- <input type="Password" class="form-control" (ngModelChange)="OnPassReset()" name="RePassword" (blur)="checkPassowed(RePassword.value, Password.value)" placeholder="Confirm Password" [(ngModel)]="model.RePassword" data-ng-match="Password" #RePassword="ngModel" required> -->
