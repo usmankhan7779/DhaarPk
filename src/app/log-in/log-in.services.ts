@@ -168,6 +168,15 @@ fb_token: any;
     return this._http.get(this.ServerUrl + 'Get_User_details/',{headers:headers} ).map(response => response.json());
  
   }
+  viewcarddetial(){
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
+    // console.log('pofile', localStorage.getItem('Authorization'));
+    return this._http.get( 'https://apis.dhaar.pk/payment/carddeatailpost_get/',{headers:headers} ).map(response => response.json());
+ 
+  
+  }
   GetUSeraddress() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -328,7 +337,8 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
               //  console.log('ok submited');
              // this.sendmail(email).subscribe();
               //this.register_customer(responce_data.id, Fname, LName, Mobile).subscribe();
-              this._nav.navigate(['/VerfiyEmail/a']);
+              // this._nav.navigate(['/VerfiyEmail/a']);
+              this._nav.navigate(['/']);
             }
           }
         }).catch((error: any) => {

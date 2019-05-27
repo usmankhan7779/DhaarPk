@@ -75,25 +75,25 @@ export class AdService {
     // //console.log(this.CateDeatils)
   }
 
-  addpaymentmethod(from ) {
+  addpaymentmethod(cardNumber,ccv,expiry,card_type,nickname,check,country,province,city,cardholdername) {
 
 
     // //console.log(Pidd);
 
 
-    return this.httpclient.post(this.serverpayment+'carddeatailpost_get/',from
-      // {
-
-      //   'Cat_Name': cat ,
-      //   'Subcat_Name': sub_cat,
-      //   'Sub_Subcat_Name': Sub_Subcat,
-      //   'P_Title':  title,
-      //   'P_Des':  des,
-      //   'P_Condition':  con,
-      //   'Price': Price,
-      //   'AuctionDays': Day,
-      //   'Auction': Auction,       
-      // }
+    return this.httpclient.post(this.serverpayment+'carddeatailpost_get/',
+      {
+        "cardNumber":cardNumber,
+          "ccv":ccv,
+          "expiry":expiry,
+          "card_type":card_type,
+          "nickname":nickname,
+          "default":check,
+          "country":country,
+          "province":province,
+          "city":city,
+          "cardholdername":cardholdername     
+      }
       ).map((res: Response) => {
       if (res) {
         //console.log('abc');

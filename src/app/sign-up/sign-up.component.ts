@@ -112,8 +112,8 @@ export class SignUpComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       
       console.log('agree value is:',this.model.Agree);
-
-    if (this.model.Agree) {
+ 
+    // if (this.model.Agree) {
 
 
       // if (this.recaptcha) {
@@ -121,11 +121,14 @@ export class SignUpComponent implements OnInit {
 
         if (this.Emailok) {
           // post_signup_form(username: string, email: string, password: string, Fname, LName, Mobile,Country,State,City,zip,Address,Pic) {
+// this.register.value['firstname'] 
+          // this.singup.post_signup_form(this.model.Username, this.model.Email, this.model.Password, this.model.FName, this.model.LName,
+          //  this.model.Mobile,this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
+            this.singup.post_signup_form(this.signupForm.value['Username'],this.signupForm.value['Email'],this.signupForm.value['password'],
+            this.signupForm.value['FName'],this.signupForm.value['LName'],this.signupForm.value['Mobile'],
+            this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
 
-          this.singup.post_signup_form(this.model.Username, this.model.Email, this.model.Password, this.model.FName, this.model.LName, this.model.Mobile,this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
-              /* this function is executed every time there's a new output */
-              // console.log("VALUE RECEIVED: "+response);
-              console.log(this.model.password)
+          
               Swal.fire(
                 'Registered!',
                 'You have successfully Registered',
@@ -154,10 +157,10 @@ export class SignUpComponent implements OnInit {
       //   alert('Captcha Missing');
       //
       // }
-    } else {
-      console.log('agree is ', this.model.Agree);
-      // Swal.fire('You must agree to the terms  first.','','error');
-    }
+    // } else {
+    //   console.log('agree is ', this.model.Agree);
+    //   // Swal.fire('You must agree to the terms  first.','','error');
+    // }
 
 
     // this.router.navigate([this.returnUrl]);

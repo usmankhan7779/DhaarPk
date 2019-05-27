@@ -16644,14 +16644,14 @@ ngx-image-viewer .img-container {
     max-width: 420px
 }
 .signup-page {
-    width: 700px;
+    width: 850px;
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 850px;
 }
 .signup-form .form-group{
-    width: 48%;
+    width: 47%;
     display: inline-block;
-    margin:  0 5px;
+    margin: 0 12px;
 }
 
 .d-inline-block {

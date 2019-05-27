@@ -162,7 +162,7 @@ export class MaterialModule { }
     SlickModule,
     SocialLoginModule,
     RecaptchaModule.forRoot(),
- 
+   
     OwlModule,
     Routing
   ],
