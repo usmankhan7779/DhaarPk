@@ -96,6 +96,7 @@ import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/us
 import { AuthInterceptor } from './auth-guard/auth.interceptor';
 import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
 import { AddPaymentMethodComponent } from './add-payment-method/add-payment-method.component';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -132,7 +133,7 @@ import { AddPaymentMethodComponent } from './add-payment-method/add-payment-meth
     FormsModule,
     MatFormFieldModule
   ],
-  declarations: [],
+  declarations: [AddNewProductComponent],
 })
 export class MaterialModule { }
 // import { BuyerDashboardMastersComponent } from './layouts/buyer-dashboard-masters/buyer-dashboard-masters.component';
