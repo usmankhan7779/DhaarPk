@@ -238,7 +238,7 @@ export class AdService {
     headers.append('Content-Type', 'application/json');
     if (isPlatformBrowser(this.platformId)){
 
-    return this._http.post(' http://192.168.30.132:8000/products/productpost/',
+    return this._http.post( this.ServerUrl+' productpost/',
       {
         'ProductID': Product_ID,
         'Cat_Name': CatName ,

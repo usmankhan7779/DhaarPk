@@ -94,9 +94,8 @@ import { PagerService } from './pager.service';
 import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-masters/seller-dashboard-masters.component';
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
 import { AuthInterceptor } from './auth-guard/auth.interceptor';
-import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
-import { AddPaymentMethodComponent } from './add-payment-method/add-payment-method.component';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+ 
+ 
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -133,7 +132,7 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     FormsModule,
     MatFormFieldModule
   ],
-  declarations: [AddNewProductComponent],
+  declarations: [  ],
 })
 export class MaterialModule { }
 // import { BuyerDashboardMastersComponent } from './layouts/buyer-dashboard-masters/buyer-dashboard-masters.component';
