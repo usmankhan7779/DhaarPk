@@ -1,0 +1,70 @@
+.banner{
+    background: url(../../assets/images/seller-on-dhaar.png) no-repeat center;
+    padding: 20px;
+    text-align: center;
+}
+.banner label{
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    margin: 63px 0 20px;
+}
+.banner p{
+    font-size: 33px;
+    color: #fff;
+}
+.banner button{
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 27px;
+    padding: 13px 40px;
+    border-radius: 30px;
+    margin: 20px;
+    box-shadow: 1px 1px 7px 2px #333;
+}
+.banner span{
+    display: block;
+    font-size: 20px;
+    color: #fff;
+}
+.banner span a{
+    color: #c00;
+    font-weight: bold;
+    font-size: 24px;
+}
+.feature-box{
+    margin: 0 auto 20px;
+}
+.feature{
+    text-align: center;
+    padding: 10px 0;
+}
+.feature p{
+    font-size: 20px;
+    color: #555;
+}
+.f-box{
+    padding: 20px 10px;
+    width: 33%;
+    float: left;
+}
+.f-box i{
+    display: inline-block;
+    float: left;
+    font-size: 40px;
+    color: #c00;
+    width: 59px;
+}
+.f-box p{
+    display: inline-block;
+    margin: 14px 0;
+    float: left;
+}
+.border-b{
+    border-bottom: 1px solid #ccc;
+}
+.border-r{
+    border-right: 1px solid #ccc;
+}
