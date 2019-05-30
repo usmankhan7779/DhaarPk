@@ -87,24 +87,7 @@
                     <i class="far fa-star star-icon "></i>
                     <i class="far fa-star star-icon "></i>
                     <i class="far fa-star star-icon "></i>
-                    <!-- <div id="clockdiv">
-                        <div>
-                          <span class="days">{{days}}</span>
-                          <div class="smalltext">Days</div>
-                        </div>
-                        <div>
-                          <span class="hours">{{ hours }}</span>
-                          <div class="smalltext">Hours</div>
-                        </div>
-                        <div>
-                          <span class="minutes">{{minutes}}</span>
-                          <div class="smalltext">Minutes</div>
-                        </div>
-                        <div>
-                          <span class="minutes">{{seconds}}</span>
-                          <div class="smalltext">Seconds</div>
-                        </div>
-                      </div> -->
+                    
                 </div>
                   </div>
                          
@@ -222,6 +205,35 @@
                 <p class="special-price"> <span class="price-label">Price</span>
                   <span class="price"> Rs: {{ resultProduct.FixedPrice | number:'.0-0' }} </span> </p>
               </div> -->
+              <div class="price-box">
+                <h1 class="heading">{{ resultProduct.P_Title}}</h1>
+              <!-- <p class="special-price"> <span class="price-label">Price</span> -->
+                <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p>
+                
+                <div class="star">
+                  <i class="far fa-star star-icon"></i>
+                  <i class="far fa-star star-icon"></i>
+                  <i class="far fa-star star-icon "></i>
+                  <i class="far fa-star star-icon "></i>
+                  <i class="far fa-star star-icon "></i>
+                  
+              </div>
+                </div>
+              <div class="ratings">
+                <div class="rating">
+                  <!-- <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p> -->
+                  <span  class=" Accessories Price "><img class="icon-images"alt="dollar" src="../.././assets/images/single-product/dollar.png" width="26"> <span class="tec"> {{ resultProduct.FixedPrice | number:'.0-0' }} </span></span>
+                       <span class="Accessories Price"><img  class="icon-images"alt="icon" src="../.././assets/images/single-product/condition.png" width="26"><span class="tec"> Open box / like new </span></span>
+                         <span  class="Accessories Price"><img  class="icon-images"alt="icon" src="../.././assets/images/single-product/quantity.png" width="26"> <span class="tec">{{ resultProduct.Quantity}}</span> </span>
+                          <span class="Accessories Price" ><img  class="icon-images" alt="icon" src="../.././assets/images/single-product/datetime.png" width="26"><span class="tec"> Quantity:{{ resultProduct.Quantity}}</span> </span>
+                             <span class=" Accessories Price"><img alt="icon" class="icon-images" src="../.././assets/images/single-product/location.png" width="26"><span class="tec"> 
+                                <a href="#Bidhistory" data-toggle="tab"><i class="fa fa-history"></i><span>Bid History ({{
+                                    BidingProduct.length}})</span></a>   
+                            </span></span>
+                </div>
+                <p class="availability in-stock pull-right">Availability: <span *ngIf="!Solddd" class="not-sold">In
+                    Stock</span> <span *ngIf="Solddd" class="sold">Sold Out</span></p>
+              </div>
               <div class="ratings">
                 <div class="rating">
 
