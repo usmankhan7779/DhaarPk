@@ -239,8 +239,8 @@
 
                   <p> Seller: <a [routerLink]="['/store', resultProduct.StoreName]"> {{resultProduct.StoreName}}</a></p>
                 </div>
-                <p class="availability in-stock pull-right">Availability: <span *ngIf="!soldfix" class="not-sold">In
-                    Stock</span> <span *ngIf="soldfix" class="sold">Sold Out</span></p>
+                <!-- <p class="availability in-stock pull-right">Availability: <span *ngIf="!soldfix" class="not-sold">In
+                    Stock</span> <span *ngIf="soldfix" class="sold">Sold Out</span></p> -->
               </div>
               <div class="product-variation">
                 <div *ngIf="amountoffer">
@@ -255,8 +255,8 @@
                     [(ngModel)]="model.message" placeholder="Message for Seller"></textarea>
                 </div>
                 <div class="width100 pull-left">
-                  <span class="pull-right">Quantity Available: <span
-                      class="lead">{{ resultProduct.Quantity}}</span></span>
+                  <!-- <span class="pull-right">Quantity Available: <span
+                      class="lead">{{ resultProduct.Quantity}}</span></span> -->
                   <div class="cart-plus-minus">
                     <label for="qty" class="quantity-label">Quantity:</label>
                     <div class="numbers-row">
