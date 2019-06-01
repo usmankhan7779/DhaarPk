@@ -14,7 +14,7 @@
     font-size: 33px;
     color: #fff;
 }
-.banner button{
+.selling-btn{
     background: #000;
     border: none;
     color: #fff;
@@ -111,6 +111,7 @@
 .step-box .detail h3{
     margin: 18px 20px 0px;
     color: #c00;
+    text-align: left;
 }
 .step-box .detail p{
     text-align: left;
@@ -122,4 +123,15 @@
 .image img{
     width: 80%;
     margin: 0 auto;
+}
+.need{
+    padding: 30px 0;
+}
+.need p{
+    font-size: 20px;
+    color: #555;
+    text-align: center;
+}
+.need p span{
+    color: #c00;
 }
