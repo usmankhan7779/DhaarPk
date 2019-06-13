@@ -60,6 +60,9 @@ input {
 .Ad-details{
 width: 100%
 }
+.post-heading{
+    margin-top: 10px;
+}
 .Ad-details-text-area{
     font-size: 20px !important;
     border: none;

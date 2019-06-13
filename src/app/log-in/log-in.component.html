@@ -80,14 +80,18 @@
                   </mat-form-field> -->
                 <div class="pull-left">
                   <!-- <a [routerLink]="['/forget-password']"> Forgot Password? </a> -->
-                  <div  class="checked-box">
+                  <!-- <div  class="checked-box">
                     <label class="switch">
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
                     Stay signed in 
                     <a [routerLink]="['/forget-password']"> Forgot Password? </a>
+                  </div> -->
+                  <div class="sign-in-relative-pos">
+                    <mat-slide-toggle id="slid"  type="checkbox" checked data-toggle="toggle">  Stay Signed In</mat-slide-toggle>
                   </div>
+                  <a class="forget-password" [routerLink]="['/forget-password']"> Forgot Password? </a>
                 </div>
                 
                 <div class="formrow pull-right">
@@ -125,7 +129,7 @@
           <!-- login form  end-->
 
           <!-- sign up form -->
-          <div class="newuser">Don't have an account? <a [routerLink]="['/sign-up']">SignUp Here</a></div>
+          <div class="newuser">Don't have an account?<a class="sign-up-login" [routerLink]="['/sign-up']">Sign Up</a></div>
           <div class="newuser terms-box">
             <a [routerLink]="['/terms-use']" target="_blank">Terms of Use</a> 
             <a [routerLink]="['/privacy-policy']" target="_blank">Privacy Policy</a>

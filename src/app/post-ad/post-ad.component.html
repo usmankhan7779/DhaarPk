@@ -1,6 +1,6 @@
 
 <form role="form" class="login-form" #f="ngForm" novalidate>
-    <div class="">
+    <div class="post-heading">
         <label class="control-label label-set">Product Type: </label> <span
           style="color: #CC0000; font-size: 16px;font-weight: bold"> <u style="cursor: sty;">{{ CatName }}</u>
         </span> <a class="label-set" (click)="routetopostad()">Change</a>
@@ -126,7 +126,7 @@
                 matInput placeholder="Add Detail" formControlName="description" required></textarea>
               <mat-error
                 *ngIf="secondFormGroup.controls['description'].value == '' || !secondFormGroup.controls['description'].value">
-                <strong>Please Select enter the products description</strong></mat-error>
+                <strong>Please enter the products description</strong></mat-error>
 
 
             </mat-form-field>
@@ -160,7 +160,7 @@
                   <span matSuffix>.00</span>
                   <mat-error
                     *ngIf="thirdFormGroup.controls['FixedPrice'].value == '' || !thirdFormGroup.controls['FixedPrice'].value">
-                    <strong>Please Select enter the products description</strong></mat-error>
+                    <strong>Please enter  price</strong></mat-error>
 
                 </mat-form-field>
               </div>
@@ -173,7 +173,7 @@
                   <span matSuffix>.00</span>
                   <mat-error
                     *ngIf="thirdFormGroup.controls['Quantity'].value == '' || !thirdFormGroup.controls['Quantity'].value">
-                    <strong>Please Select enter the products description</strong></mat-error>
+                    <strong>Please  enter the Quanity</strong></mat-error>
 
                 </mat-form-field>
               </div>
