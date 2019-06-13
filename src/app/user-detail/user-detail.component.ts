@@ -170,7 +170,6 @@ uploadItemsToActivity() {
     console.log('I am in 1 Component');
     this.itemUploadService.PostImage(this.filetoup, 'UserPics',localStorage.getItem('UserID') ).subscribe(
       data => {
-        alert(data)
         this.Profile.UserDetailsUpdatePic(localStorage.getItem('UserID') ,this.fileName).subscribe();
         console.log('Successs')
       },
@@ -179,7 +178,6 @@ uploadItemsToActivity() {
       });
 
     }
-    
 
     save(FName: string, Lname: string, Country: string, State: string, City: string, Zip: string, Mobile: string, Address: string) {
     

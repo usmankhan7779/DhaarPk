@@ -39,7 +39,7 @@ export class BuyerSettingComponent implements OnInit {
       if (new1 === new2) {
         this.Waitcall = true;
         this.match = true;
-        this.obj.changepass( old, new1, new2).subscribe((response) => {
+        this.obj.changepass(this.USerNameID, old, new1, new2).subscribe((response) => {
             /* this function is executed every time there's a new output */
             // console.log("VALUE RECEIVED: "+response);
             this.Error = false;

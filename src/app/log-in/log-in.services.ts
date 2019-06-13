@@ -9,8 +9,6 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import Swal from 'sweetalert2';
 import { StaticInjector } from '@angular/core/src/di/injector';
-// import { HttpClient } from 'selenium-webdriver/http';
-import { HttpClient } from '@angular/common/http';
 
 
 
@@ -28,7 +26,7 @@ export class LoginService {
   USerNameID: string;
   // http://192.168.30.225:7000
   // https://apis.dhaar.pk
-  // ServerUrl = 'http://192.168.29.132:8000/user/';
+  // ServerUrl = 'https://apis.dhaar.pk/user/';
   // http://192.168.30.187:8000
   ServerUrl = 'https://apis.dhaar.pk/user/';
   
@@ -45,7 +43,6 @@ fb_token: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private _http: HttpService,
-    private httpclient :HttpClient,
     private http: Http,
     private _nav: Router) {
 
@@ -167,15 +164,6 @@ fb_token: any;
     // console.log('pofile', localStorage.getItem('Authorization'));
     return this._http.get(this.ServerUrl + 'Get_User_details/',{headers:headers} ).map(response => response.json());
  
-  }
-  viewcarddetial(){
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
-    // console.log('pofile', localStorage.getItem('Authorization'));
-    return this._http.get( 'https://apis.dhaar.pk/payment/carddeatailpost_get/',{headers:headers} ).map(response => response.json());
- 
-  
   }
   GetUSeraddress() {
     const headers = new Headers();
@@ -337,8 +325,7 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
               //  console.log('ok submited');
              // this.sendmail(email).subscribe();
               //this.register_customer(responce_data.id, Fname, LName, Mobile).subscribe();
-              // this._nav.navigate(['/VerfiyEmail/a']);
-              this._nav.navigate(['/']);
+              this._nav.navigate(['/VerfiyEmail/a']);
             }
           }
         }).catch((error: any) => {
@@ -441,90 +428,90 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
     //  this.StoreServerUrl 
   }
 
-  // verify_token() {
-  //   if (isPlatformBrowser(this.platformId)) {
+  verify_token() {
+    if (isPlatformBrowser(this.platformId)) {
 
-  //     return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
-  //       .map((res: Response) => {
-  //         if (res) {
+      return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
+        .map((res: Response) => {
+          if (res) {
 
-  //           if (res.status === 201) {
-  //             // return true;
+            if (res.status === 201) {
+              // return true;
 
-  //           } else if (res.status === 200) {
-  //             // return true;
-  //           }
-  //         }
-  //       }).catch((error: any) => {
-  //         if (error.status === 404) {
-  //           console.log('ok not submited submite');
-  //           this._nav.navigate(['/login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else if (error.status === 400) {
-  //           console.log('Not');
-  //           this._nav.navigate(['/owner_login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else if (error.status === 401) {
-  //           console.log('ok not submited submite');
-  //           this._nav.navigate(['/login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else {
+            } else if (res.status === 200) {
+              // return true;
+            }
+          }
+        }).catch((error: any) => {
+          if (error.status === 404) {
+            console.log('ok not submited submite');
+            this._nav.navigate(['/login']);
+            return Observable.throw(new Error(error.status));
+          } else if (error.status === 400) {
+            console.log('Not');
+            this._nav.navigate(['/owner_login']);
+            return Observable.throw(new Error(error.status));
+          } else if (error.status === 401) {
+            console.log('ok not submited submite');
+            this._nav.navigate(['/login']);
+            return Observable.throw(new Error(error.status));
+          } else {
 
-  //           this._nav.navigate(['/login']);
-  //         }
-  //       });
-  //   }
-  // }
-
-
-  // verify_tokenForlogin() {
-  //   if (isPlatformBrowser(this.platformId)) {
-  //     return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
-  //       .map((res: Response) => {
-  //         const token = res.json() && res.json().token;
-  //         if (token) {
-  //           this._nav.navigate(['/home']);
-  //         } else {
-  //           this._nav.navigate(['/login']);
-  //         }
-  //       }).catch((error: any) => {
-  //         if (error.status === 404) {
-  //           console.log('ok not submited submite');
-  //           this._nav.navigate(['/login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else if (error.status === 400) {
-  //           console.log('Not');
-  //           this._nav.navigate(['/owner_login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else if (error.status === 401) {
-  //           console.log('ok not submited submite');
-  //           this._nav.navigate(['/login']);
-  //           return Observable.throw(new Error(error.status));
-  //         } else {
-
-  //           this._nav.navigate(['/login']);
-  //         }
-  //       });
-  //   }
-  // }
+            this._nav.navigate(['/login']);
+          }
+        });
+    }
+  }
 
 
-  // verify_tokenWithNoRedirict() {
-  //   if (isPlatformBrowser(this.platformId)) {
+  verify_tokenForlogin() {
+    if (isPlatformBrowser(this.platformId)) {
+      return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
+        .map((res: Response) => {
+          const token = res.json() && res.json().token;
+          if (token) {
+            this._nav.navigate(['/home']);
+          } else {
+            this._nav.navigate(['/login']);
+          }
+        }).catch((error: any) => {
+          if (error.status === 404) {
+            console.log('ok not submited submite');
+            this._nav.navigate(['/login']);
+            return Observable.throw(new Error(error.status));
+          } else if (error.status === 400) {
+            console.log('Not');
+            this._nav.navigate(['/owner_login']);
+            return Observable.throw(new Error(error.status));
+          } else if (error.status === 401) {
+            console.log('ok not submited submite');
+            this._nav.navigate(['/login']);
+            return Observable.throw(new Error(error.status));
+          } else {
 
-  //     return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
-  //       .map(response => {
-  //         const token = response.json() && response.json().token;
-  //         if (token) {
-  //           return true;
-  //         } else {
-  //           return false;
-  //         }
-  //       }
-  //       )
-  //       .catch(err => Observable.of(false));
-  //   }
-  // }
+            this._nav.navigate(['/login']);
+          }
+        });
+    }
+  }
+
+
+  verify_tokenWithNoRedirict() {
+    if (isPlatformBrowser(this.platformId)) {
+
+      return this._http.post(this.ServerUrl + 'api-token-verify/', { 'token': localStorage.getItem('Authorization') })
+        .map(response => {
+          const token = response.json() && response.json().token;
+          if (token) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        )
+        .catch(err => Observable.of(false));
+    }
+  }
 
 
   // StoreRegistration(model: any[]) {
@@ -1160,70 +1147,15 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
       });
   }
 
-  changepass( currPass: string, pass1: string, pass2: string) {
+  changepass(username: string, currPass: string, pass1: string, pass2: string) {
 
-    return this.httpclient.post(this.ServerUrl + 'ChangePassword', {
-      // 'email': username,
+    return this._http.post(this.ServerUrl + 'ChangePassword', {
+      'email': username,
       'current': currPass,
       'pass1': pass1,
       'pass2': pass2
-    })  .map((res: Response) => {
-
-      if (res) {
-        if (res.status === 201 || res.status === 200) {
-          const responce_data = res.json();
-          return responce_data;
-        }
-      }
-    }).catch((error: any) => {
-
-      if (error.status !== 404) {
-        if (error.status === 401) {
-          console.log(error);
-
-          return Observable.throw(new Error(error.status));
-        }
-
-
-      } else {
-        console.log(error);
-        //   this._nav.navigate(['/login']);
-
-        return Observable.throw(new Error(error.status));
-      }
-    }); 
+    }).map((response: Response) => response.json());
   }
-
-  // reset_service(email) {
-  //   console.log(email);
-  //   return this._http.post(this.ServerUrl + 'forget_password_customer/', {
-  //     'user': email
-  //   })    .map((res: Response) => {
-
-  //     if (res) {
-  //       if (res.status === 201 || res.status === 200) {
-  //         const responce_data = res.json();
-  //         return responce_data;
-  //       }
-  //     }
-  //   }).catch((error: any) => {
-
-  //     if (error.status !== 404) {
-  //       if (error.status === 401) {
-  //         console.log(error);
-
-  //         return Observable.throw(new Error(error.status));
-  //       }
-
-
-  //     } else {
-  //       console.log(error);
-  //       //   this._nav.navigate(['/login']);
-
-  //       return Observable.throw(new Error(error.status));
-  //     }
-  //   });
-  // }
 
   UserConfirm(key: any) {
     return this._http.post(this.ServerUrl + 'activate_account/', {
@@ -1259,12 +1191,11 @@ post_signup_form(username: string, email: string, password: string, Fname, LName
     console.log(email);
     return this._http.post(this.ServerUrl + 'forget_password_customer/', {
       'user': email
-    })    .map((res: Response) => {
+    }).map((res: Response) => {
 
       if (res) {
-        if (res.status === 201 || res.status === 200) {
-          const responce_data = res.json();
-          return responce_data;
+        if (res.status === 201 || res.status === 200 || res.status === 202) {
+          console.log('Yahoooooo Status MAtch');
         }
       }
     }).catch((error: any) => {

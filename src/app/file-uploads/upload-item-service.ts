@@ -13,7 +13,6 @@ export class UploadItemService {
   ServerUrl = 'https://apis.dhaar.pk/products/';
 
   constructor(private _http : HttpClient) {
-       
 
   }
 

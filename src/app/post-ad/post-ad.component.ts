@@ -99,7 +99,7 @@ export class PostAdComponent implements OnInit {
   ngOnInit() {
      
     this.firstFormGroup = this._formBuilder.group({
-      Producttitle: ['',  Validators.compose([Validators.required,Validators.minLength(6)])]
+      Producttitle: ['',  Validators.compose([Validators.required])]
     });
     this.secondFormGroup = this._formBuilder.group({
       storeName: ['',  Validators.compose([Validators.required])],
@@ -368,8 +368,6 @@ export class PostAdComponent implements OnInit {
         //   this.model.Buyitnow = 0;
         // }
 
-        ////ye code 
-        this.Auction = false;
 
         console.log('ABC');
 
@@ -384,10 +382,15 @@ export class PostAdComponent implements OnInit {
             this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePricestatus
             ,this.list 
           )
-       if (this.discount == false){
-        this.model.discount_amount = null
-        this.model.discount_percentage = null
-       }
+        // console.log('Attributes:', Product_ID, this.User_ID, this.fileName, this.model.Title, this.CatName, subcat[0], subcat[2], this.model.condition, this.model.Addetail, this.Auction, this.model.Starting_Price, this.model.Buyitnow, this.model.ReservePrice, this.model.AuctionListing, this.model.FixedPrice, this.model.AddBestOffer, this.model.StoreName, this.model.Quantity, this.model.StartbidTime, this.model.EndbidTime)
+    //     Product_ID: any,  User_ID: any,  basex64: any, Title: any, CatName: any, SubCat: any, SubSubCat: any,
+    //  condition: any, Addetail: any, Auction: any, Starting_Price: any, 
+    //  Buyitnow: any, ReservePrice: any, AuctionListing: any, FixedPrice: any,
+    //   AddBestOffer: any,StoreName:any, Quantity: any,product_ad_active:any,
+    //AutoRelist:any,declineprice:any,atleastprcieaccept:any,
+    //   DicountStatus:any,Discountprice:any, Discountpersentage:any
+    //      "ListIndefinitly":ListIndefinitly,
+    // "ReserveStatus":ReserveStatus
         this.PostAdd.Add_PhoneAndTabletProduct_Product(Product_ID,  this.fileName, this.model.Title, this.CatName, subcat[0], 
           subcat[2], this.model.condition, this.model.Addetail, 
           this.Auction, this.model.Starting_Price,this.model.list,
@@ -395,8 +398,7 @@ export class PostAdComponent implements OnInit {
             this.model.FixedPrice, this.model.AddBestOffer, 
             this.model.StoreName, this.model.Quantity, this.product_ad_active,this.Automatic_Relisting ,
             this.model.declineprice,
-            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,
-            this.ReservePricestatus
+            this.model.atleastprcieaccept,this.discount,this.model.discount_amount,this.model.discount_percentage,this.ReservePricestatus
             ,this.list).subscribe();
 
       // } 

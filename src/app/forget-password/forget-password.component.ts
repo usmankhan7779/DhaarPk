@@ -25,14 +25,6 @@ export class ForgetPasswordComponent implements OnInit {
     this.obj.reset_service(id)
       .subscribe(
         data => {
-
-      //     return Response({'message':'Reset Password mail send Successfully'},status.HTTP_200_OK)
-      //     else:
-      //         return Response({'message':'User Not verify'},status.HTTP_200_OK)
-      // else:
-      //     return Response({'message': 'Email Not Exist'}, status.HTTP_200_OK)
-          // message: "User Not verify"
-          if (data.message == "Reset Password mail send Successfully"){
           Swal.fire({
             title: 'Please check your Inbox for Account Activation Instructions.',
             type: 'success',
@@ -43,43 +35,9 @@ export class ForgetPasswordComponent implements OnInit {
               this._nav.navigate(['/'])
             }
           })
-        
           console.log(data);
           this.Waitcall = false;
           this.isSend = true;
-        }
-        else if (data.message == "User Not verify"){
-          Swal.fire({
-            title: 'User Not Verfiy',
-            type: 'error',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
-          }).then((result) => {
-            // if (result.value) {
-            //   this._nav.navigate(['/'])
-            // }
-          })
-        
-          // console.log(data);
-          // this.Waitcall = false;
-          // this.isSend = true;
-        }
-        else if (data.message == "Email Not Exist"){
-          Swal.fire({
-            title: 'Your Email Does Not Exist',
-            type: 'error',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
-          }).then((result) => {
-            // if (result.value) {
-            //   this._nav.navigate(['/'])
-            // }
-          })
-        
-          // console.log(data);
-          // this.Waitcall = false;
-          // this.isSend = true;
-        }
         },
         error => {
           this.Waitcall = false;

@@ -263,15 +263,9 @@ uploadItemsToActivity() {
       if (new1 === new2) {
         this.match = true;
         this.Waitcall = true;
-        this.obj.changepass( old, new1, new2).subscribe((response) => {
+        this.obj.changepass(this.USerNameID, old, new1, new2).subscribe((response) => {
             /* this function is executed every time there's a new output */
-            // // console.log("VALUE RECEIVED: "+response);
-            // return Response({'msg':'PasswordChanged'},status=status.HTTP_200_OK)
-            // else:
-            //     return Response({'msg':'something went wrong'},status=status.HTTP_400_BAD_REQUEST)
-
-
-
+            // console.log("VALUE RECEIVED: "+response);
             this.Error = false;
             this.Waitcall = false;
             this.Right = true;
