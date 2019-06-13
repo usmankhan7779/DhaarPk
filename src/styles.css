@@ -28,7 +28,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0;    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .bid-timer--value .countdown{
@@ -54,10 +54,9 @@ body { margin: 0;    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-s
     color: rgba(0, 0, 0, .54) !important;
 }
 .sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
-    transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
+    transform: translateY(-25px) scale(.75) perspective(100px) translateZ(.001px);
     -ms-transform: translateY(-25px) scale(.75);
 }
-
 .sh-signup-form-fix .mat-select{
     font-size: 24px;
     font-weight: bold;
@@ -4359,8 +4358,7 @@ margin-top: 1px;
     font-size: 25px;
     box-shadow: none;
     padding-bottom: 0;
-    color: black;
-    margin-bottom: 20px;
+    color: black
 }
 
 .formsetup{
@@ -4562,6 +4560,7 @@ margin-top: 1px;
     padding: 25px 20px 10px;
     box-shadow: 0 5px 10px #ccc;
     border-radius: 5px;
+   
     
 }
 
@@ -4613,18 +4612,24 @@ margin-top: 1px;
 .socialLogin a.tw {
     background: #00aced
 }
-/* 
+
 .newuser {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     text-align: center;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
    
-} */
+}
 /* .for-signup{
  margin-top: -27px 
 } */
 
+.newuser a {
+    font-weight:300;
 
+    color:#23527c;
+    cursor: pointer
+}
 
 .userbtns .nav-tabs {
     border-bottom: none;
@@ -5980,8 +5985,7 @@ input.upload-input {
 .myads {
     box-shadow: 1px 1px 6px 2px #e9e9e9;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 8px
+    padding: 10px
 }
 
 .Watchlist-box {
@@ -6115,13 +6119,19 @@ select {
     font-weight: 900;
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 19px;
     color: #c00;
 
   }
   .del-icon{
       color: #c00
   }
+  .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #000!important;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: rgba(0,0,0,.47)!important;
+}
 
 /* End Side Bar */
 
@@ -13476,7 +13486,7 @@ button.button.pro-add-to-cart span {
 
 .tab-content {
     padding: 5px 0 0 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-size: 14px;
     line-height: 20px;
     margin-top: 5px;
@@ -14112,7 +14122,7 @@ input.input-text:focus,
 select:focus,
 textarea:focus {
     background-color: #fff;
-    /* border: 1px solid #ddd; */
+    border: 1px solid #ddd;
     padding: 8px 10px;
     outline: 0
 }
