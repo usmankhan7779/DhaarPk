@@ -12,7 +12,7 @@ import { Routing, AppRoutingProvider } from './app.routing';
 import { SocialLoginModule } from 'angular5-social-login';
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { ImageViewerModule } from 'ngx-image-viewer';
+ 
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -94,7 +94,8 @@ import { PagerService } from './pager.service';
 import { SellerDashboardMastersComponent } from './Layouts/seller-dashboard-masters/seller-dashboard-masters.component';
 import { UserDashboardMasterComponent } from './Layouts/user-dashboard-master/user-dashboard-master.component';
 import { AuthInterceptor } from './auth-guard/auth.interceptor';
-import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
+ 
+ 
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -131,7 +132,7 @@ import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component'
     FormsModule,
     MatFormFieldModule
   ],
-  declarations: [],
+  declarations: [  ],
 })
 export class MaterialModule { }
 // import { BuyerDashboardMastersComponent } from './layouts/buyer-dashboard-masters/buyer-dashboard-masters.component';
@@ -161,7 +162,7 @@ export class MaterialModule { }
     SlickModule,
     SocialLoginModule,
     RecaptchaModule.forRoot(),
-    ImageViewerModule.forRoot(),
+   
     OwlModule,
     Routing
   ],

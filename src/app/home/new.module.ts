@@ -9,7 +9,7 @@ import {HeaderComponent} from '../header/header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HeaderModule} from '../header/header.module';
 import {PreloaderFullModule} from '../components/preloader-full/preloader-full.module';
-import {ImageViewerModule, ImageViewerConfig, CustomEvent} from 'ngx-image-viewer';
+ 
 const loginRoutes: Routes = [
   { path: 'hahah', component: HeaderComponent }
 ];
@@ -53,7 +53,7 @@ const config = {
     ImageZoomModule,
     HeaderModule,
     PreloaderFullModule,
-    ImageViewerModule.forRoot(config),
+    
     // HomeModule,
     ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)

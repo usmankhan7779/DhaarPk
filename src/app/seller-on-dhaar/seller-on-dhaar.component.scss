@@ -1,0 +1,137 @@
+.banner{
+    background: url(../../assets/images/seller-on-dhaar.png) no-repeat center;
+    padding: 20px;
+    text-align: center;
+}
+.banner label{
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    margin: 63px 0 20px;
+}
+.banner p{
+    font-size: 33px;
+    color: #fff;
+}
+.selling-btn{
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 27px;
+    padding: 13px 40px;
+    border-radius: 30px;
+    margin: 20px;
+    box-shadow: 1px 1px 7px 2px #333;
+}
+.banner span{
+    display: block;
+    font-size: 20px;
+    color: #fff;
+}
+.banner span a{
+    color: #c00;
+    font-weight: bold;
+    font-size: 24px;
+}
+.feature-box{
+    margin: 0 auto 20px;
+}
+.feature{
+    text-align: center;
+    padding: 10px 0;
+}
+.feature p{
+    font-size: 20px;
+    color: #555;
+}
+.f-box{
+    padding: 20px 10px;
+    width: 33%;
+    float: left;
+}
+.f-box i{
+    display: inline-block;
+    float: left;
+    font-size: 40px;
+    color: #c00;
+    width: 59px;
+}
+.f-box p{
+    display: inline-block;
+    margin: 14px 0;
+    float: left;
+}
+.border-b{
+    border-bottom: 1px solid #ccc;
+}
+.border-r{
+    border-right: 1px solid #ccc;
+}
+.Steps-section{
+    background: #f3f3f3;
+    padding: 20px 0;
+}
+.Steps-section p{
+    font-size: 20px;
+    color: #555;
+    text-align: center;
+}
+.Steps-section .step-box{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+    width: 75%;
+    margin: 30px auto 15px;
+    background: #fff;
+    box-shadow: 1px 1px 7px 2px #ccc;
+    padding: 10px;
+    display: flex;
+}
+.step-box label{
+    position: absolute;
+    left: 19px;
+    top: -22px;
+    font-size: 25px;
+    background: #000;
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 30px;
+}
+.step-box label span{
+    background: #fff;
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+.step-box .detail{
+    width: 70%;
+}
+.step-box .detail h3{
+    margin: 18px 20px 0px;
+    color: #c00;
+    text-align: left;
+}
+.step-box .detail p{
+    text-align: left;
+    margin: 5px 20px;
+}
+.image{
+    width: 30%;
+}
+.image img{
+    width: 80%;
+    margin: 0 auto;
+}
+.need{
+    padding: 30px 0;
+}
+.need p{
+    font-size: 20px;
+    color: #555;
+    text-align: center;
+}
+.need p span{
+    color: #c00;
+}
