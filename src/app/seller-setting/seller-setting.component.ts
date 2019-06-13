@@ -4,8 +4,9 @@ import { isPlatformBrowser } from '@angular/common';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../log-in/log-in.services';
- 
+import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { PasswordValidation } from './password-validator.component';
 
 @Component({
   selector: 'app-seller-setting',
@@ -13,79 +14,77 @@ import Swal from 'sweetalert2';
   styleUrls: ['./seller-setting.component.css']
 })
 export class SellerSettingComponent implements OnInit {
-  
+  hide = true;
+  hide1 =true;
+  hide2=true;
   match = true;
-  Right = false;
-  Error = false;
+ 
   notsame = false;
   Waitcall = false;
   USerNameID: any;
   SessionstoreName: any;
+  signupForm: FormGroup;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
-              private obj: LoginService,
+              private obj: LoginService,private fb: FormBuilder,
               private _nav: Router) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.SessionstoreName = localStorage.getItem('StoreName');
-      // this.obj.verify_token().subscribe((response) => {
-      // this.USerNameID = this.jwtHelper.decodeToken(localStorage.getItem('Authorization'))['user_id'];
+      this.signupForm = this.fb.group({
+        'old': ['', Validators.compose([Validators.required])],
+        'new1': ['', Validators.compose([Validators.required])],
+        'new2': ['', Validators.compose([Validators.required])],
+  
+      },{
+        validator: PasswordValidation.MatchPassword // your validation method
+      });
 
-      console.log('Authorization is:',this.USerNameID);
-      //
-      //
-      //   },
-      //   (err) => {
-      //     console.log('ERROR:' + err);
-      //     this._nav.navigate(['/login']);
-      //   },
-      //   () => {
-      //   }
-      // );
+      
+  
     }
   }
 
 
   updatePassword(old: string, new1: string, new2: string) {
-    this.Error = false;
-    this.Right = false;
+     
 
-    if (old === new1 || old === new2) {
-        this.notsame = true;
-    } else {
-    if (new1 === new2) {
-      this.match = true;
-      this.Waitcall = true;
-      this.obj.changepass(this.USerNameID, old, new1, new2).subscribe((response) => {
+ 
+      this.obj.changepass(old, new1, new2).subscribe((data) => {
           /* this function is executed every time there's a new output */
-          // console.log("VALUE RECEIVED: "+response);
-          this.Error = false;
-          this.Waitcall = false;
-          this.Right = true;
-
-
-        },
-        (err) => {
-          this.Right = false;
-          this.Waitcall = false;
-          this.Error = true;
-          /* this function is executed when there's an ERROR */
-          //   console.log("ERROR: "+err);
-        },
-        () => {
-
-          /* this function is executed when the observable ends (completes) its stream */
-          //   console.log("COMPLETED");
+          console.log("VALUE RECEIVED: "+data['msg']);
+        //   // if(response.json() == "PasswordChanged"){  
+        //     return Response({'msg':'PasswordChanged'},status=status.HTTP_200_OK)
+        // else:
+        //     return Response({'msg':'something went wrong'},status=status.HTTP_400_BAD_REQUEST)  
+        if ( data.msg == "PasswordChanged") { 
+          Swal.fire({
+            title: 'You have been successfully update your passwrod',
+            type: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          })
+                // Swal.fire('You have been successfully update your passwrod.','','success');
         }
-      );
+        else if (data.msg == "something went wrong"){
+          Swal.fire({
+            title: 'Something Went Wrong',
+            type: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+          })
+          // Swal.fire('You have been successfully update your passwrod.','','success');
+
+        }
+          // }
+          // else {
+          // }
+        }
+        );        
+      
 
 
 
-    } else {
-
-      this.match = false;
-    }
-    }
+     
 
   }
 

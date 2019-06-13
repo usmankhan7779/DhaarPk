@@ -123,31 +123,32 @@ export class HeaderComponent implements OnInit {
 
       if (localStorage.getItem('UserID') !== null) {
         this.ValueRec = true;
-        this.obj.verify_tokenWithNoRedirict().subscribe((response) => {
+        // if (response) {
 
-          if (response) {
+          this.obj.GetUSerdetailsByUserId().subscribe(resSlidersData => {
+            this.GetUSerDOne = resSlidersData;
+            this.fname = this.GetUSerDOne['Fname'];
+            this.ValueRec = true;
 
-            this.obj.GetUSerdetailsByUserId().subscribe(resSlidersData => {
-              this.GetUSerDOne = resSlidersData;
-              this.fname = this.GetUSerDOne['Fname'];
-              this.ValueRec = true;
+            //  console.log('saqib hanif');
+            // console.log(  this.GetUSerDOne);
+          });
 
-              //  console.log('saqib hanif');
-              // console.log(  this.GetUSerDOne);
-            });
+        // } else {
 
-          } else {
+        // }
+        // this.obj.verify_tokenWithNoRedirict().subscribe((response) => {
 
-          }
-        },
-          (err) => {
-            console.log('ERROR:' + err);
-            alert(err);
-            // this._nav.navigate(['/login']);
-          },
-          () => {
-          }
-        );
+         
+        // },
+        //   (err) => {
+        //     console.log('ERROR:' + err);
+        //     alert(err);
+        //     // this._nav.navigate(['/login']);
+        //   },
+        //   () => {
+        //   }
+        // );
 
 
       }

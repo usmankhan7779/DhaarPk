@@ -177,7 +177,7 @@ export class BuyerDashboardServices {
 
   }
   // http://192.168.30.225:7000/sale/AddcustomerInvoice
-  paymentmethod(creditno , exp, ccv ,paymenttype , price , currency_code , card_type,InvoiceID ) {
+  paymentmethod(cardid,price,InvoiceID) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Token ' + localStorage.getItem('Authorization'));
@@ -189,16 +189,19 @@ export class BuyerDashboardServices {
 
 
         
-            "creditno":creditno ,
-            "exp":exp,
-            "ccv":ccv,
-            "paymenttype":paymenttype ,
-            "price":price,
-            "currency_code":currency_code ,
-            "card_type":card_type ,
-            "InvoiceID":InvoiceID
+            // "creditno":creditno ,
+            // "exp":exp,
+            // "ccv":ccv,
+            // "paymenttype":paymenttype ,
+            // "price":price,
+            // "currency_code":currency_code ,
+            // "card_type":card_type ,
+            // "InvoiceID":InvoiceID
 
             // "shipmentid":shipmentid
+            'cardid':cardid,
+            'price':price,
+          'InvoiceID':InvoiceID
 
         }, { headers: headers }).map((res: Response) => {
           if (res) {
