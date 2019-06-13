@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../log-in/log-in.services';
 import { isPlatformBrowser } from '@angular/common';
 import { RecapchaComponent } from '../recapcha/recapcha.component';
+import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormControl, FormGroup, AbstractControl } from '@angular/forms';
+import { PasswordValidation } from './password-validator.component';
 import { RecapchaService } from '../recapcha/recapcha.service';
 import Swal from 'sweetalert2';
 declare const $: any;
@@ -24,6 +26,7 @@ export class SignUpComponent implements OnInit {
   UserError = false;
   EmailPosterror = false;
   recaptcha: any;
+  signupForm: FormGroup;
   UserTyping = false;
   Userloading= false;
   EmailExist= false;
@@ -40,10 +43,19 @@ export class SignUpComponent implements OnInit {
   zip='';
   Address='';
   Pic='';
+  hide = true;
+  hide1  = true;
+  normalPattern = '[a-zA-Z0-9_.-]+?';
+  digitsOnly = '^[0-9,-]+$';
+  useronly='[a-zA-Z0-9_.]+';
+  email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+   passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$';
   constructor( @Inject(PLATFORM_ID) private platformId: Object,
                private singup: LoginService,
                private route: ActivatedRoute,
                private router: Router,
+               private fb: FormBuilder,
                private recha: RecapchaService,
 
   ) { }
@@ -61,7 +73,35 @@ export class SignUpComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/log-in';
 
+   
+    this.signupForm = this.fb.group({
+    
+      'FName': ['', Validators.compose([Validators.required])],
+      'LName' : ['', Validators.compose([Validators.required])],
+      'Email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+       'Username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
+       'Mobile': ['', Validators.compose([Validators.required])],
+      
+      'password': ['', Validators.compose([Validators.required, Validators.pattern(this.passwordPattern)])],
+      'RePassword': ['', Validators.compose([Validators.required, Validators.pattern(this.passwordPattern)])],
     }
+    ,
+      {
+        validator: PasswordValidation.MatchPassword // your validation method
+      }
+      );
+  }
+}
+   
+  isFieldValid(form: FormGroup, field: string) {
+    return !form.get(field).valid && form.get(field).touched;
+  }
+
+  displayFieldCss(form: FormGroup, field: string) {
+    return {
+      'has-error': this.isFieldValid(form, field),
+      'has-feedback': this.isFieldValid(form, field)
+    };
   }
   // resolved(captchaResponse: string) {
   //   console.log(`Resolved captcha with response ${captchaResponse}:`);
@@ -72,8 +112,8 @@ export class SignUpComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       
       console.log('agree value is:',this.model.Agree);
-
-    if (this.model.Agree) {
+ 
+    // if (this.model.Agree) {
 
 
       // if (this.recaptcha) {
@@ -81,10 +121,14 @@ export class SignUpComponent implements OnInit {
 
         if (this.Emailok) {
           // post_signup_form(username: string, email: string, password: string, Fname, LName, Mobile,Country,State,City,zip,Address,Pic) {
+// this.register.value['firstname'] 
+          // this.singup.post_signup_form(this.model.Username, this.model.Email, this.model.Password, this.model.FName, this.model.LName,
+          //  this.model.Mobile,this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
+            this.singup.post_signup_form(this.signupForm.value['Username'],this.signupForm.value['Email'],this.signupForm.value['password'],
+            this.signupForm.value['FName'],this.signupForm.value['LName'],this.signupForm.value['Mobile'],
+            this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
 
-          this.singup.post_signup_form(this.model.Username, this.model.Email, this.model.Password, this.model.FName, this.model.LName, this.model.Mobile,this.Country,this.State,this.City,this.zip,this.Address,this.Pic).subscribe((response) => {
-              /* this function is executed every time there's a new output */
-              // console.log("VALUE RECEIVED: "+response);
+          
               Swal.fire(
                 'Registered!',
                 'You have successfully Registered',
@@ -113,10 +157,10 @@ export class SignUpComponent implements OnInit {
       //   alert('Captcha Missing');
       //
       // }
-    } else {
-      console.log('agree is ', this.model.Agree);
-      // Swal.fire('You must agree to the terms  first.','','error');
-    }
+    // } else {
+    //   console.log('agree is ', this.model.Agree);
+    //   // Swal.fire('You must agree to the terms  first.','','error');
+    // }
 
 
     // this.router.navigate([this.returnUrl]);
