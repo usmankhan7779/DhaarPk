@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {TextMaskModule} from "angular2-text-mask";
  
 import {HeaderModule} from "../header/header.module";
-import { MaterialModule } from '../app.module';
 const loginRoutes: Routes = [
   { path: '', component: SellerSettingComponent }
 ];
@@ -22,10 +21,6 @@ const loginRoutes: Routes = [
     HeaderModule,
  
     FormsModule,
- 
-    
-    MaterialModule,
-    ReactiveFormsModule,
     // TextMaskModule,
 
     ReactiveFormsModule,

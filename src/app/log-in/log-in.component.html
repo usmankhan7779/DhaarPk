@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-
+ 
 <div class="listpgWraper">
   <div class="container">
     <div class="row">
@@ -19,14 +19,14 @@
             <h3>Sign in to Your Account</h3>
             <ul class="logic-from-1-sl">
               <li><a href="" (click)="signInWithFB()">
-                  <img src="../../assets/images/icon-facebook.png">
-                </a></li>
+                <img src="../../assets/images/icon-facebook.png">
+              </a></li>
               <li><a href="">
-                  <img src="../../assets/images/icon_twitter.png">
-                </a></li>
+                <img src="../../assets/images/icon_twitter.png">
+              </a></li>
               <li><a href="">
-                  <img src="../../assets/images/icon-Google.png">
-                </a></li>
+                <img src="../../assets/images/icon-Google.png">
+              </a></li>
             </ul>
           </div>
           <!-- login form -->
@@ -34,14 +34,14 @@
           <div *ngIf="login_error==true" class="alert alert-danger">
             <strong>Error!</strong> Invalid Login Details
           </div>
-          <form role="form" [formGroup]="login" class="sh-signup-form-fix login-form" (ngSubmit)="f.form.valid && captcha && loged_in()"
-            #f="ngForm">
+            <form role="form" class="login-form" (ngSubmit)="f.form.valid && captcha && loged_in(username.value, password.value)"
+            #f="ngForm" novalidate>
 
             <div class="formpanel">
-
+              
               <div class="formrow">
                 <div class="form-group label-overlay">
-                  <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                       <div class="mat-div">
                           <label for="first-name" class="mat-label">Username</label>
                           <input type="text" class="mat-input" name="username" [(ngModel)]="model.username"
@@ -49,36 +49,28 @@
                         </div>
                    
                     <div *ngIf="f.submitted && !username.valid" class="help-block">*Username is required</div>
-                  </div> -->
-                  <mat-form-field class="width100 margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
-                    <input matInput id="username" placeholder="Enter Username" formControlName="username"
-                      [(ngModel)]="username">
-                    <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value">
-                      <strong>This Field cannot be empty</strong></mat-error>
+                  </div>
+                  <!-- <mat-form-field  [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                      <input matInput id="username" placeholder="Enter Username" formControlName="username" [(ngModel)]="username">
+                      <input matInput type="text" name="username"   placeholder="Enter Username" [(ngModel)]="model.username" #username="ngModel" required>
+                      <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value"><strong>This Field cannot be empty</strong></mat-error>
+          
+                    </mat-form-field> -->
 
-                  </mat-form-field>
-
-                </div>
+                </div> 
               </div>
               <div class="formrow">
-                <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                   <div class="mat-div">
-                    <label for="first-name" class="mat-label">Password</label>
+                    <label for="first-name" class="mat-label">password</label>
                     <input  id="password-field" type="password" class="mat-input" name="password" [(ngModel)]="model.password"
                     #password="ngModel" required>
                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                   </div>
               
                   <div *ngIf="f.submitted && !password.valid" class="help-block">*Password is required</div>
-                </div> -->
-                <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="width100">
-                  <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"
-                    placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This
-                      Field cannot be empty</strong></mat-error>
-
-                </mat-form-field>
+                </div>
+                
                 <!-- <mat-form-field  [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                     <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
                     <input matInput type="password"   name="password" [(ngModel)]="model.password" #password="ngModel" required>
@@ -88,26 +80,30 @@
                   </mat-form-field> -->
                 <div class="pull-left">
                   <!-- <a [routerLink]="['/forget-password']"> Forgot Password? </a> -->
-                  <div class="checked-box">
+                  <!-- <div  class="checked-box">
                     <label class="switch">
-                      <mat-slide-toggle [(ngModel)]="staySignedIn" checked="true"   > Stay Signed In </mat-slide-toggle>
+                        <input type="checkbox">
+                        <span class="slider round"></span>
                     </label>
-                    <a class="color-blue" [routerLink]="['/forget-password']"> Forgot Password? </a>
+                    Stay signed in 
+                    <a [routerLink]="['/forget-password']"> Forgot Password? </a>
+                  </div> -->
+                  <div class="sign-in-relative-pos">
+                    <mat-slide-toggle id="slid"  type="checkbox" checked data-toggle="toggle">  Stay Signed In</mat-slide-toggle>
                   </div>
                   <a class="forget-password" [routerLink]="['/forget-password']"> Forgot Password? </a>
                 </div>
-
+                
                 <div class="formrow pull-right">
                   <div class="form-group">
                     <app-recapcha></app-recapcha>
-
+                 
                   </div>
                 </div>
               </div>
               <div *ngIf="Waitcall" class="alert  alert-info">
                 <p class="">
-                  <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
-                  </span><span>
+                  <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>
                     &nbsp; Loading ...</span>
 
                 </p>
@@ -133,17 +129,18 @@
           <!-- login form  end-->
 
           <!-- sign up form -->
-          <div class="newuser">Don't have an account? <a class="color-blue" [routerLink]="['/sign-up']">Sign Up</a>
-          </div>
+          <div class="newuser">Don't have an account?<a class="sign-up-login" [routerLink]="['/sign-up']">Sign Up</a></div>
           <div class="newuser terms-box">
-            <a class="color-blue" [routerLink]="['/terms-use']" target="_blank">Terms of Use</a>
-            <a class="color-blue" [routerLink]="['/privacy-policy']" target="_blank">Privacy Policy</a>
+            <a [routerLink]="['/terms-use']" target="_blank">Terms of Use</a> 
+            <a [routerLink]="['/privacy-policy']" target="_blank">Privacy Policy</a>
           </div>
 
-
+         
 
         </div>
       </div>
     </div>
   </div>
 </div>
+
+ 

@@ -44,56 +44,6 @@
 .delivery-box{
     padding: 0 10px 0;
 }
-.summary-box{
-    padding: 10px;
-    background: #f4f4f7;
-    box-shadow: 1px 1px 7px 2px #ccc;
-    margin-top: 21px;
-    border-radius: 5px;
-}
-.sub-total{
-    display: inline-block;
-    width: 100%;
-}
-.sub-total .label{
-    font-size: 12px;
-    color: #545454;
-    float: left;
-    font-weight: bold;
-}
-.sub-total .price{
-    font-size: 12px;
-    color: #545454;
-    float: right;
-    font-weight: bold;
-}
-.total{
-    display: inline-block;
-    width: 100%;
-}
-.total .label{
-    font-size: 16px;
-    color: #000;
-    float: left;
-    font-weight: bold;
-}
-.total .price{
-    font-size: 16px;
-    color: #c00;
-    float: right;
-    font-weight: bold;
-}
-.brand-logos{
-    margin: 0;
-}
-.brand-logos li{
-    float: left;
-    list-style: none;
-}
-.brand-logos li a img{
-    width: 75px;
-    margin: 0 6px;
-}
 
 .cart-body,
 .checkout,

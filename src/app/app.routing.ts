@@ -25,7 +25,7 @@ const appRoutes: Routes = [
       { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordModule' },
       // { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
       { path: 'about-us', loadChildren: './about-uss/about-uss.module#AboutUssModule' },
-       { path: 'seller-on-dhaar', loadChildren: './seller-on-dhaar/seller-on-dhaar.module#sellerondhaarModule'},
+      // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]},
       // { path: 'active-ad', loadChildren: './active-ad/active-ad.module#ActiveAdModule', canActivate: [AuthGuard]},
       // { path: 'pending-ad', loadChildren: './pending-ad/pending-ad.module#PendingAdModule', canActivate: [AuthGuard]},
       { path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsModule' },
@@ -109,9 +109,6 @@ const appRoutes: Routes = [
       { path: 'user-shipment', loadChildren: './usershipment/usershipment.module#UserShipmentModule', canActivate: [AuthGuard] },
       { path: 'seller-purchasing-invoice', loadChildren: './seller-purchasing-invoice/seller-purchasing-invoice.module#SellerPurchasingInvoiceModule', canActivate: [AuthGuard] },
       { path: 'post-ad', loadChildren: './post-ad/post-ad.module#PostAdModule', canActivate: [AuthGuard] },
-      
-      { path: 'add-payment-method', loadChildren: './add-payment-method/add-payment-method.module#AddPaymentMethod', canActivate: [AuthGuard] },
-
       // SellerSettingStoreUpdateModule
 
     ]

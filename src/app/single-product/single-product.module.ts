@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { SingleProductComponent } from "./single-product.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageZoomModule } from "angular2-image-zoom";
+import { ImageViewerModule } from "ngx-image-viewer";
 import { HeaderModule } from "../header/header.module";
 import { NewModule } from '../home/new.module';
  
@@ -23,7 +24,7 @@ const loginRoutes: Routes = [
     FormsModule,
     HeaderModule,
     ImageZoomModule,
-    
+    ImageViewerModule.forRoot(),
     NewModule,
     
 

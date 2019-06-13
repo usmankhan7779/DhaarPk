@@ -198,7 +198,6 @@ export class HomeService {
       // console.log('pofile', localStorage.getItem('Authorization'));
       return this._http.get(this.ServerUrl + 'getFunProductsHome/', { headers: headers }).map(response => response.json());
      
-      // https://apis.officedoor.ai/office/property_detail_by_id/465/
   }
   GetlikeforyouPageNumber(page: any) {
   

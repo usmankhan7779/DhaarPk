@@ -16,7 +16,7 @@
                     <li class="active">
                         <a data-toggle="pill" href="#card">
                             <i class="fas fa-credit-card"></i>
-                            Credit/Debit Card
+                            Cradit/Debit Card
                         </a>
                     </li>
                     <li>
@@ -42,22 +42,15 @@
                             </div>
                             <div id="pricing-switch" class="">
                                 <div class="col-md-12" *ngIf="!isright">
-                                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix" >
-                                      <table>
-                                          <tr>
-                                              <th>
-                                                  name
-                                              </th>
-                                          </tr>
-                                          <tr *ngFor="let GetUser of GetUSeradress;let i = index">
-                                            <input  placeholder="Default Bill addres"
-                                            type="radio"  data-toggle="toggle" required
-                                           name="makeshippingaddress" (click)="get_id(GetUser.id)"
-                                         >
-                                         {{GetUser.nickname}}
-                                          </tr>
-                                      </table>
-                                         
+                                    <div class="col-lg-12 Saved-card-sel-list sh-signup-form-fix">
+                                        <mat-form-field class="width50">
+                                            <mat-label>Favorite food</mat-label>
+                                            <mat-select>
+                                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                {{food.viewValue}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
                                     </div>
                                 </div>
                                 <div class="col-md-12" *ngIf="isright">
@@ -75,16 +68,16 @@
                                                                 <g ></g>
                                                             </g>
                                                         </svg></div>
-                                                    <div class="card-holder" style="top: 29px;left: 221px;">
-                                                        <label> Card Holder  </label>
-                                                        <div >{{signupForm.controls.cardholdername.value}}  </div>
+                                                    <div class="card-holder" style="top: 29px;left: 221px;"><label
+                                                            >Cardholder</label>
+                                                        <div >fsdfdsa</div>
                                                     </div>
                                                     <div class="card-holder"><label >Card Number</label>
-                                                        <div >{{signupForm.controls.cardnumber.value}} </div>
+                                                        <div >fasdfas</div>
                                                     </div>
                                                     <div class="card-expiration-date"><label >Expiry
                                                             Date</label>
-                                                        <div >{{signupForm.controls.expiry.value}}</div>
+                                                        <div >dasd</div>
                                                     </div>
                                                 </div>
                                                 <div class="back">
@@ -100,10 +93,10 @@
                                                         </svg></div>
                                                     <div class="card-expiration-date"><label >Expiry
                                                             Date</label>
-                                                        <div >{{signupForm.controls.expiry.value}}</div>
+                                                        <div >sadfas</div>
                                                     </div>
                                                     <div class="ccv"><label >CCV</label>
-                                                        <div >{{signupForm.controls.ccv.value}}</div>
+                                                        <div >qsadsad</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,233 +106,78 @@
                                                 <div  class="contact_form">
                                                     <div class="panel-body margin-top-145 padding-bottom-">
                                                         <div class="col-lg-6 margin-t-minas4">
-                                                            <mat-form-field class="example-full-width" >
-                                                                        <!-- <mat-label>Crad Type</mat-label>
-                                                                        <mat-select  formControlName="card_type"    
-                                                                        (change)="ShowButton(card_type.value)">
-                                                                        <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">
-                                                                            {{card_get_datat.viewValue}}
+                                                            <mat-form-field class="example-full-width">
+                                                                        <mat-label>Crad Type</mat-label>
+                                                                        <mat-select [formControl]="signupForm.controls['FName']">
+                                                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                                            {{food.viewValue}}
                                                                         </mat-option>
-                                                                        </mat-select> -->
-                                                                        <mat-select placeholder="Card Type" formControlName="card_type"
-                                                                        (click)="ShowButton(signupForm.controls.card_type.value)" >
-                                                                        <mat-option *ngFor="let card_get_datat of card_opeation"
-                                                                            [value]="card_get_datat.value">
-                                                                            {{card_get_datat.viewValue}}
-                                                                        </mat-option>
-                                                                    </mat-select>
-                                                                        <!-- <mat-error
-                                    *ngIf="signupForm.controls.card_type.touched && signupForm.controls.card_type.invalid">
-                                    <mat-error *ngIf="signupForm.controls.card_type.errors.required"> Card Type cannot be
-                                        empty
-                                    </mat-error>
-                                </mat-error> -->
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <!-- <mat-form-field>
-                                                            <mat-select placeholder="Type Card" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
-                                                              <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">{{card_get_datat.viewValue}}</mat-option>
-                                                            </mat-select>
-                                                          </mat-form-field> -->
-                                                        <div class="col-lg-6">
-                                                            <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Card Holder Name"    formControlName="cardholdername"  >
+                                                                        </mat-select>
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Nick Name"  formControlName="nickname"    >
+                                                                <input matInput placeholder="Card Holder Name" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
                                                         </div>
-                                                        <div class="col-lg-6" *ngIf="cardnumber">
-                                                        <mat-form-field class="example-full-width" >    
-                                                                <input matInput placeholder="16 Digit Card Number"
-                                                                 [textMask]="{mask: cardmask}" 
-                                                                formControlName="cardnumber"   >
-                                                                <mat-error *ngIf="signupForm.controls.cardnumber.touched && signupForm.controls.cardnumber.invalid">
-                                                                    <mat-error *ngIf="signupForm.controls.cardnumber.errors?.required"> Card number cannot be
-                                                                        empty
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.cardnumber.errors?.minlength"> Card number must be
-                                                                        atleast{{signupForm.controls.cardnumber.errors?.minlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.cardnumber.errors?.maxlength"> Card Number must be at
-                                                                        atmost{{signupForm.controls.cardnumber.errors?.maxlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.cardnumber.hasError('pattern')"> Card number must be
-                                                                        only
-                                                                        in digits. </mat-error>
-                                                                </mat-error>
-                                                        </mat-form-field>
-                                                        </div>
-                                                        <div class="col-lg-6" *ngIf="cardnumber4">
-                                                            <mat-form-field class="example-full-width" >    
-                                                                    <input matInput placeholder="15 Digit Card Number"
-                                                                     [textMask]="{mask: cardmask}" 
-                                                                    formControlName="cardnumber4"   >
-                                                                    <mat-error *ngIf="signupForm.controls.cardnumber4.touched && signupForm.controls.cardnumber4.invalid">
-                                                                        <mat-error *ngIf="signupForm.controls.cardnumber4.errors.required"> Card number cannot be
-                                                                            empty
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="signupForm.controls.cardnumber4.errors.minlength"> Card number must be
-                                                                            atleast{{signupForm.controls.cardnumber4.errors.minlength.requiredLength}}digits long.
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="signupForm.controls.cardnumber4.errors.maxlength"> Card Number must be at
-                                                                            atmost{{signupForm.controls.cardnumber4.errors.maxlength.requiredLength}}digits long.
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="signupForm.controls.cardnumber4.hasError('pattern')"> Card number must be
-                                                                            only
-                                                                            in digits. </mat-error>
-                                                                    </mat-error>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Nick Name" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
-                                                            </div>
-
-                                                       
-                                                        <div class="col-lg-6" *ngIf="ccv">
+                                                        </div>
+                                                        <div class="col-lg-6">
                                                         <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="CVV" type="text" maxlength="3" minlength="3"   formControlName="ccv" >
-                                                                <mat-error *ngIf="signupForm.controls.ccv.touched && signupForm.controls.ccv.invalid">
-                                                                    <mat-error *ngIf="signupForm.controls.ccv.errors.required"> CVV cannot be empty
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.ccv.errors.minlength"> CVV must be
-                                                                        atleast{{signupForm.controls.ccv.errors.minlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.ccv.errors.maxlength"> CVV must be at
-                                                                        atmost{{signupForm.controls.ccv.errors.maxlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.ccv.hasError('pattern')"> CVV must be only in
-                                                                        digits.
-                                                                    </mat-error>
-                                                                </mat-error>
+                                                                <input matInput placeholder="Cradit Card Number" [formControl]="signupForm.controls['FName']" required #FName>
                                                         </mat-form-field>
                                                         </div>
-                                                        <div class="col-lg-6" *ngIf="ccv4">
-                                                            <mat-form-field class="example-full-width">    
-                                                                    <input matInput placeholder="CVV" type="text" maxlength="3" minlength="3"   formControlName="ccv4" >
-                                                                    <mat-error *ngIf="signupForm.controls.ccv4.touched && signupForm.controls.ccv4.invalid">
-                                                                        <mat-error *ngIf="signupForm.controls.ccv4.errors.required"> CVV cannot be empty
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="signupForm.controls.ccv4.errors.minlength"> CVV must be
-                                                                            atleast{{signupForm.controls.ccv4.errors.minlength.requiredLength}}digits long.
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="form.controls.ccv4.errors.maxlength"> CVV must be at
-                                                                            atmost{{signupForm.controls.ccv4.errors.maxlength.requiredLength}}digits long.
-                                                                        </mat-error>
-                                                                        <mat-error *ngIf="signupForm.controls.ccv4.hasError('pattern')"> CVV must be only in
-                                                                            digits.
-                                                                        </mat-error>
-                                                                    </mat-error>
-                                                            </mat-form-field>
-                                                            </div>
-                                                        <!-- <div class="col-sm-6 col-md-6 col-xs-12" *ngIf="cvv">
-                                                            <mat-form-field> <input matInput type="text" maxlength="3" minlength="3" placeholder="CVV"
-                                                                    formControlName="cvv">
-                                                                <mat-error *ngIf="form.controls.cvv.touched && form.controls.cvv.invalid">
-                                                                    <mat-error *ngIf="form.controls.cvv.errors.required"> CVV cannot be empty
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv.errors.minlength"> CVV must be
-                                                                        atleast{{form.controls.cvv.errors.minlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv.errors.maxlength"> CVV must be at
-                                                                        atmost{{form.controls.cvv.errors.maxlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv.hasError('pattern')"> CVV must be only in
-                                                                        digits.
-                                                                    </mat-error>
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div> -->
-                                                        <!-- <div class="col-sm-6 col-md-6 col-xs-12" *ngIf="cvv4">
-                                                            <mat-form-field> <input matInput type="text" maxlength="4" minlength="4"
-                                                                    placeholder="CVV" formControlName="cvv4">
-                                                                <mat-error *ngIf="form.controls.cvv4.touched && form.controls.cvv4.invalid">
-                                                                    <mat-error *ngIf="form.controls.cvv4.errors.required"> CVV cannot be empty
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv4.errors.minlength"> CVV must be
-                                                                        atleast{{form.controls.cvv4.errors.minlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv4.errors.maxlength"> CVV must be at
-                                                                        atmost{{form.controls.cvv4.errors.maxlength.requiredLength}}digits long.
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="form.controls.cvv4.hasError('pattern')"> CVV must be only in
-                                                                        digits.
-                                                                    </mat-error>
-                                                                </mat-error>
-                                                            </mat-form-field>
-                                                        </div> -->
                                                         <div class="col-lg-6">
-                                                            <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Expiry Date (MM/YY)"   [textMask]="{mask: masks}" type="text" 
-                                                                 formControlName="expiry" #expiry
-                                                                 (change)="chek(expiry.value)">
-                                                                 <mat-error *ngIf="signupForm.controls.expiry.touched && signupForm.controls.expiry.invalid">
-                                                                    <mat-error *ngIf="signupForm.controls.expiry.errors.required"> Expiry date cannot be
-                                                                        empty
-                                                                    </mat-error>
-                                                                    <mat-error *ngIf="signupForm.controls.expiry.hasError('pattern')"> Expiry date must be
-                                                                        in
-                                                                        MM/YY format. </mat-error>
-                                                                </mat-error>
-                                                                <span class="card-error" *ngIf="expiry <= '19'">
-                                                                    Invalid Expiry Date
-                                                                </span>
-                                                            </mat-form-field>
-                                                            <!-- <mat-form-field> <input matInput placeholder="Expiry Date (MM/YY)"
-                                                                [textMask]="{mask: masks}" type="text" formControlName="expirydate" #exp
-                                                                (change)="chek(exp.value)">
-                                                            <mat-error *ngIf="form.controls.expirydate.touched && form.controls.expirydate.invalid">
-                                                                <mat-error *ngIf="form.controls.expirydate.errors.required"> Expiry date cannot be
-                                                                    empty
-                                                                </mat-error>
-                                                                <mat-error *ngIf="form.controls.expirydate.hasError('pattern')"> Expiry date must be
-                                                                    in
-                                                                    MM/YY format. </mat-error>
-                                                            </mat-error>
-                                                            <span class="card-error" *ngIf="expirydate <= '19'">
-                                                                Invalid Expiry Date
-                                                            </span>
-                                                        </mat-form-field> -->
+                                                        <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="CVV" [formControl]="signupForm.controls['FName']" required #FName>
+                                                        </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Country"  formControlName="country">
+                                                                <input matInput placeholder="Expiry Date (MM/YY)" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="province"  formControlName="province" >
+                                                                <input matInput placeholder="Zip Code" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="City"  formControlName="city">
-                                                            </mat-form-field>
-                                                        </div>
-                                                        <mat-slide-toggle [checked]="false" formControlName="default">defulat</mat-slide-toggle>
-                                                        <!-- <div class="col-lg-6">
-                                                            <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="State"  formControlName="Producttitle" required #FName>
+                                                                <input matInput placeholder="Street" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <mat-form-field class="example-full-width">    
-                                                                <input matInput placeholder="Country"  formControlName="Producttitle" required #FName>
+                                                                <input matInput placeholder="City" [formControl]="signupForm.controls['FName']" required #FName>
                                                             </mat-form-field>
-                                                        </div> -->
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="State" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <mat-form-field class="example-full-width">    
+                                                                <input matInput placeholder="Country" [formControl]="signupForm.controls['FName']" required #FName>
+                                                            </mat-form-field>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 text-center">
-                                                    <button (click)="save()"class="btn btn-fill"
-                                                        >Place Order</button> 
-                                                    </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-fill"
+                            (click)="onSubmit()">Place Order</button> 
+                        </div>
                 </div>
 
                 <div class="tab-pane fade" id="menu1">
@@ -351,7 +189,7 @@
                             <p>You can pay in cash to our courier when you receive the goods at your doorstep.</p>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-fill"
-                                >Confirm Order</button>
+                                (click)="onSubmit()">Confirm Order</button>
                             </div>
                         </div>
 
@@ -360,31 +198,8 @@
 
             </div>
         </div>
-        <div class="col-lg-4 summary-box">
-            <h3>Order Summary</h3>
-            <div class="sub-total">
-                <span class="label">Subtotal(1 items and shipping fee included)</span>
-                <span class="price">Rs :{{viewtotal}}</span>
-            </div>
-            <div class="total">
-                <span class="label" >Total Amount</span>
-                <span class="price" >Rs :{{viewtotal}}</span>
-            </div>
-            <ul class="brand-logos">
-                <li>
-                    <a><img src="../../assets/images/Norton_av_logo.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/logo-pci-dss-200.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/visa_PNG7.png"></a>
-                </li>
-                <li>
-                    <a><img src="../../assets/images/mastercard-securecode.png"></a>
-                </li>
-            </ul>
-
+        <div class="col-lg-4">
+            
         </div>
     </div>
 

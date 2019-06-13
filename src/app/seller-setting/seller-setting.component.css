@@ -14,9 +14,7 @@
  ::-webkit-input-placeholder {
     font-size: 13px!important;
  }
- .border-bottom-no{
-      border-bottom: none !important;
-    }
+ 
  :-moz-placeholder { /* Firefox 18- */
        font-size: 13px!important;
  }
@@ -32,10 +30,6 @@
       padding: 4px;
       background-color: black;
   }
-  .mat-form-field-infixxx{
-      display: block;
-      position: relative;
-      flex: auto;
-      min-width: 0;
-      width: 400px;
+  .password-change{
+        float:right;
   }

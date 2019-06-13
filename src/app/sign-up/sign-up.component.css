@@ -25,18 +25,9 @@
  .mat-input{
       padding: 0 0 5px;
 }
-.color-blue{
-      color: blue;
-}
-.color-blue:hover{
-      color: #c00;
-}
-.margin-b-10-i{
-      margin-bottom: 10px; 
-    }
 .mat-label{
       font-size: 16px;
-      color: rgba(0, 0, 0, .54) !important;
+      color: #616161!important;
       font-weight: bold;
       transition: ease-in-out .5s;
  }
@@ -61,11 +52,17 @@
       display: block;
       box-shadow: 0 14px 26px -12px rgba(0,0,0,.42),0 4px 23px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2)!important;
   }
+  .for-signup{
+      font-weight: 600;
+      margin-top: 10px;
+  }
+  .signin-page{
+      color: #0275d8!important
+  }
 
-  .form-group {
-      margin-bottom: 8px;
-    }
-.recapcha{
-      float: right;
-    margin-top: -85px;
-}
+  .newuser {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 16px;
+     
+  }

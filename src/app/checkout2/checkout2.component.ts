@@ -320,7 +320,7 @@ getcartid;
          if(tmps.default_shipment_address == true){
           this.viewidofshippmentaddress = tmps.id;
 
-            alert(tmps.id)
+          //  alert(tmps.id)
          }
        }
       // console.log(this.payaddressid.default_shipment_address == )
@@ -508,14 +508,9 @@ getcartid;
               console.log(this.list,'fatimaaaaaaaaaa')
             //  this.list.push(checkout.product.ProductID,checkout.Quantity,checkout.product.User_ID)
             }
-            
-
             this.httpbuyerService.proceesedtocheckout(this.Total,this.list, this.viewidofshippmentaddress).subscribe(
               data => {
                this.Getinvoiceamount= data.InvoiceID;
-               localStorage.setItem("totalprice",this.Total.toString());
-               localStorage.setItem("InvoiceID",data.InvoiceID);
-               this._nav.navigate(['/payment']);
               
                console.log(this.Getinvoiceamount)
             // this.OrderInvoiceid= this.Getinvoiceamount.InvoiceID;
@@ -668,10 +663,8 @@ invoiceproductid;
     if (isPlatformBrowser(this.platformId)) {
       console.log(this.model);
       console.log('id value is:', localStorage.getItem('UserID'));
-      // this.httpbuyerService.paymentmethod(this.model.creditno, this.exp, this.model.ccv, 
-      //   this.paymenttype, this.price, this.currency_code, this.card_type,this.Getinvoiceamount).subscribe(data => {
-          this.httpbuyerService.paymentmethod(this.model.creditno, this.exp, this.model.ccv, 
-            ).subscribe(data => {
+      this.httpbuyerService.paymentmethod(this.model.creditno, this.exp, this.model.ccv, this.paymenttype, this.price, this.currency_code, this.card_type,this.Getinvoiceamount).subscribe(data => {
+
         // this.httpbuyerService.SendEmail(localStorage.getItem('InvoiceID')).subscribe(data => {
           console.log('cartproduct Successssssssss');
         alert("paymentmethod")

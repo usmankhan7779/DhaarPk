@@ -1,77 +1,87 @@
- 
+<!-- <app-header></app-header> -->
 
-      <form role="form" class="login-form" [formGroup]="signupForm" *ngIf="signupForm" (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
+
+<!-- Page Title start -->
+<!--<div class="pageTitle">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<h1 class="page-heading">Change Password</h1>-->
+      <!--</div>-->
+      <!--<div class="col-md-6 col-sm-6">-->
+        <!--<div class="breadCrumb"><a href="#">Dashboard</a> <span> Change Password</span></div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+<!--</div>-->
+<!-- Page Title End -->
+<!-- 
+
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <ul class="usernavdash">
+            <li ><a [routerLink]="['/store-view']"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Visit my ALL Store</a></li>
+           <li ><a [routerLink]="['/select-category']"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Add New Product</a></li>
+          <li ><a [routerLink]="['/dashboard']"><i class="fa fa-tachometer" aria-hidden="true"></i>Seller Dashboard</a></li>
+          <li ><a [routerLink]="['/seller-product-setting-store']"><i class="fa fa-cog" aria-hidden="true"></i>Seller Product Setting</a></li>
+
+          <li><a [routerLink]="['/pending-ad']"><i class="fa fa-check" aria-hidden="true"></i> My Pending Ads</a></li>
+          <li ><a [routerLink]="['/active-ad']"><i class="fa fa-check-square" aria-hidden="true"></i> My Active Ads</a></li>
+          <li><a [routerLink]="['/my-bids']"><i class="fa fa-laptop" aria-hidden="true"></i> My Bids</a></li>
+          <li><a [routerLink]="['/seller-offer']"><i class="fa fa-laptop" aria-hidden="true"></i> My Offers</a></li>
+          <li><a [routerLink]="['/seller-purchasing']"><i class="fa fa-shopping-cart" aria-hidden="true"></i>My Purchases</a></li>
+          <li><a [routerLink]="['/watch-Product']"><i class="fa fa-list" aria-hidden="true"></i> My Watchlist</a></li>
+          <li><a [routerLink]="['/store-registration']"><i class="fa fa-paper-plane" aria-hidden="true"></i> Add New Store  Dhaar.pk</a></li> <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+           
+          <li><a [routerLink]="['/manage-coupons']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Manage Coupons</a></li>
+          <li><a [routerLink]="['/seller-user-detail']"><i class="fa fa-user" aria-hidden="true"></i> My Details</a></li>
+          <li class="active"><a [routerLink]="['/seller-setting']"><i class="fa fa-lock" aria-hidden="true"></i> Account Setting</a></li>
+
+          <li ><a [routerLink]="['/login']" [queryParams]="{ Logout:'yes'}" (click)="clearSessionstoreage()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+        </ul>
+        <div class="adimages"> <a [routerLink]="['/home']"> <img src="assets/assets2/images/large-ad.jpg" alt="google ad"> </a> </div>
+      </div> -->
+
+      <form role="form" class="login-form" (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
 
         <div class="col-md-10 col-sm-12 change-password">
 
 
           <div class="userAccount">
             <h5 class="password-heading">Change Password</h5>
-            <!-- <div *ngIf="Error"  class="alert alert-danger">
+            <div *ngIf="Error"  class="alert alert-danger">
               <strong>Error </strong> While updating record.
-            </div> -->
-            <!-- <div *ngIf="notsame"  class="alert alert-danger">
+            </div>
+            <div *ngIf="notsame"  class="alert alert-danger">
               <strong>Error! </strong>New password must be different.
-            </div> -->
-            <!-- <div *ngIf="Right" class="alert alert-success">
+            </div>
+            <div *ngIf="Right" class="alert alert-success">
               <strong>Password Updated!</strong>
-            </div> -->
+            </div>
             <!-- form -->
-            <!-- <mat-form-field class="margin-b-10-i">
-              <input class="border-bottom-no" matInput type="password" id="password" [type]="hide ? 'password' : 'text'" placeholder="Old Password" formControlName="oldpass"[(ngModel)]="oldpass">
-              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="signupForm.controls.oldpass.value == ''"><strong>Cannot be empty</strong></mat-error>
-            </mat-form-field> -->
             <div class="formpanel">
               <div class="formrow">
-                
-                  <mat-form-field class="mat-form-field-infixxx"  >
-                  <input matInput type="password"  name="old" class="border-bottom-no" 
-                   [type]="hide ? 'password' : 'text'" ng-Model="model.old" #old 
-                   formControlName="old" placeholder="Enter Current Password" value="secret">  
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="signupForm.controls.old.value == ''"><strong>Cannot be empty</strong></mat-error>
-                  <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
-              </mat-form-field>
-                </div>
-              <div class="formrow">
-               <mat-form-field class="mat-form-field-infixxx"  >
-                <input matInput type="password" name="new1" class="border-bottom-no" 
-                 ng-Model="model.new1" [type]="hide1 ? 'password' : 'text'"  #new1 placeholder="Enter New Password"
-                 formControlName="new1" value="secret">       
-                 <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                <mat-error *ngIf="signupForm.controls.new1.value == ''"><strong>Cannot be empty</strong></mat-error>
-                <!-- <mat-error *ngIf="signupForm.controls.pass1.value == ''"><strong>Cannot be empty</strong></mat-error> -->
-            <mat-error *ngIf="(signupForm.controls.new1.value == signupForm.controls.old.value)"><strong>Password not match
-            </strong></mat-error>
-                
-              </mat-form-field>
+                  <input type="password" name="old" class="form-control" ng-Model="model.old" #old placeholder="Enter Current Password" value="secret">  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="formrow">
-                  <mat-form-field class="mat-form-field-infixxx">
-                <input matInput type="password" name="new2"  class="border-bottom-no"  [type]="hide2 ? 'password' : 'text'" 
-                ng-Model="model.new2"  #new2 formControlName="new2" placeholder="Confirm New Password" value="secret">
-             
-                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                <mat-error *ngIf="signupForm.controls.new2.value == ''"><strong>Cannot be empty</strong></mat-error>
-                <!-- <mat-error *ngIf="signupForm.controls.pass2.value == ''"><strong>Cannot be empty</strong></mat-error> -->
-            <mat-error *ngIf="(signupForm.controls.new2.value != signupForm.controls.new1.value) || signupForm.controls.new2.value == ''"><strong>Password not match
-            </strong></mat-error>
-                
-              </mat-form-field>
-            </div>
-              <!-- <div *ngIf="!match"  class="alert alert-danger">
+               
+                <input type="password" name="new1" class="form-control" ng-Model="model.new1"  #new1 placeholder="Enter New Password" value="secret"><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" ></span>
+              </div>
+              <div class="formrow">
+                <input type="password" name="new2" class="form-control" ng-Model="model.new2"  #new2 placeholder="Confirm New Password" value="secret"><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+              <div *ngIf="!match"  class="alert alert-danger">
                 <strong>Password not matched</strong>
-              </div> -->
-              <!-- <div *ngIf="Waitcall" class="alert  alert-info">
+              </div>
+              <div *ngIf="Waitcall" class="alert  alert-info">
                 <p class="">
                   <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
                 </p>
-              </div> -->
-              <input type="submit" class="btn"     value="submit">
-              <!-- <button type="submit" class="btn btn-fill btn-wd"
-          style="width: 100%">Submit</button> -->
-
+              </div>
+              <input type="submit" class="btn password-change" value="submit">
             </div>
             <!-- form  end-->
 
@@ -82,4 +92,10 @@
 
 
       </form>
-    
+    <!-- </div>
+  </div>
+</div> -->
+
+
+<!--<app-footer></app-footer>-->
+
