@@ -47,14 +47,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 /* Strat form Style  */
-.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label{
+.login-form  .mat-form-field-appearance-legacy .mat-form-field-label{
     top: 24px;
     font-size: 18px;
     font-weight: bold;
     color: rgba(0, 0, 0, .54) !important;
 }
 .sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
-    transform: translateY(-25px) scale(.75) perspective(100px) translateZ(.001px);
+    transform: translateY(-22px) scale(.75) perspective(100px) translateZ(.001px);
     -ms-transform: translateY(-25px) scale(.75);
 }
 .sh-signup-form-fix .mat-select{
@@ -1647,7 +1647,7 @@ select {
 }
 
 .section {
-    padding: 20px 0;
+    padding: 20px 14px;
     overflow: hidden
 }
 
@@ -2680,7 +2680,7 @@ a.wit-btn {
 }
 
 .categoryList {
-    margin: 0 -15px
+    margin: 0px
 }
 
 .categoryList li {
@@ -2715,7 +2715,7 @@ a.wit-btn {
     padding: 8px 5px;
     box-shadow: 0 0 3px 0 #5d5d5d;
     border-radius: 30px;
-    font-size: 12px;
+    font-size: 11px;
     transition: .4s;
     color: #fff;
     box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)!important;
@@ -3125,7 +3125,9 @@ a.wit-btn {
 
 .listpgWraper {
     padding: 50px 0;
-    min-height: 400px
+    min-height: 400px;
+background: url(../src/assets/images/login-gif.gif) center/100% no-repeat;
+
 }
 
 .pageSearch {
@@ -5985,13 +5987,15 @@ input.upload-input {
 .myads {
     box-shadow: 1px 1px 6px 2px #e9e9e9;
     border-radius: 5px;
-    padding: 10px
+    padding: 10px;
+    margin-bottom: 10px
 }
 
 .Watchlist-box {
     box-shadow: 1px 1px 6px 2px #e9e9e9;
     border-radius: 5px;
-    padding: 10px
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .Watchlist-box h3 {
@@ -16344,6 +16348,7 @@ label[for=rememberme] {
     width: 35%;
     margin: 120px auto
 }
+
 
 .login-form-1 {
     background: #fafafa;

@@ -19,14 +19,15 @@
     /* text-align: center; */
     font-size: 35px;
     font-weight: 600;
-    margin-top: -53px;
-    background-color: #000;
-    background-image: -webkit-linear-gradient(-30deg,red 8%,#000 100%);
+    margin-top: -43px;
+    // background-color: #000;
+    // background-image: -webkit-linear-gradient(-30deg,red 8%,#000 100%);
     border-radius: 10px;
-    width: 184px;
-    height: 65px;
+    width: 300px;
+    height: 70px;
     display: flex;
     padding: 0 12px;
+    margin-right: -10px;
 }
 
 #clockdiv>div {
@@ -37,21 +38,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40px;
+    width: 50%;
     align-items: center;
+    background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
+    margin: 0px 2px;
 }
 
 #clockdiv div>span {
-    padding: 7px 0;
-    color: #fff;
+    padding: 10px 13px;
+    color: #000;
     font-size: 30px;
     margin-bottom: -7px;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 3px;
 }
 
 .smalltext {
     font-size: 12px;
     font-weight: 700;
     color: #fff;
+    margin-top: 7px;
 }
 
 fieldset,
@@ -501,4 +508,19 @@ textarea.form-control {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.countdown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.countdown-measurment{
+        display: inline-block;
+    padding: 10px;
+    background-image: linear-gradient(to right top,#000,#380e18,#6a071f,#9d001b,#c00);
+    width: 40%;
+    margin: 0 5px 10px;
+
 }
