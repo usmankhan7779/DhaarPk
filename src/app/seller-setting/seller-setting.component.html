@@ -1,90 +1,82 @@
- 
+<form role="form" class="login-form" [formGroup]="signupForm" *ngIf="signupForm"
+  (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
 
-      <form role="form" class="login-form" [formGroup]="signupForm" *ngIf="signupForm" (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
-
-        <div class="col-md-10 col-sm-12 change-password">
+  <div class="col-md-10 col-sm-12 change-password">
 
 
-          <div class="userAccount">
-            <h5 class="password-heading">Change Password</h5>
-            <!-- <div *ngIf="Error"  class="alert alert-danger">
+    <div class="userAccount">
+      <h5 class="password-heading">Change Password</h5>
+      <!-- <div *ngIf="Error"  class="alert alert-danger">
               <strong>Error </strong> While updating record.
             </div> -->
-            <!-- <div *ngIf="notsame"  class="alert alert-danger">
+      <!-- <div *ngIf="notsame"  class="alert alert-danger">
               <strong>Error! </strong>New password must be different.
             </div> -->
-            <!-- <div *ngIf="Right" class="alert alert-success">
+      <!-- <div *ngIf="Right" class="alert alert-success">
               <strong>Password Updated!</strong>
             </div> -->
-            <!-- form -->
-            <!-- <mat-form-field class="margin-b-10-i">
+      <!-- form -->
+      <!-- <mat-form-field class="margin-b-10-i">
               <input class="border-bottom-no" matInput type="password" id="password" [type]="hide ? 'password' : 'text'" placeholder="Old Password" formControlName="oldpass"[(ngModel)]="oldpass">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="signupForm.controls.oldpass.value == ''"><strong>Cannot be empty</strong></mat-error>
             </mat-form-field> -->
-            <div class="formpanel">
-              <div class="formrow">
-                
-                  <mat-form-field class="mat-form-field-infixxx"  >
-                  <input matInput type="password"  name="old" class="border-bottom-no" 
-                   [type]="hide ? 'password' : 'text'" ng-Model="model.old" #old 
-                   formControlName="old" placeholder="Enter Current Password" value="secret">  
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  <mat-error *ngIf="signupForm.controls.old.value == ''"><strong>Cannot be empty</strong></mat-error>
-                  <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
-              </mat-form-field>
-                </div>
-              <div class="formrow">
-               <mat-form-field class="mat-form-field-infixxx"  >
-                <input matInput type="password" name="new1" class="border-bottom-no" 
-                 ng-Model="model.new1" [type]="hide1 ? 'password' : 'text'"  #new1 placeholder="Enter New Password"
-                 formControlName="new1" value="secret">       
-                 <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                <mat-error *ngIf="signupForm.controls.new1.value == ''"><strong>Cannot be empty</strong></mat-error>
-                <!-- <mat-error *ngIf="signupForm.controls.pass1.value == ''"><strong>Cannot be empty</strong></mat-error> -->
-            <mat-error *ngIf="(signupForm.controls.new1.value == signupForm.controls.old.value)"><strong>Password not match
-            </strong></mat-error>
-                
-              </mat-form-field>
-              </div>
-              <div class="formrow">
-                  <mat-form-field class="mat-form-field-infixxx">
-                <input matInput type="password" name="new2"  class="border-bottom-no"  [type]="hide2 ? 'password' : 'text'" 
-                ng-Model="model.new2"  #new2 formControlName="new2" placeholder="Confirm New Password" value="secret">
-             
-                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                <mat-error *ngIf="signupForm.controls.new2.value == ''"><strong>Cannot be empty</strong></mat-error>
-                <!-- <mat-error *ngIf="signupForm.controls.pass2.value == ''"><strong>Cannot be empty</strong></mat-error> -->
-            <mat-error *ngIf="(signupForm.controls.new2.value != signupForm.controls.new1.value) || signupForm.controls.new2.value == ''"><strong>Password not match
-            </strong></mat-error>
-                
-              </mat-form-field>
-            </div>
-              <!-- <div *ngIf="!match"  class="alert alert-danger">
+      <div class="formpanel">
+        <div class="formrow">
+
+          <mat-form-field class="mat-form-field-infixxx">
+            <input matInput type="password" name="old" class="border-bottom-no" [type]="hide ? 'password' : 'text'"
+              ng-Model="model.old" #old formControlName="old" placeholder="Enter Current Password" value="secret">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="signupForm.controls.old.value == ''"><strong>Cannot be empty</strong></mat-error>
+            <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
+          </mat-form-field>
+        </div>
+        <div class="formrow">
+          <mat-form-field class="mat-form-field-infixxx">
+            <input matInput type="password" name="new1" class="border-bottom-no" ng-Model="model.new1"
+              [type]="hide1 ? 'password' : 'text'" #new1 placeholder="Enter New Password" formControlName="new1"
+              value="secret">
+            <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="signupForm.controls.new1.value == ''"><strong>Cannot be empty</strong></mat-error>
+            <!-- <mat-error *ngIf="signupForm.controls.pass1.value == ''"><strong>Cannot be empty</strong></mat-error> -->
+            <mat-error *ngIf="(signupForm.controls.new1.value == signupForm.controls.old.value)"><strong>Password not
+                match
+              </strong></mat-error>
+
+          </mat-form-field>
+        </div>
+        <div class="formrow">
+          <mat-form-field class="mat-form-field-infixxx">
+            <input matInput type="password" name="new2" class="border-bottom-no" [type]="hide2 ? 'password' : 'text'"
+              ng-Model="model.new2" #new2 formControlName="new2" placeholder="Confirm New Password" value="secret">
+
+            <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="signupForm.controls.new2.value == ''"><strong>Cannot be empty</strong></mat-error>
+            <!-- <mat-error *ngIf="signupForm.controls.pass2.value == ''"><strong>Cannot be empty</strong></mat-error> -->
+            <mat-error
+              *ngIf="(signupForm.controls.new2.value != signupForm.controls.new1.value) || signupForm.controls.new2.value == ''">
+              <strong>Password not match
+              </strong></mat-error>
+
+          </mat-form-field>
+        </div>
+        <!-- <div *ngIf="!match"  class="alert alert-danger">
                 <strong>Password not matched</strong>
               </div> -->
-              <!-- <div *ngIf="Waitcall" class="alert  alert-info">
+        <!-- <div *ngIf="Waitcall" class="alert  alert-info">
                 <p class="">
                   <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
                 </p>
-<<<<<<< HEAD
-              </div> -->
-              <input type="submit" class="btn"     value="submit">
-              <!-- <button type="submit" class="btn btn-fill btn-wd"
-          style="width: 100%">Submit</button> -->
-
-=======
               </div>
               <input type="submit" class="btn" value="submit">
->>>>>>> parent of 3862b07... nvnbv
             </div>
             <!-- form  end-->
 
-          </div>
+      </div>
 
 
-        </div>
+    </div>
 
-
-      </form>
-    
+</div>
+</form>
