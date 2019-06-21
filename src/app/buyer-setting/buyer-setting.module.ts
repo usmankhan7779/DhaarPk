@@ -4,8 +4,9 @@ import {CommonModule} from "@angular/common";
 import {BuyerSettingComponent} from "./buyer-setting.component";
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {TextMaskModule} from "angular2-text-mask";
- 
+import { MaterialModule } from '../app.module';
 import {HeaderModule} from "../header/header.module";
+// import {MatInputModule} from '@angular/material/input'
 const loginRoutes: Routes = [
   { path: '', component: BuyerSettingComponent }
 ];
@@ -19,10 +20,11 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     HeaderModule,
+    MaterialModule,
  
-    // FormsModule,
-    // TextMaskModule,
-
+    FormsModule,
+    TextMaskModule,
+    FormsModule, ReactiveFormsModule,
     // ReactiveFormsModule,
     RouterModule.forChild(loginRoutes)
   ],

@@ -28,7 +28,7 @@
                   <mat-form-field class="mat-form-field-infixxx"  >
                   <input matInput type="password"  name="old" class="border-bottom-no" 
                    [type]="hide ? 'password' : 'text'" ng-Model="model.old" #old 
-                   formControlName="old" placeholder="Enter Current Password" value="secret">  
+                   formControlName="old" placeholder=" Current Password" value="secret">  
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="signupForm.controls.old.value == ''"><strong>Cannot be empty</strong></mat-error>
                   <!-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
@@ -37,7 +37,7 @@
               <div class="formrow">
                <mat-form-field class="mat-form-field-infixxx"  >
                 <input matInput type="password" name="new1" class="border-bottom-no" 
-                 ng-Model="model.new1" [type]="hide1 ? 'password' : 'text'"  #new1 placeholder="Enter New Password"
+                 ng-Model="model.new1" [type]="hide1 ? 'password' : 'text'"  #new1 placeholder=" New Password"
                  formControlName="new1" value="secret">       
                  <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="signupForm.controls.new1.value == ''"><strong>Cannot be empty</strong></mat-error>

@@ -9,43 +9,56 @@
 <section id="contact">
   <div class="section-content">
     <h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
-    <p>If you feel any kind of queries Please feel free to contact with Us. Just leave a Message, Our customer support person will contact you</p>
+    <p>We'll try our best to answer your queries as soon as possible.</p>
   </div>
   <div class="contact-section">
     <div class="container">
-      <form name="form" role="form" (ngSubmit)="f.form.valid && captcha && contact_log(name.value, email.value,telephone.value, message.value)" id="contact_form"
+      <form class="contact-us-form" name="form" role="form" (ngSubmit)="f.form.valid && captcha && contact_log(name.value, email.value,telephone.value, message.value)" id="contact_form"
             #f="ngForm" novalidate>
         <div class="row">
           <div class="col-md-6 form-line">
             <div class="form-group">
-              <label>Your name</label>
-              <input type="text" class="form-control" name="name" placeholder=" Enter Your Name"  [(ngModel)]="model.name" #Name="ngModel" #name
-                     required >
+              <!-- <label>Your name</label>
+              <input type="text" class="form-control" name="name" placeholder="  Name"  [(ngModel)]="model.name" #Name="ngModel" #name
+                     required > -->
+                     <mat-form-field>
+                      <input class="contact-name" matInput placeholder="Name" name="name" [(ngModel)]="model.name" #Name="ngModel" #name required>
+                    </mat-form-field>
             </div>
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" class="form-control" name="email" placeholder=" Enter Your Email" [(ngModel)]="model.email" #Email="ngModel" #email
-                     required >
+              <!-- <label>Email Address</label>
+              <input type="email" class="form-control" name="email" placeholder="  Email" [(ngModel)]="model.email" #Email="ngModel" #email
+                     required > -->
+                     <mat-form-field>
+                      <input name="email" matInput placeholder="Email"[(ngModel)]="model.email" #Email="ngModel" #email required>
+                    </mat-form-field>
             </div>
             <div class="form-group">
-              <label>Mobile No.</label>
-              <input type="tel" class="form-control" name="telephone" placeholder=" Enter Your Mobile No." [(ngModel)]="model.telephone" #Telephone="ngModel" #telephone
-              required >
+              <!-- <label>Mobile No.</label>
+              <input type="tel" class="form-control" name="telephone" placeholder="  Mobile No." [(ngModel)]="model.telephone" #Telephone="ngModel" #telephone
+              required > -->
+              <mat-form-field>
+                <input  name="telephone" matInput placeholder="Mobile No" [(ngModel)]="model.telephone" #Telephone="ngModel" #telephone required>
+              </mat-form-field>
             </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !captcha}">
+            <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !captcha}">
             <re-captcha (resolved)="resolved($event)" siteKey="6LcMeE4UAAAAAORPbOfwjGczzxsz843f24BA92IN"></re-captcha>
               <div *ngIf="f.submitted && !captcha" class="help-block">ReCaptcha is required</div>
-            </div>
+            </div>  -->
             </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label> Message</label>
-              <textarea class="form-control" name="message" placeholder="Enter Your Message" [(ngModel)]="model.message" #Message="ngModel" #message
-                        required > </textarea>
+              <!-- <label> Message</label>
+              <textarea class="form-control" name="message" placeholder=" Message" [(ngModel)]="model.message" #Message="ngModel" #message
+                        required > </textarea> -->
+                        <mat-form-field>
+                          <textarea matInput placeholder="Message"  name="message"  [(ngModel)]="model.message" #Message="ngModel" #message ></textarea>
+                        </mat-form-field>
+                      
             </div>
             <div>
 
-              <button type="submit" class="btn-order">Send Message</button>
+              <button type="submit" class="btn-order contact-us-button">Send Message</button>
               <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->
             </div>
 
@@ -72,8 +85,8 @@
           <h2>Establish Contact</h2>
 
           <h5 class="phone-contact">
-            <i class="fa fa-envelope-o"></i><span> Email: </span> Contact@Dhaar.com<br>
-            <i class="fa fa-phone"></i> +92 (42) 364-00960<br>
+            <i class="fa fa-envelope-o"></i><span> Email: </span> ContactAtDhaarDotcom<br>
+            <!-- <i class="fa fa-phone"></i> +92 (42) 364-00960<br> -->
             <!--<i class="fa fa-fax"></i> <span>Fax: </span>            +1 (469) 250-6600-->
           </h5>
         </div>

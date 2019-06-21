@@ -51,7 +51,7 @@
                     <div *ngIf="f.submitted && !username.valid" class="help-block">*Username is required</div>
                   </div> -->
                   <mat-form-field class="width100 margin-b-10-i" [ngClass]="displayFieldCss(login, 'username')">
-                    <input matInput id="username" placeholder="Enter Username" formControlName="username"
+                    <input matInput id="username" placeholder=" Username" formControlName="username"
                       [(ngModel)]="username">
                     <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value">
                       <strong>This Field cannot be empty</strong></mat-error>
@@ -73,7 +73,7 @@
                 </div> -->
                 <mat-form-field [ngClass]="displayFieldCss(login, 'password')" class="width100">
                   <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"
-                    placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
+                    placeholder=" Password" formControlName="password" [(ngModel)]="password">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This
                       Field cannot be empty</strong></mat-error>
