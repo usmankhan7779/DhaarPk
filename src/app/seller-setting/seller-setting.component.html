@@ -1,23 +1,22 @@
- 
+<form role="form" class="login-form" [formGroup]="signupForm" *ngIf="signupForm"
+  (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
 
-      <form role="form" class="login-form" [formGroup]="signupForm" *ngIf="signupForm" (ngSubmit)="updatePassword(old.value,new1.value,new2.value)">
-
-        <div class="col-md-10 col-sm-12 change-password">
+  <div class="col-md-10 col-sm-12 change-password">
 
 
-          <div class="userAccount">
-            <h5 class="password-heading">Change Password</h5>
-            <!-- <div *ngIf="Error"  class="alert alert-danger">
+    <div class="userAccount">
+      <h5 class="password-heading">Change Password</h5>
+      <!-- <div *ngIf="Error"  class="alert alert-danger">
               <strong>Error </strong> While updating record.
             </div> -->
-            <!-- <div *ngIf="notsame"  class="alert alert-danger">
+      <!-- <div *ngIf="notsame"  class="alert alert-danger">
               <strong>Error! </strong>New password must be different.
             </div> -->
-            <!-- <div *ngIf="Right" class="alert alert-success">
+      <!-- <div *ngIf="Right" class="alert alert-success">
               <strong>Password Updated!</strong>
             </div> -->
-            <!-- form -->
-            <!-- <mat-form-field class="margin-b-10-i">
+      <!-- form -->
+      <!-- <mat-form-field class="margin-b-10-i">
               <input class="border-bottom-no" matInput type="password" id="password" [type]="hide ? 'password' : 'text'" placeholder="Old Password" formControlName="oldpass"[(ngModel)]="oldpass">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="signupForm.controls.oldpass.value == ''"><strong>Cannot be empty</strong></mat-error>
@@ -63,28 +62,19 @@
               <!-- <div *ngIf="!match"  class="alert alert-danger">
                 <strong>Password not matched</strong>
               </div> -->
-              <!-- <div *ngIf="Waitcall" class="alert  alert-info">
+        <!-- <div *ngIf="Waitcall" class="alert  alert-info">
                 <p class="">
                   <span style="color: blue  " class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span><span>	&nbsp;  Loading ...</span>
                 </p>
-<<<<<<< HEAD
-              </div> -->
-              <input type="submit" class="btn"     value="submit">
-              <!-- <button type="submit" class="btn btn-fill btn-wd"
-          style="width: 100%">Submit</button> -->
-
-=======
               </div>
               <input type="submit" class="btn" value="submit">
->>>>>>> parent of 3862b07... nvnbv
             </div>
             <!-- form  end-->
 
-          </div>
+      </div>
 
 
-        </div>
+    </div>
 
-
-      </form>
-    
+</div>
+</form>
