@@ -8,8 +8,8 @@
 
 <section id="contact">
   <div class="section-content">
-    <h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
-    <p>We'll try our best to answer your queries as soon as possible.</p>
+    <h1 class="section-header">Contact US</h1>
+    <!-- <p>We'll try our best to answer your queries as soon as possible.</p> -->
   </div>
   <div class="contact-section">
     <div class="container">
@@ -52,12 +52,12 @@
               <textarea class="form-control" name="message" placeholder=" Message" [(ngModel)]="model.message" #Message="ngModel" #message
                         required > </textarea> -->
                         <mat-form-field>
-                          <textarea matInput placeholder="Message"  name="message"  [(ngModel)]="model.message" #Message="ngModel" #message ></textarea>
+                          <textarea class="contact-us-text-area" matInput placeholder="Message"  name="message"  [(ngModel)]="model.message" #Message="ngModel" #message ></textarea>
                         </mat-form-field>
                       
             </div>
             <div>
-
+              <app-recapcha></app-recapcha>
               <button type="submit" class="btn-order contact-us-button">Send Message</button>
               <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->
             </div>
@@ -78,7 +78,7 @@
       </div>
       <div class="col-md-4">
         <div class="contact-address">
-          <h2>HeadQuarter</h2>
+          <h2>Dharr</h2>
           <h5 style="line-height: 30px;">Al-Hafeez Heights 13th Floor,<br>
             65-D Ghalib Road, Gulberg III <br>
             Lahore, Pakistan</h5>

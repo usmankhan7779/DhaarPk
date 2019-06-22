@@ -7,6 +7,7 @@ import {TextMaskModule} from "angular2-text-mask";
 import {MatInputModule} from '@angular/material/input';
 import {HeaderModule} from "../header/header.module";
 import {RecaptchaModule} from "ng-recaptcha";
+import { RecapchaModule } from '../recapcha/recapcha.module';
 const loginRoutes: Routes = [
   { path: '', component: ContactUsComponent }
 ];
@@ -20,6 +21,7 @@ const loginRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    RecapchaModule,
     HeaderModule,
     RecaptchaModule.forRoot(),
     TextMaskModule,
