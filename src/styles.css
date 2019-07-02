@@ -21,21 +21,25 @@
     direction: ltr;
     -webkit-font-smoothing: antialiased;
   }
-  .contact-us-form .mat-form-field {
-   width: 85%;
-   color: #000;
-   font-size: 16px;
-   font-weight: 600;
-}
+
 .contact-us-form input.mat-input-element{
     font-size: 24px !important;
+}
+.contact-us-form .mat-form-field{
+    width: 100%;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
 }
 .contact-us-form  textarea:focus {
   
     border: none
 }
+.contact-us-form .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 9px 0 2px;
+}
 .contact-us-form .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
-    transform: translateY(-12px) scale(.75) perspective(100px) translateZ(.001px);
+    transform: translateY(-27px) scale(.75) perspective(100px) translateZ(.001px);
 }
 /* End mat icon */
 
@@ -43,7 +47,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif!important; }
 
 
 .bid-timer--value .countdown{
@@ -85,6 +89,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .sh-signup-form-fix .mat-select{
     font-size: 24px;
     font-weight: bold;
+}
+.contact-us-form .mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 38px;
 }
 .sh-signup-form-fix .mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option{
     height: 1.5em !important;
@@ -14684,7 +14691,7 @@ button.button.btn-proceed-checkout span {
     border-color: #ddd;
     box-shadow: inherit;
     outline: 0 none;
-    height: 135px;
+    height: 120px;
     border-radius: 5px
 }
 
@@ -16962,10 +16969,9 @@ ngx-image-viewer .img-container {
 }
 
 .btn-order {
-    float: left;
-    width: 100%;
+    float: right;
     margin-top: 10px;
-    padding: 12px;
+    padding: 8px 12px;
     text-align: center;
     background: #000;
     color: #fff;

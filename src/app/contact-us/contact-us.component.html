@@ -17,7 +17,7 @@
             #f="ngForm" novalidate>
         <div class="row">
           <div class="col-md-6 form-line">
-            <div class="form-group">
+            <div class="">
               <!-- <label>Your name</label>
               <input type="text" class="form-control" name="name" placeholder="  Name"  [(ngModel)]="model.name" #Name="ngModel" #name
                      required > -->
@@ -25,7 +25,7 @@
                       <input class="contact-name" matInput placeholder="Name" name="name" [(ngModel)]="model.name" #Name="ngModel" #name required>
                     </mat-form-field>
             </div>
-            <div class="form-group">
+            <div class="">
               <!-- <label>Email Address</label>
               <input type="email" class="form-control" name="email" placeholder="  Email" [(ngModel)]="model.email" #Email="ngModel" #email
                      required > -->
@@ -33,7 +33,7 @@
                       <input name="email" matInput placeholder="Email"[(ngModel)]="model.email" #Email="ngModel" #email required>
                     </mat-form-field>
             </div>
-            <div class="form-group">
+            <div class="">
               <!-- <label>Mobile No.</label>
               <input type="tel" class="form-control" name="telephone" placeholder="  Mobile No." [(ngModel)]="model.telephone" #Telephone="ngModel" #telephone
               required > -->
@@ -58,7 +58,7 @@
             </div>
             <div>
               <app-recapcha></app-recapcha>
-              <button type="submit" class="btn-order contact-us-button">Send Message</button>
+              <button type="submit" class="btn-order contact-us-button"><i _ngcontent-rcf-c9="" aria-hidden="true" class="fa fa-arrow-up" title="Send Message"></i> Send Message</button>
               <!--<i class="fa fa-paper-plane" aria-hidden="true"></i>-->
             </div>
 
@@ -74,7 +74,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">
-        <iframe width="100%" height="350"  frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_-lLvVkEGTkRrW7cA6sQDQI&key=AIzaSyAJraHLW7X1VjgYXaicDSHmwdJMza1Vbfw" allowfullscreen></iframe>
+        <!-- <iframe width="100%" height="350"  frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_-lLvVkEGTkRrW7cA6sQDQI&key=AIzaSyAJraHLW7X1VjgYXaicDSHmwdJMza1Vbfw" allowfullscreen></iframe> -->
+        <iframe width="100%" height="350" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=5050%20Quorum%20Drive%20Suite%20700%20Dallas%2C%20TX%2075254&key=AIzaSyBcVkwSRC2BW9c3FsFmhM61fM1c3goI9_4" allowfullscreen></iframe>
       </div>
       <div class="col-md-4">
         <div class="contact-address">
@@ -85,10 +86,12 @@
           <h2>Establish Contact</h2>
 
           <h5 class="phone-contact">
-            <i class="fa fa-envelope-o"></i><span> Email: </span> ContactAtDhaarDotcom<br>
+            <i class="fa fa-envelope"></i>&nbsp;&nbsp;<span> Email: </span> ContactAtDhaarDotcom<br>
             <!-- <i class="fa fa-phone"></i> +92 (42) 364-00960<br> -->
             <!--<i class="fa fa-fax"></i> <span>Fax: </span>            +1 (469) 250-6600-->
           </h5>
+          <h5 class="phone-contact"><i  class="fa fa-phone">
+          </i>&nbsp;&nbsp; <span _ngcontent-rcf-c9="">Voice: </span> +1-214-302-7330 </h5>
         </div>
       </div>
     </div>
