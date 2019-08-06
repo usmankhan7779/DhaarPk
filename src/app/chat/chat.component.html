@@ -1,0 +1,12 @@
+<h1>Users For Chat</h1>
+<ul *ngFor="let user of getAllUsersforChat" (click)="getConnecttoSocket(user.room_id)"> 
+    <li><img src="{{user.profile_pic}}"></li>
+    <li>{{user.username}}</li>
+    <li>{{user.message}}</li>
+    <li>{{user.CreatedAt.split('T',1)}}</li>
+</ul>
+<h1>Chats</h1>
+<ul id="msgUl">
+</ul>
+<input type="text" #msg>
+<button (click)="sendMsg(msg.value)">Send</button>

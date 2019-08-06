@@ -62,7 +62,7 @@ const appRoutes: Routes = [
       { path: 'dhaar', loadChildren: './dhaar/dhaar.module#DhaarModule' },
       { path: 'file-uploads', loadChildren: './file-uploads/file-uploads.module#FileUploadsModule' },
       { path: 'sameurl', loadChildren: './sameurl/sameurl.module#SameurlModule' },
-
+      {path:'chat',loadChildren:'./chat/chat.module#ChatModule'},
       // SellerProductSettingStoreModule
     ]
   },
@@ -116,6 +116,7 @@ const appRoutes: Routes = [
 
     ]
   }
+  
 ];
 
 export const AppRoutingProvider: any[] = [];
