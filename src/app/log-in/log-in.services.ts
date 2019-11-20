@@ -9,7 +9,6 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import Swal from 'sweetalert2';
 import { StaticInjector } from '@angular/core/src/di/injector';
-// import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClient } from '@angular/common/http';
 
 

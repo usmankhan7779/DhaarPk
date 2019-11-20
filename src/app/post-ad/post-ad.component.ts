@@ -187,9 +187,9 @@ export class PostAdComponent implements OnInit {
 
   }
   storess() {
-    // alert  (this.model.StoreName)
+ 
     this.SessionstoreName = this.model.StoreName
-    // alert(this.SessionstoreName)
+     
     console.log(this.SessionstoreName)
   }
 

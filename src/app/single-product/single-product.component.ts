@@ -310,6 +310,10 @@ export class SingleProductComponent implements OnInit {
     this.imageIndexOne = index;
     
   }
+
+
+
+  
  pics;
  myThumbnail;
  myFullresImage;
